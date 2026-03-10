@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private InputActionReference moveAction; 
+    [SerializeField] private InputActionReference attackAction; 
+
     private Rigidbody rb;
     public float moveSpeed = 5f;
     public float rotationSpeed = 120f;
