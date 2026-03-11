@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46149225}
   m_Layer: 0
-  m_Name: Try
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,8 +548,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraWeaponController
   aimCamera: {fileID: 2130768927}
+  CameraMesh: {fileID: 46149224}
   attackAction: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   aimAction: {fileID: 5960714890333912282, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  rutaFotos: Assets/Fotos/
   aimPriority: 20
   defaultPriority: 9
 --- !u!1 &485593694
@@ -1286,13 +1288,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePanTilt
-  ReferenceFrame: 0
-  RecenterTarget: 0
+  ReferenceFrame: 2
+  RecenterTarget: 1
   PanAxis:
     Value: 0
     Center: 0
-    Range: {x: -180, y: 180}
-    Wrap: 1
+    Range: {x: -90, y: 90}
+    Wrap: 0
     Recentering:
       Enabled: 0
       Wait: 1

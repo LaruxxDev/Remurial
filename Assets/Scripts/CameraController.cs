@@ -3,17 +3,31 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class CameraWeaponController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [Header("Cámaras")]
-    public CinemachineCamera aimCamera; 
+    [SerializeField] private CinemachineCamera aimCamera; 
+    [SerializeField] private GameObject CameraMesh; 
+
+    private CinemachinePanTilt panTiltComponent;
+
+    [Header("Input Actions")]
     [SerializeField] private InputActionReference attackAction; 
     [SerializeField] private InputActionReference aimAction; 
 
 
     [Header("Configuración")]
+    [SerializeField] private string rutaFotos = "Assets/Fotos/"; // Ruta para guardar las fotos
     public int aimPriority = 20; // Prioridad alta al apuntar
     public int defaultPriority = 9; // Prioridad baja al dejar de apuntar
+
+    void Start()
+    {
+        if (aimCamera != null)
+        {
+            panTiltComponent = aimCamera.GetComponent<CinemachinePanTilt>();
+        }
+    }
 
     void Update()
     {
@@ -23,7 +37,13 @@ public class CameraWeaponController : MonoBehaviour
         }
         else if (aimAction.action.WasReleasedThisFrame())
         {
+            if (panTiltComponent != null)
+            {
+                panTiltComponent.PanAxis.Value = 0f;
+                panTiltComponent.TiltAxis.Value = 0f;
+            }            
             aimCamera.Priority = defaultPriority;
+            Debug.Log("CameraMesh localRotation set to zero: " + CameraMesh.transform.localRotation);
         }
         
         if (attackAction.action.WasPressedThisFrame() && aimCamera.Priority == aimPriority)
@@ -34,6 +54,10 @@ public class CameraWeaponController : MonoBehaviour
 
     void TomarFoto()
     {
+        string nombreArchivo = "Captura_" + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".png";
+        string rutaCompleta = rutaFotos + nombreArchivo;
+        ScreenCapture.CaptureScreenshot(rutaCompleta);
         Debug.Log("¡Flash! Foto tomada.");
+        Debug.Log("Foto guardada en: " + rutaCompleta);
     }
 }
