@@ -56,7 +56,23 @@ public class PlayerGeneral : MonoBehaviour
         StateMachine.ChangeState(States.NeutralState(StateMachine));
     }
 
-    void Update() => StateMachine.Update();
+    void Update()
+    {
+        StateMachine.Update();
+
+
+        // DEBUG
+        stateText.text = StateMachine.state.Name;
+
+        if (StateMachine.state is NeutralState neutral)
+            subStateText.text = neutral.subMachine.state.Name;
+        if (StateMachine.state is OnCameraState onCamera)
+            subStateText.text = onCamera.subMachine.state.Name;
+    }
+
+    [Header("Debug")]
+    public TextMeshProUGUI stateText;
+    public TextMeshProUGUI subStateText;
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 
