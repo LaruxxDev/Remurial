@@ -618,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerConfiguration
   moveSpeed: 20
-  turnSpeed: 10
+  turnSpeed: 100
 --- !u!1 &864111110
 GameObject:
   m_ObjectHideFlags: 0
