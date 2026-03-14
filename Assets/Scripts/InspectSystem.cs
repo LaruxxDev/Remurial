@@ -16,14 +16,14 @@ public class InspectSystem : MonoBehaviour
 
 
     [Header("Settings")]
-    public float rotationSpeed = 100f; // Velocidad de rotación del objeto inspeccionado
+    public float rotationSpeed = 10f; // Velocidad de rotación del objeto inspeccionado
 
     private GameObject currentInspectedObject; // Objeto actualmente inspeccionado
-    private bool isInspecting = true; // Indica si el jugador está inspeccionando un objeto
+    private bool isInspecting = false; // Indica si el jugador está inspeccionando un objeto
 
     private void Update()
     {
-        if (isInspecting && currentInspectedObject != null && accionRotar.action.IsPressed())
+        if (isInspecting && currentInspectedObject != null && accionClick.action.IsPressed())
         {
             // Permitir rotar el objeto inspeccionado con el mouse
             Vector2 rotationInput = accionRotar.action.ReadValue<Vector2>();
@@ -34,7 +34,7 @@ public class InspectSystem : MonoBehaviour
                 float rotationY = rotationInput.y * rotationSpeed * Time.deltaTime;
 
                 currentInspectedObject.transform.Rotate(Vector3.up, -rotationX, Space.World);
-                currentInspectedObject.transform.Rotate(Vector3.right, rotationY, Space.World);
+                currentInspectedObject.transform.Rotate(Vector3.right, -rotationY, Space.World);
             }
         }
 
@@ -47,7 +47,7 @@ public class InspectSystem : MonoBehaviour
     public void EnterInspectionMode(GameObject objectToInspect)
     {
         if (isInspecting) return; // Evitar entrar en modo inspección si ya se está inspeccionando algo
-
+        Debug.Log("Entrando en modo inspección con el objeto: " + objectToInspect.name);
         currentInspectedObject = Instantiate(objectToInspect, AparitionPoint.position, Quaternion.identity);
         rawImageUI.SetActive(true); // Mostrar la UI de inspección
         isInspecting = true;
