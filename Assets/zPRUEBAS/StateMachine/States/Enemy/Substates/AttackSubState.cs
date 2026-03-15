@@ -10,6 +10,11 @@ public class AttackSubState : EnemyState
     {
         base.Enter();
 
+
+        Debug.Log("Entering: Attack");
+
+
+        ENEMY.MOVEMENT.SetSpeed("attack");
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Attack);
     }
 

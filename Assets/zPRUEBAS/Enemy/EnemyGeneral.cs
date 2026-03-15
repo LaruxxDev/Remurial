@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.AI;
 
 public class EnemyGeneral : MonoBehaviour
 {
@@ -15,26 +16,22 @@ public class EnemyGeneral : MonoBehaviour
 
     [Header("Componentes")]
     public Rigidbody Rigidbody;
-    public Transform mainCamera;
 
     [Header("Configuration")]
-    [SerializeField] PlayerConfiguration PlayerConfiguration;
-    public PlayerConfiguration CONFIGURATION => PlayerConfiguration;
+    [SerializeField] EnemyConfiguration EnemyConfiguration;
+    public EnemyConfiguration CONFIGURATION => EnemyConfiguration;
 
 
     [Header("Collider")]
-    [SerializeField] PlayerCollision PlayerCollision;
-    public PlayerCollision COLLISION => PlayerCollision;
-
-
-    [Header("Inputs")]
-    InputTransformer InputTransformer;
-    public InputTransformer INPUTTRANSFORMER => InputTransformer;
+    [SerializeField] EnemyCollision EnemyCollision;
+    public EnemyCollision COLLISION => EnemyCollision;
 
 
     [Header("Movement")]
-    PlayerMovement PlayerMovement;
-    public PlayerMovement MOVEMENT => PlayerMovement;
+    [SerializeField] NavMeshAgent NavMeshAgent;
+
+    EnemyMovement EnemyMovement;
+    public EnemyMovement MOVEMENT => EnemyMovement;
 
 
     //[Header("Animations")]
@@ -47,8 +44,7 @@ public class EnemyGeneral : MonoBehaviour
     {
         StateMachine = new StateMachine();
         States = new EnemyStateCollection(this);
-        InputTransformer = new InputTransformer();
-        PlayerMovement = new PlayerMovement(Rigidbody, PlayerConfiguration);
+        EnemyMovement = new EnemyMovement(Rigidbody, NavMeshAgent, EnemyConfiguration);
     }
 
     void Start()
@@ -56,23 +52,7 @@ public class EnemyGeneral : MonoBehaviour
         StateMachine.ChangeState(States.UnawareState(StateMachine));
     }
 
-    void Update()
-    {
-        StateMachine.Update();
-
-
-        // DEBUG
-        stateText.text = StateMachine.state.Name;
-
-        if (StateMachine.state is NeutralState neutral)
-            subStateText.text = neutral.subMachine.state.Name;
-        if (StateMachine.state is OnCameraState onCamera)
-            subStateText.text = onCamera.subMachine.state.Name;
-    }
-
-    [Header("Debug")]
-    public TextMeshProUGUI stateText;
-    public TextMeshProUGUI subStateText;
+    void Update() => StateMachine.Update();
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 

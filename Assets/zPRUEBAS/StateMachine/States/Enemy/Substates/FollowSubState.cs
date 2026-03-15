@@ -10,12 +10,17 @@ public class FollowSubState : EnemyState
     {
         base.Enter();
 
+
+        Debug.Log("Entering: Follow");
+
+
+        ENEMY.MOVEMENT.SetSpeed("follow");
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Movement);
     }
 
     public override void Update()
     {
-        // Idle
+        // Unaware
     }
 
     public override void FixedUpdate()

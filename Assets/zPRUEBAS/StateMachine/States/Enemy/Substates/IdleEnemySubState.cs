@@ -10,12 +10,22 @@ public class IdleEnemySubState : EnemyState
     {
         base.Enter();
 
+
+        Debug.Log("Entering: Idle");
+
+
+        ENEMY.CONFIGURATION.ResetWander();
+
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Idle);
     }
 
     public override void Update()
     {
         // Wander
+        if (ENEMY.CONFIGURATION.canWander)
+        {
+            STATEMACHINE.ChangeState(ENEMY.STATES.WanderSubState(STATEMACHINE));
+        }
         // Logic into wander
     }
 }
