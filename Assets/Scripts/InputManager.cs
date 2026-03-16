@@ -3,14 +3,23 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    [Header("Input Actions")]
     [SerializeField] private InputActionReference moveAction; 
     [SerializeField] private InputActionReference attackAction; 
+    [SerializeField] private InputActionReference interactAction; 
 
+    [Header("Movement Settings")]
     private Rigidbody rb;
     public float moveSpeed = 5f;
     public float rotationSpeed = 120f;
-
     public Vector2 movementInput { get; private set; }
+
+
+    [Header("Interaction")]
+    public InspectSystem inspectSystem; 
+    private GameObject interactuableItem; // Objeto interacutuable que el jugador puede recoger
+
+
 
     private AnimatorManager animatorManager;
 
@@ -28,6 +37,18 @@ public class InputManager : MonoBehaviour
     {
         movementInput = moveAction.action.ReadValue<Vector2>();
         animatorManager.HandleAnimatorValues(movementInput.x, movementInput.y);
+
+
+        if (interactAction.action.WasPressedThisFrame() && interactuableItem != null)
+        {
+            
+            // animatorManager.PlayInteractAnimation();
+            inspectSystem.EnterInspectionMode(interactuableItem); // Entrar en modo inspección con el objeto interactuable
+            Destroy(interactuableItem); // Destruir el objeto interactuable después de usarlo (opcional)
+            interactuableItem = null; // Limpiar la referencia al objeto interactuable después de usarlo
+            
+        }
+
     }
 
     private void FixedUpdate()
@@ -47,4 +68,24 @@ public class InputManager : MonoBehaviour
         // Aplicamos la velocidad, respetando la gravedad en el eje Y
         rb.linearVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.z);
     }
+    
+    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Interactuable"))
+        {
+            interactuableItem = other.gameObject; // Guardamos el objeto interacutuable para usarlo al interactuar
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Interactuable") && interactuableItem == other.gameObject)
+        {
+            interactuableItem = null; // Limpiamos la referencia al salir del área de interacción
+        }
+    }
+
+
 }
