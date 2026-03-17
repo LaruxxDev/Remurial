@@ -52,7 +52,22 @@ public class EnemyGeneral : MonoBehaviour
         StateMachine.ChangeState(States.UnawareState(StateMachine));
     }
 
-    void Update() => StateMachine.Update();
+    void Update()
+    {
+        StateMachine.Update();
+
+        // DEBUG
+        stateText.text = StateMachine.state.Name;
+
+        if (StateMachine.state is UnawareState unaware)
+            subStateText.text = unaware.subMachine.state.Name;
+        if (StateMachine.state is AwareState aware)
+            subStateText.text = aware.subMachine.state.Name;
+    }
+
+    [Header("Debug")]
+    public TextMeshProUGUI stateText;
+    public TextMeshProUGUI subStateText;
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 

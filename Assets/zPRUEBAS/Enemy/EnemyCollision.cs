@@ -16,8 +16,26 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField] float detectionRadius;
     [SerializeField] bool playerGizmoz;
 
+    public Transform detectedPlayer;
+
     public bool GROUND => Physics.Raycast(groundCheck.position, -transform.up, -groundDistance, groundLayer);
-    public bool PLAYER => Physics.CheckSphere(playerCheck.position, detectionRadius, playerLayer);
+
+    public bool PLAYER
+    {
+        get
+        {
+            Collider[] hits = Physics.OverlapSphere(playerCheck.position, detectionRadius, playerLayer);
+
+            if (hits.Length > 0)
+            {
+                detectedPlayer = hits[0].transform;
+                return true;
+            }
+
+            return false;
+        }
+    }
+
 
     private void OnDrawGizmos()
     {
@@ -38,8 +56,4 @@ public class EnemyCollision : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (PLAYER) Debug.Log("Player Detected");
-    }
 }

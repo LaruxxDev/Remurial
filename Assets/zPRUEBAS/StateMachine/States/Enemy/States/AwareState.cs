@@ -21,7 +21,11 @@ public class AwareState : EnemyState
     {
         lowLevelMachine.Update();
 
-        // Losing detection, going back to unawareness logic
+        // Losing detection, going back to unawareness
+        if (!ENEMY.COLLISION.PLAYER)
+        {
+            STATEMACHINE.ChangeState(ENEMY.STATES.UnawareState(STATEMACHINE));
+        }
 
         base.Update();
     }

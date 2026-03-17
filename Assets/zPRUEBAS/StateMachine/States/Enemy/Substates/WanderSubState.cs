@@ -10,12 +10,10 @@ public class WanderSubState : EnemyState
     {
         base.Enter();
 
-
-
         Debug.Log("Entering: Wander");
 
         ENEMY.MOVEMENT.SetRandomDestination();
-        ENEMY.MOVEMENT.SetSpeed("wander");
+
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Movement);
     }
 
@@ -31,7 +29,5 @@ public class WanderSubState : EnemyState
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-
-        // Moving logic
     }
 }

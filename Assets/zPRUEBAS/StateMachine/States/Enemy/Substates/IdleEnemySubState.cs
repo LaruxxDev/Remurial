@@ -26,6 +26,5 @@ public class IdleEnemySubState : EnemyState
         {
             STATEMACHINE.ChangeState(ENEMY.STATES.WanderSubState(STATEMACHINE));
         }
-        // Logic into wander
     }
 }

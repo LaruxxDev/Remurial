@@ -13,8 +13,8 @@ public class FollowSubState : EnemyState
 
         Debug.Log("Entering: Follow");
 
+        ENEMY.MOVEMENT.FollowPlayer(ENEMY.COLLISION.detectedPlayer.position);
 
-        ENEMY.MOVEMENT.SetSpeed("follow");
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Movement);
     }
 

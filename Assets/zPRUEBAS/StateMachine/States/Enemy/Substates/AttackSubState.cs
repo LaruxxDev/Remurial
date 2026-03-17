@@ -13,8 +13,6 @@ public class AttackSubState : EnemyState
 
         Debug.Log("Entering: Attack");
 
-
-        ENEMY.MOVEMENT.SetSpeed("attack");
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Attack);
     }
 
