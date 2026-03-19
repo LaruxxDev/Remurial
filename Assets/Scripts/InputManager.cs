@@ -21,12 +21,8 @@ public class InputManager : MonoBehaviour
 
 
 
-    private AnimatorManager animatorManager;
+    public AnimatorManager animatorManager;
 
-    private void Awake()
-    {
-        animatorManager = GetComponent<AnimatorManager>();
-    }
 
     private void Start()
     {
