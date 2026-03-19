@@ -59,5 +59,18 @@ public class CameraController : MonoBehaviour
         ScreenCapture.CaptureScreenshot(rutaCompleta);
         Debug.Log("¡Flash! Foto tomada.");
         Debug.Log("Foto guardada en: " + rutaCompleta);
+
+
+        byte[] bytes = File.ReadAllBytes(rutaCompleta);
+        Texture2D tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+        if (tex.LoadImage(bytes))
+        {
+            Material mat = new Material(Shader.Find("Standard"));
+            mat.mainTexture = tex;
+            if (targetRenderer != null) targetRenderer.material = mat;
+            Debug.Log("Material creado y aplicado con la foto.");
+        }
+        else Debug.LogError("No se pudo cargar imagen");
+        yield return null;
     }
 }
