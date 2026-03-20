@@ -14,9 +14,15 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField] Transform playerCheck;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] float detectionRadius;
-    [SerializeField] bool playerGizmoz;
+    [SerializeField] bool detectionGizmoz;
 
     public Transform detectedPlayer;
+
+    [Header("Attack")]
+    [SerializeField] float attackRadius;
+    [SerializeField] bool attackGizmoz;
+
+
 
     public bool GROUND => Physics.Raycast(groundCheck.position, -transform.up, -groundDistance, groundLayer);
 
@@ -37,6 +43,22 @@ public class EnemyCollision : MonoBehaviour
     }
 
 
+    public bool ATTACK
+    {
+        get
+        {
+            Collider[] hits = Physics.OverlapSphere(playerCheck.position, attackRadius, playerLayer);
+
+            if (hits.Length > 0)
+            {
+                detectedPlayer = hits[0].transform;
+                return true;
+            }
+
+            return false;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (groundGizmoz)
@@ -47,12 +69,20 @@ public class EnemyCollision : MonoBehaviour
             Gizmos.DrawRay(groundCheck.position, -transform.up * -groundDistance);
         }
 
-        if (playerGizmoz)
+        if (detectionGizmoz)
         {
             if (PLAYER) Gizmos.color = Color.green;
             else Gizmos.color = Color.red;
 
             Gizmos.DrawWireSphere(playerCheck.position, detectionRadius);
+        }
+
+        if (attackGizmoz)
+        {
+            if (ATTACK) Gizmos.color = Color.green;
+            else Gizmos.color = Color.red;
+
+            Gizmos.DrawWireSphere(playerCheck.position, attackRadius);
         }
     }
 

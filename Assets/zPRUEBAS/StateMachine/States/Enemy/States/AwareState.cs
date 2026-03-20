@@ -14,7 +14,7 @@ public class AwareState : EnemyState
 
     public override void Enter()
     {
-        lowLevelMachine.ChangeState(ENEMY.STATES.FollowSubState(lowLevelMachine));
+        lowLevelMachine.ChangeState(ENEMY.STATES.ChaseSubState(lowLevelMachine));
     }
 
     public override void Update()

@@ -241,6 +241,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4794857957821131243, guid: 1703a1ff7d259664698d96a418f72497, type: 3}
+      propertyPath: attackGizmoz
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4794857957821131243, guid: 1703a1ff7d259664698d96a418f72497, type: 3}
+      propertyPath: attackRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4794857957821131243, guid: 1703a1ff7d259664698d96a418f72497, type: 3}
+      propertyPath: detectionGizmoz
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4808283739259665477, guid: 1703a1ff7d259664698d96a418f72497, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

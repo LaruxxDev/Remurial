@@ -17,6 +17,6 @@ public class EnemyStateCollection
     // SubStates
     public IdleEnemySubState IdleEnemySubState(StateMachine sm) => new IdleEnemySubState(sm, enemy);
     public WanderSubState WanderSubState(StateMachine sm) => new WanderSubState(sm, enemy);
-    public FollowSubState FollowSubState(StateMachine sm) => new FollowSubState(sm, enemy);
+    public ChaseSubState ChaseSubState(StateMachine sm) => new ChaseSubState(sm, enemy);
     public AttackSubState AttackSubState(StateMachine sm) => new AttackSubState(sm, enemy);
 }

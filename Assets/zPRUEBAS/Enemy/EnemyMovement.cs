@@ -52,7 +52,7 @@ public class EnemyMovement
 
     #region Follow
     // Setea la velocidad y el jugador como el destino
-    public void FollowPlayer(Vector3 playerPosition)
+    public void ChasePlayer(Vector3 playerPosition)
     {
         agent.speed = EnemyConfiguration.FOLLOWSPEED;
 
