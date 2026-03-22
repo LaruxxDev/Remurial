@@ -84,9 +84,10 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            if (attackAction.action.WasPressedThisFrame() && aimCamera.Priority != aimPriority)
+            if (attackAction.action.WasPressedThisFrame() && aimCamera.Priority != aimPriority && Time.time >= tiempoProximaFoto)
             {
                 Debug.Log("No se puede tomar foto: No estás apuntando.");
+                tiempoProximaFoto = Time.time + coldownFoto;
                 // Realiza el flash
                 ResetearRotacionCameraMesh();
                 Flashing();

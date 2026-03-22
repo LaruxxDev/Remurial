@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class InspectSystem : MonoBehaviour
 {
+    #region Values
     [Header("References")]
     public Transform AparitionPoint; // Punto donde el objeto aparecerá al inspeccionarlo
     public GameObject rawImageUI; // UI para mostrar la imagen del objeto inspeccionado
@@ -20,7 +21,10 @@ public class InspectSystem : MonoBehaviour
 
     private GameObject currentInspectedObject; // Objeto actualmente inspeccionado
     private bool isInspecting = false; // Indica si el jugador está inspeccionando un objeto
+    #endregion
 
+    
+    #region Unity Methods
     private void Update()
     {
         if (isInspecting && currentInspectedObject != null && accionClick.action.IsPressed())
@@ -43,7 +47,8 @@ public class InspectSystem : MonoBehaviour
             ExitInspectionMode();
         }
     }
-
+    #endregion
+    
     public void EnterInspectionMode(GameObject objectToInspect)
     {
         if (isInspecting) return; // Evitar entrar en modo inspección si ya se está inspeccionando algo
