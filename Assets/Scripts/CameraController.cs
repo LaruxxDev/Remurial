@@ -19,11 +19,10 @@ public class CameraController : MonoBehaviour
 
 
     [Header("Configuración")]
-    //[SerializeField] private string rutaFotos = "Assets/Fotos/"; // Ruta para guardar las fotos
     public int aimPriority = 20; // Prioridad alta al apuntar
     public int defaultPriority = 9; // Prioridad baja al dejar de apuntar
     public int coldownFoto = 2; // Tiempo de espera entre cada foto (en segundos)
-
+    private string rutaFotos; // Ruta donde se guardarán las fotos
 
     [Header("Configuración del Prefab")]
     [SerializeField] private GameObject prefabFotoFisica; 
@@ -40,11 +39,31 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float duracionApagadoFlash = 1f; // Tiempo que tarda en apagarse la luz después del flash
 
 
-    private int contadorFotos = 0;
+    private int contadorFotos = 0; //GestorInventario.Instance.fotosEnInventario.Count; // Contador para nombrar las fotos de forma única
     private float tiempoProximaFoto = 0f;
 
     #endregion
     #region Unity Methods
+
+    // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDRÁN LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
+
+    void Awake()
+    {
+        // Guardaremos las fotos en una subcarpeta llamada "AlbumPolaroid"
+        rutaFotos = Path.Combine(Application.persistentDataPath, "AlbumPolaroid");
+
+        if (!Directory.Exists(rutaFotos))
+        {
+            Directory.CreateDirectory(rutaFotos);
+            Debug.Log("¡Carpeta creada por primera vez! Ruta: " + rutaFotos);
+        }
+        else
+        {
+            Debug.Log("La carpeta ya existía en: " + rutaFotos);
+        }
+    }
+    
+
     void Start()
     {
         if (aimCamera != null)
@@ -192,18 +211,19 @@ public class CameraController : MonoBehaviour
             GameObject fotoInstanciada = Instantiate(prefabFotoFisica, puntoDeAparicion.position, puntoDeAparicion.rotation);
 
             // Buscamos el MeshRenderer 
-            MeshRenderer quadRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
+            MeshRenderer meshRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
 
-            if (quadRenderer != null)
+            if (meshRenderer != null)
             {
                 // Le aplicamos el nuevo material al Quad
-                quadRenderer.material.mainTexture = fotoCapturada;
+                meshRenderer.material.mainTexture = fotoCapturada;
                 Debug.Log("¡Foto creada físicamente y material aplicado al Quad!");
+                //GuardarFoto(fotoInstanciada);
                 InteractuarConFoto(fotoInstanciada);
             }
             else
             {
-                Debug.LogError("El prefab de la foto no tiene un MeshRenderer (Quad) en sí mismo o sus hijos.");
+                Debug.LogError("El prefab de la foto no tiene un MeshRenderer ");
             }
         }
         else
@@ -222,6 +242,41 @@ public class CameraController : MonoBehaviour
         else
         {
             Debug.LogError("No se puede interactuar con una foto nula.");
+        }
+    }
+
+    public void GuardarFoto(GameObject foto)
+    {
+        if (foto != null)
+        {
+            string idFoto = "Foto_" + contadorFotos;
+
+            string nombreArchivo = idFoto + ".png";
+            string rutaCompleta = Path.Combine(rutaFotos, nombreArchivo);
+
+            // Asegurarse de que la carpeta exista
+            if (!Directory.Exists(rutaFotos))
+            {
+                Directory.CreateDirectory(rutaFotos);
+            }
+
+            // Guardar la textura de la foto en un archivo PNG
+            Texture2D texturaFoto = ((MeshRenderer)foto.GetComponentInChildren<MeshRenderer>()).material.mainTexture as Texture2D;
+            byte[] bytes = texturaFoto.EncodeToPNG();
+            File.WriteAllBytes(rutaCompleta, bytes);
+
+            // Agregar la foto al inventario
+            DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaFotos + "Foto_" + contadorFotos + ".png");   
+            GestorInventario.Instance.AgregarFoto(nuevaFoto);
+
+            Destroy(texturaFoto); // Liberar la textura de la memoria
+            Destroy(foto); // Eliminar la foto del juego después de guardarla
+
+            Debug.Log("Foto guardada en: " + rutaCompleta);
+        }
+        else
+        {
+            Debug.LogError("No se puede guardar una foto nula.");
         }
     }
     #endregion
