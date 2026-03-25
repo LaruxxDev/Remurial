@@ -218,7 +218,7 @@ public class CameraController : MonoBehaviour
                 // Le aplicamos el nuevo material al Quad
                 meshRenderer.material.mainTexture = fotoCapturada;
                 Debug.Log("¡Foto creada físicamente y material aplicado al Quad!");
-                //GuardarFoto(fotoInstanciada);
+                GuardarFoto(fotoInstanciada);
                 InteractuarConFoto(fotoInstanciada);
             }
             else
@@ -267,10 +267,10 @@ public class CameraController : MonoBehaviour
 
             // Agregar la foto al inventario
             DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaFotos + "Foto_" + contadorFotos + ".png");   
-            GestorInventario.Instance.AgregarFoto(nuevaFoto);
+            //GestorInventario.Instance.AgregarFoto(nuevaFoto);
 
-            Destroy(texturaFoto); // Liberar la textura de la memoria
-            Destroy(foto); // Eliminar la foto del juego después de guardarla
+            //Destroy(texturaFoto); // Liberar la textura de la memoria
+            //Destroy(foto); // Eliminar la foto del juego después de guardarla
 
             Debug.Log("Foto guardada en: " + rutaCompleta);
         }
