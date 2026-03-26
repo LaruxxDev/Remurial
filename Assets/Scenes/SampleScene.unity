@@ -457,13 +457,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212821873}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.0359461, z: -0, w: 0.99935377}
+  m_LocalRotation: {x: 0.085038185, y: 0.03581573, z: -0.003058768, w: 0.9957291}
   m_LocalPosition: {x: 0.08800006, y: 0.541, z: 0.08500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1284797783}
-  m_LocalEulerAnglesHint: {x: 0, y: 4.12, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.763, y: 4.12, z: 0}
 --- !u!1 &252668694
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +562,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 108
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -588,8 +588,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.0359461, z: 0, w: 0.99935377}
-  m_LocalPosition: {x: 4.572306, y: 2.73, z: 8.236531}
+  m_LocalRotation: {x: 0.085038185, y: 0.03581573, z: -0.003058768, w: 0.9957291}
+  m_LocalPosition: {x: 4.4842415, y: 2.3068378, z: 7.988265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1462,27 +1462,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3fc69b9d1a469a1459de26641c9f4103, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.72
+      value: 0.49089602
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc69b9d1a469a1459de26641c9f4103, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.72
+      value: 0.49089602
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc69b9d1a469a1459de26641c9f4103, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.72
+      value: 0.49089602
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc69b9d1a469a1459de26641c9f4103, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.042584
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc69b9d1a469a1459de26641c9f4103, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc69b9d1a469a1459de26641c9f4103, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.016696
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fc69b9d1a469a1459de26641c9f4103, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7609,17 +7609,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineThirdPersonFollow
   Damping: {x: 0, y: 0, z: 0}
-  ShoulderOffset: {x: 0.82, y: 0.28, z: 2.31}
-  VerticalArmLength: 1.2
+  ShoulderOffset: {x: 0.75, y: -0.59, z: 1.7}
+  VerticalArmLength: 1
   CameraSide: 1
-  CameraDistance: 4.03
+  CameraDistance: 3.9
   AvoidObstacles:
     Enabled: 1
     CollisionFilter:
       serializedVersion: 2
       m_Bits: 1079
     IgnoreTag: 
-    CameraRadius: 0.2
+    CameraRadius: 0.136
     DampingIntoCollision: 0
     DampingFromCollision: 2.07
 --- !u!114 &1914674226
@@ -7646,7 +7646,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 108
+    FieldOfView: 50
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -7673,13 +7673,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914674223}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.0359461, z: 0, w: 0.99935377}
-  m_LocalPosition: {x: 0.7823062, y: 2.021, z: -1.6894684}
+  m_LocalRotation: {x: 0.085038185, y: 0.03581573, z: -0.003058768, w: 0.9957291}
+  m_LocalPosition: {x: 0.6942415, y: 1.5978378, z: -1.9377346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1284797783}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.04, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.06, y: 4.12, z: 0}
 --- !u!1 &2098373375
 GameObject:
   m_ObjectHideFlags: 0
@@ -7928,19 +7928,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5129624613865451390, guid: cadf1842daa5e7d45b9379e293c97588, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5492468
+      value: 0.550802
       objectReference: {fileID: 0}
     - target: {fileID: 5129624613865451390, guid: cadf1842daa5e7d45b9379e293c97588, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.079941854
+      value: 0.07877519
       objectReference: {fileID: 0}
     - target: {fileID: 5129624613865451390, guid: cadf1842daa5e7d45b9379e293c97588, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.82315445
+      value: 0.82254046
       objectReference: {fileID: 0}
     - target: {fileID: 5129624613865451390, guid: cadf1842daa5e7d45b9379e293c97588, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11980861
+      value: -0.11763898
       objectReference: {fileID: 0}
     - target: {fileID: 6722637735209259731, guid: cadf1842daa5e7d45b9379e293c97588, type: 3}
       propertyPath: Lens.NearClipPlane
