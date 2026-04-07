@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
     public int aimPriority = 20; // Prioridad alta al apuntar
     public int defaultPriority = 9; // Prioridad baja al dejar de apuntar
     public int coldownFoto = 2; // Tiempo de espera entre cada foto (en segundos)
+    public float reavelTime = 5f; // Tiempo que tarda en revelarse la foto
     private string rutaFotos; // Ruta donde se guardarán las fotos
 
     [Header("Configuración del Prefab")]
@@ -266,7 +267,7 @@ public class CameraController : MonoBehaviour
             File.WriteAllBytes(rutaCompleta, bytes);
 
             // Agregar la foto al inventario
-            DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaFotos + "Foto_" + contadorFotos + ".png");   
+            DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaFotos + "Foto_" + contadorFotos + ".png", reavelTime);
             //GestorInventario.Instance.AgregarFoto(nuevaFoto);
 
             //Destroy(texturaFoto); // Liberar la textura de la memoria
