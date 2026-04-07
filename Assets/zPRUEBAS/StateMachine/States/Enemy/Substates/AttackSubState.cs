@@ -27,7 +27,7 @@ public class AttackSubState : EnemyState
         {
             case <= 0f:
                 
-                STATEMACHINE.ChangeState(ENEMY.STATES.ChaseSubState(STATEMACHINE));            
+                //STATEMACHINE.ChangeState(ENEMY.STATES.ChaseSubState(STATEMACHINE));            
                 break;
 
             case <= 0.5f:

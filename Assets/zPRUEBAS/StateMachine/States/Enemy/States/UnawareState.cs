@@ -14,7 +14,7 @@ public class UnawareState : EnemyState
 
     public override void Enter()
     {
-        lowLevelMachine.ChangeState(ENEMY.STATES.IdleEnemySubState(lowLevelMachine));
+        //lowLevelMachine.ChangeState(ENEMY.STATES.IdleEnemySubState(lowLevelMachine));
     }
 
     public override void Update()
@@ -24,7 +24,7 @@ public class UnawareState : EnemyState
         // Aware State
         if (ENEMY.COLLISION.PLAYER)
         {
-            STATEMACHINE.ChangeState(ENEMY.STATES.AwareState(STATEMACHINE));
+            //STATEMACHINE.ChangeState(ENEMY.STATES.AwareState(STATEMACHINE));
         }
 
         base.Update();

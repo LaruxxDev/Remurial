@@ -24,7 +24,7 @@ public class IdleEnemySubState : EnemyState
         // Wander
         if (ENEMY.CONFIGURATION.canWander)
         {
-            STATEMACHINE.ChangeState(ENEMY.STATES.WanderSubState(STATEMACHINE));
+            //STATEMACHINE.ChangeState(ENEMY.STATES.WanderSubState(STATEMACHINE));
         }
     }
 }

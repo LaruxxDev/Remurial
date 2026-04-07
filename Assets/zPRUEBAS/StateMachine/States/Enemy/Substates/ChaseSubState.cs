@@ -25,8 +25,8 @@ public class ChaseSubState : EnemyState
             ENEMY.MOVEMENT.ChasePlayer(ENEMY.COLLISION.detectedPlayer.position);
 
         // Attack
-        if (ENEMY.COLLISION.ATTACK)     
-            STATEMACHINE.ChangeState(ENEMY.STATES.AttackSubState(STATEMACHINE));
+        //if (ENEMY.COLLISION.ATTACK)     
+            //STATEMACHINE.ChangeState(ENEMY.STATES.AttackSubState(STATEMACHINE));
         
     }
 

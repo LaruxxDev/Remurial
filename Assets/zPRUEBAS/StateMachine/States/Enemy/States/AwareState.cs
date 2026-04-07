@@ -14,7 +14,7 @@ public class AwareState : EnemyState
 
     public override void Enter()
     {
-        lowLevelMachine.ChangeState(ENEMY.STATES.ChaseSubState(lowLevelMachine));
+        //lowLevelMachine.ChangeState(ENEMY.STATES.chase(lowLevelMachine));
     }
 
     public override void Update()
@@ -24,7 +24,7 @@ public class AwareState : EnemyState
         // Losing detection, going back to unawareness
         if (!ENEMY.COLLISION.PLAYER)
         {
-            STATEMACHINE.ChangeState(ENEMY.STATES.UnawareState(STATEMACHINE));
+            //STATEMACHINE.ChangeState(ENEMY.STATES.unaware(STATEMACHINE));
         }
 
         base.Update();

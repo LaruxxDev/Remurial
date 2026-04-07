@@ -22,7 +22,7 @@ public class WanderSubState : EnemyState
         // Idle
         if (ENEMY.MOVEMENT.HasArrived())
         {
-            STATEMACHINE.ChangeState(ENEMY.STATES.IdleEnemySubState(STATEMACHINE));
+            //STATEMACHINE.ChangeState(ENEMY.STATES.IdleEnemySubState(STATEMACHINE));
         }
     }
 
