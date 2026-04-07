@@ -3,7 +3,7 @@ using UnityEngine;
 public class ChaseSubState : EnemyState
 {
     public override string Name => "Chase SubState";
-    public ChaseSubState(StateMachine STATEMACHINE, EnemyGeneral ENEMY) : base(STATEMACHINE, ENEMY) { }
+    public ChaseSubState(EnemyGeneral ENEMY) : base(ENEMY) { }
 
 
     public override void Enter()
@@ -25,9 +25,9 @@ public class ChaseSubState : EnemyState
             ENEMY.MOVEMENT.ChasePlayer(ENEMY.COLLISION.detectedPlayer.position);
 
         // Attack
-        //if (ENEMY.COLLISION.ATTACK)     
-            //STATEMACHINE.ChangeState(ENEMY.STATES.AttackSubState(STATEMACHINE));
-        
+        if (ENEMY.COLLISION.ATTACK)
+            STATEMACHINE.ChangeState(ENEMY.STATES.attack);
+
     }
 
     public override void FixedUpdate()

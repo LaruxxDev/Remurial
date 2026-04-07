@@ -3,7 +3,7 @@ using UnityEngine;
 public class AttackSubState : EnemyState
 {
     public override string Name => "Attack SubState";
-    public AttackSubState(StateMachine STATEMACHINE, EnemyGeneral ENEMY) : base(STATEMACHINE, ENEMY) { }
+    public AttackSubState(EnemyGeneral ENEMY) : base(ENEMY) { }
 
 
     public override void Enter()
@@ -27,7 +27,7 @@ public class AttackSubState : EnemyState
         {
             case <= 0f:
                 
-                //STATEMACHINE.ChangeState(ENEMY.STATES.ChaseSubState(STATEMACHINE));            
+                STATEMACHINE.ChangeState(ENEMY.STATES.chase);            
                 break;
 
             case <= 0.5f:

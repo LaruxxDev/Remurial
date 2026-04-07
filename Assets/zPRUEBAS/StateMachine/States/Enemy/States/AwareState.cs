@@ -7,14 +7,17 @@ public class AwareState : EnemyState
     public StateMachine subMachine => lowLevelMachine;
 
     public override string Name => "Aware State";
-    public AwareState(StateMachine STATEMACHINE, EnemyGeneral ENEMY) : base(STATEMACHINE, ENEMY)
+    public AwareState(EnemyGeneral ENEMY) : base(ENEMY)
     {
         lowLevelMachine = new StateMachine();
     }
 
     public override void Enter()
     {
-        //lowLevelMachine.ChangeState(ENEMY.STATES.chase(lowLevelMachine));
+        ENEMY.STATES.chase.SetMachine(lowLevelMachine);
+        ENEMY.STATES.attack.SetMachine(lowLevelMachine);
+
+        lowLevelMachine.ChangeState(ENEMY.STATES.chase);
     }
 
     public override void Update()
@@ -24,7 +27,7 @@ public class AwareState : EnemyState
         // Losing detection, going back to unawareness
         if (!ENEMY.COLLISION.PLAYER)
         {
-            //STATEMACHINE.ChangeState(ENEMY.STATES.unaware(STATEMACHINE));
+            STATEMACHINE.ChangeState(ENEMY.STATES.unaware);
         }
 
         base.Update();

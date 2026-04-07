@@ -575,7 +575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.425}
+  m_AnchoredPosition: {x: 0, y: 2.34}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5878854341818736997
@@ -964,6 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49927c7e77948d444a9cf76b90a791eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyGeneral
+  enemyType: 1
   Rigidbody: {fileID: 8887516557478587080}
   EnemyConfiguration: {fileID: 3362443415561133397}
   EnemyCollision: {fileID: 485812029251353450}

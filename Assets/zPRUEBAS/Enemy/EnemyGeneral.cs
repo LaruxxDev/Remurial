@@ -57,6 +57,7 @@ public class EnemyGeneral : MonoBehaviour
         StateMachine = new StateMachine();
         EnemyMovement = new EnemyMovement(Rigidbody, NavMeshAgent, EnemyConfiguration);
 
+        // Elegir el tipo de enemigo
         switch (enemyType)
         {
             case EnemyType.flashyEnemy:

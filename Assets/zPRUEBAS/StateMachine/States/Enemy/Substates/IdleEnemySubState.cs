@@ -3,7 +3,7 @@ using UnityEngine;
 public class IdleEnemySubState : EnemyState
 {
     public override string Name => "Idle SubState";
-    public IdleEnemySubState(StateMachine STATEMACHINE, EnemyGeneral ENEMY) : base(STATEMACHINE, ENEMY) { }
+    public IdleEnemySubState(EnemyGeneral ENEMY) : base(ENEMY) { }
 
 
     public override void Enter()
@@ -24,7 +24,7 @@ public class IdleEnemySubState : EnemyState
         // Wander
         if (ENEMY.CONFIGURATION.canWander)
         {
-            //STATEMACHINE.ChangeState(ENEMY.STATES.WanderSubState(STATEMACHINE));
+            STATEMACHINE.ChangeState(ENEMY.STATES.wander);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class WanderSubState : EnemyState
 {
     public override string Name => "Wander SubState";
-    public WanderSubState(StateMachine STATEMACHINE, EnemyGeneral ENEMY) : base(STATEMACHINE, ENEMY) { }
+    public WanderSubState(EnemyGeneral ENEMY) : base(ENEMY) { }
 
 
     public override void Enter()
@@ -22,7 +22,7 @@ public class WanderSubState : EnemyState
         // Idle
         if (ENEMY.MOVEMENT.HasArrived())
         {
-            //STATEMACHINE.ChangeState(ENEMY.STATES.IdleEnemySubState(STATEMACHINE));
+            STATEMACHINE.ChangeState(ENEMY.STATES.idle);
         }
     }
 
