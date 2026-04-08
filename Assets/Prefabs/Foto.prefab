@@ -127,12 +127,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e39c30bbd5af148a5f4e1f21dd66dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FotoRevelado
+  r1Action: {fileID: 7077589526085625986, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  l1Action: {fileID: -2983940406519912593, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   datos:
     idFoto: 
     rutaDelArchivoLocal: 
-    revealTime: 0
-  shakeBoost: 3
-  materialRevelado: {fileID: 0}
+    revealTime: 5
+  shakeBoostInicial: 1
+  incrementoVelocidad: 0.5
+  distanciaAgite: 0.15
+  velocidadRetorno: 12
+  reveal: {fileID: 3802400139476070591}
 --- !u!1 &3802400139476070591
 GameObject:
   m_ObjectHideFlags: 0

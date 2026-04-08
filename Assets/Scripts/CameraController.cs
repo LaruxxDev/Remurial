@@ -210,7 +210,8 @@ public class CameraController : MonoBehaviour
         {
             // Creamos el prefab en la posición y rotación del punto de aparición
             GameObject fotoInstanciada = Instantiate(prefabFotoFisica, puntoDeAparicion.position, puntoDeAparicion.rotation);
-
+            fotoInstanciada.transform.SetParent(puntoDeAparicion); 
+            
             // Buscamos el MeshRenderer 
             MeshRenderer meshRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
 
@@ -220,7 +221,7 @@ public class CameraController : MonoBehaviour
                 meshRenderer.material.mainTexture = fotoCapturada;
                 Debug.Log("¡Foto creada físicamente y material aplicado al Quad!");
                 GuardarFoto(fotoInstanciada);
-                InteractuarConFoto(fotoInstanciada);
+                //InteractuarConFoto(fotoInstanciada);
             }
             else
             {
