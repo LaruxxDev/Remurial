@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
     private string rutaFotos; // Ruta donde se guardarán las fotos
 
     [Header("Detección de Enemigos")]
-    [SerializeField] private Vector3 tamanoZonaFoto = new Vector3(3f, 2f, 5f); // Ancho, alto, profundidad
+    [SerializeField] private Vector3 sizeZonaFoto = new Vector3(3f, 2f, 5f); // Ancho, alto, profundidad
     [SerializeField] private LayerMask capaEnemigos; // Asigna la layer de enemigos en el Inspector
 
     [Header("Configuración del Prefab")]
@@ -367,10 +367,10 @@ public class CameraController : MonoBehaviour
     private void DetectarYEliminarEnemigos()
     {
         // Usamos la posición y rotación de la cámara aim como origen del box
-        Vector3 centro = aimCamera.transform.position + aimCamera.transform.forward * (tamanoZonaFoto.z / 2f);
+        Vector3 centro = aimCamera.transform.position + aimCamera.transform.forward * (sizeZonaFoto.z / 2f);
         Quaternion rotacion = aimCamera.transform.rotation;
 
-        Collider[] objetosDetectados = Physics.OverlapBox(centro, tamanoZonaFoto / 2f, rotacion, capaEnemigos);
+        Collider[] objetosDetectados = Physics.OverlapBox(centro, sizeZonaFoto / 2f, rotacion, capaEnemigos);
 
         if (objetosDetectados.Length > 0)
         {
@@ -395,11 +395,11 @@ public class CameraController : MonoBehaviour
         if (aimCamera == null) return;
 
         Gizmos.color = Color.cyan;
-        Vector3 centro = aimCamera.transform.position + aimCamera.transform.forward * (tamanoZonaFoto.z / 2f);
+        Vector3 centro = aimCamera.transform.position + aimCamera.transform.forward * (sizeZonaFoto.z / 2f);
         
         // Gizmos no soporta rotación directamente, usamos matriz
         Gizmos.matrix = Matrix4x4.TRS(centro, aimCamera.transform.rotation, Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, tamanoZonaFoto);
+        Gizmos.DrawWireCube(Vector3.zero, sizeZonaFoto);
         Gizmos.matrix = Matrix4x4.identity;
     }
 
