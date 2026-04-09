@@ -132,7 +132,7 @@ MonoBehaviour:
   datos:
     idFoto: 
     rutaDelArchivoLocal: 
-    revealTime: 5
+    revealTime: 10
   shakeBoostInicial: 1
   incrementoVelocidad: 0.5
   distanciaAgite: 0.15

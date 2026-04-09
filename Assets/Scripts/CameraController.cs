@@ -16,6 +16,9 @@ public class CameraController : MonoBehaviour
     [Header("Input Actions")]
     [SerializeField] private InputActionReference attackAction; 
     [SerializeField] private InputActionReference aimAction; 
+    [SerializeField] private InputActionReference flashAction; 
+    [SerializeField] private InputActionReference toggleFlashAction; 
+
 
 
     [Header("Configuración")]
@@ -31,6 +34,7 @@ public class CameraController : MonoBehaviour
 
     [Header("Interaction")]
     public InspectSystem inspectSystem; 
+    [SerializeField] private BoxCollider objetosCapturados;
 
     [Header("Configuración de Flash")]
     [SerializeField] private float flashDuration = 3.0f; // Duración del flash en segundos
@@ -42,6 +46,8 @@ public class CameraController : MonoBehaviour
 
     private int contadorFotos = 0; //GestorInventario.Instance.fotosEnInventario.Count; // Contador para nombrar las fotos de forma única
     private float tiempoProximaFoto = 0f;
+    private bool toggleFlash = true; // Para alternar el flash
+
 
     #endregion
     #region Unity Methods
@@ -79,6 +85,12 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        // Alternar el flash con el botón asignado
+        if (toggleFlashAction.action.WasPressedThisFrame())
+        {
+            toggleFlash = !toggleFlash;
+        }
+
         if (aimAction.action.WasPressedThisFrame())
         {
             aimCamera.Priority = aimPriority;
@@ -99,12 +111,16 @@ public class CameraController : MonoBehaviour
         {
             contadorFotos++;
             tiempoProximaFoto = Time.time + coldownFoto;
+            if (toggleFlash)
+            {                
+                Flashing();
+            }
             Flashing();
             StartCoroutine(ProcesoTomarFoto());
         }
         else
         {
-            if (attackAction.action.WasPressedThisFrame() && aimCamera.Priority != aimPriority && Time.time >= tiempoProximaFoto)
+            if (flashAction.action.WasPressedThisFrame() /*&& aimCamera.Priority != aimPriority*/ && Time.time >= tiempoProximaFoto || toggleFlash)
             {
                 Debug.Log("No se puede tomar foto: No estás apuntando.");
                 tiempoProximaFoto = Time.time + coldownFoto;
@@ -281,5 +297,29 @@ public class CameraController : MonoBehaviour
             Debug.LogError("No se puede guardar una foto nula.");
         }
     }
+    /*
+    private void DetectarEnemigos()
+    {
+        //Collider[] objetosCapturados = Physics.OverlapBox(centroMundo, mitadTamano, zonaDeFoto.transform.rotation, capaEnemigos);
+        if (objetosCapturados.Length > 0)
+        {
+            foreach (Collider obj in objetosCapturados)
+            {
+                Debug.Log($"<color=cyan>¡FOTOGRAFIADO: {obj.gameObject.name}!</color>");
+                
+                // --- AQUÍ PONES LO QUE QUIERAS QUE PASE ---
+                // Por ejemplo, si es un enemigo tipo Fatal Frame, lo destruyes o le haces daño:
+                if (obj.CompareTag("Enemy"))
+                {
+                    Debug.Log("¡Enemigo destruido por el flash!");
+                    Destroy(obj.gameObject);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("No fotografiaste nada especial.");
+        }
+    }*/
     #endregion
 }

@@ -552,6 +552,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RotateMando",
+                    "type": "Button",
+                    "id": "7914ed07-ef3f-40b7-95b0-c7e0d656f0ce",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1003,6 +1012,17 @@
                     "processors": "",
                     "groups": "Joystick",
                     "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44b5fdf1-e725-496b-950f-455ba46544a3",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "RotateMando",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -14,7 +14,7 @@ public class FotoRevelado  : MonoBehaviour
 
     [Header("Configuración del Revelado")]
     public float shakeBoostInicial = 1f; // Multiplicador inicial al agitar
-    public float incrementoVelocidad = 0.05f; // Cuánto aumenta la velocidad por CADA pulsación
+    public float incrementoVelocidad = 0.5f; // Cuánto aumenta la velocidad por CADA pulsación
     private float currentShakeBoost; // El boost actual que irá creciendo
 
     [Header("Configuración Visual del Agite")]
@@ -51,12 +51,12 @@ public class FotoRevelado  : MonoBehaviour
                 Debug.LogWarning($"El objeto {reveal.name} no tiene un componente Renderer.");
             }
         }
+        
     }
 
     void Update()
     {
         if (datos == null || reveladoCompleto) return;
-        Debug.Log($"Foto {datos.revealTime} DURACIÓN.");
         if (datos.revealTime <= 0f)
         {
             datos.revealProgress = 1f;
@@ -82,9 +82,6 @@ public class FotoRevelado  : MonoBehaviour
             currentShakeBoost += incrementoVelocidad;          // Aceleramos el revelado
         }
 
-        // 3. Aplicar el bonus al progreso mientras se mantienen los botones
-        bool manteniendoR1 = r1Action != null && r1Action.action.IsPressed();
-        bool manteniendoL1 = l1Action != null && l1Action.action.IsPressed();
 
         // --- 4. LÓGICA DE MOVIMIENTO VISUAL (EL AGITE) ---
         // Movemos el offset actual hacia el objetivo suavemente
@@ -106,6 +103,7 @@ public class FotoRevelado  : MonoBehaviour
             colorActual.a = 1f - datos.revealProgress; 
             materialInstanciado.color = colorActual;
         }
+        
 
         // 7. Comprobar si acaba de completarse
         if (datos.revealProgress >= 1f)
