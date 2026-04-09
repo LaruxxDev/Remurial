@@ -298,10 +298,15 @@ MonoBehaviour:
   aimAction: {fileID: 5960714890333912282, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   flashAction: {fileID: 6912999376593695206, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   toggleFlashAction: {fileID: 803002900010508000, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  saveAction: {fileID: -4694404325125608904, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   aimPriority: 20
   defaultPriority: 9
   coldownFoto: 2
   reavelTime: 10
+  tamanoZonaFoto: {x: 3.2, y: 1.96, z: 6.26}
+  capaEnemigos:
+    serializedVersion: 2
+    m_Bits: 64
   prefabFotoFisica: {fileID: 864132496829830496, guid: 99eccdf6c75ba624c9102d92ab35c5d5, type: 3}
   puntoDeAparicion: {fileID: 406146259}
   inspectSystem: {fileID: 1284797779}
@@ -1156,7 +1161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &436929589
 Transform:
   m_ObjectHideFlags: 0
@@ -2436,9 +2441,9 @@ GameObject:
   - component: {fileID: 670868681}
   - component: {fileID: 670868680}
   - component: {fileID: 670868679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
-  m_TagString: Interactuable
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7190,6 +7195,7 @@ GameObject:
   - component: {fileID: 1284797779}
   - component: {fileID: 1284797778}
   - component: {fileID: 1284797784}
+  - component: {fileID: 1284797785}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -7306,6 +7312,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1284797785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284797777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c45b8e829162e4d8eb011ad1ba17bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestorInventario
+  fotosEnInventario: []
+  maxFotos: 20
 --- !u!43 &1598781754
 Mesh:
   m_ObjectHideFlags: 0
