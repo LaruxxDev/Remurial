@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/MainMenu/MaiMenuStyle.uss?fileID=7433441132597879392&amp;guid=3b78f6ed9230cfc49b34d1f8262e70d8&amp;type=3#MaiMenuStyle"/>
+    <ui:VisualElement name="ImagenFondo" style="flex-grow: 1; align-items: flex-start; justify-content: center; align-self: stretch;">
+        <ui:VisualElement name="ButtnsContainer" style="flex-grow: 1; align-items: stretch; justify-content: center; margin-left: 61px;">
+            <ui:Button text="New Game" name="NewGameButton"/>
+            <ui:Button text="Load Game" name="LoadGameButton" enabled="false"/>
+            <ui:Button text="Options" name="OptionsButton"/>
+            <ui:Button text="Exit" name="ExitButton"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
