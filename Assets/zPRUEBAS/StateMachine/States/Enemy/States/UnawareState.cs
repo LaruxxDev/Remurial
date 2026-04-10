@@ -7,21 +7,28 @@ public class UnawareState : EnemyState
     public StateMachine subMachine => lowLevelMachine;
 
     public override string Name => "Unaware State";
-    public UnawareState(StateMachine STATEMACHINE, EnemyGeneral ENEMY) : base(STATEMACHINE, ENEMY)
+    public UnawareState(EnemyGeneral ENEMY) : base(ENEMY)
     {
         lowLevelMachine = new StateMachine();
     }
 
     public override void Enter()
     {
-        lowLevelMachine.ChangeState(ENEMY.STATES.IdleEnemySubState(lowLevelMachine));
+        ENEMY.STATES.idle.SetMachine(lowLevelMachine);
+        ENEMY.STATES.wander.SetMachine(lowLevelMachine);
+
+        lowLevelMachine.ChangeState(ENEMY.STATES.idle);
     }
 
     public override void Update()
     {
         lowLevelMachine.Update();
 
-        // Detection logic
+        // Aware State
+        if (ENEMY.COLLISION.PLAYER)
+        {
+            STATEMACHINE.ChangeState(ENEMY.STATES.aware);
+        }
 
         base.Update();
     }

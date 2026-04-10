@@ -10,12 +10,24 @@ public class EnemyGeneral : MonoBehaviour
     StateMachine StateMachine;
     public StateMachine STATEMACHINE => StateMachine;
 
-    EnemyStateCollection States;
+    public enum EnemyType
+    {
+        flashyEnemy,
+        birbEnemy,
+        petriEnemy
+    }
+
+    public EnemyType enemyType;
+
+    [SerializeField] EnemyStateCollection States;
     public EnemyStateCollection STATES => States;
 
 
+    State mainState;
+
     [Header("Componentes")]
     public Rigidbody Rigidbody;
+
 
     [Header("Configuration")]
     [SerializeField] EnemyConfiguration EnemyConfiguration;
@@ -43,16 +55,54 @@ public class EnemyGeneral : MonoBehaviour
     private void Awake()
     {
         StateMachine = new StateMachine();
-        States = new EnemyStateCollection(this);
         EnemyMovement = new EnemyMovement(Rigidbody, NavMeshAgent, EnemyConfiguration);
+
+        // Elegir el tipo de enemigo
+        switch (enemyType)
+        {
+            case EnemyType.flashyEnemy:
+                States = new FlashyStateCollection(this);
+                break;
+
+            case EnemyType.birbEnemy:
+                States = new BirbStateCollection(this);
+                break;
+
+            case EnemyType.petriEnemy:
+                States = new PetriStateCollection(this);
+                break;
+
+            default:
+                break;
+        }
+
+
+        States.Start(StateMachine);
     }
 
     void Start()
     {
-        StateMachine.ChangeState(States.UnawareState(StateMachine));
+        mainState = States.mainState;
+
+        StateMachine.ChangeState(mainState);
     }
 
-    void Update() => StateMachine.Update();
+    void Update()
+    {
+        StateMachine.Update();
+
+        // DEBUG
+        stateText.text = StateMachine.state.Name;
+
+        if (StateMachine.state is UnawareState unaware)
+            subStateText.text = unaware.subMachine.state.Name;
+        if (StateMachine.state is AwareState aware)
+            subStateText.text = aware.subMachine.state.Name;
+    }
+
+    [Header("Debug")]
+    public TextMeshProUGUI stateText;
+    public TextMeshProUGUI subStateText;
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 
