@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class InspectSystem : MonoBehaviour
 {
+    #region Values
     [Header("References")]
     public Transform AparitionPoint; // Punto donde el objeto aparecerá al inspeccionarlo
     public GameObject rawImageUI; // UI para mostrar la imagen del objeto inspeccionado
@@ -12,6 +13,8 @@ public class InspectSystem : MonoBehaviour
     public InputActionReference accionClick; // Acción para rotar el objeto inspeccionado
 
     public InputActionReference accionRotar; // Acción para rotar el objeto inspeccionado
+    public InputActionReference accionRotarMando; // Acción para rotar el objeto inspeccionado
+
     public InputActionReference accionSalir; // Acción para salir del modo de inspección
 
 
@@ -20,10 +23,13 @@ public class InspectSystem : MonoBehaviour
 
     private GameObject currentInspectedObject; // Objeto actualmente inspeccionado
     private bool isInspecting = false; // Indica si el jugador está inspeccionando un objeto
+    #endregion
 
+    
+    #region Unity Methods
     private void Update()
     {
-        if (isInspecting && currentInspectedObject != null && accionClick.action.IsPressed())
+        if (isInspecting && currentInspectedObject != null && (accionClick.action.IsPressed() || accionRotarMando.action.IsPressed()))
         {
             // Permitir rotar el objeto inspeccionado con el mouse
             Vector2 rotationInput = accionRotar.action.ReadValue<Vector2>();
@@ -43,7 +49,8 @@ public class InspectSystem : MonoBehaviour
             ExitInspectionMode();
         }
     }
-
+    #endregion
+    
     public void EnterInspectionMode(GameObject objectToInspect)
     {
         if (isInspecting) return; // Evitar entrar en modo inspección si ya se está inspeccionando algo

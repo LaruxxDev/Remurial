@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactuable
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,11 +13,11 @@ TagManager:
   - Player
   - Water
   - UI
+  - Enemy
   - 
   - 
   - 
-  - 
-  - 
+  - Ground
   - 
   - 
   - 
