@@ -13,6 +13,8 @@ public class InspectSystem : MonoBehaviour
     public InputActionReference accionClick; // Acción para rotar el objeto inspeccionado
 
     public InputActionReference accionRotar; // Acción para rotar el objeto inspeccionado
+    public InputActionReference accionRotarMando; // Acción para rotar el objeto inspeccionado
+
     public InputActionReference accionSalir; // Acción para salir del modo de inspección
 
 
@@ -27,7 +29,7 @@ public class InspectSystem : MonoBehaviour
     #region Unity Methods
     private void Update()
     {
-        if (isInspecting && currentInspectedObject != null && accionClick.action.IsPressed())
+        if (isInspecting && currentInspectedObject != null && (accionClick.action.IsPressed() || accionRotarMando.action.IsPressed()))
         {
             // Permitir rotar el objeto inspeccionado con el mouse
             Vector2 rotationInput = accionRotar.action.ReadValue<Vector2>();

@@ -16,13 +16,22 @@ public class CameraController : MonoBehaviour
     [Header("Input Actions")]
     [SerializeField] private InputActionReference attackAction; 
     [SerializeField] private InputActionReference aimAction; 
+    [SerializeField] private InputActionReference flashAction; 
+    [SerializeField] private InputActionReference toggleFlashAction; 
+    [SerializeField] private InputActionReference saveAction; 
+
 
 
     [Header("Configuración")]
     public int aimPriority = 20; // Prioridad alta al apuntar
     public int defaultPriority = 9; // Prioridad baja al dejar de apuntar
     public int coldownFoto = 2; // Tiempo de espera entre cada foto (en segundos)
+    public float reavelTime = 5f; // Tiempo que tarda en revelarse la foto
     private string rutaFotos; // Ruta donde se guardarán las fotos
+
+    [Header("Detección de Enemigos")]
+    [SerializeField] private Vector3 sizeZonaFoto = new Vector3(3f, 2f, 5f); // Ancho, alto, profundidad
+    [SerializeField] private LayerMask capaEnemigos; // Asigna la layer de enemigos en el Inspector
 
     [Header("Configuración del Prefab")]
     [SerializeField] private GameObject prefabFotoFisica; 
@@ -30,6 +39,7 @@ public class CameraController : MonoBehaviour
 
     [Header("Interaction")]
     public InspectSystem inspectSystem; 
+    [SerializeField] private BoxCollider objetosCapturados;
 
     [Header("Configuración de Flash")]
     [SerializeField] private float flashDuration = 3.0f; // Duración del flash en segundos
@@ -41,6 +51,8 @@ public class CameraController : MonoBehaviour
 
     private int contadorFotos = 0; //GestorInventario.Instance.fotosEnInventario.Count; // Contador para nombrar las fotos de forma única
     private float tiempoProximaFoto = 0f;
+    private bool toggleFlash = true; // Para alternar el flash
+    private GameObject fotoFisica = null; // Foto física instanciada en el mundo
 
     #endregion
     #region Unity Methods
@@ -78,6 +90,38 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (saveAction.action.WasPressedThisFrame())
+        {
+            if (fotoFisica != null)
+            {
+                // Guardar la foto actual en el inventario
+                MeshRenderer meshRenderer = fotoFisica.GetComponentInChildren<MeshRenderer>();
+                if (meshRenderer == null)
+                {
+                    Debug.LogWarning("La foto física no tiene MeshRenderer.");
+                    return;
+                }
+
+                Texture2D textura = meshRenderer.material.mainTexture as Texture2D;
+                if (textura == null)
+                {
+                    Debug.LogWarning("La foto física no tiene textura asignada.");
+                    return;
+                }
+                GuardarFoto(fotoFisica, textura); // Pasamos null porque la textura ya está guardada en el proceso de tomar foto
+            }
+            else
+            {
+                Debug.LogWarning("No hay foto física para guardar.");
+            }
+        }
+
+        // Alternar el flash con el botón asignado
+        if (toggleFlashAction.action.WasPressedThisFrame())
+        {
+            toggleFlash = !toggleFlash;
+        }
+
         if (aimAction.action.WasPressedThisFrame())
         {
             aimCamera.Priority = aimPriority;
@@ -93,23 +137,43 @@ public class CameraController : MonoBehaviour
             aimCamera.Priority = defaultPriority;
             Debug.Log("CameraMesh localRotation set to zero: " + CameraMesh.transform.localRotation);
         }
-        
-        if (attackAction.action.WasPressedThisFrame() && aimCamera.Priority == aimPriority && Time.time >= tiempoProximaFoto)
+        bool estaApuntando = aimCamera.Priority == aimPriority;
+        bool cooldownListo = Time.time >= tiempoProximaFoto;
+
+        if (attackAction.action.WasPressedThisFrame() && estaApuntando)
         {
-            contadorFotos++;
-            tiempoProximaFoto = Time.time + coldownFoto;
-            Flashing();
-            StartCoroutine(ProcesoTomarFoto());
+            if (cooldownListo)
+            {
+                contadorFotos++;
+                tiempoProximaFoto = Time.time + coldownFoto;
+                if (toggleFlash)
+                {                
+                    Flashing();
+                }
+                StartCoroutine(ProcesoTomarFoto());
+                
+            }
+            else
+            {
+                Debug.Log("No se puede tomar foto: En coldown. Tiempo restante: " + (tiempoProximaFoto - Time.time).ToString("F2") + " segundos.");
+            }
         }
         else
         {
-            if (attackAction.action.WasPressedThisFrame() && aimCamera.Priority != aimPriority && Time.time >= tiempoProximaFoto)
+            if (flashAction.action.WasPressedThisFrame() /*&& aimCamera.Priority != aimPriority*/ && !estaApuntando)
             {
-                Debug.Log("No se puede tomar foto: No estás apuntando.");
-                tiempoProximaFoto = Time.time + coldownFoto;
-                // Realiza el flash
-                ResetearRotacionCameraMesh();
-                Flashing();
+                if (cooldownListo)
+                {
+                    tiempoProximaFoto = Time.time + coldownFoto;
+                    // Realiza el flash
+                    ResetearRotacionCameraMesh();
+                    Flashing();  
+                }
+                else
+                {
+                    Debug.Log("No se hacer flash: En coldown. Tiempo restante: " + (tiempoProximaFoto - Time.time).ToString("F2") + " segundos.");
+                }
+                
 
             }
             else if (attackAction.action.WasPressedThisFrame() && Time.time < tiempoProximaFoto)
@@ -196,20 +260,28 @@ public class CameraController : MonoBehaviour
     {
         Debug.Log("¡Flash! Iniciando captura...");
 
+        yield return new WaitForEndOfFrame();
 
         Texture2D fotoCapturada = ScreenCapture.CaptureScreenshotAsTexture();
 
+        DetectarYEliminarEnemigos();
+
         Debug.Log("¡Flash! Foto tomada.");
 
-        // 1. ESPERA CRÍTICA: Debemos esperar a que Unity termine de dibujar todo este frame
-        yield return new WaitForEndOfFrame();
-
+        if (fotoFisica != null)
+        {
+            GuardarFoto(fotoFisica, fotoCapturada);
+            fotoFisica = null;
+        }        
         // 4. INSTANCIACIÓN Y ASIGNACIÓN
         if (prefabFotoFisica != null && puntoDeAparicion != null)
         {
             // Creamos el prefab en la posición y rotación del punto de aparición
             GameObject fotoInstanciada = Instantiate(prefabFotoFisica, puntoDeAparicion.position, puntoDeAparicion.rotation);
+            fotoInstanciada.transform.SetParent(puntoDeAparicion); 
 
+            fotoFisica = fotoInstanciada; // Guardamos la referencia para futuras interacciones
+            
             // Buscamos el MeshRenderer 
             MeshRenderer meshRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
 
@@ -218,8 +290,8 @@ public class CameraController : MonoBehaviour
                 // Le aplicamos el nuevo material al Quad
                 meshRenderer.material.mainTexture = fotoCapturada;
                 Debug.Log("¡Foto creada físicamente y material aplicado al Quad!");
-                GuardarFoto(fotoInstanciada);
-                InteractuarConFoto(fotoInstanciada);
+                //GuardarFoto(fotoInstanciada,fotoCapturada);
+                //InteractuarConFoto(fotoInstanciada);
             }
             else
             {
@@ -245,39 +317,90 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void GuardarFoto(GameObject foto)
+    public void GuardarFoto(GameObject foto, Texture2D texturaFoto)
     {
-        if (foto != null)
+        if (foto == null)
         {
-            string idFoto = "Foto_" + contadorFotos;
+            Debug.LogError("No se puede guardar una foto nula.");
+            return;
+        }
 
-            string nombreArchivo = idFoto + ".png";
-            string rutaCompleta = Path.Combine(rutaFotos, nombreArchivo);
+        if (texturaFoto == null)
+        {
+            Debug.LogError("La textura es nula.");
+            return;
+        }
 
-            // Asegurarse de que la carpeta exista
-            if (!Directory.Exists(rutaFotos))
-            {
-                Directory.CreateDirectory(rutaFotos);
-            }
+        string idFoto = "Foto_" + contadorFotos;
+        string rutaCompleta = Path.Combine(rutaFotos, idFoto + ".png");
 
-            // Guardar la textura de la foto en un archivo PNG
-            Texture2D texturaFoto = ((MeshRenderer)foto.GetComponentInChildren<MeshRenderer>()).material.mainTexture as Texture2D;
-            byte[] bytes = texturaFoto.EncodeToPNG();
-            File.WriteAllBytes(rutaCompleta, bytes);
+        // Asegurarse de que la carpeta exista
+        if (!Directory.Exists(rutaFotos))
+        {
+            Directory.CreateDirectory(rutaFotos);
+        }
 
-            // Agregar la foto al inventario
-            DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaFotos + "Foto_" + contadorFotos + ".png");   
-            //GestorInventario.Instance.AgregarFoto(nuevaFoto);
+        // Guardar el PNG en disco
+        byte[] bytes = texturaFoto.EncodeToPNG();
+        File.WriteAllBytes(rutaCompleta, bytes);
 
-            //Destroy(texturaFoto); // Liberar la textura de la memoria
-            //Destroy(foto); // Eliminar la foto del juego después de guardarla
+        // Crear los datos con la ruta correcta y la textura ya cargada en memoria
+        DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime);
+        bool agregada = GestorInventario.Instance.AgregarFoto(nuevaFoto);
 
-            Debug.Log("Foto guardada en: " + rutaCompleta);
+       if (agregada)
+        {
+            // Liberar la textura de memoria, ya está guardada en disco
+            Destroy(texturaFoto);
+            Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
         }
         else
         {
-            Debug.LogError("No se puede guardar una foto nula.");
+            Debug.LogWarning("No se pudo agregar al inventario (¿lleno?).");
+            Destroy(texturaFoto);
+        }
+        Destroy(foto); // Destruir la foto física del mundo después de guardarla
+        Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
+
+    }
+
+    private void DetectarYEliminarEnemigos()
+    {
+        // Usamos la posición y rotación de la cámara aim como origen del box
+        Vector3 centro = aimCamera.transform.position + aimCamera.transform.forward * (sizeZonaFoto.z / 2f);
+        Quaternion rotacion = aimCamera.transform.rotation;
+
+        Collider[] objetosDetectados = Physics.OverlapBox(centro, sizeZonaFoto / 2f, rotacion, capaEnemigos);
+
+        if (objetosDetectados.Length > 0)
+        {
+            foreach (Collider col in objetosDetectados)
+            {
+                if (col.CompareTag("Enemy"))
+                {
+                    Debug.Log($"<color=cyan>¡Enemigo fotografiado y destruido: {col.gameObject.name}!</color>");
+                    Destroy(col.gameObject);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("No había enemigos en el encuadre.");
         }
     }
     #endregion
+
+    private void OnDrawGizmosSelected()
+    {
+        if (aimCamera == null) return;
+
+        Gizmos.color = Color.cyan;
+        Vector3 centro = aimCamera.transform.position + aimCamera.transform.forward * (sizeZonaFoto.z / 2f);
+        
+        // Gizmos no soporta rotación directamente, usamos matriz
+        Gizmos.matrix = Matrix4x4.TRS(centro, aimCamera.transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, sizeZonaFoto);
+        Gizmos.matrix = Matrix4x4.identity;
+    }
+
 }
