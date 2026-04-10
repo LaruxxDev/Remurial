@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
-
+using UnityEngine.InputSystem;
 public class InventarioManager : MonoBehaviour
 {
     
@@ -18,9 +18,9 @@ public class InventarioManager : MonoBehaviour
     private Button _actionButton;
 
     private bool _isInventoryOpen = false;
-
-    private InspectSystem _inspectSystem;
-
+    [SerializeField] private InputActionReference inventoryAction; 
+    [SerializeField] private InspectSystem inspectSystem;
+    [SerializeField] private GameObject prefabFoto; 
     void Awake()
     {
         
@@ -41,7 +41,7 @@ public class InventarioManager : MonoBehaviour
     void Update()
     {
         // Abrir/Cerrar con la tecla "I" o "Tab"
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab)|| inventoryAction.action.WasPressedThisFrame())
         {
             ToggleInventory();
         }
@@ -103,10 +103,37 @@ public class InventarioManager : MonoBehaviour
             {
                 // Llama al sistema de inspección para mostrar el ítem
                 Debug.Log($"Examinando {item.name}");
+                ToggleInventory(); // Cierra el inventario
+                InspectItem(item);
             }
             Debug.Log(item.isUsable ? $"Usando {item.name}" : $"{item.name} no es usable");
         };
 
+    }
+
+    private void InspectItem(Item item)
+    {
+        if (inspectSystem == null)
+        {
+            Debug.LogError("InspectSystem no asignado en el Inspector.");
+            return;
+        }
+
+        if (item.sprite == null)
+        {
+            Debug.LogWarning("El item no tiene sprite asignado.");
+            return;
+        }
+
+        // Creamos un GameObject temporal con el sprite del item
+        GameObject itemTemporal = new GameObject("Inspeccion_" + item.name);
+        SpriteRenderer sr = itemTemporal.AddComponent<SpriteRenderer>();
+        sr.sprite = item.sprite;
+
+        inspectSystem.EnterInspectionMode(itemTemporal);
+
+        // EnterInspectionMode lo instancia internamente, ya no necesitamos este
+        Destroy(itemTemporal);
     }
 
     private void UpdateUI()
