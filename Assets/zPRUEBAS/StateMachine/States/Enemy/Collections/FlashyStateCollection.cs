@@ -10,17 +10,22 @@ public class FlashyStateCollection : EnemyStateCollection
 
     public override void Start(StateMachine sm)
     {
-        //// States
-        //unaware = new UnawareState(sm, ENEMY);
-        //aware = new AwareState(sm, ENEMY);
+        // States
+        UnawareState = new UnawareState(ENEMY);
+        AwareState = new AwareState(ENEMY);
 
-        //// SubStates
-        //idle = new IdleEnemySubState(sm, ENEMY);
-        //wander = new WanderSubState(sm, ENEMY);
-        //chase = new ChaseSubState(sm, ENEMY);
-        //attack = new AttackSubState(sm, ENEMY);
+        // Build
+        UnawareState.SetMachine(sm);
+        AwareState.SetMachine(sm);
 
-        //// Main State
-        //mainState = unaware;
+
+        // SubStates
+        IdleSubState = new IdleEnemySubState(ENEMY);
+        WanderSubState = new WanderSubState(ENEMY);
+        ChaseSubState = new ChaseSubState(ENEMY);
+        AttackSubState = new AttackSubState(ENEMY);
+
+        // Main State
+        mainState = UnawareState;
     }
 }

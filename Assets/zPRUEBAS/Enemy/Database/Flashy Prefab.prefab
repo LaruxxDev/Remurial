@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49927c7e77948d444a9cf76b90a791eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyGeneral
+  enemyType: 0
   Rigidbody: {fileID: 6934884235757072774}
   EnemyConfiguration: {fileID: 4920852291870419276}
   EnemyCollision: {fileID: 4794857957821131243}
@@ -207,6 +208,14 @@ MonoBehaviour:
   canWander: 1
   followSpeed: 7
   turnSpeed: 100
+  hasAware: 1
+  hasUnaware: 1
+  hasPetrified: 0
+  hasIdle: 1
+  hasWander: 1
+  hasChase: 1
+  hasAttack: 1
+  hasDead: 0
 --- !u!1 &1306313466971491741
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +409,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   detectionRadius: 10
-  playerGizmoz: 1
+  detectionGizmoz: 0
+  detectedPlayer: {fileID: 0}
+  attackRadius: 0
+  attackGizmoz: 0
 --- !u!136 &3908984952111115092
 CapsuleCollider:
   m_ObjectHideFlags: 0

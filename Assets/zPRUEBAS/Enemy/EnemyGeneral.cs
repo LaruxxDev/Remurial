@@ -98,6 +98,8 @@ public class EnemyGeneral : MonoBehaviour
             subStateText.text = unaware.subMachine.state.Name;
         if (StateMachine.state is AwareState aware)
             subStateText.text = aware.subMachine.state.Name;
+        if (StateMachine.state is PetrifiedState petrified)
+            subStateText.text = petrified.subMachine.state.Name;
     }
 
     [Header("Debug")]

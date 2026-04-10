@@ -10,6 +10,7 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField] float groundDistance;
     [SerializeField] bool groundGizmoz;
 
+
     [Header("Detection")]
     [SerializeField] Transform playerCheck;
     [SerializeField] LayerMask playerLayer;
@@ -18,9 +19,32 @@ public class EnemyCollision : MonoBehaviour
 
     public Transform detectedPlayer;
 
+
     [Header("Attack")]
     [SerializeField] float attackRadius;
     [SerializeField] bool attackGizmoz;
+
+
+
+    [Header("Flash")]
+    public bool FLASH;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "flash")
+        {
+            Debug.Log("FLASH");
+            FLASH = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "flash")
+        {
+            FLASH = false;
+        }
+    }
 
 
 

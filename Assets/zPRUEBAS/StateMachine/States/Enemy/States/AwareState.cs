@@ -14,20 +14,37 @@ public class AwareState : EnemyState
 
     public override void Enter()
     {
-        ENEMY.STATES.chase.SetMachine(lowLevelMachine);
-        ENEMY.STATES.attack.SetMachine(lowLevelMachine);
+        // Configuración inicial
+        // Chase
+        if (ENEMY.CONFIGURATION.hasChase)
+            ENEMY.STATES.ChaseSubState.SetMachine(lowLevelMachine);
 
-        lowLevelMachine.ChangeState(ENEMY.STATES.chase);
+        // Attack
+        if (ENEMY.CONFIGURATION.hasAttack)
+            ENEMY.STATES.AttackSubState.SetMachine(lowLevelMachine);
+
+        lowLevelMachine.ChangeState(ENEMY.STATES.ChaseSubState);
     }
 
     public override void Update()
     {
         lowLevelMachine.Update();
 
-        // Losing detection, going back to unawareness
+        // Losing Detection
         if (!ENEMY.COLLISION.PLAYER)
         {
-            STATEMACHINE.ChangeState(ENEMY.STATES.unaware);
+            // Unaware State
+            if (ENEMY.CONFIGURATION.hasUnaware)
+                STATEMACHINE.ChangeState(ENEMY.STATES.UnawareState);
+        }
+
+
+        // Flash Detection
+        if (ENEMY.COLLISION.FLASH)
+        {
+            // Petrified State
+            if (ENEMY.CONFIGURATION.hasPetrified)
+                STATEMACHINE.ChangeState(ENEMY.STATES.PetrifiedState);
         }
 
         base.Update();

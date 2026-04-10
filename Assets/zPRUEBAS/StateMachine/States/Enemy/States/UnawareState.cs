@@ -14,20 +14,41 @@ public class UnawareState : EnemyState
 
     public override void Enter()
     {
-        ENEMY.STATES.idle.SetMachine(lowLevelMachine);
-        ENEMY.STATES.wander.SetMachine(lowLevelMachine);
+        // Configuración inicial
+        // Idle
+        if (ENEMY.CONFIGURATION.hasIdle)
+            ENEMY.STATES.IdleSubState.SetMachine(lowLevelMachine);
 
-        lowLevelMachine.ChangeState(ENEMY.STATES.idle);
+        // Wander
+        if (ENEMY.CONFIGURATION.hasWander)
+            ENEMY.STATES.WanderSubState.SetMachine(lowLevelMachine);
+
+
+
+        lowLevelMachine.ChangeState(ENEMY.STATES.IdleSubState);
     }
 
     public override void Update()
     {
         lowLevelMachine.Update();
 
-        // Aware State
-        if (ENEMY.COLLISION.PLAYER)
+        // Player Detection
+        if (ENEMY.CONFIGURATION.hasAware)
         {
-            STATEMACHINE.ChangeState(ENEMY.STATES.aware);
+            // Aware State
+            if (ENEMY.COLLISION.PLAYER)
+            {
+                STATEMACHINE.ChangeState(ENEMY.STATES.AwareState);
+            }
+        }
+
+
+        // Flash Detection
+        if (ENEMY.COLLISION.FLASH)
+        {
+            // Petrified State
+            if (ENEMY.CONFIGURATION.hasPetrified)
+                STATEMACHINE.ChangeState(ENEMY.STATES.PetrifiedState);
         }
 
         base.Update();

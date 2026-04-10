@@ -208,6 +208,14 @@ MonoBehaviour:
   canWander: 1
   followSpeed: 7
   turnSpeed: 100
+  hasAware: 1
+  hasUnaware: 1
+  hasPetrified: 1
+  hasIdle: 1
+  hasWander: 1
+  hasChase: 1
+  hasAttack: 1
+  hasDead: 1
 --- !u!1 &1306313466971491741
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +413,8 @@ MonoBehaviour:
   detectedPlayer: {fileID: 0}
   attackRadius: 5
   attackGizmoz: 1
+  flashCheck: {fileID: 0}
+  flashGizmoz: 0
 --- !u!136 &3908984952111115092
 CapsuleCollider:
   m_ObjectHideFlags: 0

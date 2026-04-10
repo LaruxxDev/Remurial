@@ -50,7 +50,7 @@ public class EnemyMovement
     }
     #endregion
 
-    #region Follow
+    #region Chase
     // Setea la velocidad y el jugador como el destino
     public void ChasePlayer(Vector3 playerPosition)
     {
@@ -59,4 +59,11 @@ public class EnemyMovement
         agent.SetDestination(playerPosition);
     }
     #endregion
+
+    public void StopMovement()
+    {
+        agent.speed = 0f;
+
+        agent.ResetPath();
+    }
 }

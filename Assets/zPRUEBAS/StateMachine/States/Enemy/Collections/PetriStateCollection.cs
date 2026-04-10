@@ -8,19 +8,27 @@ public class PetriStateCollection : EnemyStateCollection
     public PetriStateCollection(EnemyGeneral enemy) => this.ENEMY = enemy;
 
 
-    public override void Start(StateMachine sm)
+    public override  void Start(StateMachine sm)
     {
         // States
-        //unaware = new UnawareState(sm, enemy);
-        //aware = new AwareState(sm, enemy);
+        UnawareState = new UnawareState(ENEMY);
+        AwareState = new AwareState(ENEMY);
+        PetrifiedState = new PetrifiedState(ENEMY);
+
+        // Build
+        UnawareState.SetMachine(sm);
+        AwareState.SetMachine(sm);
+        PetrifiedState.SetMachine(sm);
+
 
         // SubStates
-        //idle = new IdleEnemySubState(sm, enemy);
-        //wander = new WanderSubState(sm, enemy);
-        //chase = new ChaseSubState(sm, enemy);
-        //attack = new AttackSubState(sm, enemy);
+        IdleSubState = new IdleEnemySubState(ENEMY);
+        WanderSubState = new WanderSubState(ENEMY);
+        ChaseSubState = new ChaseSubState(ENEMY);
+        AttackSubState = new AttackSubState(ENEMY);
+        DeadSubState = new DeadSubState(ENEMY);
 
         // Main State
-        mainState = unaware;
+        mainState = UnawareState;
     }
 }

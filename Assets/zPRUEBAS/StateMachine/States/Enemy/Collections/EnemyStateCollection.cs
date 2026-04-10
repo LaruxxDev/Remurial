@@ -7,34 +7,15 @@ public abstract class EnemyStateCollection
     public abstract void Start(StateMachine sm);
 
 
-    // States
-    #region Enemy1
-    public UnawareState unaware;
-    public AwareState aware;
+    [Header("States")]
+    public UnawareState UnawareState;
+    public AwareState AwareState;
+    public PetrifiedState PetrifiedState;
 
-    public IdleEnemySubState idle;
-    public WanderSubState wander;
-    public ChaseSubState chase;
-    public AttackSubState attack;
-    #endregion
-
-    #region Enemy2
-    //public UnawareState unaware;
-    //public AwareState aware;
-
-    //public IdleEnemySubState idle;
-    //public WanderSubState wander;
-    //public ChaseSubState chase;
-    //public AttackSubState attack;
-    #endregion
-
-    #region Enemy3
-    //public UnawareState unaware;
-    //public AwareState aware;
-
-    //public IdleEnemySubState idle;
-    //public WanderSubState wander;
-    //public ChaseSubState chase;
-    //public AttackSubState attack;
-    #endregion
+    [Header("SubStates")]
+    public IdleEnemySubState IdleSubState;
+    public WanderSubState WanderSubState;
+    public ChaseSubState ChaseSubState;
+    public AttackSubState AttackSubState;
+    public DeadSubState DeadSubState;
 }

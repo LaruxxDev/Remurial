@@ -990,6 +990,12 @@ MonoBehaviour:
   canWander: 1
   followSpeed: 7
   turnSpeed: 100
+  hasAware: 1
+  hasUnaware: 1
+  hasIdle: 1
+  hasWander: 1
+  hasChase: 1
+  hasAttack: 1
 --- !u!1 &8278440470795601858
 GameObject:
   m_ObjectHideFlags: 0

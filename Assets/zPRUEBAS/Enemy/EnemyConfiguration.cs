@@ -69,4 +69,17 @@ public class EnemyConfiguration : MonoBehaviour
     }
 
 
+    #region States
+    [Header("States")]
+    public bool hasAware;
+    public bool hasUnaware;
+    public bool hasPetrified;
+
+    [Header("SubStates")]
+    public bool hasIdle;
+    public bool hasWander;
+    public bool hasChase;
+    public bool hasAttack;
+    public bool hasDead;
+    #endregion
 }

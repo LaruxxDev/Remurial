@@ -11,21 +11,21 @@ public class BirbStateCollection : EnemyStateCollection
     public override void Start(StateMachine sm)
     {
         // States
-        unaware = new UnawareState(ENEMY);
-        aware = new AwareState(ENEMY);
+        UnawareState = new UnawareState(ENEMY);
+        AwareState = new AwareState(ENEMY);
 
         // Build
-        unaware.SetMachine(sm);
-        aware.SetMachine(sm);
+        UnawareState.SetMachine(sm);
+        AwareState.SetMachine(sm);
 
 
         // SubStates
-        idle = new IdleEnemySubState(ENEMY);
-        wander = new WanderSubState(ENEMY);
-        chase = new ChaseSubState(ENEMY);
-        attack = new AttackSubState(ENEMY);
+        IdleSubState = new IdleEnemySubState(ENEMY);
+        WanderSubState = new WanderSubState(ENEMY);
+        ChaseSubState = new ChaseSubState(ENEMY);
+        AttackSubState = new AttackSubState(ENEMY);
 
         // Main State
-        mainState = unaware;
+        mainState = UnawareState;
     }
 }
