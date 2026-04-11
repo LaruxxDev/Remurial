@@ -72,6 +72,15 @@ public class InputManager : MonoBehaviour
         if (other.CompareTag("Interactuable"))
         {
             interactuableItem = other.gameObject; // Guardamos el objeto interacutuable para usarlo al interactuar
+            Debug.Log("Detectado objeto: " + other.name);
+            if (HudManager.Instance != null)
+            {
+                HudManager.Instance.MostrarMensaje("Pulsa [E] para inspeccionar " + other.name);
+            }
+            else 
+            {
+                Debug.LogWarning("No se encontró el HUDManager en la escena.");
+            }
         }
     }
 
