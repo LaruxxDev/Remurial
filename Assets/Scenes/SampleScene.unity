@@ -7358,6 +7358,7 @@ GameObject:
   - component: {fileID: 1284797779}
   - component: {fileID: 1284797778}
   - component: {fileID: 1284797784}
+  - component: {fileID: 1284797785}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -7474,6 +7475,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1284797785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284797777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c45b8e829162e4d8eb011ad1ba17bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GestorInventario
+  fotosEnInventario: []
+  maxFotos: 20
 --- !u!43 &1598781754
 Mesh:
   m_ObjectHideFlags: 0
@@ -8291,9 +8306,9 @@ SceneRoots:
   - {fileID: 474956930}
   - {fileID: 9076535117595252835}
   - {fileID: 1668750006}
-  - {fileID: 452074866}
   - {fileID: 1857885152}
   - {fileID: 670868683}
   - {fileID: 9186877563502082360}
   - {fileID: 683870393}
   - {fileID: 616067776}
+  - {fileID: 452074866}
