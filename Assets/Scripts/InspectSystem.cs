@@ -56,10 +56,17 @@ public class InspectSystem : MonoBehaviour
         if (isInspecting) return; // Evitar entrar en modo inspección si ya se está inspeccionando algo
         Debug.Log("Entrando en modo inspección con el objeto: " + objectToInspect.name);
         currentInspectedObject = Instantiate(objectToInspect, AparitionPoint.position, Quaternion.identity);
+        FotoRevelado reveladorNuevo = currentInspectedObject.GetComponent<FotoRevelado>();
+        if (reveladorNuevo != null)
+        {
+            reveladorNuevo.isInspecting = true;
+            reveladorNuevo.RevelarInstantaneo();
+        }
         MeshRenderer mrOriginal = objectToInspect.GetComponentInChildren<MeshRenderer>();
         MeshRenderer mrNuevo = currentInspectedObject.GetComponentInChildren<MeshRenderer>();
         if (mrOriginal != null && mrNuevo != null)
         {
+            mrNuevo.material = new Material(mrOriginal.material);
             mrNuevo.material.mainTexture = mrOriginal.material.mainTexture;
         }
         rawImageUI.SetActive(true); // Mostrar la UI de inspección

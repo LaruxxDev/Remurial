@@ -31,6 +31,7 @@ public class FotoRevelado  : MonoBehaviour
     private Vector3 posicionOriginal;
     private Vector3 targetOffset;
     private Vector3 currentOffset;
+    public bool isInspecting = false;
 
     void Start()
     {
@@ -56,7 +57,7 @@ public class FotoRevelado  : MonoBehaviour
 
     void Update()
     {
-        if (datos == null || reveladoCompleto) return;
+        if (datos == null || reveladoCompleto || isInspecting) return;
         if (datos.revealTime <= 0f)
         {
             datos.revealProgress = 1f;
@@ -114,6 +115,26 @@ public class FotoRevelado  : MonoBehaviour
         }
     }
 
+    public void RevelarInstantaneo()
+    {
+        reveladoCompleto = true;
+        isInspecting = true; // Esto detendrá el Update por la condición al inicio del mismo
+        
+        if (datos != null)
+        {
+            datos.revealProgress = 1f;
+        }
+
+        if (materialInstanciado != null && materialInstanciado.HasProperty("_Color"))
+        {
+            Color c = materialInstanciado.color;
+            c.a = 0f; // Hacemos la tapa totalmente transparente
+            materialInstanciado.color = c;
+        }
+        
+        // Si tienes el objeto 'reveal' (el cubo), lo desactivamos directamente
+        if (reveal != null) reveal.SetActive(false); 
+    }
     private void OnReveladoCompleto()
     {
         Debug.Log($"Foto {datos.idFoto} ha desaparecido completamente.");

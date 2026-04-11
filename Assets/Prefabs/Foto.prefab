@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3225535521704854253}
   - component: {fileID: 8501649854913452572}
   - component: {fileID: 494630288669200462}
+  - component: {fileID: 6626755837368841876}
   m_Layer: 0
   m_Name: Foto
   m_TagString: Interactuable
@@ -138,6 +139,34 @@ MonoBehaviour:
   distanciaAgite: 0.15
   velocidadRetorno: 12
   reveal: {fileID: 3802400139476070591}
+  isInspecting: 0
+--- !u!114 &6626755837368841876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864132496829830496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be284c2fb04aa84fac0632dbd5989f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractuableItem
+  itemData:
+    name: Foto
+    description: description
+    id: 0
+    isKeyItem: 0
+    isUsable: 0
+    quantity: 1
+    maxStack: 99
+    sprite: {fileID: 0}
+    esFoto: 1
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 10
+    prefabItem: {fileID: 864132496829830496}
 --- !u!1 &3802400139476070591
 GameObject:
   m_ObjectHideFlags: 0
