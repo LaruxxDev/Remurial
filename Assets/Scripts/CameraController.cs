@@ -346,7 +346,15 @@ public class CameraController : MonoBehaviour
 
         // Crear los datos con la ruta correcta y la textura ya cargada en memoria
         DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime);
-        bool agregada = GestorInventario.Instance.AgregarFoto(nuevaFoto);
+        Item itemFoto = new Item
+        {
+            name = idFoto,
+            description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
+            esFoto = true,
+            datosFoto = nuevaFoto,
+            prefabItem = prefabFotoFisica
+        };
+        bool agregada = InventarioManager.Instance.AgregarItem(itemFoto);
 
        if (agregada)
         {
