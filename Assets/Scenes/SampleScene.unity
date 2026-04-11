@@ -303,7 +303,7 @@ MonoBehaviour:
   defaultPriority: 9
   coldownFoto: 2
   reavelTime: 10
-  tamanoZonaFoto: {x: 3.2, y: 1.96, z: 6.26}
+  sizeZonaFoto: {x: 3, y: 2, z: 5}
   capaEnemigos:
     serializedVersion: 2
     m_Bits: 64
@@ -1198,6 +1198,168 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.3791656, y: 2.4103117, z: 4.426154}
   m_Center: {x: -1.18189, y: -0.044836283, z: 1.7130771}
+--- !u!1 &445431816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445431817}
+  - component: {fileID: 445431819}
+  - component: {fileID: 445431818}
+  m_Layer: 0
+  m_Name: Inventario
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445431817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445431816}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -399.40546, y: -163.11551, z: 0.5945028}
+  m_LocalScale: {x: 0.76775426, y: 0.76775426, z: 0.76775426}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 452074866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445431818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445431816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353649b5e74726048b822af37271bb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::inventario
+  itemsList:
+  - name: camara
+    description: es una camara que siempre lleva a topdos lados. es un recuerdo de
+      alguien muy querido
+    id: 0
+    isKeyItem: 0
+    isUsable: 0
+    quantity: 1
+    maxStack: 0
+    sprite: {fileID: 21300000, guid: 8ae8845c95d5dba45a7f6634b39e1099, type: 3}
+    esFoto: 0
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 0
+    prefabItem: {fileID: 0}
+  - name: pastillas
+    description: me las receto el medico para poder estar alegre. solo tengo que
+      tomarla cuando mas la necesito
+    id: 1
+    isKeyItem: 0
+    isUsable: 1
+    quantity: 3
+    maxStack: 10
+    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
+    esFoto: 0
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 0
+    prefabItem: {fileID: 0}
+  - name: bestiario
+    description: me las receto el medico para poder estar alegre. solo tengo que
+      tomarla cuando mas la necesito
+    id: 2
+    isKeyItem: 0
+    isUsable: 1
+    quantity: 3
+    maxStack: 10
+    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
+    esFoto: 0
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 0
+    prefabItem: {fileID: 0}
+  - name: cartuchos polaroid
+    description: me las receto el medico para poder estar alegre. solo tengo que
+      tomarla cuando mas la necesito
+    id: 3
+    isKeyItem: 0
+    isUsable: 1
+    quantity: 3
+    maxStack: 10
+    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
+    esFoto: 0
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 0
+    prefabItem: {fileID: 0}
+  - name: llave
+    description: me las receto el medico para poder estar alegre. solo tengo que
+      tomarla cuando mas la necesito
+    id: 4
+    isKeyItem: 1
+    isUsable: 1
+    quantity: 3
+    maxStack: 10
+    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
+    esFoto: 0
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 0
+    prefabItem: {fileID: 0}
+  - name: key 2
+    description: me las receto el medico para poder estar alegre. solo tengo que
+      tomarla cuando mas la necesito
+    id: 5
+    isKeyItem: 1
+    isUsable: 1
+    quantity: 3
+    maxStack: 10
+    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
+    esFoto: 0
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 0
+    prefabItem: {fileID: 0}
+  maxItems: 20
+  inventoryAction: {fileID: -4782559618413106243, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  inspectSystem: {fileID: 1284797779}
+--- !u!114 &445431819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445431816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 608dcd1d838243e4ebc37f19c700f460, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 584380d4d0bcab94e984bea2b3d756ec, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
 --- !u!1 &452074862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1373,7 @@ GameObject:
   - component: {fileID: 452074864}
   - component: {fileID: 452074863}
   m_Layer: 5
-  m_Name: UI
+  m_Name: ---UI---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,6 +1455,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1859518304}
+  - {fileID: 445431817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7195,7 +7358,6 @@ GameObject:
   - component: {fileID: 1284797779}
   - component: {fileID: 1284797778}
   - component: {fileID: 1284797784}
-  - component: {fileID: 1284797785}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -7312,20 +7474,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1284797785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284797777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c45b8e829162e4d8eb011ad1ba17bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GestorInventario
-  fotosEnInventario: []
-  maxFotos: 20
 --- !u!43 &1598781754
 Mesh:
   m_ObjectHideFlags: 0
@@ -7971,6 +8119,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: 1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -7982,6 +8132,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:

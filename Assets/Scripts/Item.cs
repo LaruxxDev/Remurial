@@ -1,7 +1,8 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Item {
+public class Item
+{
     public string name = "item";
     public string description = "description";
     public int id = 0;
@@ -10,4 +11,43 @@ public class Item {
     public int quantity = 1;
     public int maxStack = 99;
     public Sprite sprite;
+
+    public bool esFoto = false;
+    public DatosFotos datosFoto; 
+
+    public GameObject prefabItem;
+
+    // Devuelve el GameObject listo para inspeccionar
+    public GameObject ObtenerGameObjectParaInspeccion()
+    {
+        if (prefabItem == null)
+        {
+            Debug.LogError("El item " + name + " no tiene prefab de inspección asignado.");
+            return null;
+        }
+
+        GameObject instancia = GameObject.Instantiate(prefabItem,Vector3.zero, Quaternion.identity);
+
+        // Si es foto, le cargamos la textura
+        if (esFoto && datosFoto != null)
+        {
+            if (datosFoto.textura == null)
+            {
+                datosFoto.CargarTextura();
+            }
+
+            MeshRenderer meshRenderer = instancia.GetComponentInChildren<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                meshRenderer.material = new Material(meshRenderer.material);
+                meshRenderer.material.mainTexture = datosFoto.textura;
+            }
+            else
+            {
+                Debug.LogError("El prefab de foto no tiene MeshRenderer.");
+            }
+        }
+
+        return instancia;
+    }
 }

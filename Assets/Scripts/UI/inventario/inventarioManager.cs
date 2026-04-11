@@ -2,33 +2,56 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+
 public class InventarioManager : MonoBehaviour
 {
-    
-    public List<Item> itemsList;
+    #region Values
+    public static InventarioManager Instance { get; private set; }
+
+    public List<Item> itemsList = new List<Item>();
     private int _index = 0;
 
-   // Elementos de la UI
+    [Header("Configuración")]
+    [SerializeField] private int maxItems = 20;
+
+    [Header("UI")]
     private VisualElement _root;
-    private VisualElement _mainContainer; // El contenedor principal de tu UI Builder
+    private VisualElement _mainContainer;
     private VisualElement _carrusel;
     private VisualElement _bigItemImage;
     private Label _labelName;
     private Label _labelDesc;
     private Button _actionButton;
 
-    private bool _isInventoryOpen = false;
-    [SerializeField] private InputActionReference inventoryAction; 
+    [Header("Referencias")]
+    [SerializeField] private InputActionReference inventoryAction;
     [SerializeField] private InspectSystem inspectSystem;
-    [SerializeField] private GameObject prefabFoto; 
+
+    private bool _isInventoryOpen = false;
+
+    // Eventos
+    public event System.Action<Item> OnItemAgregado;
+    public event System.Action<Item> OnItemEliminado;
+    public event System.Action OnInventarioLleno;
+    #endregion
+
+    #region Unity Methods
     void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         _root = GetComponent<UIDocument>().rootVisualElement;
-        
         _mainContainer = _root.Q<VisualElement>("MainContainer");
         _mainContainer.style.display = DisplayStyle.None;
-
         _carrusel = _root.Q<VisualElement>("Carrusel");
         _labelName = _root.Q<Label>("ItemName");
         _bigItemImage = _root.Q<VisualElement>("ItemImage");
@@ -38,15 +61,96 @@ public class InventarioManager : MonoBehaviour
         ConfigurarEventos();
     }
 
+    void OnDestroy()
+    {
+        LiberarTodasLasTexturas();
+    }
+
     void Update()
     {
-        // Abrir/Cerrar con la tecla "I" o "Tab"
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab)|| inventoryAction.action.WasPressedThisFrame())
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab) || inventoryAction.action.WasPressedThisFrame())
         {
             ToggleInventory();
         }
     }
+    #endregion
 
+    #region Inventory Methods
+    public bool AgregarItem(Item item)
+    {
+        if (item == null)
+        {
+            Debug.LogError("No se puede agregar un item nulo.");
+            return false;
+        }
+
+        if (itemsList.Count >= maxItems)
+        {
+            Debug.LogWarning("Inventario lleno.");
+            OnInventarioLleno?.Invoke();
+            return false;
+        }
+
+        itemsList.Add(item);
+        OnItemAgregado?.Invoke(item);
+
+        if (_isInventoryOpen) UpdateUI();
+
+        Debug.Log($"Item agregado: {item.name} | Total: {itemsList.Count}/{maxItems}");
+        return true;
+    }
+
+    public bool EliminarItem(int id)
+    {
+        Item item = BuscarItem(id);
+        if (item == null)
+        {
+            Debug.LogWarning("No se encontró el item con id: " + id);
+            return false;
+        }
+
+        // Si es foto, liberar su textura antes de eliminar
+        if (item.esFoto && item.datosFoto != null)
+        {
+            item.datosFoto.LiberarTextura();
+        }
+
+        itemsList.Remove(item);
+        OnItemEliminado?.Invoke(item);
+
+        // Ajustar índice si quedó fuera de rango
+        if (_index >= itemsList.Count)
+        {
+            _index = Mathf.Max(0, itemsList.Count - 1);
+        }
+
+        if (_isInventoryOpen) UpdateUI();
+
+        Debug.Log($"Item eliminado: {item.name} | Total: {itemsList.Count}/{maxItems}");
+        return true;
+    }
+
+    public Item BuscarItem(int id)
+    {
+        return itemsList.Find(i => i.id == id);
+    }
+
+    public bool InventarioLleno() => itemsList.Count >= maxItems;
+    public int EspacioRestante() => maxItems - itemsList.Count;
+
+    private void LiberarTodasLasTexturas()
+    {
+        foreach (Item item in itemsList)
+        {
+            if (item.esFoto && item.datosFoto != null)
+            {
+                item.datosFoto.LiberarTextura();
+            }
+        }
+    }
+    #endregion
+
+    #region UI Methods
     private void ToggleInventory()
     {
         _isInventoryOpen = !_isInventoryOpen;
@@ -55,25 +159,21 @@ public class InventarioManager : MonoBehaviour
         {
             _mainContainer.style.display = DisplayStyle.Flex;
             UpdateUI();
-            _root.Focus(); // Para que el mando/teclado funcione al abrir
-            
-            // Opcional: Pausar el juego
-            // Time.timeScale = 0;
+            _root.Focus();
         }
         else
         {
+            // Al cerrar, liberar texturas de fotos que se cargaron para mostrar
+            LiberarTexturasVisibles();
             _mainContainer.style.display = DisplayStyle.None;
-            // Opcional: Reanudar el juego
-            // Time.timeScale = 1;
         }
     }
 
     private void ConfigurarEventos()
     {
-        // Navegació teclad y mando
         _root.RegisterCallback<NavigationMoveEvent>(evt =>
         {
-            if (!_isInventoryOpen) return; // Solo si está abierto
+            if (!_isInventoryOpen || itemsList.Count == 0) return;
 
             if (evt.direction == NavigationMoveEvent.Direction.Right)
             {
@@ -87,53 +187,42 @@ public class InventarioManager : MonoBehaviour
             }
         });
 
-        // Navegación con botones
-        _root.Q<Button>("RightButton").clicked += () => { _index = (_index + 1) % itemsList.Count; UpdateUI(); };
-        _root.Q<Button>("LeftButton").clicked += () => { _index = (_index - 1 + itemsList.Count) % itemsList.Count; UpdateUI(); };
+        _root.Q<Button>("RightButton").clicked += () =>
+        {
+            if (itemsList.Count == 0) return;
+            _index = (_index + 1) % itemsList.Count;
+            UpdateUI();
+        };
+
+        _root.Q<Button>("LeftButton").clicked += () =>
+        {
+            if (itemsList.Count == 0) return;
+            _index = (_index - 1 + itemsList.Count) % itemsList.Count;
+            UpdateUI();
+        };
 
         _actionButton.clicked += () =>
         {
+            if (itemsList.Count == 0) return;
+
             var item = itemsList[_index];
+
             if (item.isUsable)
             {
-                // Aquí iría la lógica para usar el ítem
                 Debug.Log($"Usando {item.name}");
+                // Tu lógica de usar item aquí
             }
             else
             {
-                // Llama al sistema de inspección para mostrar el ítem
-                Debug.Log($"Examinando {item.name}");
-                ToggleInventory(); // Cierra el inventario
-                InspectItem(item);
+                GameObject goInspeccion = item.ObtenerGameObjectParaInspeccion();
+                if (goInspeccion != null)
+                {
+                    ToggleInventory();
+                    inspectSystem.EnterInspectionMode(goInspeccion);
+                    Destroy(goInspeccion);
+                }
             }
-            Debug.Log(item.isUsable ? $"Usando {item.name}" : $"{item.name} no es usable");
         };
-
-    }
-
-    private void InspectItem(Item item)
-    {
-        if (inspectSystem == null)
-        {
-            Debug.LogError("InspectSystem no asignado en el Inspector.");
-            return;
-        }
-
-        if (item.sprite == null)
-        {
-            Debug.LogWarning("El item no tiene sprite asignado.");
-            return;
-        }
-
-        // Creamos un GameObject temporal con el sprite del item
-        GameObject itemTemporal = new GameObject("Inspeccion_" + item.name);
-        SpriteRenderer sr = itemTemporal.AddComponent<SpriteRenderer>();
-        sr.sprite = item.sprite;
-
-        inspectSystem.EnterInspectionMode(itemTemporal);
-
-        // EnterInspectionMode lo instancia internamente, ya no necesitamos este
-        Destroy(itemTemporal);
     }
 
     private void UpdateUI()
@@ -148,68 +237,96 @@ public class InventarioManager : MonoBehaviour
             return;
         }
 
-        if (_carrusel == null)
-        {
-            Debug.LogError("¡OJO! No se encuentra el VisualElement llamado 'Carrusel'. Revisa el nombre en el UI Builder.");
-            return;
-        }   
-
         _actionButton.style.display = DisplayStyle.Flex;
         _carrusel.Clear();
-        var currentItem = itemsList[_index];
 
-        // --- LÓGICA DE RUEDA (3 ÍTEMS) ---
-    
-        // 1. Calcular índices
+        var currentItem = itemsList[_index];
         int prevIndex = (_index - 1 + itemsList.Count) % itemsList.Count;
         int nextIndex = (_index + 1) % itemsList.Count;
 
-        // 2. Añadir ítem ANTERIOR (Izquierda)
         if (itemsList.Count > 1)
-            _carrusel.Add(CrearItemCarrusel(itemsList[prevIndex].sprite, false));
+            _carrusel.Add(CrearItemCarrusel(itemsList[prevIndex], false));
 
-        // 3. Añadir ítem ACTUAL (Centro)
-        _carrusel.Add(CrearItemCarrusel(itemsList[_index].sprite, true));
+        _carrusel.Add(CrearItemCarrusel(itemsList[_index], true));
 
-        // 4. Añadir ítem SIGUIENTE (Derecha)
         if (itemsList.Count > 2)
-            _carrusel.Add(CrearItemCarrusel(itemsList[nextIndex].sprite, false));
+            _carrusel.Add(CrearItemCarrusel(itemsList[nextIndex], false));
 
-        // --- PANEL LATERAL (Info del ítem actual) ---
-        _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
+        // Si el item actual es foto, cargar su textura para mostrarla
+        if (currentItem.esFoto && currentItem.datosFoto != null)
+        {
+            currentItem.datosFoto.CargarTextura();
+            if (currentItem.datosFoto.textura != null)
+            {
+                Sprite spriteTextura = TexturaASprite(currentItem.datosFoto.textura);
+                _bigItemImage.style.backgroundImage = new StyleBackground(spriteTextura);
+            }
+        }
+        else
+        {
+            _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
+        }
+
         _bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
         _labelName.text = currentItem.name.ToUpper();
         _labelDesc.text = currentItem.description;
         _actionButton.text = currentItem.isUsable ? "USE" : "EXAMINE";
     }
 
-    // Función para generar cada cuadrito de la rueda
-    private VisualElement CrearItemCarrusel(Sprite sprite, bool esSeleccionado)
+    // Convierte Texture2D a Sprite para mostrarlo en UI Toolkit
+    private Sprite TexturaASprite(Texture2D textura)
     {
-        VisualElement item = new VisualElement();
-        
-        // Asignamos las clases del USS
-        item.AddToClassList("carrusel-item");
-        item.AddToClassList(esSeleccionado ? "carrusel-item-selected" : "carrusel-item-unselected");
+        return Sprite.Create(textura, new Rect(0, 0, textura.width, textura.height), new Vector2(0.5f, 0.5f));
+    }
 
-        // Forzamos dimensiones mínimas por código
-        item.style.width = 120;
-        item.style.height = 120;
-        item.style.flexShrink = 0; // Crucial para que no se aplaste a 0px
-
-        if (sprite != null)
+    // Libera texturas de fotos al cerrar el inventario
+    private void LiberarTexturasVisibles()
+    {
+        foreach (Item item in itemsList)
         {
-            item.style.backgroundImage = new StyleBackground(sprite);
-            item.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
-            item.style.unityBackgroundImageTintColor = Color.white; // Asegura que no sea negro  
+            if (item.esFoto && item.datosFoto != null)
+            {
+                item.datosFoto.LiberarTextura();
+            }
+        }
+    }
+
+    private VisualElement CrearItemCarrusel(Item item, bool esSeleccionado)
+    {
+        VisualElement ve = new VisualElement();
+        ve.AddToClassList("carrusel-item");
+        ve.AddToClassList(esSeleccionado ? "carrusel-item-selected" : "carrusel-item-unselected");
+        ve.style.width = 120;
+        ve.style.height = 120;
+        ve.style.flexShrink = 0;
+
+        // Si es foto usamos su textura, si no su sprite normal
+        if (item.esFoto && item.datosFoto != null)
+        {
+            item.datosFoto.CargarTextura();
+            if (item.datosFoto.textura != null)
+            {
+                ve.style.backgroundImage = new StyleBackground(TexturaASprite(item.datosFoto.textura));
+                ve.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
+                ve.style.unityBackgroundImageTintColor = Color.white;
+            }
+            else
+            {
+                ve.style.backgroundColor = Color.magenta;
+            }
+        }
+        else if (item.sprite != null)
+        {
+            ve.style.backgroundImage = new StyleBackground(item.sprite);
+            ve.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
+            ve.style.unityBackgroundImageTintColor = Color.white;
         }
         else
         {
-            // SI VES ESTE COLOR MAGENTA, el problema es que el script no recibe el Sprite
-            item.style.backgroundColor = Color.magenta; 
+            ve.style.backgroundColor = Color.magenta;
         }
 
-        return item;
+        return ve;
     }
+    #endregion
 }
-
