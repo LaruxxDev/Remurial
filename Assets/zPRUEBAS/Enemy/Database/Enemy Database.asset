@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Enemy Database
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDatabase
   enemyData:
-  - <Name>k__BackingField: Enemy 1
+  - <Name>k__BackingField: InvisiGuy
     <ID>k__BackingField: 0
     <Prefab>k__BackingField: {fileID: 8313415052407828390, guid: 1703a1ff7d259664698d96a418f72497, type: 3}
-  - <Name>k__BackingField: Enemy 2
+  - <Name>k__BackingField: Birb
     <ID>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: 5466446466948902529, guid: f75ce9a96c8254443b1914fd34c1b735, type: 3}
-  - <Name>k__BackingField: Boss 1
+    <Prefab>k__BackingField: {fileID: 3679805490789923689, guid: 7aff85b8bf878ad42968f83679a22197, type: 3}
+  - <Name>k__BackingField: Flashy
     <ID>k__BackingField: 2
-    <Prefab>k__BackingField: {fileID: 1125251713710455683, guid: 3a969586130a11e45afb42d1b81b2f8f, type: 3}
+    <Prefab>k__BackingField: {fileID: 8313415052407828390, guid: 48c5e1ea2126c4f44ab1a26312e34ff0, type: 3}
