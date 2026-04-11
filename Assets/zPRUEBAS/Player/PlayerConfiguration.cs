@@ -10,6 +10,11 @@ public class PlayerConfiguration : MonoBehaviour
     [SerializeField] float moveSpeed;
     public float MOVESPEED => moveSpeed;
 
+
+    [SerializeField] float cameraModifier;
+    [SerializeField] float cameraMoveSpeed;
+    public float CAMERAMOVESPEED => cameraMoveSpeed;
+
     [SerializeField] float turnSpeed;
     public float TURNSPEED => turnSpeed;
     #endregion
@@ -29,8 +34,11 @@ public class PlayerConfiguration : MonoBehaviour
     }
     #endregion
 
+
     private void Awake()
     {
         SetRotations();
+
+        cameraMoveSpeed = moveSpeed * (cameraModifier / 100);
     }
 }

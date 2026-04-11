@@ -14,7 +14,7 @@ public class OnCameraState : PlayerState
 
     public override void Enter()
     {
-        //lowLevelMachine.ChangeState(PLAYER.STATES.IdleSubState(lowLevelMachine));
+        lowLevelMachine.ChangeState(PLAYER.STATES.CameraIdleSubState(lowLevelMachine));
     }
 
     public override void Update()
@@ -22,6 +22,16 @@ public class OnCameraState : PlayerState
         lowLevelMachine.Update();
 
         base.Update();
+
+
+        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA > 0f)
+        {
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(0f);
+
+            CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
+            STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
+        }
     }
     
     public override void FixedUpdate() => lowLevelMachine.FixedUpdate();

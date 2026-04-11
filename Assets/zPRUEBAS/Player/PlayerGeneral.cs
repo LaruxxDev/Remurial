@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,6 +38,15 @@ public class PlayerGeneral : MonoBehaviour
     public PlayerMovement MOVEMENT => PlayerMovement;
 
 
+    [Header("Cameras")]
+    public CinemachineCamera firstPersonCamera;
+    public CinemachineCamera thirdPersonCamera;
+
+
+    [Header("Objects")]
+    public GameObject flashObject;
+
+
     //[Header("Animations")]
     //[SerializeField] AnimationManager AnimationManager;
     //public AnimationManager ANIMATION => AnimationManager;
@@ -48,7 +58,7 @@ public class PlayerGeneral : MonoBehaviour
         StateMachine = new StateMachine();
         States = new StateCollection(this);
         InputTransformer = new InputTransformer();
-        PlayerMovement = new PlayerMovement(Rigidbody, PlayerConfiguration);
+        PlayerMovement = new PlayerMovement(Rigidbody, PlayerConfiguration, this);
     }
 
     void Start()

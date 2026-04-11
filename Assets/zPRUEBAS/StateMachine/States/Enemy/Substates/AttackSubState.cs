@@ -11,8 +11,6 @@ public class AttackSubState : EnemyState
         base.Enter();
 
 
-        Debug.Log("Entering: Attack");
-
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Attack);
     }
 

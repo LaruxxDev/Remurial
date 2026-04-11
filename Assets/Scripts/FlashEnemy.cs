@@ -6,8 +6,10 @@ public class FlashEnemy : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-             Debug.Log("FLASH");
+            Debug.Log("FLASH");
+
             EnemyCollision enemyCollision = other.GetComponent<EnemyCollision>();
+
             if (enemyCollision != null)
             {
                 enemyCollision.FLASH = true;

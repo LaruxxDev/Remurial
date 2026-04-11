@@ -10,10 +10,6 @@ public class IdleEnemySubState : EnemyState
     {
         base.Enter();
 
-
-        Debug.Log("Entering: Idle");
-
-
         ENEMY.CONFIGURATION.ResetWander();
 
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Idle);

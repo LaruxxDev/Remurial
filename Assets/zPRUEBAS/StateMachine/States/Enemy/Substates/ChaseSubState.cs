@@ -9,10 +9,6 @@ public class ChaseSubState : EnemyState
     public override void Enter()
     {
         base.Enter();
-
-
-        Debug.Log("Entering: Chase");
-
         
 
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Movement);

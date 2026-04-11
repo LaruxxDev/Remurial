@@ -10,8 +10,6 @@ public class WanderSubState : EnemyState
     {
         base.Enter();
 
-        Debug.Log("Entering: Wander");
-
         ENEMY.MOVEMENT.SetRandomDestination();
 
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Movement);
