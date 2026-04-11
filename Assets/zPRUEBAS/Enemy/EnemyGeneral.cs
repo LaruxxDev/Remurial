@@ -62,6 +62,8 @@ public class EnemyGeneral : MonoBehaviour
         {
             case EnemyType.flashyEnemy:
                 States = new FlashyStateCollection(this);
+
+                EnemyCollision.detectedPlayer = GameObject.FindGameObjectWithTag("Player").transform;
                 break;
 
             case EnemyType.birbEnemy:

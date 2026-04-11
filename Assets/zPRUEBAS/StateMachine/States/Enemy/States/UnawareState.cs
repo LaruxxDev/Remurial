@@ -43,6 +43,16 @@ public class UnawareState : EnemyState
         }
 
 
+        // Camera Detection
+        if (ENEMY.COLLISION.FLASH)
+        {
+            if (ENEMY.enemyType == EnemyGeneral.EnemyType.birbEnemy)
+            {
+
+            }
+        }
+
+
         // Flash Detection
         if (ENEMY.COLLISION.FLASH)
         {

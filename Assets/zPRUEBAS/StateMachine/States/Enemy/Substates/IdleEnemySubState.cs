@@ -22,7 +22,7 @@ public class IdleEnemySubState : EnemyState
     public override void Update()
     {
         // Wander
-        if (ENEMY.CONFIGURATION.hasWander && ENEMY.CONFIGURATION.canWander)
+        if (ENEMY.CONFIGURATION.hasWander && ENEMY.CONFIGURATION.canMove)
             STATEMACHINE.ChangeState(ENEMY.STATES.WanderSubState);
     }
 }

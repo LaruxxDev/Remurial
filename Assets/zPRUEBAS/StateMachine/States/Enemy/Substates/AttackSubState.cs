@@ -33,7 +33,7 @@ public class AttackSubState : EnemyState
             case <= 0.5f:
 
                 // Stop
-                ENEMY.MOVEMENT.ChasePlayer(ENEMY.Rigidbody.position);
+                ENEMY.MOVEMENT.StopMovement();
                 break;
         }
 

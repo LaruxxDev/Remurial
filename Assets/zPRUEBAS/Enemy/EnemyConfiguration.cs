@@ -20,7 +20,7 @@ public class EnemyConfiguration : MonoBehaviour
     [SerializeField] float waitTime;
     public float WAITTIME => waitTime;
 
-    public bool canWander;
+    public bool canMove;
 
 
 
@@ -31,21 +31,37 @@ public class EnemyConfiguration : MonoBehaviour
 
     private IEnumerator ResetWanderRoutine(float delay)
     {
-        canWander = false;
+        canMove = false;
 
         yield return new WaitForSeconds(delay);
 
-        canWander = true;
+        canMove = true;
     }
     #endregion
 
     #region Follow
     [Header("Follow")]
+    [SerializeField] float baseFollowSpeed;
     [SerializeField] float followSpeed;
     public float FOLLOWSPEED => followSpeed;
 
     [SerializeField] float turnSpeed;
     public float TURNSPEED => turnSpeed;
+
+
+    public void AllowFlashMovement()
+    {
+        StartCoroutine(FlashMovementRoutine(waitTime));
+    }
+
+    private IEnumerator FlashMovementRoutine(float delay)
+    {
+        followSpeed = baseFollowSpeed;
+
+        yield return new WaitForSeconds(delay);
+
+        followSpeed = 0f;
+    }
     #endregion
 
     #region Rotations
@@ -63,12 +79,6 @@ public class EnemyConfiguration : MonoBehaviour
     }
     #endregion
 
-    private void Awake()
-    {
-        SetRotations();
-    }
-
-
     #region States
     [Header("States")]
     public bool hasAware;
@@ -82,4 +92,14 @@ public class EnemyConfiguration : MonoBehaviour
     public bool hasAttack;
     public bool hasDead;
     #endregion
+
+
+    private void Awake()
+    {
+        SetRotations();
+
+        // Flash Enemy empieza sin moverse
+        if (canMove)
+            followSpeed = baseFollowSpeed;
+    }
 }

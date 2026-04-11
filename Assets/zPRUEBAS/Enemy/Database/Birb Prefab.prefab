@@ -755,10 +755,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   detectionRadius: 10
-  detectionGizmoz: 0
+  detectionGizmoz: 1
   detectedPlayer: {fileID: 0}
-  attackRadius: 0
-  attackGizmoz: 0
+  attackRadius: 5
+  attackGizmoz: 1
+  FLASH: 0
 --- !u!136 &3527426716276646271
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -987,15 +988,18 @@ MonoBehaviour:
   wanderSpeed: 3.5
   wanderTurnSpeed: 0
   waitTime: 2
-  canWander: 1
-  followSpeed: 7
+  canMove: 1
+  baseFollowSpeed: 7
+  followSpeed: 0
   turnSpeed: 100
   hasAware: 1
   hasUnaware: 1
+  hasPetrified: 0
   hasIdle: 1
   hasWander: 1
   hasChase: 1
   hasAttack: 1
+  hasDead: 0
 --- !u!1 &8278440470795601858
 GameObject:
   m_ObjectHideFlags: 0

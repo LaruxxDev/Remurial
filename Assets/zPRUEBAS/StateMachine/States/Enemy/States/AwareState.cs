@@ -39,13 +39,30 @@ public class AwareState : EnemyState
         }
 
 
+        // Camera Detection
+        if (ENEMY.COLLISION.FLASH)
+        {
+            if (ENEMY.enemyType == EnemyGeneral.EnemyType.birbEnemy)
+            {
+
+            }
+        }
+
+
         // Flash Detection
         if (ENEMY.COLLISION.FLASH)
         {
             // Petrified State
             if (ENEMY.CONFIGURATION.hasPetrified)
                 STATEMACHINE.ChangeState(ENEMY.STATES.PetrifiedState);
+
+            // Flashy Enemy
+            if (ENEMY.enemyType == EnemyGeneral.EnemyType.flashyEnemy)
+            {
+                ENEMY.CONFIGURATION.AllowFlashMovement();
+            }
         }
+
 
         base.Update();
     }
