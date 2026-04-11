@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactuable
   - Enemy
+  - flash
   layers:
   - Default
   - TransparentFX

@@ -371,7 +371,7 @@ public class CameraController : MonoBehaviour
         Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
 
     }
-
+    
     private void DetectarYEliminarEnemigos()
     {
         // Usamos la posición y rotación de la cámara aim como origen del box
@@ -387,7 +387,13 @@ public class CameraController : MonoBehaviour
                 if (col.CompareTag("Enemy"))
                 {
                     Debug.Log($"<color=cyan>¡Enemigo fotografiado y destruido: {col.gameObject.name}!</color>");
-                    Destroy(col.gameObject);
+                    EnemyCollision enemyCollision = col.GetComponent<EnemyCollision>();
+                    if (enemyCollision != null)
+                    {
+                        enemyCollision.FOTOMADE = true;
+                    }
+
+                    //Destroy(col.gameObject);
                 }
             }
         }

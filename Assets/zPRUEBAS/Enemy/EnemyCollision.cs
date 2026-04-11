@@ -29,6 +29,16 @@ public class EnemyCollision : MonoBehaviour
     [Header("Flash")]
     public bool FLASH;
 
+    public bool FOTOMADE;
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("COLISION");
+        if (collision.gameObject.tag == "flash")
+        {
+            Debug.Log("FLASH");
+            FLASH = true;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "flash")
