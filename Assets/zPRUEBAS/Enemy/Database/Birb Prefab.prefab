@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6925666012987298414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,9 +708,9 @@ GameObject:
   - component: {fileID: 124084196301215100}
   - component: {fileID: 485812029251353450}
   - component: {fileID: 3527426716276646271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -760,6 +760,7 @@ MonoBehaviour:
   attackRadius: 5
   attackGizmoz: 1
   FLASH: 0
+  FOTOMADE: 0
 --- !u!136 &3527426716276646271
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1009,7 +1010,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4909670740337808526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

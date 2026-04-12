@@ -166,7 +166,6 @@ public class CameraController : MonoBehaviour
                 {
                     tiempoProximaFoto = Time.time + coldownFoto;
                     // Realiza el flash
-                    ResetearRotacionCameraMesh();
                     Flashing();  
                 }
                 else

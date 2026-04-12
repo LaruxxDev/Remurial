@@ -50,7 +50,7 @@ public class InteractuableItem : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        /*if (other.CompareTag("Player"))
         {
             bool agregada = InventarioManager.Instance.AgregarItem(itemData); // Intentamos agregar el item al inventario del jugador   
 
@@ -62,7 +62,7 @@ public class InteractuableItem : MonoBehaviour
             {
                 Debug.Log("No se pudo agregar el item al inventario. Puede que esté lleno.");
             }
-        }
+        }*/
     }
 
     private void OnDestroy()
