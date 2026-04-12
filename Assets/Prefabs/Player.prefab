@@ -40,13 +40,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4269829317627543189}
+  - component: {fileID: 4298073713457051432}
+  - component: {fileID: 2850737663017503617}
   m_Layer: 0
   m_Name: Flash
-  m_TagString: Untagged
+  m_TagString: flash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4269829317627543189
 Transform:
   m_ObjectHideFlags: 0
@@ -61,8 +63,41 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8279153845554800145}
-  m_Father: {fileID: 4651455203880759434}
+  m_Father: {fileID: 7240684362875772895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4298073713457051432
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845715343928475888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.3201706, y: 1.0000001, z: 6.752737}
+  m_Center: {x: -0.033681273, y: -0.00000590086, z: 4.1843615}
+--- !u!114 &2850737663017503617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845715343928475888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e95ae1f65e9c3b4186ba1cc4fc7db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashEnemy
 --- !u!1 &1392185780272275392
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4269829317627543189}
   - {fileID: 4651455203880759434}
   - {fileID: 8379530552925480053}
   m_Father: {fileID: 3462703441784986005}
@@ -146,7 +182,6 @@ GameObject:
   - component: {fileID: 3815814591798692189}
   - component: {fileID: 3326003689955228000}
   - component: {fileID: 8822884468997272479}
-  - component: {fileID: 2311957625673315373}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -162,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2585642976059539605}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.79, y: 0.709, z: 9.926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -263,20 +298,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &2311957625673315373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2585642976059539605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c45b8e829162e4d8eb011ad1ba17bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GestorInventario
-  fotosEnInventario: []
-  maxFotos: 20
 --- !u!1 &3365427093632058738
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,8 +330,7 @@ Transform:
   m_LocalPosition: {x: -0.000000059604645, y: -0.000000059604645, z: 0.00000020861626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4269829317627543189}
+  m_Children: []
   m_Father: {fileID: 7240684362875772895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &467656853523638086
@@ -506,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 4236645278533769487}
   serializedVersion: 2
   m_LocalRotation: {x: 0.085038185, y: 0.03581573, z: -0.003058768, w: 0.9957291}
-  m_LocalPosition: {x: 0.57214355, y: 1.5978378, z: -2.380106}
+  m_LocalPosition: {x: 0.5721438, y: 1.5978378, z: -2.380107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,7 +646,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 0.98155427, b: 0.4481132, a: 1}
   m_Intensity: 2.44
-  m_Range: 10
+  m_Range: 7.9603324
   m_SpotAngle: 63.657322
   m_InnerSpotAngle: 54.447342
   m_CookieSize2D: {x: 0.5, y: 0.5}

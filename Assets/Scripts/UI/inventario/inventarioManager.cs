@@ -68,7 +68,7 @@ public class InventarioManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab) || inventoryAction.action.WasPressedThisFrame())
+        if ( inventoryAction.action.WasPressedThisFrame())
         {
             ToggleInventory();
         }
