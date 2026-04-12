@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Animal-Horror.slnx"
+    "dotnet.defaultSolution": "animal-horror.slnx"
 }

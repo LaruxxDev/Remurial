@@ -1,0 +1,25 @@
+/* Estado normal de la notificación (Visible) */
+#NotificacionContainer {
+    /* Fondo semi-transparente opcional */
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 10px 20px;
+    border-radius: 5px;
+    
+    /* Configuración de la transición */
+    transition-property: opacity, translate;
+    transition-duration: 0.5s; /* Duración del desvanecimiento */
+    transition-timing-function: ease-out;
+    
+    /* Estado inicial: visible y en su sitio */
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* Clase que aplicaremos por código para ocultarla */
+.notificacion-oculta {
+    opacity: 0; /* Totalmente transparente */
+    translate: 0 -20px; /* Sube un poco mientras desaparece (efecto pro) */
+    
+    /* Importante: para que no bloquee clics cuando es invisible */
+    display: None; 
+}
