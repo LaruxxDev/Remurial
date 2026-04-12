@@ -343,8 +343,17 @@ public class CameraController : MonoBehaviour
         byte[] bytes = texturaFoto.EncodeToPNG();
         File.WriteAllBytes(rutaCompleta, bytes);
 
-        // Crear los datos con la ruta correcta y la textura ya cargada en memoria
+        float progresoRescatado = 0f;
+        FotoRevelado scriptRevelado = foto.GetComponent<FotoRevelado>();
+        
+        if (scriptRevelado != null && scriptRevelado.datos != null)
+        {
+            progresoRescatado = scriptRevelado.datos.revealProgress;
+        }
+
         DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime);
+        nuevaFoto.revealProgress = progresoRescatado;
+        
         Item itemFoto = new Item
         {
             name = idFoto,

@@ -46,6 +46,13 @@ public class FotoRevelado  : MonoBehaviour
             if (rendererCubo != null)
             {
                 materialInstanciado = rendererCubo.material;
+                if (materialInstanciado.HasProperty("_Color"))
+                {
+                    Color c = materialInstanciado.color;
+                    c.a = datos.revealProgress; // Empezamos con la tapa opaca y vamos reduciendo su alpha
+                    materialInstanciado.color = c;
+                    Debug.Log("<color=green>Material instanciado reveal process: " + datos.revealProgress + "</color>");
+                }
             }
             else
             {

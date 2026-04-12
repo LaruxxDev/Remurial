@@ -60,7 +60,8 @@ public class InspectSystem : MonoBehaviour
         if (reveladorNuevo != null)
         {
             reveladorNuevo.isInspecting = true;
-            reveladorNuevo.RevelarInstantaneo();
+            Debug.Log("Progreso rescatado: " + reveladorNuevo.datos.revealProgress);
+            //reveladorNuevo.RevelarInstantaneo();
         }
         MeshRenderer mrOriginal = objectToInspect.GetComponentInChildren<MeshRenderer>();
         MeshRenderer mrNuevo = currentInspectedObject.GetComponentInChildren<MeshRenderer>();

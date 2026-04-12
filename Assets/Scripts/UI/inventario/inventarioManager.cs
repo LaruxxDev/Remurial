@@ -113,6 +113,7 @@ public class InventarioManager : MonoBehaviour
         if (item.esFoto && item.datosFoto != null)
         {
             item.datosFoto.LiberarTextura();
+            Debug.Log($"Textura liberada al eliminar item: {item.name}");
         }
 
         itemsList.Remove(item);
@@ -145,6 +146,7 @@ public class InventarioManager : MonoBehaviour
             if (item.esFoto && item.datosFoto != null)
             {
                 item.datosFoto.LiberarTextura();
+                Debug.Log($"Textura liberada al cerrar inventario: {item.name}");
             }
         }
     }
@@ -163,8 +165,7 @@ public class InventarioManager : MonoBehaviour
         }
         else
         {
-            // Al cerrar, liberar texturas de fotos que se cargaron para mostrar
-            LiberarTexturasVisibles();
+
             _mainContainer.style.display = DisplayStyle.None;
         }
     }
@@ -279,17 +280,6 @@ public class InventarioManager : MonoBehaviour
         return Sprite.Create(textura, new Rect(0, 0, textura.width, textura.height), new Vector2(0.5f, 0.5f));
     }
 
-    // Libera texturas de fotos al cerrar el inventario
-    private void LiberarTexturasVisibles()
-    {
-        foreach (Item item in itemsList)
-        {
-            if (item.esFoto && item.datosFoto != null)
-            {
-                item.datosFoto.LiberarTextura();
-            }
-        }
-    }
 
     private VisualElement CrearItemCarrusel(Item item, bool esSeleccionado)
     {

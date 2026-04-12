@@ -41,6 +41,7 @@ public class Item
             {
                 meshRenderer.material = new Material(meshRenderer.material);
                 meshRenderer.material.mainTexture = datosFoto.textura;
+                Debug.Log("Textura aplicada a la instancia de foto: " + name);
             }
             else
             {
