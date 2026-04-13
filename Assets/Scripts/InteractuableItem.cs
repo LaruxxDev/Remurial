@@ -69,7 +69,7 @@ public class InteractuableItem : MonoBehaviour
     {
         if (itemData != null && itemData.esFoto && itemData.datosFoto != null)
         {
-            itemData.datosFoto.LiberarTextura();
+            //itemData.datosFoto.LiberarTextura();
         }
     }
 }
