@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class InspectSystem : MonoBehaviour
 {
+    [SerializeField] InputReader input;   
     #region Values
     [Header("References")]
     public Transform AparitionPoint; // Punto donde el objeto aparecerá al inspeccionarlo
