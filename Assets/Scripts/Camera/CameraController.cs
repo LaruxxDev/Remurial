@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
     private float tiempoProximaFoto = 0f;
     private bool toggleFlash = true;
     private GameObject fotoFisica = null;
-
+    private Texture2D texturaFoto = null;
     // Estado interno
     private bool _estaApuntando = false;
     #endregion
@@ -246,7 +246,7 @@ public class CameraController : MonoBehaviour
 
         if (fotoFisica != null)
         {
-            GuardarFoto(fotoFisica, fotoCapturada);
+            GuardarFoto(fotoFisica, texturaFoto,contadorFotos--);
             fotoFisica = null;
         }
 
@@ -255,7 +255,7 @@ public class CameraController : MonoBehaviour
             GameObject fotoInstanciada = Instantiate(prefabFotoFisica, puntoDeAparicion.position, puntoDeAparicion.rotation);
             fotoInstanciada.transform.SetParent(puntoDeAparicion);
             fotoFisica = fotoInstanciada;
-
+            texturaFoto = fotoCapturada;
             MeshRenderer meshRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
             if (meshRenderer != null)
             {
@@ -281,12 +281,12 @@ public class CameraController : MonoBehaviour
             Debug.LogError("No se puede interactuar con una foto nula.");
     }
 
-    public void GuardarFoto(GameObject foto, Texture2D texturaFoto)
+    public void GuardarFoto(GameObject foto, Texture2D texturaFoto, int? idFotos = null)
     {
         if (foto == null) { Debug.LogError("Foto nula."); return; }
         if (texturaFoto == null) { Debug.LogError("Textura nula."); return; }
-
-        string idFoto = "Foto_" + contadorFotos;
+        if (!idFotos.HasValue) idFotos = contadorFotos;
+        string idFoto = "Foto_" + idFotos;
         string rutaCompleta = Path.Combine(rutaFotos, idFoto + ".png");
 
         if (!Directory.Exists(rutaFotos))
