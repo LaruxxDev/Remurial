@@ -26,6 +26,7 @@ public class InventarioManager : MonoBehaviour
     [Header("Referencias")]
     [SerializeField] private InputActionReference inventoryAction;
     [SerializeField] private InspectSystem inspectSystem;
+    [SerializeField] private GameInputReader _input;
 
     private bool _isInventoryOpen = false;
 
@@ -159,13 +160,15 @@ public class InventarioManager : MonoBehaviour
 
         if (_isInventoryOpen)
         {
+            _input.DisableAll();
+            _input.EnableUI(); 
             _mainContainer.style.display = DisplayStyle.Flex;
             UpdateUI();
             _root.Focus();
         }
         else
         {
-
+            _input.EnableGameplay();
             _mainContainer.style.display = DisplayStyle.None;
         }
     }
