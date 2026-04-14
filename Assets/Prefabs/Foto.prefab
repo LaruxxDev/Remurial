@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8501649854913452572}
   - component: {fileID: 494630288669200462}
   - component: {fileID: 6626755837368841876}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foto
   m_TagString: Interactuable
   m_Icon: {fileID: 0}
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be284c2fb04aa84fac0632dbd5989f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractuableItem
-  itemData:
-    name: Foto
+  _data:
+    name: item
     description: description
     id: 0
     isKeyItem: 0
@@ -161,12 +161,12 @@ MonoBehaviour:
     quantity: 1
     maxStack: 99
     sprite: {fileID: 0}
-    esFoto: 1
+    esFoto: 0
     datosFoto:
       idFoto: 
       rutaDelArchivoLocal: 
-      revealTime: 10
-    prefabItem: {fileID: 864132496829830496}
+      revealTime: 0
+    prefabItem: {fileID: 0}
 --- !u!1 &3802400139476070591
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 851545040048635431}
   - component: {fileID: 6104834651722375397}
   - component: {fileID: 6765871225673322645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Reveal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 1520973501262532670}
   - component: {fileID: 8841942317460942486}
   - component: {fileID: 2682016124962312973}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Papel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

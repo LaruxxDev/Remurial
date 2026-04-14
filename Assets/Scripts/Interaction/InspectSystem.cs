@@ -1,51 +1,94 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InspectSystem : MonoBehaviour
 {
-    [SerializeField] InputReader input;   
     #region Values
     [Header("References")]
-    public Transform AparitionPoint; // Punto donde el objeto aparecerá al inspeccionarlo
-    public GameObject rawImageUI; // UI para mostrar la imagen del objeto inspeccionado
+    public Transform AparitionPoint;
+    public GameObject rawImageUI; 
 
     [Header("Input System")]
-    public InputActionAsset inputAsset; // Referencia al componente InputAsset para manejar las acciones de entrada
-    public InputActionReference accionClick; // Acción para rotar el objeto inspeccionado
-
-    public InputActionReference accionRotar; // Acción para rotar el objeto inspeccionado
-    public InputActionReference accionRotarMando; // Acción para rotar el objeto inspeccionado
-
-    public InputActionReference accionSalir; // Acción para salir del modo de inspección
-
+    [SerializeField] private GameInputReader _input; 
 
     [Header("Settings")]
-    public float rotationSpeed = 10f; // Velocidad de rotación del objeto inspeccionado
+    public float rotationSpeed = 10f; 
 
-    private GameObject currentInspectedObject; // Objeto actualmente inspeccionado
-    private bool isInspecting = false; // Indica si el jugador está inspeccionando un objeto
+    private GameObject currentInspectedObject; 
+    private bool isInspecting = false; 
+    
+    // Variables para almacenar el estado de los inputs
+    private bool isHoldingClick = false;
+    private Vector2 mouseRotationInput;
+    private Vector2 mandoRotationInput;
     #endregion
-
     
     #region Unity Methods
+    private void OnEnable()
+    {
+        // Nos suscribimos a los eventos de UI
+        _input.OnClickEvent += HandleClick;
+        _input.OnRotateEvent += HandleRotation;
+        _input.OnRotateMandoEvent += HandleMandoRotation;
+        _input.OnCancelUIEvent += HandleCancel;
+    }
+
+    private void OnDisable()
+    {
+        // IMPORTANTE: Desuscribirse de todos para evitar fugas de memoria
+        _input.OnClickEvent -= HandleClick;
+        _input.OnRotateEvent -= HandleRotation;
+        _input.OnRotateMandoEvent -= HandleMandoRotation; 
+        _input.OnCancelUIEvent -= HandleCancel;
+    }
+
     private void Update()
     {
-        if (isInspecting && currentInspectedObject != null && (accionClick.action.IsPressed() || accionRotarMando.action.IsPressed()))
+        if (isInspecting && currentInspectedObject != null)
         {
-            // Permitir rotar el objeto inspeccionado con el mouse
-            Vector2 rotationInput = accionRotar.action.ReadValue<Vector2>();
+            // Empezamos con un vector a cero
+            Vector2 finalRotation = Vector2.zero;
 
-            if (rotationInput != Vector2.zero)
+            // 1. La rotación del mando se aplica SIEMPRE (no requiere click)
+            finalRotation += mandoRotationInput;
+
+            // 2. La rotación del ratón se aplica SOLO si se mantiene el click
+            if (isHoldingClick)
             {
-                float rotationX = rotationInput.x * rotationSpeed * Time.deltaTime;
-                float rotationY = rotationInput.y * rotationSpeed * Time.deltaTime;
+                finalRotation += mouseRotationInput;
+            }
+
+            // Si hay alguna rotación (ya sea de mando o de ratón con click)
+            if (finalRotation != Vector2.zero)
+            {
+                float rotationX = finalRotation.x * rotationSpeed * Time.deltaTime;
+                float rotationY = finalRotation.y * rotationSpeed * Time.deltaTime;
 
                 currentInspectedObject.transform.Rotate(Vector3.up, -rotationX, Space.World);
                 currentInspectedObject.transform.Rotate(Vector3.right, -rotationY, Space.World);
             }
         }
+    }
+    #endregion
 
-    if (isInspecting && accionSalir.action.WasPressedThisFrame())
+    #region Input Callbacks
+    private void HandleClick(bool isPressed)
+    {
+        isHoldingClick = isPressed;
+    }
+    
+    private void HandleMandoRotation(Vector2 rotationInput)
+    {
+        mandoRotationInput = rotationInput;
+    }
+    
+    private void HandleRotation(Vector2 rotationInput)
+    {
+        mouseRotationInput = rotationInput;
+    }
+
+    private void HandleCancel()
+    {
+        if (isInspecting)
         {
             ExitInspectionMode();
         }
@@ -54,16 +97,18 @@ public class InspectSystem : MonoBehaviour
     
     public void EnterInspectionMode(GameObject objectToInspect)
     {
-        if (isInspecting) return; // Evitar entrar en modo inspección si ya se está inspeccionando algo
+        if (isInspecting) return; 
+        
         Debug.Log("Entrando en modo inspección con el objeto: " + objectToInspect.name);
         currentInspectedObject = Instantiate(objectToInspect, AparitionPoint.position, Quaternion.identity);
+        
         FotoRevelado reveladorNuevo = currentInspectedObject.GetComponent<FotoRevelado>();
         if (reveladorNuevo != null)
         {
             reveladorNuevo.isInspecting = true;
             Debug.Log("Progreso rescatado: " + reveladorNuevo.datos.revealProgress);
-            //reveladorNuevo.RevelarInstantaneo();
         }
+        
         MeshRenderer mrOriginal = objectToInspect.GetComponentInChildren<MeshRenderer>();
         MeshRenderer mrNuevo = currentInspectedObject.GetComponentInChildren<MeshRenderer>();
         if (mrOriginal != null && mrNuevo != null)
@@ -71,22 +116,29 @@ public class InspectSystem : MonoBehaviour
             mrNuevo.material = new Material(mrOriginal.material);
             mrNuevo.material.mainTexture = mrOriginal.material.mainTexture;
         }
-        rawImageUI.SetActive(true); // Mostrar la UI de inspección
+        
+        rawImageUI.SetActive(true); 
         isInspecting = true;
 
-        inputAsset.FindActionMap("Player").Disable();
-        inputAsset.FindActionMap("UI").Enable(); // Cambiar al mapa de acciones de UI para manejar la rotación y salida
+        // Cambiamos de contexto
+        _input.DisableAll();
+        _input.EnableUI(); // Descomentado: Necesario para que HandleClick, HandleRotation, etc., se disparen
     }
 
     public void ExitInspectionMode()
     {
-        if (!isInspecting) return; // Evitar salir del modo inspección si no se está inspeccionando nada
+        if (!isInspecting) return; 
 
-        Destroy(currentInspectedObject); // Eliminar el objeto inspeccionado
-        rawImageUI.SetActive(false); // Ocultar la UI de inspección
+        Destroy(currentInspectedObject); 
+        rawImageUI.SetActive(false); 
         isInspecting = false;
+        
+        // Reiniciamos TODOS los valores por seguridad
+        isHoldingClick = false;
+        mouseRotationInput = Vector2.zero;
+        mandoRotationInput = Vector2.zero;
 
-        inputAsset.FindActionMap("UI").Disable();
-        inputAsset.FindActionMap("Player").Enable(); // Volver al mapa de acciones del jugador
+        // Volvemos al control del jugador
+        _input.EnableGameplay(); 
     }
 }

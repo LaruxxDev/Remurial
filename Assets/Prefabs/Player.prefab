@@ -84,8 +84,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.3201706, y: 1.0000001, z: 6.752737}
-  m_Center: {x: -0.033681273, y: -0.00000590086, z: 4.1843615}
+  m_Size: {x: 5.2757053, y: 2.5767074, z: 5.6084337}
+  m_Center: {x: 0.30089903, y: 0.32002348, z: 3.6122098}
 --- !u!114 &2850737663017503617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,11 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraWeaponController
   aimCamera: {fileID: 467656853523638086}
   CameraMesh: {fileID: 1392185780272275392}
-  attackAction: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  aimAction: {fileID: 5960714890333912282, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  flashAction: {fileID: 6912999376593695206, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  toggleFlashAction: {fileID: 803002900010508000, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  saveAction: {fileID: -4694404325125608904, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   aimPriority: 20
   defaultPriority: 9
   coldownFoto: 2
@@ -182,6 +178,8 @@ GameObject:
   - component: {fileID: 3815814591798692189}
   - component: {fileID: 3326003689955228000}
   - component: {fileID: 8822884468997272479}
+  - component: {fileID: 2242362896243260905}
+  - component: {fileID: 6239973686006610112}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -216,7 +214,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2585642976059539605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09bb94c99b5c7d14cb89b8c2f8a4abd9, type: 3}
   m_Name: 
@@ -242,11 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InspectSystem
   AparitionPoint: {fileID: 0}
   rawImageUI: {fileID: 0}
-  inputAsset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  accionClick: {fileID: 3001919216989983466, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  accionRotar: {fileID: -1939182695762015103, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  accionRotarMando: {fileID: -6207429170037992246, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  accionSalir: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   rotationSpeed: 100
 --- !u!136 &3326003689955228000
 CapsuleCollider:
@@ -298,6 +292,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2242362896243260905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585642976059539605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7860a6b256e9242b2b1ee3c1c8add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
+  _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
+  moveSpeed: 5
+  rotationSpeed: 120
+  animatorManager: {fileID: 5475423482080538931}
+--- !u!114 &6239973686006610112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585642976059539605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3d144fc4ecb4d4f8447578dcf30165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
 --- !u!1 &3365427093632058738
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,8 +469,6 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: 1
-        LegacyInput: 
-        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -459,8 +480,6 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
-        LegacyInput: 
-        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -526,7 +545,7 @@ Transform:
   m_GameObject: {fileID: 4236645278533769487}
   serializedVersion: 2
   m_LocalRotation: {x: 0.085038185, y: 0.03581573, z: -0.003058768, w: 0.9957291}
-  m_LocalPosition: {x: 0.5721438, y: 1.5978378, z: -2.380107}
+  m_LocalPosition: {x: 0.57214355, y: 1.5978378, z: -2.3801064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
