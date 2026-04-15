@@ -147,13 +147,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864132496829830496}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4be284c2fb04aa84fac0632dbd5989f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractuableItem
   _data:
-    name: item
+    name: Foto
     description: description
     id: 0
     isKeyItem: 0
@@ -161,12 +161,13 @@ MonoBehaviour:
     quantity: 1
     maxStack: 99
     sprite: {fileID: 0}
-    esFoto: 0
+    esFoto: 1
     datosFoto:
       idFoto: 
       rutaDelArchivoLocal: 
       revealTime: 0
-    prefabItem: {fileID: 0}
+    prefabItem: {fileID: 864132496829830496}
+  _inspectSystem: {fileID: 0}
 --- !u!1 &3802400139476070591
 GameObject:
   m_ObjectHideFlags: 0
