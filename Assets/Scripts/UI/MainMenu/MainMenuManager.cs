@@ -31,9 +31,9 @@ public class MainMenuManager : MonoBehaviour
     private void OnNewGameClicked()
     {
         Debug.Log("New Game Clicked");
-        _root.style.display = DisplayStyle.None; // Oculta el menú principal
-        SceneManager.LoadScene("SampleSceneUI"); // TODO: Cambia "SampleSceneUI" por el nombre de la escena definitiva
-        _root.style.display = DisplayStyle.None;
+        //_root.style.display = DisplayStyle.None;
+        SceneManager.LoadScene("SampleSceneUI"); //TODO
+        
     }
 
     private void OnLoadGameClicked()
