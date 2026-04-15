@@ -126,8 +126,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Colisionado con enemigo: " + collision.gameObject.name);
-            TakeDamage(1); // Ejemplo: el jugador recibe 1 punto de daño al colisionar con un enemigo
+            TakeDamage(1); 
         }
     }
     
@@ -145,9 +144,16 @@ public class PlayerController : MonoBehaviour
         {
             // Aquí podrías manejar la muerte del jugador, como reproducir una animación, reiniciar el nivel, etc.
             Debug.Log("Jugador ha muerto");
-            Destroy(gameObject); // Ejemplo: destruir el objeto del jugador al morir
+            Die();
         }
         Debug.Log("Salud restante: " + health);
         // Aquí podrías agregar efectos de daño, sonidos, etc.
+    }
+
+    public void Die()
+    {
+        // Aquí podrías manejar la muerte del jugador, como reproducir una animación, reiniciar el nivel, etc.
+        Debug.Log("Jugador ha muerto");
+        Destroy(gameObject); // Ejemplo: destruir el objeto del jugador al morir
     }
 }

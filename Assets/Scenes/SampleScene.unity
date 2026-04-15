@@ -7255,6 +7255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Petri Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8313415052407828390, guid: 1703a1ff7d259664698d96a418f72497, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8322562675394692191, guid: 1703a1ff7d259664698d96a418f72497, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
