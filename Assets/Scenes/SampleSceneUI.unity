@@ -1061,6 +1061,7 @@ MonoBehaviour:
   inventoryAction: {fileID: -4782559618413106243, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inspectSystem: {fileID: 1508897571}
   _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
+  debugHealth: 1
 --- !u!114 &309333697
 MonoBehaviour:
   m_ObjectHideFlags: 0
