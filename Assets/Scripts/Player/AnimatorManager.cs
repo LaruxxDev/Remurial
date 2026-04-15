@@ -3,8 +3,8 @@ using UnityEngine;
 public class AnimatorManager : MonoBehaviour
 {
     Animator animator;
-    // float snappedHorizontalMovement;
-    // float snappedVerticalMovement;
+    float snappedHorizontalMovement;
+    float snappedVerticalMovement;
 
     private void Awake()
     {
@@ -13,7 +13,7 @@ public class AnimatorManager : MonoBehaviour
 
     public void HandleAnimatorValues(float horizontalMovement, float verticalMovement)
     {
-        /*if (horizontalMovement > 0)
+        if (horizontalMovement > 0)
         {
             snappedHorizontalMovement = 1;
         }
@@ -24,9 +24,9 @@ public class AnimatorManager : MonoBehaviour
         else
         {
             snappedHorizontalMovement = 0;
-        }*/
+        }
         
-        //animator.SetFloat("Horizontal", horizontalMovement, 0.1f, Time.deltaTime);
-        //animator.SetFloat("Vertical", verticalMovement, 0.1f, Time.deltaTime);
+        animator.SetFloat("Horizontal", horizontalMovement, 0.1f, Time.deltaTime);
+        animator.SetFloat("Vertical", verticalMovement, 0.1f, Time.deltaTime);
     }
 }
