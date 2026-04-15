@@ -22,11 +22,15 @@ public class InventarioManager : MonoBehaviour
     private Label _labelName;
     private Label _labelDesc;
     private Button _actionButton;
+    private VisualElement _ecgContainer;
 
     [Header("Referencias")]
     [SerializeField] private InputActionReference inventoryAction;
     [SerializeField] private InspectSystem inspectSystem;
     [SerializeField] private GameInputReader _input;
+
+    private ECGMonitor _ecgMonitor;
+    [Range(0, 1)] public float debugHealth = 1.0f;
 
     private bool _isInventoryOpen = false;
 
@@ -58,6 +62,13 @@ public class InventarioManager : MonoBehaviour
         _bigItemImage = _root.Q<VisualElement>("ItemImage");
         _labelDesc = _root.Q<Label>("ItemDesc");
         _actionButton = _root.Q<Button>("ActionButton");
+        _ecgContainer = _root.Q<VisualElement>("ECGContainer");
+        if (_ecgContainer != null)
+    {
+        _ecgMonitor = new ECGMonitor();
+        _ecgMonitor.style.flexGrow = 1; // Que ocupe todo el espacio
+        _ecgContainer.Add(_ecgMonitor);
+    }
 
         ConfigurarEventos();
     }
@@ -72,6 +83,15 @@ public class InventarioManager : MonoBehaviour
         if ( inventoryAction.action.WasPressedThisFrame())
         {
             ToggleInventory();
+        }
+
+        if (_isInventoryOpen && _ecgMonitor != null)
+        {
+            Debug.Log("Actualizando ECG Monitor en Update del InventarioManager");
+
+            // Sustituye 'debugHealth' por la variable real de salud de tu jugador
+            _ecgMonitor.healthPercent = debugHealth; 
+            _ecgMonitor.Tick();
         }
     }
     #endregion
