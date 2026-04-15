@@ -8604,14 +8604,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 857854625}
     m_Modifications:
+    - target: {fileID: 494630288669200462, guid: 99eccdf6c75ba624c9102d92ab35c5d5, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
     - target: {fileID: 864132496829830496, guid: 99eccdf6c75ba624c9102d92ab35c5d5, type: 3}
       propertyPath: m_Name
       value: Foto
       objectReference: {fileID: 0}
-    - target: {fileID: 3225535521704854253, guid: 99eccdf6c75ba624c9102d92ab35c5d5, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 71c12f87fe37b844f9845d61b2b88dfa, type: 2}
     - target: {fileID: 6626755837368841876, guid: 99eccdf6c75ba624c9102d92ab35c5d5, type: 3}
       propertyPath: _inspectSystem
       value: 

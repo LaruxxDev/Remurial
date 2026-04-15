@@ -1,149 +1,143 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class FotoRevelado  : MonoBehaviour
+public class FotoRevelado : MonoBehaviour
 {
-    [Header("Controles de Agite")]
-    [Tooltip("Asigna aquí la acción del botón R1 (Agitar Arriba)")]
-    [SerializeField] private InputActionReference r1Action; 
-    [Tooltip("Asigna aquí la acción del botón L1 (Agitar Abajo)")]
-    [SerializeField] private InputActionReference l1Action;
+    [Header("Input")]
+    [SerializeField] private GameInputReader input; 
 
     [Header("Referencia a los datos")]
-    public DatosFotos datos; // asignado al instanciar la foto
+    public DatosFotos datos;
 
     [Header("Configuración del Revelado")]
-    public float shakeBoostInicial = 1f; // Multiplicador inicial al agitar
-    public float incrementoVelocidad = 0.5f; // Cuánto aumenta la velocidad por CADA pulsación
-    private float currentShakeBoost; // El boost actual que irá creciendo
+    public float shakeBoostInicial   = 1f;
+    public float incrementoVelocidad = 0.5f;
+    public float boostDecaimiento    = 0.8f; 
+    private float _currentShakeBoost;
 
     [Header("Configuración Visual del Agite")]
-    public float distanciaAgite = 0.15f; // Cuánto se mueve hacia arriba/abajo
-    public float velocidadRetorno = 12f; // Qué tan rápido vuelve al centro la foto
+    public float distanciaAgite   = 0.15f;
+    public float velocidadRetorno = 12f;
 
-    [Tooltip("Arrastra aquí tu cubo o GameObject desde el Inspector")]
-    public GameObject reveal; 
+    public GameObject reveal;
 
-    private Material materialInstanciado;
-    private bool reveladoCompleto = false;
+    private Material  _material;
+    private bool      _reveladoCompleto = false;
+    private Vector3   _posicionOriginal;
+    private Vector3   _targetOffset;
+    private Vector3   _currentOffset;
+    public  bool      isInspecting = false;
 
-    // Variables para controlar el movimiento visual
-    private Vector3 posicionOriginal;
-    private Vector3 targetOffset;
-    private Vector3 currentOffset;
-    public bool isInspecting = false;
-
-    void Start()
+    // ── Suscripción ──────────────────────────────────────────────────────
+    private void OnEnable()
     {
-        // Inicializamos el boost y guardamos la posición donde aparece la foto
-        currentShakeBoost = shakeBoostInicial;
-        posicionOriginal = transform.localPosition;
-
-        if (reveal != null)
-        {
-            Renderer rendererCubo = reveal.GetComponent<Renderer>();
-            
-            if (rendererCubo != null)
-            {
-                materialInstanciado = rendererCubo.material;
-                if (materialInstanciado.HasProperty("_Color"))
-                {
-                    Color c = materialInstanciado.color;
-                    c.a = datos.revealProgress; // Empezamos con la tapa opaca y vamos reduciendo su alpha
-                    materialInstanciado.color = c;
-                    Debug.Log("<color=green>Material instanciado reveal process: " + datos.revealProgress + "</color>");
-                }
-            }
-            else
-            {
-                Debug.LogWarning($"El objeto {reveal.name} no tiene un componente Renderer.");
-            }
-        }
-        
+        // Solo nos suscribimos si el input está asignado
+        if (input == null) return;
+        input.OnRevealUp   += HandleRevealUp;
+        input.OnRevealDown += HandleRevealDown;
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (datos == null || reveladoCompleto || isInspecting) return;
-        if (datos.revealTime <= 0f)
+        if (input == null) return;
+        input.OnRevealUp   -= HandleRevealUp;
+        input.OnRevealDown -= HandleRevealDown;
+    }
+
+    // ── Handlers de input ──────────────────────────────────────────────────────
+    private void HandleRevealUp()
+    {
+        if (_reveladoCompleto || isInspecting || datos == null) return;
+        _targetOffset      = new Vector3(0, distanciaAgite, 0);
+        _currentShakeBoost += incrementoVelocidad;
+        // Debug para confirmar que el input llega
+        Debug.Log($"[FotoRevelado] RevealUp — boost: {_currentShakeBoost:F2}");
+    }
+
+    private void HandleRevealDown()
+    {
+        if (_reveladoCompleto || isInspecting || datos == null) return;
+        _targetOffset      = new Vector3(0, -distanciaAgite, 0);
+        _currentShakeBoost += incrementoVelocidad;
+        Debug.Log($"[FotoRevelado] RevealDown — boost: {_currentShakeBoost:F2}");
+    }
+
+    // ── Ciclo de vida ────────────────────────────────────────────────────
+    private void Start()
+    {
+        _currentShakeBoost = shakeBoostInicial;
+        _posicionOriginal  = transform.localPosition;
+
+        if (reveal == null) return;
+        var r = reveal.GetComponent<Renderer>();
+        if (r == null) return;
+
+        _material = r.material;
+        if (_material.HasProperty("_Color"))
         {
-            datos.revealProgress = 1f;
+            Color c = _material.color;
+            c.a = datos.revealProgress;
+            _material.color = c;
         }
+    }
 
-        // 1. Avance automático con el tiempo
-        float velocidadEstandar = 1f / datos.revealTime;
-        datos.revealProgress += Time.deltaTime * velocidadEstandar;
+    private void Update()
+    {
+        if (datos == null || _reveladoCompleto || isInspecting) return;
 
-        // 2. Detectar cuándo se PULSAN los botones (para dar el "golpe" visual y aumentar velocidad)
-        // Usamos WasPressedThisFrame para detectar el click exacto, no si se mantiene calcado.
-        bool pulsoR1 = r1Action != null && r1Action.action.WasPressedThisFrame();
-        bool pulsoL1 = l1Action != null && l1Action.action.WasPressedThisFrame();
+        // ── 1. Avance automático + boost del agite ───────────────────────
+        float velocidadBase  = 1f / Mathf.Max(datos.revealTime, 0.01f);
+        // currentShakeBoost ahora SÍ multiplica la velocidad
+        float velocidadTotal = velocidadBase * _currentShakeBoost;
+        datos.revealProgress += Time.deltaTime * velocidadTotal;
 
-        if (pulsoR1)
-        {
-            targetOffset = new Vector3(0, distanciaAgite, 0); // Golpecito hacia arriba
-            currentShakeBoost += incrementoVelocidad;         // Aceleramos el revelado
-        }
-        else if (pulsoL1)
-        {
-            targetOffset = new Vector3(0, -distanciaAgite, 0); // Golpecito hacia abajo
-            currentShakeBoost += incrementoVelocidad;          // Aceleramos el revelado
-        }
+        // El boost decae solo para que agitar seguido tenga más impacto
+        _currentShakeBoost = Mathf.Max(
+            shakeBoostInicial,
+            Mathf.Lerp(_currentShakeBoost, shakeBoostInicial, Time.deltaTime * boostDecaimiento)
+        );
 
+        // ── 2. Movimiento visual ─────────────────────────────────────────
+        _currentOffset = Vector3.Lerp(_currentOffset, _targetOffset, Time.deltaTime * velocidadRetorno);
+        _targetOffset  = Vector3.Lerp(_targetOffset, Vector3.zero, Time.deltaTime * velocidadRetorno * 0.5f);
+        transform.localPosition = _posicionOriginal + _currentOffset;
 
-        // --- 4. LÓGICA DE MOVIMIENTO VISUAL (EL AGITE) ---
-        // Movemos el offset actual hacia el objetivo suavemente
-        currentOffset = Vector3.Lerp(currentOffset, targetOffset, Time.deltaTime * velocidadRetorno);
-        // Hacemos que el objetivo tienda a volver a cero (el centro) automáticamente
-        targetOffset = Vector3.Lerp(targetOffset, Vector3.zero, Time.deltaTime * velocidadRetorno * 0.5f);
-        
-        // Aplicamos la posición final a la foto
-        transform.localPosition = posicionOriginal + currentOffset;
-        // --------------------------------------------------
-
-        // 5. Limitar el progreso para que no pase de 1 ni baje de 0
+        // ── 3. Aplicar al material ───────────────────────────────────────
         datos.revealProgress = Mathf.Clamp01(datos.revealProgress);
-
-        // 6. Actualizar el material (usando el que extrajimos en el Start)
-        if (materialInstanciado != null && materialInstanciado.HasProperty("_Color"))
+        if (_material != null && _material.HasProperty("_Color"))
         {
-            Color colorActual = materialInstanciado.color;
-            colorActual.a = 1f - datos.revealProgress; 
-            materialInstanciado.color = colorActual;
+            Color c = _material.color;
+            c.a = 1f - datos.revealProgress;
+            _material.color = c;
         }
-        
 
-        // 7. Comprobar si acaba de completarse
+        // ── 4. Comprobar completado ──────────────────────────────────────
         if (datos.revealProgress >= 1f)
         {
-            reveladoCompleto = true;
-            transform.localPosition = posicionOriginal; // Aseguramos que quede centrada al terminar
+            _reveladoCompleto       = true;
+            transform.localPosition = _posicionOriginal;
             OnReveladoCompleto();
         }
     }
 
+    // ── API pública ──────────────────────────────────────────────────────
     public void RevelarInstantaneo()
     {
-        reveladoCompleto = true;
-        isInspecting = true; // Esto detendrá el Update por la condición al inicio del mismo
-        
-        if (datos != null)
-        {
-            datos.revealProgress = 1f;
-        }
+        _reveladoCompleto = true;
+        isInspecting      = true;
+        if (datos != null) datos.revealProgress = 1f;
 
-        if (materialInstanciado != null && materialInstanciado.HasProperty("_Color"))
+        if (_material != null && _material.HasProperty("_Color"))
         {
-            Color c = materialInstanciado.color;
-            c.a = 0f; // Hacemos la tapa totalmente transparente
-            materialInstanciado.color = c;
+            Color c = _material.color;
+            c.a = 0f;
+            _material.color = c;
         }
-        
-        // Si tienes el objeto 'reveal' (el cubo), lo desactivamos directamente
-        if (reveal != null) reveal.SetActive(false); 
+        if (reveal != null) reveal.SetActive(false);
     }
+
     private void OnReveladoCompleto()
     {
-        Debug.Log($"Foto {datos.idFoto} ha desaparecido completamente.");
+        Debug.Log($"[FotoRevelado] {datos.idFoto} revelada completamente.");
+        // GameEvents.OnFotoRevelada?.Invoke(datos);
     }
 }
