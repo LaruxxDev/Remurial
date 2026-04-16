@@ -14,6 +14,7 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("Interactuable")) return;
         interactuableItem = other.gameObject;
+        if (other.tag == "Tp") interactuableItem = this.gameObject;
         if (other.TryGetComponent<IInteractable>(out var interactable))
         {
             _currentInteractable = interactable;

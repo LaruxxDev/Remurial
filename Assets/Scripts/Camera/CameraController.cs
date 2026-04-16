@@ -2,6 +2,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CameraController : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class CameraController : MonoBehaviour
     [Header("Detección de Enemigos")]
     [SerializeField] private Vector3 sizeZonaFoto = new Vector3(3f, 2f, 5f);
     [SerializeField] private LayerMask capaEnemigos;
+    [SerializeField] private DetectorEnemigosEnFoto detector;
 
     [Header("Configuración del Prefab")]
     [SerializeField] private GameObject prefabFotoFisica;
@@ -242,7 +244,7 @@ public class CameraController : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         Texture2D fotoCapturada = ScreenCapture.CaptureScreenshotAsTexture();
-        DetectarYEliminarEnemigos();
+        List<GameObject> enemigosCapturados = detector.DetectarEnemigosEnFoto();
 
         if (fotoFisica != null)
         {
@@ -256,6 +258,7 @@ public class CameraController : MonoBehaviour
             fotoInstanciada.transform.SetParent(puntoDeAparicion);
             fotoFisica = fotoInstanciada;
             texturaFoto = fotoCapturada;
+            
             MeshRenderer meshRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
             if (meshRenderer != null)
             {
@@ -266,6 +269,21 @@ public class CameraController : MonoBehaviour
             {
                 Debug.LogError("El prefab de la foto no tiene MeshRenderer.");
             }
+            DatosFotos nuevosDatosFoto = new DatosFotos("Foto_" + contadorFotos, "", reavelTime, enemigosCapturados);
+            Item nuevoItem = new Item
+            {
+                name = "Foto_" + contadorFotos,
+                description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
+                esFoto = true,
+                datosFoto = nuevosDatosFoto,
+                prefabItem = prefabFotoFisica
+            };
+            FotoRevelado scriptRevelado = fotoInstanciada.GetComponent<FotoRevelado>();
+            if (scriptRevelado != null)
+                scriptRevelado.datos = nuevosDatosFoto;
+            else
+                Debug.LogError("El prefab de la foto no tiene el script FotoRevelado.");
+
         }
         else
         {
@@ -296,12 +314,21 @@ public class CameraController : MonoBehaviour
         File.WriteAllBytes(rutaCompleta, bytes);
 
         float progresoRescatado = 0f;
+        List<GameObject> enemigosRescatados = new List<GameObject>(); // Lista vacía por defecto
+
         FotoRevelado scriptRevelado = foto.GetComponent<FotoRevelado>();
         if (scriptRevelado != null && scriptRevelado.datos != null)
+        {
             progresoRescatado = scriptRevelado.datos.revealProgress;
+            // ¡Recuperamos la lista de enemigos que guardamos en ProcesoTomarFoto!
+            enemigosRescatados = scriptRevelado.datos.enemigosCapturados; 
+        }
 
-        DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime);
-        nuevaFoto.revealProgress = progresoRescatado;
+        // 4. CREAR EL NUEVO OBJETO DATOSFOTOS INCLUYENDO LA LISTA RESCATADA
+        DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime, enemigosRescatados)
+        {
+            revealProgress = progresoRescatado
+        };
 
         Item itemFoto = new Item
         {
@@ -322,30 +349,27 @@ public class CameraController : MonoBehaviour
         Destroy(foto);
     }
 
-    private void DetectarYEliminarEnemigos()
+    /*private void DetectarYEliminarEnemigos()
     {
-        Vector3 centro = aimCamera.transform.position + aimCamera.transform.forward * (sizeZonaFoto.z / 2f);
-        Quaternion rotacion = aimCamera.transform.rotation;
+        List<GameObject> enemigosCapturados = detector.DetectarEnemigosEnFoto();
 
-        Collider[] objetosDetectados = Physics.OverlapBox(centro, sizeZonaFoto / 2f, rotacion, capaEnemigos);
+        foreach (GameObject enemigo in enemigosCapturados)
+        {
+            // Notificar al enemigo que fue fotografiado
+            var flashEnemy = enemigo.gameObject.GetComponent<FlashEnemy>();
+            if (flashEnemy != null)
+                flashEnemy.OnFotografiado(enemigo.prominencia);
 
-        if (objetosDetectados.Length > 0)
-        {
-            foreach (Collider col in objetosDetectados)
-            {
-                if (col.CompareTag("Enemy"))
-                {
-                    EnemyCollision enemyCollision = col.GetComponent<EnemyCollision>();
-                    if (enemyCollision != null) enemyCollision.FOTOMADE = true;
-                    Debug.Log($"Enemigo fotografiado: {col.gameObject.name}");
-                }
-            }
+            // Calcular puntuación según prominencia y distancia
+            float puntos = CalcularPuntuacion(enemigo);
+            Debug.Log($"{enemigo.gameObject.name} fotografiado — {puntos} pts");
         }
-        else
-        {
-            Debug.Log("No había enemigos en el encuadre.");
-        }
-    }
+
+        // Guardar en DatosFoto qué enemigos salían
+        nuevaFoto.enemigosCapturados = enemigosCapturados
+            .Select(e => e.gameObject.name)
+            .ToList();
+    }*/
 
     #endregion
 

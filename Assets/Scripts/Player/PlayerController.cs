@@ -21,8 +21,11 @@ public class PlayerController : MonoBehaviour
     [Header("Referencias")]
     public AnimatorManager animatorManager;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Transform _cameraTransform; // arrastra el transform de tu Cinemachine Brain o Main Camera
+
     private Rigidbody _rb;
     private Vector2 _smoothMoveInput;
+    private bool _estaApuntando = false; // ← estado del aim
 
     private Vector2 _moveInput;
 
@@ -34,7 +37,8 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _input.OnMoveEvent         += HandleMove;
-        _input.OnAttackStarted     += HandleTakePhoto;
+        _input.OnAimStarted     += HandleAimStart;
+        _input.OnAimCanceled    += HandleAimEnd;
         _input.OnRevealUp          += HandleReveal;
         _input.OnInteractPerformed += HandleInteract;
     }
@@ -42,7 +46,8 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         _input.OnMoveEvent         -= HandleMove;
-        _input.OnAttackStarted     -= HandleTakePhoto;
+        _input.OnAimStarted     -= HandleAimStart;
+        _input.OnAimCanceled    -= HandleAimEnd;
         _input.OnRevealUp          -= HandleReveal;
         _input.OnInteractPerformed -= HandleInteract;
     }
@@ -50,7 +55,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (_currentState == PlayerState.Interacting) return;
-        MoverPersonaje();
+        if (_estaApuntando)
+        {
+            MoverPersonajeFPS();
+        }
+        else
+        {
+            MoverPersonaje();
+        }
     }
 
     // ── Input Handlers ───────────────────────────────────────
@@ -64,12 +76,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void HandleTakePhoto()
+// ── Handlers ─────────────────────────────────────────────────────────
+
+    private void HandleAimStart()
     {
         if (_currentState == PlayerState.Interacting) return;
-
-        _currentState = PlayerState.TakingPhoto;
+        _estaApuntando = true;
+        _currentState  = PlayerState.TakingPhoto;
         _animator.SetTrigger("TakePhoto");
+    }
+
+    private void HandleAimEnd()
+    {
+        _estaApuntando = false;
+        // Solo vuelve a Idle/Walking si no está haciendo otra cosa
+        if (_currentState == PlayerState.TakingPhoto)
+            _currentState = _moveInput != Vector2.zero ? PlayerState.Walking : PlayerState.Idle;
     }
 
     private void HandleReveal()
@@ -120,6 +142,44 @@ public class PlayerController : MonoBehaviour
         // Movimiento adelante/atrás (eje Y)
         Vector3 moveDirection = transform.forward * _moveInput.y * moveSpeed;
         _rb.linearVelocity = new Vector3(moveDirection.x, _rb.linearVelocity.y, moveDirection.z);
+    }
+    private void MoverPersonajeFPS()
+    {
+        if (_cameraTransform == null) return;
+
+        // ── 1. Movimiento relativo a la cámara (sin cambiar) ──
+        Vector3 forward = _cameraTransform.forward;
+        Vector3 right   = _cameraTransform.right;
+        forward.y = 0f;
+        right.y   = 0f;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 moveDirection = (forward * _moveInput.y + right * _moveInput.x).normalized;
+        _rb.linearVelocity = new Vector3(
+            moveDirection.x * moveSpeed,
+            _rb.linearVelocity.y,
+            moveDirection.z * moveSpeed
+        );
+
+        // ── 2. El cuerpo rota hacia donde mira la cámara (solo eje Y) ──
+        // Usamos el forward de la cámara aplanado, sin importar si hay input.
+        Vector3 camForwardFlat = _cameraTransform.forward;
+        camForwardFlat.y = 0f;
+
+        if (camForwardFlat.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(camForwardFlat);
+
+            // Slerp suave: el cuerpo "sigue" a la cámara con un ligero retraso
+            // Cambia 15f por un valor más bajo (5f) si quieres más retraso,
+            // o más alto (30f) si quieres que sea casi instantáneo.
+            _rb.MoveRotation(Quaternion.Slerp(
+                _rb.rotation,
+                targetRotation,
+                Time.fixedDeltaTime * 15f
+            ));
+        }
     }
 
     public void OnCollisionEnter(Collision collision)

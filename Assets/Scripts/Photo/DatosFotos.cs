@@ -1,11 +1,12 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 [System.Serializable]
 public class DatosFotos
 {
     public string idFoto;
     public string rutaDelArchivoLocal;
     public float revealTime;
+    public List<GameObject> enemigosCapturados = new();
 
     [System.NonSerialized] public float revealProgress;
     [System.NonSerialized] public Texture2D textura;
@@ -13,12 +14,13 @@ public class DatosFotos
 
     public bool EstaRevelada => revealProgress >= 1f;
 
-    public DatosFotos(string id, string ruta, float tiempo)
+    public DatosFotos(string id, string ruta, float tiempo, List<GameObject> enemigos)
     {
         idFoto = id;
         rutaDelArchivoLocal = ruta;
         revealTime = tiempo;
         revealProgress = 0f;
+        enemigosCapturados = enemigos;
         textura = null;
     }
 
