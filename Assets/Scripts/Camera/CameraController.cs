@@ -152,6 +152,7 @@ public class CameraController : MonoBehaviour
     private void HandleToggleFlash()
     {
         toggleFlash = !toggleFlash;
+        AudioManager.instance.Play3D("Flash" + (toggleFlash ? "On" : "Off"), transform.position);
         Debug.Log("Flash: " + (toggleFlash ? "ON" : "OFF"));
     }
 

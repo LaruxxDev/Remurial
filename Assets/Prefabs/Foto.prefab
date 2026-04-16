@@ -128,11 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e39c30bbd5af148a5f4e1f21dd66dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FotoRevelado
-  input: {fileID: 0}
+  input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   datos:
     idFoto: 
     rutaDelArchivoLocal: 
     revealTime: 10
+    enemigosCapturados: []
   shakeBoostInicial: 1
   incrementoVelocidad: 0.5
   boostDecaimiento: 0.8
@@ -166,6 +167,7 @@ MonoBehaviour:
       idFoto: 
       rutaDelArchivoLocal: 
       revealTime: 0
+      enemigosCapturados: []
     prefabItem: {fileID: 864132496829830496}
   _inspectSystem: {fileID: 0}
 --- !u!1 &3802400139476070591
