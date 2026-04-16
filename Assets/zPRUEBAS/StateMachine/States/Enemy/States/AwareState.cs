@@ -14,7 +14,7 @@ public class AwareState : EnemyState
 
     public override void Enter()
     {
-        // Configuración inicial
+        // Configuraciï¿½n inicial
         // Chase
         if (ENEMY.CONFIGURATION.hasChase)
             ENEMY.STATES.ChaseSubState.SetMachine(lowLevelMachine);
