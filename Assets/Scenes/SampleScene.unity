@@ -7900,37 +7900,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2070373667}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1585048968
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1585048969}
-  m_Layer: 0
-  m_Name: AudioSteps
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1585048969
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585048968}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 448913651107689289}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1598781754
 Mesh:
   m_ObjectHideFlags: 0
@@ -8575,34 +8544,6 @@ MonoBehaviour:
       enemigosCapturados: []
     prefabItem: {fileID: 1907083121}
   _inspectSystem: {fileID: 1284797779}
---- !u!1 &2064394290 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8010881345223685600, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-  m_PrefabInstance: {fileID: 448913651107689288}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2064394292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064394290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2367acc030be6db46a21b10534a1ae99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DetectorEnemigosEnFoto
-  camaraFoto: {fileID: 330585545}
-  capasEnemigos:
-    serializedVersion: 2
-    m_Bits: 64
-  capasObstaculos:
-    serializedVersion: 2
-    m_Bits: 1024
-  anguloMaximo: 50
-  distanciaMaxima: 20
-  visibilidadMinima: 0.5
-  mostrarGizmos: 1
 --- !u!1 &2070373666
 GameObject:
   m_ObjectHideFlags: 0
@@ -8725,10 +8666,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3490895012402314197, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-      propertyPath: detector
-      value: 
-      objectReference: {fileID: 2064394292}
     - target: {fileID: 3815814591798692189, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
       propertyPath: rawImageUI
       value: 
@@ -8737,21 +8674,14 @@ PrefabInstance:
       propertyPath: AparitionPoint
       value: 
       objectReference: {fileID: 2098373376}
-    - target: {fileID: 8010881345223685600, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3096079490685626415, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
+    - target: {fileID: 3979109997573129031, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
+      propertyPath: camaraFoto
+      value: 
+      objectReference: {fileID: 330585545}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3462703441784986005, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1585048969}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8010881345223685600, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2064394292}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
 --- !u!4 &448913651107689289 stripped
 Transform:
