@@ -19,7 +19,7 @@ public class Tp : MonoBehaviour, IInteractable
     private IEnumerator ProcesoTeletransporte(GameObject interactor)
     {
         estaTeletransportando = true;
-
+        AudioManager.instance.Play3D("OpenDoor", transform.position);
         // 1. Iniciamos el fundido a negro
         GameManager.Instancia.HacerBlackout();
 

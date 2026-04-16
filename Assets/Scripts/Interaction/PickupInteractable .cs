@@ -9,6 +9,8 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
     {
         Debug.Log($"Recogiste: {_data.name}");
         _inspectSystem.EnterInspectionMode(interactor);
+        AudioManager.instance.Play2D("RecogerItem");
+
         InventarioManager.Instance.AgregarItem(_data);
         Destroy(gameObject);
     }

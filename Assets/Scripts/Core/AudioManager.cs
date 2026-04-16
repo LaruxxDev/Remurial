@@ -45,7 +45,7 @@ public class AudioManager : MonoBehaviour
 
     private void PlaySoundAtPosition(string name, Vector3 position, bool is3D)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.id == name);
         if (s == null)
         {
             Debug.LogWarning("Sonido no encontrado: " + name);
