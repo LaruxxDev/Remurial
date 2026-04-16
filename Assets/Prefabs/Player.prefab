@@ -162,6 +162,7 @@ MonoBehaviour:
   capaEnemigos:
     serializedVersion: 2
     m_Bits: 64
+  detector: {fileID: 0}
   prefabFotoFisica: {fileID: 864132496829830496, guid: 99eccdf6c75ba624c9102d92ab35c5d5, type: 3}
   puntoDeAparicion: {fileID: 955258426625383115}
   inspectSystem: {fileID: 3815814591798692189}
@@ -298,6 +299,7 @@ MonoBehaviour:
   healthRegen: 1
   animatorManager: {fileID: 155591882567244008}
   _animator: {fileID: 98128113241182564}
+  _cameraTransform: {fileID: 0}
 --- !u!114 &6239973686006610112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +323,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4651455203880759434}
   - component: {fileID: 467656853523638086}
-  - component: {fileID: 2118033071037776093}
   - component: {fileID: 6392687079987009728}
   - component: {fileID: 4115068896739884237}
   m_Layer: 3
@@ -366,7 +367,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 7240684362875772895}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -389,19 +390,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &2118033071037776093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3365427093632058738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d1163fa822e8b418a0a603ec078d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLockToTarget
-  Damping: 0
 --- !u!114 &6392687079987009728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +407,7 @@ MonoBehaviour:
   PanAxis:
     Value: 0
     Center: 0
-    Range: {x: -90, y: 90}
+    Range: {x: -360, y: 360}
     Wrap: 0
     Recentering:
       Enabled: 0
