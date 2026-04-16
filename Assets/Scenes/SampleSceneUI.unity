@@ -921,170 +921,11 @@ Transform:
   - {fileID: 2130592376}
   m_Father: {fileID: 1479462068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &309333694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 309333695}
-  - component: {fileID: 309333697}
-  - component: {fileID: 309333696}
-  m_Layer: 0
-  m_Name: Inventario
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &309333695
+--- !u!4 &309333695 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+  m_PrefabInstance: {fileID: 6387243123941671243}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309333694}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.40546, y: -163.11551, z: 0.5945028}
-  m_LocalScale: {x: 0.76775426, y: 0.76775426, z: 0.76775426}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 723864684}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &309333696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309333694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 353649b5e74726048b822af37271bb8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::inventario
-  itemsList:
-  - name: camara
-    description: es una camara que siempre lleva a topdos lados. es un recuerdo de
-      alguien muy querido
-    id: 0
-    isKeyItem: 0
-    isUsable: 0
-    quantity: 1
-    maxStack: 0
-    sprite: {fileID: 21300000, guid: 8ae8845c95d5dba45a7f6634b39e1099, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-    prefabItem: {fileID: 0}
-  - name: pastillas
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 1
-    isKeyItem: 0
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-    prefabItem: {fileID: 0}
-  - name: bestiario
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 2
-    isKeyItem: 0
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-    prefabItem: {fileID: 0}
-  - name: cartuchos polaroid
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 3
-    isKeyItem: 0
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-    prefabItem: {fileID: 0}
-  - name: llave
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 4
-    isKeyItem: 1
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-    prefabItem: {fileID: 0}
-  - name: key 2
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 5
-    isKeyItem: 1
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-    prefabItem: {fileID: 0}
-  maxItems: 20
-  inventoryAction: {fileID: -4782559618413106243, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  inspectSystem: {fileID: 1508897571}
-  _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
-  debugHealth: 1
---- !u!114 &309333697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309333694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 608dcd1d838243e4ebc37f19c700f460, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 584380d4d0bcab94e984bea2b3d756ec, type: 3}
-  m_SortingOrder: 0
-  m_Position: 0
-  m_WorldSpaceSizeMode: 1
-  m_WorldSpaceWidth: 1920
-  m_WorldSpaceHeight: 1080
-  m_PivotReferenceSize: 0
-  m_Pivot: 0
-  m_WorldSpaceCollider: {fileID: 0}
 --- !u!1 &339269252
 GameObject:
   m_ObjectHideFlags: 0
@@ -8658,6 +8499,67 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1001 &6387243123941671243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 723864684}
+    m_Modifications:
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -399.40546
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -163.11551
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5945028
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 196148972255942326, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426845711983319744, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: m_Name
+      value: Inventario
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857608877321214341, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
+      propertyPath: inspectSystem
+      value: 
+      objectReference: {fileID: 1508897571}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 93c9fcdd7bbdd7d4c949c4c3bbc297d2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

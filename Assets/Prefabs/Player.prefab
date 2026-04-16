@@ -244,7 +244,7 @@ CapsuleCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.42921984
@@ -293,7 +293,11 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   moveSpeed: 5
   rotationSpeed: 120
+  health: 6
+  maxHealth: 6
+  healthRegen: 1
   animatorManager: {fileID: 155591882567244008}
+  _animator: {fileID: 98128113241182564}
 --- !u!114 &6239973686006610112
 MonoBehaviour:
   m_ObjectHideFlags: 0
