@@ -20,12 +20,12 @@ public class InteractuableItem : MonoBehaviour
             itemData.datosFoto.CargarTextura();
             MeshRenderer meshRenderer = GetComponentInChildren<MeshRenderer>();
             // 3. Si tenemos donde pintarla, la aplicamos
-            if (meshRenderer != null && itemData.datosFoto.textura != null)
+            if (meshRenderer != null && itemData.datosFoto.texture != null)
             {
                 Material materialInstanciado = new Material(meshRenderer.material);
                 
                 // Asignamos la textura principal
-                materialInstanciado.mainTexture = itemData.datosFoto.textura;
+                materialInstanciado.mainTexture = itemData.datosFoto.texture;
                 meshRenderer.material = materialInstanciado;
 
                 FotoRevelado revelador = GetComponent<FotoRevelado>();

@@ -345,7 +345,7 @@ public class CameraController : MonoBehaviour
         File.WriteAllBytes(rutaCompleta, bytes);
 
         // Crear los datos con la ruta correcta y la textura ya cargada en memoria
-        DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime);
+        PhotoData nuevaFoto = new PhotoData(idFoto, rutaCompleta, reavelTime);
         Item itemFoto = new Item
         {
             name = idFoto,
@@ -390,7 +390,7 @@ public class CameraController : MonoBehaviour
                     EnemyCollision enemyCollision = col.GetComponent<EnemyCollision>();
                     if (enemyCollision != null)
                     {
-                        enemyCollision.FOTOMADE = true;
+                        enemyCollision.PHOTOMADE = true;
                     }
 
                     //Destroy(col.gameObject);

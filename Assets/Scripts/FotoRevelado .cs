@@ -10,7 +10,7 @@ public class FotoRevelado  : MonoBehaviour
     [SerializeField] private InputActionReference l1Action;
 
     [Header("Referencia a los datos")]
-    public DatosFotos datos; // asignado al instanciar la foto
+    public PhotoData datos; // asignado al instanciar la foto
 
     [Header("Configuración del Revelado")]
     public float shakeBoostInicial = 1f; // Multiplicador inicial al agitar
@@ -137,6 +137,6 @@ public class FotoRevelado  : MonoBehaviour
     }
     private void OnReveladoCompleto()
     {
-        Debug.Log($"Foto {datos.idFoto} ha desaparecido completamente.");
+        Debug.Log($"Foto {datos.photoID} ha desaparecido completamente.");
     }
 }

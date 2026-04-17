@@ -1,0 +1,343 @@
+using Unity.Cinemachine;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using System.IO;
+using System.Collections;
+using UnityEditor.Timeline.Actions;
+
+public class PhotoController : MonoBehaviour
+{
+    #region Values
+
+
+
+    [Header("Configuración")]
+    public float revealTime = 5f;   // Tiempo que tarda en revelarse la foto
+    [SerializeField] private string folderRoute;       // Ruta donde se guardarán las fotos
+
+
+    [Header("Interaction")]
+    public InspectSystem inspectSystem;
+    [SerializeField] private BoxCollider objetosCapturados;
+
+    #endregion
+
+    #region Unity Methods
+    // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDRÁN LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
+    void Awake()
+    {
+        // Guardaremos las fotos en una subcarpeta llamada "AlbumPolaroid"
+        folderRoute = Path.Combine(Application.persistentDataPath, "AlbumPolaroid");
+
+        if (!Directory.Exists(folderRoute))       
+            Directory.CreateDirectory(folderRoute);      
+    }
+
+
+    void Start()
+    {
+        if (aimCamera != null)       
+            panTiltComponent = aimCamera.GetComponent<CinemachinePanTilt>();
+        
+
+        flashMaxIntensity = flashLight.intensity;
+    }
+
+    void Update()
+    {
+        //if (saveAction.action.WasPressedThisFrame())
+        //{
+        //    if (photoObject != null)
+        //    {
+        //        //Guardar la foto actual en el inventario
+        //        MeshRenderer meshRenderer = photoObject.GetComponentInChildren<MeshRenderer>();
+        //        if (meshRenderer == null)
+        //        {
+        //            Debug.LogWarning("La foto física no tiene MeshRenderer.");
+        //            return;
+        //        }
+
+        //        Texture2D textura = meshRenderer.material.mainTexture as Texture2D;
+        //        if (textura == null)
+        //        {
+        //            Debug.LogWarning("La foto física no tiene textura asignada.");
+        //            return;
+        //        }
+
+        //        GuardarFoto(photoObject, textura); // Pasamos null porque la textura ya está guardada en el proceso de tomar foto
+        //    }
+        //}
+    }
+
+    #endregion
+
+    #region REVISAR
+    // REVISAR
+    private void ResetearRotacionCameraMesh()
+    {
+        if (CameraMesh != null)
+        {
+            CameraMesh.transform.localRotation = Quaternion.identity;
+
+            if (panTiltComponent != null)
+            {
+                panTiltComponent.PanAxis.Value = 0f;
+                panTiltComponent.TiltAxis.Value = 0f;
+            }
+        }
+    }
+
+    // REVISAR
+    public void InteractuarConFoto(GameObject foto)
+    {
+        if (foto != null)
+        {
+            Debug.Log("Interacción con la foto: " + foto.name);
+            inspectSystem.EnterInspectionMode(foto);
+        }
+        else
+        {
+            Debug.LogError("No se puede interactuar con una foto nula.");
+        }
+    }
+    #endregion
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    #region Values and References
+    [Header("Prueba")]
+    [SerializeField] private PlayerGeneral PLAYER;
+    [SerializeField] private GameObject photoArea;
+
+    GameObject photoObject = null;
+
+    [Header("Camera")]
+    [SerializeField] private CinemachineCamera aimCamera;
+    [SerializeField] private GameObject CameraMesh;
+
+    [SerializeField] private CinemachinePanTilt panTiltComponent;
+
+
+    [Header("Flash")]
+    [SerializeField] private GameObject flashArea;      // Area del flash 
+    [SerializeField] private Light flashLight;          // Luz del flash
+
+    [SerializeField] private bool toggleFlash;          // Alternar el flash
+    [SerializeField] private float flashDuration;       // Duración del flash en segundos
+    [SerializeField] private float flashMaxIntensity;   // Intensidad máxima de la luz durante el flash
+
+
+    [Header("Photo Prefab")]
+    [SerializeField] private GameObject photoPrefab;    // Prefab de la foto
+    [SerializeField] private Transform photoSpawnPoint; // Zona de creación
+
+    private int photoCount = 0; //GestorInventario.Instance.fotosEnInventario.Count; // Contador para nombrar las fotos de forma única
+
+
+    [Header("Aim Values")]
+    [SerializeField] private float yawLimit;            // Min/Max del yaw
+    private float yawCurrent;
+
+    [SerializeField] private float pitchLimit;          // Min/Max del pitch
+    private float pitchCurrent;
+
+
+    #endregion
+
+
+    // Update solo llamado cuando el estado correcto está activo
+    public void CustomUpdate()
+    {
+        Vector2 look = PLAYER.INPUTTRANSFORMER.INPUTAIMNORMAL;
+
+        float yaw = look.x * PLAYER.CONFIGURATION.SENSITIVITY;
+        float pitch = look.y * PLAYER.CONFIGURATION.SENSITIVITY;
+
+        ApplyLook(yaw, pitch);
+    }
+
+    #region Aim
+    private void ApplyLook(float yaw, float pitch)
+    {
+        if (panTiltComponent == null)
+            return;
+
+        // Yaw
+        yawCurrent += yaw;
+        yawCurrent = Mathf.Clamp(yawCurrent, -yawLimit, yawLimit);
+
+        // Pitch
+        pitchCurrent -= pitch;
+        pitchCurrent = Mathf.Clamp(pitchCurrent, -pitchLimit, pitchLimit);
+
+        // Set
+        panTiltComponent.PanAxis.Value = yawCurrent;
+        panTiltComponent.TiltAxis.Value = pitchCurrent;
+    }
+    #endregion
+
+    #region Photo
+    public void TakePhoto()
+    {
+        if (!PLAYER.CONFIGURATION.CanUseCamera())
+            return;
+
+        PLAYER.CONFIGURATION.ResetCamera();
+
+        photoCount++;
+
+        // Flash
+        if (toggleFlash)
+            Flashing();
+
+
+        StartCoroutine(TakePhotoProcess());
+    }
+
+    // Corrutina. Toma la foto
+    private IEnumerator TakePhotoProcess()
+    {
+        Destroy(photoObject);
+
+        yield return new WaitForEndOfFrame();
+
+        // Screenshot
+        Texture2D fotoCapturada = ScreenCapture.CaptureScreenshotAsTexture();
+        
+        // Detección de enemegios
+        photoArea.SetActive(true);
+
+        // Pequeño delay
+        yield return new WaitForSeconds(0.1f);
+        photoArea.SetActive(false);
+
+
+        // Instanciado de foto y asignación
+        if (photoPrefab != null && photoSpawnPoint != null)
+        {
+            // Creamos el prefab en la posición y rotación del punto de aparición
+            GameObject fotoInstanciada = Instantiate(photoPrefab, photoSpawnPoint.position, photoSpawnPoint.rotation);
+            fotoInstanciada.transform.SetParent(photoSpawnPoint);
+
+            // Buscamos el MeshRenderer 
+            MeshRenderer meshRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
+
+            PhotoEnemy enemiesCaughtScript = photoArea.GetComponent<PhotoEnemy>();
+
+            // Identificar foto y ubicación
+            string idFoto = "Foto_" + photoCount;
+            string rutaCompleta = Path.Combine(folderRoute, idFoto + ".png");
+
+            // Crear los datos con la ruta correcta y la textura ya cargada en memoria
+            PhotoData nuevaFoto = new PhotoData(idFoto, rutaCompleta, revealTime, enemiesCaughtScript.enemiesCaught);
+
+            fotoInstanciada.GetComponent<RevealPhoto>().datos = nuevaFoto;
+
+            enemiesCaughtScript.ClearList();
+
+
+            if (meshRenderer != null)
+            {
+                // Le aplicamos el nuevo material al Quad
+                meshRenderer.material.mainTexture = fotoCapturada;
+                Debug.Log("¡Foto creada físicamente y material aplicado al Quad!");
+
+                // Guardarla
+                SavePhoto(fotoInstanciada, fotoCapturada, nuevaFoto, idFoto, rutaCompleta);
+
+                photoObject = fotoInstanciada;
+
+                //InteractuarConFoto(fotoInstanciada);
+            }
+        }
+    }
+
+    // Guarda la foto en memoria/inventario
+    public void SavePhoto(GameObject foto, Texture2D texturaFoto, PhotoData data, string idFoto, string rutaCompleta)
+    {
+        if (foto == null)
+            return;
+
+        if (texturaFoto == null)
+            return;
+
+
+        // Asegurarse de que la carpeta exista
+        if (!Directory.Exists(folderRoute))
+            Directory.CreateDirectory(folderRoute);
+
+
+        // Generar y guardar el PNG en disco
+        byte[] bytes = texturaFoto.EncodeToPNG();
+        File.WriteAllBytes(rutaCompleta, bytes);
+
+        Item itemFoto = new Item
+        {
+            name = idFoto,
+            description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
+            esFoto = true,
+            datosFoto = data,
+            prefabItem = photoPrefab
+        };
+
+        bool agregada = InventarioManager.Instance.AgregarItem(itemFoto);
+
+        Destroy(texturaFoto);
+
+
+        if (!agregada)
+            Debug.LogWarning("No se pudo agregar al inventario (¿lleno?).");
+
+
+        // Destruir la foto física del mundo después de guardarla
+        Destroy(foto);
+
+        Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
+    }
+    #endregion
+
+    #region Flash
+    //Alternar el flash
+    public void ToggleFlash()
+    {
+        toggleFlash = !toggleFlash;
+    }
+
+    // Empezar el flash
+    public void Flashing()
+    {
+        if (flashArea != null)
+            flashArea.SetActive(true);
+
+        StartCoroutine(FlashRoutine());
+    }
+
+    // Secuencia de encendido y apagado del flash
+    private IEnumerator FlashRoutine()
+    {
+        if (flashLight == null) yield break;
+
+        float tiempoPasado = 0f;
+
+        // Mientras el tiempo que ha pasado sea menor a la duración que queremos...
+        while (tiempoPasado < flashDuration)
+        {
+            tiempoPasado += Time.deltaTime;
+
+            // Lerp mezcla dos valores. Va de intensidadMaximaFlash a 0 a lo largo del tiempo.
+            flashLight.intensity = Mathf.Lerp(flashMaxIntensity, 0f, tiempoPasado / flashDuration);
+
+            // Esperamos al siguiente frame para seguir bajando la intensidad
+            yield return null;
+        }
+
+        // Pasado ese tiempo, apagamos el efecto visual de golpe
+        if (flashArea != null)
+            flashArea.SetActive(false);
+
+        // Potencia reseteada
+        flashLight.intensity = flashMaxIntensity;
+    }
+    #endregion
+}

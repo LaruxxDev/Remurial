@@ -47,6 +47,15 @@ public class PlayerGeneral : MonoBehaviour
     public GameObject flashObject;
 
 
+    [Header("Animations")]
+    [SerializeField] PhotoController FotoController;
+    public PhotoController PHOTO => FotoController;
+
+
+    [Header("Photograph")]
+    public RevealPhoto heldPhoto;
+
+
     //[Header("Animations")]
     //[SerializeField] AnimationManager AnimationManager;
     //public AnimationManager ANIMATION => AnimationManager;

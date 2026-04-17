@@ -16,6 +16,10 @@ public class InputTransformer
     float inputCamera;
     public float INPUTCAMERA => inputCamera;
 
+    // Aim
+    Vector2 inputAim;
+    public Vector2 INPUTAIM => inputAim;
+    public Vector2 INPUTAIMNORMAL => inputAim.normalized;
 
     // Interact
     float inputInteract;
@@ -48,6 +52,14 @@ public class InputTransformer
             return;
 
         this.inputCamera = value;
+    }
+
+    public void ProcessInputAim(Vector2 value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.inputAim = value;
     }
 
     public void ProcessInputInteract(float value)

@@ -44,14 +44,20 @@ public class UnawareState : EnemyState
 
 
         // Camera Detection
-        if (ENEMY.COLLISION.FLASH)
+        if (ENEMY.COLLISION.PHOTOMADE)
+        {
+
+        }
+
+        // Revealed
+        if (ENEMY.COLLISION.REVEALED)
         {
             if (ENEMY.enemyType == EnemyGeneral.EnemyType.birbEnemy)
             {
-
+                // DEAD
+                Debug.Log("Dead");
             }
         }
-
 
         // Flash Detection
         if (ENEMY.COLLISION.FLASH)

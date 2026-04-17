@@ -44,11 +44,14 @@ public class InputManager2 : MonoBehaviour
 
     public void InputInteract(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            // Interact
+            PLAYER.INPUTTRANSFORMER.ProcessInputInteract(1f);
+        }
 
-            Debug.Log("Interact");
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputInteract(0f);
         }
     }
 
@@ -65,6 +68,19 @@ public class InputManager2 : MonoBehaviour
             PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
         }
     }
+
+    public void InputAim(InputAction.CallbackContext context)
+    {
+        if (!inputsEnabled)
+            return;
+
+        // Movement
+
+        if (context.canceled)
+            PLAYER.INPUTTRANSFORMER.ProcessInputAim(Vector2.zero);
+        else
+            PLAYER.INPUTTRANSFORMER.ProcessInputAim(context.ReadValue<Vector2>());
+    }
     #endregion
 
     #region UI
@@ -74,9 +90,31 @@ public class InputManager2 : MonoBehaviour
         {
             // Pause
 
-            Debug.Log("Pause");
+            //Debug.Log("Pause");
             //if (!GameManager.instance.gameEnded)
             //    GameManager.instance.TogglePause("pause");
+
+
+
+            // Temporal: Save
+            Debug.Log("Save");
+
+            //SaveSystem.Save();
+
+            //PLAYER.CONFIGURATION.SaveData();
+        }
+    }
+
+    public void InputPrueba(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // Temporal: Load
+            Debug.Log("Load");
+
+            SaveSystem.Load();
+
+            //PLAYER.CONFIGURATION.LoadData();
         }
     }
     #endregion

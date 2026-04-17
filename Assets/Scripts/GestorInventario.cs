@@ -7,15 +7,15 @@ public class GestorInventario : MonoBehaviour
     public static GestorInventario Instance { get; private set; }
 
     [Header("Inventario")]
-    public List<DatosFotos> fotosEnInventario = new List<DatosFotos>();
+    public List<PhotoData> fotosEnInventario = new List<PhotoData>();
 
     [Header("Configuración")]
     [SerializeField] private int maxFotos = 20; // Límite de fotos en inventario
     #endregion
 
     #region Events
-    public event System.Action<DatosFotos> OnFotoAgregada;
-    public event System.Action<DatosFotos> OnFotoEliminada;
+    public event System.Action<PhotoData> OnFotoAgregada;
+    public event System.Action<PhotoData> OnFotoEliminada;
     public event System.Action OnInventarioLleno;
     #endregion
 
@@ -41,9 +41,9 @@ public class GestorInventario : MonoBehaviour
     #endregion
 
     #region Inventory Methods
-    public bool AgregarFoto(DatosFotos foto)
+    public bool AgregarFoto(PhotoData foto)
     {
-        if (foto == null || string.IsNullOrEmpty(foto.rutaDelArchivoLocal))
+        if (foto == null || string.IsNullOrEmpty(foto.folderRoute))
         {
             Debug.LogError("No se puede agregar una foto nula al inventario.");
             return false;
@@ -58,13 +58,13 @@ public class GestorInventario : MonoBehaviour
 
         fotosEnInventario.Add(foto);
         OnFotoAgregada?.Invoke(foto);
-        Debug.Log($"Foto agregada: {foto.idFoto} | Total: {fotosEnInventario.Count}/{maxFotos}");
+        Debug.Log($"Foto agregada: {foto.photoID} | Total: {fotosEnInventario.Count}/{maxFotos}");
         return true;
     }
 
     public bool EliminarFoto(string idFoto)
     {
-        DatosFotos foto = BuscarFoto(idFoto);
+        PhotoData foto = BuscarFoto(idFoto);
 
         if (foto == null)
         {
@@ -80,15 +80,15 @@ public class GestorInventario : MonoBehaviour
     }
 
     // Devuelve la foto por id
-    public DatosFotos BuscarFoto(string idFoto)
+    public PhotoData BuscarFoto(string idFoto)
     {
-        return fotosEnInventario.Find(f => f.idFoto == idFoto);
+        return fotosEnInventario.Find(f => f.photoID == idFoto);
     }
 
     // Carga la textura de una foto solo cuando se necesita mostrar
     public void MostrarFoto(string idFoto)
     {
-        DatosFotos foto = BuscarFoto(idFoto);
+        PhotoData foto = BuscarFoto(idFoto);
         if (foto == null) return;
 
         foto.CargarTextura();
@@ -97,7 +97,7 @@ public class GestorInventario : MonoBehaviour
     // Libera la textura cuando dejas de mostrarla
     public void OcultarFoto(string idFoto)
     {
-        DatosFotos foto = BuscarFoto(idFoto);
+        PhotoData foto = BuscarFoto(idFoto);
         if (foto == null) return;
 
         foto.LiberarTextura();
@@ -108,7 +108,7 @@ public class GestorInventario : MonoBehaviour
 
     private void LiberarTodasLasTexturas()
     {
-        foreach (DatosFotos foto in fotosEnInventario)
+        foreach (PhotoData foto in fotosEnInventario)
         {
             foto.LiberarTextura();
         }

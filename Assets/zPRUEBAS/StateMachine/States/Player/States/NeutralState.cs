@@ -24,12 +24,16 @@ public class NeutralState : PlayerState
         base.Update();
 
 
-        // Camera
-        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA > 0f)
+        // Revelar foto
+        if (PLAYER.INPUTTRANSFORMER.INPUTINTERACT == 1f && PLAYER.heldPhoto != null)
         {
-            // Consumir el input
-            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(0f);
+            PLAYER.heldPhoto.RevelarInstantaneo();
+        }
 
+
+        // Camera
+        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA == 1f)
+        {
             CameraManager.SwitchCamera(PLAYER.firstPersonCamera);
             STATEMACHINE.ChangeState(PLAYER.STATES.OnCameraState(STATEMACHINE));
         }

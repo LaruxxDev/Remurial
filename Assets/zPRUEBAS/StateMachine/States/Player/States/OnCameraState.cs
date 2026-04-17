@@ -23,14 +23,31 @@ public class OnCameraState : PlayerState
 
         base.Update();
 
+        PLAYER.PHOTO.CustomUpdate();
 
-        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA > 0f)
+        // Neutral State
+        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA == 0f)
         {
-            // Consumir el input
-            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(0f);
-
             CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
             STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
+        }
+
+        // Hacer foto
+        if (PLAYER.INPUTTRANSFORMER.INPUTINTERACT > 0f)
+        {
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputInteract(0f);
+
+            PLAYER.PHOTO.TakePhoto();
+        }
+
+        // Toggle Flash
+        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH > 0f)
+        {
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
+
+            PLAYER.PHOTO.ToggleFlash();
         }
     }
     

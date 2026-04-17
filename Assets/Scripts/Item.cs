@@ -13,7 +13,7 @@ public class Item
     public Sprite sprite;
 
     public bool esFoto = false;
-    public DatosFotos datosFoto; 
+    public PhotoData datosFoto; 
 
     public GameObject prefabItem;
 
@@ -31,7 +31,7 @@ public class Item
         // Si es foto, le cargamos la textura
         if (esFoto && datosFoto != null)
         {
-            if (datosFoto.textura == null)
+            if (datosFoto.texture == null)
             {
                 datosFoto.CargarTextura();
             }
@@ -40,7 +40,7 @@ public class Item
             if (meshRenderer != null)
             {
                 meshRenderer.material = new Material(meshRenderer.material);
-                meshRenderer.material.mainTexture = datosFoto.textura;
+                meshRenderer.material.mainTexture = datosFoto.texture;
             }
             else
             {

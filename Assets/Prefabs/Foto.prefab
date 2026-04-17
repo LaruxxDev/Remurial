@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2351103334286151591}
   - component: {fileID: 3225535521704854253}
   - component: {fileID: 8501649854913452572}
+  - component: {fileID: 6879425670159759068}
   - component: {fileID: 494630288669200462}
   - component: {fileID: 6626755837368841876}
   m_Layer: 0
@@ -116,7 +117,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &494630288669200462
+--- !u!114 &6879425670159759068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +125,29 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864132496829830496}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b0a36a91fd9af4e9915bf2b7436443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RevealPhoto
+  datos:
+    idFoto: 
+    rutaDelArchivoLocal: 
+    revealTime: 10
+  shakeBoostInicial: 1
+  incrementoVelocidad: 0.5
+  distanciaAgite: 0.15
+  velocidadRetorno: 12
+  reveal: {fileID: 3802400139476070591}
+  isInspecting: 0
+  PLAYER: {fileID: 0}
+--- !u!114 &494630288669200462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864132496829830496}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e39c30bbd5af148a5f4e1f21dd66dc, type: 3}
   m_Name: 
