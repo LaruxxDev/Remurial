@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4794857957821131243, guid: 48c5e1ea2126c4f44ab1a26312e34ff0, type: 3}
+      propertyPath: FLASH
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4808283739259665477, guid: 48c5e1ea2126c4f44ab1a26312e34ff0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8759,6 +8763,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3979109997573129031, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
       propertyPath: mostrarGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392687079987009728, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
+      propertyPath: RecenterTarget
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
