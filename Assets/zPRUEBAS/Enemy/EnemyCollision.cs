@@ -30,33 +30,7 @@ public class EnemyCollision : MonoBehaviour
     public bool FLASH;
 
     public bool FOTOMADE;
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("COLISION");
-        if (collision.gameObject.tag == "flash")
-        {
-            Debug.Log("FLASH");
-            FLASH = true;
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "flash")
-        {
-            Debug.Log("FLASH");
-            FLASH = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "flash")
-        {
-            FLASH = false;
-        }
-    }
-
-
+    public bool REVELADO;
 
     public bool GROUND => Physics.Raycast(groundCheck.position, -transform.up, -groundDistance, groundLayer);
 

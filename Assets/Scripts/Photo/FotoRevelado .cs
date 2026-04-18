@@ -139,5 +139,22 @@ public class FotoRevelado : MonoBehaviour
     {
         Debug.Log($"[FotoRevelado] {datos.idFoto} revelada completamente.");
         // GameEvents.OnFotoRevelada?.Invoke(datos);
+        if (datos.enemigosCapturados.Count > 0)
+        {
+            foreach (var enemigo in datos.enemigosCapturados)
+            {
+                var collision = enemigo.GetComponentInChildren<EnemyCollision>();
+                if (collision != null)
+                {
+                    collision.REVELADO = true;
+                    Destroy(enemigo);
+                    Debug.Log($"Enemigo revelado: {enemigo.name}");
+                }
+                else
+                {
+                    Debug.LogWarning($"{enemigo.name} no tiene EnemyCollision.");
+                }
+            }
+        }
     }
 }

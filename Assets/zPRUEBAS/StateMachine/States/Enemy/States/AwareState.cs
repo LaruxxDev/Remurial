@@ -40,11 +40,11 @@ public class AwareState : EnemyState
 
 
         // Camera Detection
-        if (ENEMY.COLLISION.FLASH)
+        if (ENEMY.COLLISION.REVELADO)
         {
             if (ENEMY.enemyType == EnemyGeneral.EnemyType.birbEnemy)
             {
-
+                STATEMACHINE.ChangeState(ENEMY.STATES.DeadSubState);
             }
         }
 

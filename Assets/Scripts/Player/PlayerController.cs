@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameInputReader _input;
 
     [Header("Movimiento")]
-    public float moveSpeed = 3f;
+    public float moveSpeed = 5f;
+    public float aimSpeedMultiplier = 0.5f;
     public float rotationSpeed = 120f;
 
     [Header("Vida")]
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour
         if (_currentState == PlayerState.Interacting) return;
         _estaApuntando = true;
         _currentState  = PlayerState.TakingPhoto;
-        _animator.SetTrigger("TakePhoto");
+        //_animator.SetTrigger("TakePhoto");
     }
 
     private void HandleAimEnd()
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (_currentState == PlayerState.Interacting) return;
 
         _currentState = PlayerState.Revealing;
-        _animator.SetTrigger("Reveal");
+        //_animator.SetTrigger("Reveal");
     }
 
     private void HandleInteract()
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour
         if (animatorManager != null)
             animatorManager.HandleAnimatorValues(0f, 0f);
 
-        _animator.SetTrigger("Interact");
+        //_animator.SetTrigger("Interact");
     }
 
     // Llama desde Animation Event al terminar animaciones de acción
@@ -157,9 +158,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDirection = (forward * _moveInput.y + right * _moveInput.x).normalized;
         _rb.linearVelocity = new Vector3(
-            moveDirection.x * moveSpeed,
+            moveDirection.x * (moveSpeed * aimSpeedMultiplier),
             _rb.linearVelocity.y,
-            moveDirection.z * moveSpeed
+            moveDirection.z * (moveSpeed * aimSpeedMultiplier)
         );
 
         // ── 2. El cuerpo rota hacia donde mira la cámara (solo eje Y) ──

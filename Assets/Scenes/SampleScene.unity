@@ -8701,6 +8701,10 @@ PrefabInstance:
       propertyPath: _cameraTransform
       value: 
       objectReference: {fileID: 330585546}
+    - target: {fileID: 2242362896243260905, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
+      propertyPath: aimSpeedMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2585642976059539605, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
       propertyPath: m_Name
       value: Player
