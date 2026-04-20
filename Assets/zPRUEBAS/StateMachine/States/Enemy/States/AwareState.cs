@@ -52,6 +52,7 @@ public class AwareState : EnemyState
             {
                 // DEAD
                 Debug.Log("Dead");
+                Object.Destroy(ENEMY.Rigidbody.gameObject);
             }
         }
 

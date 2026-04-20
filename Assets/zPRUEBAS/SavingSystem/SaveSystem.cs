@@ -59,6 +59,7 @@ public class SaveSystem
     private static void HandleSaveData(SavePoint savePoint)
     {
         savePoint.SaveData(ref _saveData.PointData);
+        GameManagerTemporal.Instance.PLAYER.SaveData(ref _saveData.PlayerData);
     }
     #endregion
 

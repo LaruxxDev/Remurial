@@ -1,4 +1,3 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class UnawareState : EnemyState
@@ -56,6 +55,7 @@ public class UnawareState : EnemyState
             {
                 // DEAD
                 Debug.Log("Dead");
+                Object.Destroy(ENEMY.Rigidbody.gameObject);
             }
         }
 

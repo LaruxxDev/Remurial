@@ -16,42 +16,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Camera",
-                    "type": "Button",
-                    "id": "543f6190-5db1-47e9-ac65-8ae03efc1a5b",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "08de919b-92ba-456d-b187-3256279bd19f",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Flash",
-                    "type": "Button",
-                    "id": "8ce47d55-f8ff-4be9-8e24-8d9c0d616f28",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "fafbbb93-ceb1-453a-82fa-fdae69ac8fcb",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Aim",
                     "type": "Value",
                     "id": "49d61702-ae3c-413b-ae0d-29e6edd4455a",
@@ -61,9 +25,54 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Prueba",
+                    "name": "LeftClick",
                     "type": "Button",
-                    "id": "42305880-06ab-4fe2-9851-cad692da4062",
+                    "id": "08de919b-92ba-456d-b187-3256279bd19f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightClick",
+                    "type": "Button",
+                    "id": "543f6190-5db1-47e9-ac65-8ae03efc1a5b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "F",
+                    "type": "Button",
+                    "id": "8ce47d55-f8ff-4be9-8e24-8d9c0d616f28",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "I",
+                    "type": "Button",
+                    "id": "d2dd6820-edd2-45df-b35d-a44f3c8ba211",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "B",
+                    "type": "Button",
+                    "id": "979f2e93-984b-46fa-8fb4-5bfdc9c51bf1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "fafbbb93-ceb1-453a-82fa-fdae69ac8fcb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -133,7 +142,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "Esc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -144,7 +153,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "LeftClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -155,7 +164,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Flash",
+                    "action": "F",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -166,7 +175,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Camera",
+                    "action": "RightClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -183,12 +192,23 @@
                 },
                 {
                     "name": "",
-                    "id": "09fc434e-cc61-49c6-bc09-437d60f3da66",
-                    "path": "<Keyboard>/tab",
+                    "id": "66ea6541-1313-4f4c-9a9a-837d4d5274be",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Prueba",
+                    "action": "I",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec252c70-062a-4cc1-8c35-12f4c6fd3fb7",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "B",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -26,31 +26,37 @@ public class OnCameraState : PlayerState
         PLAYER.PHOTO.CustomUpdate();
 
         // Neutral State
-        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA == 0f)
+        if (PLAYER.INPUTTRANSFORMER.RIGHTCLICK == 0f)
         {
-            CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
+            //CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
             STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
         }
 
         // Hacer foto
-        if (PLAYER.INPUTTRANSFORMER.INPUTINTERACT > 0f)
+        if (PLAYER.INPUTTRANSFORMER.LEFTCLICK > 0f)
         {
             // Consumir el input
-            PLAYER.INPUTTRANSFORMER.ProcessInputInteract(0f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(0f);
 
             PLAYER.PHOTO.TakePhoto();
         }
 
         // Toggle Flash
-        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH > 0f)
+        if (PLAYER.INPUTTRANSFORMER.F > 0f)
         {
             // Consumir el input
-            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputF(0f);
 
             PLAYER.PHOTO.ToggleFlash();
         }
     }
-    
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
+    }
     public override void FixedUpdate() => lowLevelMachine.FixedUpdate();
     public override void LateUpdate() => lowLevelMachine.LateUpdate();
 }

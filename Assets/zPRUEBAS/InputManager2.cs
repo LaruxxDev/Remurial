@@ -15,12 +15,11 @@ public class InputManager2 : MonoBehaviour
     }
 
     #region Gameplay
+    // Movement
     public void InputMovement(InputAction.CallbackContext context)
     {
         if (!inputsEnabled)
             return;
-
-        // Movement
 
         if (context.canceled)
             PLAYER.INPUTTRANSFORMER.ProcessInputVector(Vector2.zero);
@@ -28,93 +27,102 @@ public class InputManager2 : MonoBehaviour
             PLAYER.INPUTTRANSFORMER.ProcessInputVector(context.ReadValue<Vector2>());
     }
 
-    public void InputCameraSwap(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(1f);
-        }
-
-        if (context.canceled)
-        {
-            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(0f);
-        }
-    }
-
-
-    public void InputInteract(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            PLAYER.INPUTTRANSFORMER.ProcessInputInteract(1f);
-        }
-
-        if (context.canceled)
-        {
-            PLAYER.INPUTTRANSFORMER.ProcessInputInteract(0f);
-        }
-    }
-
-
-    public void InputFlash(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(1f);
-        }
-
-        if (context.canceled)
-        {
-            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
-        }
-    }
-
+    // Aim
     public void InputAim(InputAction.CallbackContext context)
     {
         if (!inputsEnabled)
             return;
-
-        // Movement
 
         if (context.canceled)
             PLAYER.INPUTTRANSFORMER.ProcessInputAim(Vector2.zero);
         else
             PLAYER.INPUTTRANSFORMER.ProcessInputAim(context.ReadValue<Vector2>());
     }
+
+
+    // Left Click
+    public void InputLeftClick(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(0f);
+        }
+    }
+
+    // Right Click
+    public void InputRightClick(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputRightClick(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputRightClick(0f);
+        }
+    }
+
+    // F
+    public void InputF(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputF(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputF(0f);
+        }
+    }
+
+    // I
+    public void InputI(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputI(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputI(0f);
+        }
+    }
+
+    // B
+    public void InputB(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputB(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputB(0f);
+        }
+    }
     #endregion
 
     #region UI
-    public void InputPause(InputAction.CallbackContext context)
+    // Escape
+    public void InputEsc(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             // Pause
 
-            //Debug.Log("Pause");
+            Debug.Log("Pause");
+
             //if (!GameManager.instance.gameEnded)
             //    GameManager.instance.TogglePause("pause");
-
-
-
-            // Temporal: Save
-            Debug.Log("Save");
-
-            //SaveSystem.Save();
-
-            //PLAYER.CONFIGURATION.SaveData();
-        }
-    }
-
-    public void InputPrueba(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            // Temporal: Load
-            Debug.Log("Load");
-
-            SaveSystem.Load();
-
-            //PLAYER.CONFIGURATION.LoadData();
         }
     }
     #endregion

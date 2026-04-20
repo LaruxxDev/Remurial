@@ -25,14 +25,17 @@ public class DatosFotos
         revealProgress = 0f;
         textura = null;
 
-        if (enemiesCaught != null)
+        if (objectsCaught == null)
+            return;
+
+        foreach (GameObject item in objectsCaught)
         {
-            foreach (GameObject item in objectsCaught)
+            if (item.TryGetComponent(out EnemyCollision enemy))
             {
-                if (item.TryGetComponent<EnemyCollision>(out EnemyCollision enemy))
-                    enemiesCaught.Add(enemy);
+                enemiesCaught.Add(enemy);
+                Debug.Log(enemy.name);
             }
-        }
+        }      
     }
 
     // Carga la textura desde disco solo cuando la necesitas

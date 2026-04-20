@@ -20,6 +20,7 @@ public class SavePoint : MonoBehaviour
     public void OnInteract()
     {
         SaveSystem.Save(this);
+        Debug.Log("Saved in: " + this);
     }
 }
 

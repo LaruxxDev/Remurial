@@ -38,6 +38,11 @@ public class PlayerGeneral : MonoBehaviour
     public PlayerMovement MOVEMENT => PlayerMovement;
 
 
+    [Header("Health System")]
+    PlayerHealth PlayerHealth;
+    public PlayerHealth HEALTH => PlayerHealth;
+
+
     [Header("Cameras")]
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
@@ -56,7 +61,10 @@ public class PlayerGeneral : MonoBehaviour
     public RevealPhoto heldPhoto;
 
 
-
+    [Header("Inspection")]
+    [SerializeField] InspectSystem InspectSystem;
+    public InspectSystem INSPECT;
+    public GameObject inspectionItem;
 
     //[Header("Animations")]
     //[SerializeField] AnimationManager AnimationManager;
@@ -70,6 +78,7 @@ public class PlayerGeneral : MonoBehaviour
         States = new StateCollection(this);
         InputTransformer = new InputTransformer();
         PlayerMovement = new PlayerMovement(Rigidbody, PlayerConfiguration, this);
+        PlayerHealth = new PlayerHealth(PlayerConfiguration, this);
     }
 
     void Start()
@@ -83,19 +92,29 @@ public class PlayerGeneral : MonoBehaviour
 
 
         // DEBUG
+        // States
         stateText.text = StateMachine.state.Name;
 
+        // SubStates
         if (StateMachine.state is NeutralState neutral)
             subStateText.text = neutral.subMachine.state.Name;
         if (StateMachine.state is OnCameraState onCamera)
             subStateText.text = onCamera.subMachine.state.Name;
-        if (STATEMACHINE.state is DialogueState)
+        if (STATEMACHINE.state is DialogueState || STATEMACHINE.state is InspectState|| STATEMACHINE.state is DeadState)
             subStateText.text = "";
+
+        // HP
+        hpText.text = PlayerConfiguration.health.ToString();
     }
 
     [Header("Debug")]
     public TextMeshProUGUI stateText;
     public TextMeshProUGUI subStateText;
+    public TextMeshProUGUI hpText;
+    [Space]
+    public SavePoint savePointA;
+    public SavePoint savePointB;
+
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 

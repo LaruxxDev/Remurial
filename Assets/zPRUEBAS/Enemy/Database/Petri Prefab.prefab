@@ -412,10 +412,11 @@ MonoBehaviour:
   detectionRadius: 10
   detectionGizmoz: 1
   detectedPlayer: {fileID: 0}
-  attackRadius: 5
+  attackRadius: 2
   attackGizmoz: 1
   FLASH: 0
-  FOTOMADE: 0
+  PHOTOMADE: 0
+  REVEALED: 0
 --- !u!136 &3908984952111115092
 CapsuleCollider:
   m_ObjectHideFlags: 0

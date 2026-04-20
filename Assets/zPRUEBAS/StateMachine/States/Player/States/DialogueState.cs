@@ -19,9 +19,9 @@ public class DialogueState : PlayerState
 
     public override void Update()
     {
-        if (PLAYER.INPUTTRANSFORMER.INPUTINTERACT == 1f)
+        if (PLAYER.INPUTTRANSFORMER.LEFTCLICK == 1f)
         {
-            PLAYER.INPUTTRANSFORMER.ProcessInputInteract(0f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(0f);
 
             DialogueManager.Instance.HandleInput();
         }

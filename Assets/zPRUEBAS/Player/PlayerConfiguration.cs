@@ -8,35 +8,31 @@ public class PlayerConfiguration : MonoBehaviour
 
     [Header("Configuration")]
 
+
+    #region Stats
+    [Header("Stats")]
+
+    [Header("Vida")]
+    public int health = 6;
+    public int maxHealth = 6;
+    public int healthRegen = 1;
+
+
+    #endregion
+
     #region Movement
     [Header("Movement")]
     [SerializeField] float moveSpeed;
     public float MOVESPEED => moveSpeed;
 
 
-    [SerializeField] float cameraModifier;
+    [SerializeField] [Range(0f,100f)] float cameraModifier;
     [SerializeField] float cameraMoveSpeed;
     public float CAMERAMOVESPEED => cameraMoveSpeed;
 
-    [Header("Delete?")]
+
     [SerializeField] float turnSpeed;
     public float TURNSPEED => turnSpeed;
-    #endregion
-
-    // Borrar?
-    #region Rotations
-    private Quaternion horizontalRotation;
-    [HideInInspector] public Quaternion HORIZONTAL => horizontalRotation;
-
-    private Quaternion invertedRotation;
-    [HideInInspector] public Quaternion INVERTED => invertedRotation;
-
-    private void SetRotations()
-    {
-        horizontalRotation = Quaternion.Euler(-90f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-
-        invertedRotation = Quaternion.Inverse(transform.rotation);
-    }
     #endregion
 
     #region Camera
@@ -65,15 +61,19 @@ public class PlayerConfiguration : MonoBehaviour
 
     private void Awake()
     {
-        // Borrar?
-        SetRotations();
-
+        // Convierte CameraModifier en un porcentaje
         cameraMoveSpeed = moveSpeed * (cameraModifier / 100);
     }
 
 
 
-    // TEMPORAL
+    #region Save & Load
+    public void SaveData(ref PlayerSaveData data)
+    {
+        // HP
+        data.health = health;
+    }
+
     public void LoadData(SavePointData spawnData, PlayerSaveData playerData)
     {
         // Position and Rotation
@@ -90,13 +90,15 @@ public class PlayerConfiguration : MonoBehaviour
             rb.rotation = (rot == default) ? Quaternion.identity : rot.normalized;
         }
 
-
-        // health and other stats
+        // HP
+        health = playerData.health;
     }
+    #endregion
 }
 
 [System.Serializable]
 public struct PlayerSaveData
 {
-    // hp and other stats
+    // HP
+    public int health;
 }

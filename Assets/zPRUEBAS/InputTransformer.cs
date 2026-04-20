@@ -11,25 +11,40 @@ public class InputTransformer
     public Vector2 INPUTVECTOR => inputVector;
     public Vector2 INPUTVECTORNORMAL => inputVector.normalized;
 
-
-    // Camera
-    float inputCamera;
-    public float INPUTCAMERA => inputCamera;
-
     // Aim
     Vector2 inputAim;
     public Vector2 INPUTAIM => inputAim;
     public Vector2 INPUTAIMNORMAL => inputAim.normalized;
 
-    // Interact
-    float inputInteract;
-    public float INPUTINTERACT => inputInteract;
+
+    // Left Click
+    float LeftClickInput;
+    public float LEFTCLICK => LeftClickInput;
 
 
-    // Flash
-    float inputFlash;
-    public float INPUTFLASH => inputFlash;
+    // Right Click
+    float RightClickInput;
+    public float RIGHTCLICK => RightClickInput;
 
+
+    // F
+    float fInput;
+    public float F => fInput;
+
+
+    // I
+    float iInput;
+    public float I => iInput;
+
+
+    // B
+    float bInput;
+    public float B => bInput;
+
+
+    // Esc
+    float escapeInput;
+    public float ESC => escapeInput;
 
 
 
@@ -38,20 +53,13 @@ public class InputTransformer
         inputsEnabled = areEnabled;
     }
 
+
     public void ProcessInputVector(Vector2 value)
     {
         if (!inputsEnabled)
             return;
 
         this.inputVector = value;
-    }
-
-    public void ProcessInputCamera(float value)
-    {
-        if (!inputsEnabled)
-            return;
-
-        this.inputCamera = value;
     }
 
     public void ProcessInputAim(Vector2 value)
@@ -62,20 +70,54 @@ public class InputTransformer
         this.inputAim = value;
     }
 
-    public void ProcessInputInteract(float value)
+
+    public void ProcessInputLeftClick(float value)
     {
         if (!inputsEnabled)
             return;
 
-        this.inputInteract = value;
+        this.LeftClickInput = value;
     }
 
-    public void ProcessInputFlash(float value)
+
+    public void ProcessInputRightClick(float value)
     {
         if (!inputsEnabled)
             return;
 
-        this.inputFlash = value;
+        this.RightClickInput = value;
     }
 
+
+    public void ProcessInputF(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.fInput = value;
+    }
+
+
+    public void ProcessInputI(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.iInput = value;
+    }
+
+
+    public void ProcessInputB(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.bInput = value;
+    }
+
+
+    public void ProcessInputEsc(float value)
+    {
+        this.escapeInput = value;
+    }
 }

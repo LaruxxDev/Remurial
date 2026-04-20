@@ -10,6 +10,13 @@ public class AttackSubState : EnemyState
     {
         base.Enter();
 
+        // Dañar al Jugador
+        if (ENEMY.COLLISION.detectedPlayer != null)
+        {
+            PlayerGeneral player = ENEMY.COLLISION.detectedPlayer.parent.GetComponentInChildren<PlayerGeneral>();
+            player.HEALTH.TakeDamage(ENEMY.CONFIGURATION.DAMAGE);
+        }
+
 
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Attack);
     }
@@ -34,8 +41,6 @@ public class AttackSubState : EnemyState
                 ENEMY.MOVEMENT.StopMovement();
                 break;
         }
-
-            
     }
 
     public override void FixedUpdate()

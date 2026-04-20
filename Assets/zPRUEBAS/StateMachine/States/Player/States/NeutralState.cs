@@ -25,14 +25,14 @@ public class NeutralState : PlayerState
 
 
         // Revelar foto
-        if (PLAYER.INPUTTRANSFORMER.INPUTINTERACT == 1f && PLAYER.heldPhoto != null)
+        if (PLAYER.INPUTTRANSFORMER.LEFTCLICK == 1f && PLAYER.heldPhoto != null)
         {
             PLAYER.heldPhoto.RevelarInstantaneo();
         }
 
 
         // Camera
-        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA == 1f)
+        if (PLAYER.INPUTTRANSFORMER.RIGHTCLICK == 1f)
         {
             CameraManager.SwitchCamera(PLAYER.firstPersonCamera);
             STATEMACHINE.ChangeState(PLAYER.STATES.OnCameraState(STATEMACHINE));
@@ -40,18 +40,43 @@ public class NeutralState : PlayerState
 
 
         // Flash
-        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH == 1f)
+        if (PLAYER.INPUTTRANSFORMER.F == 1f)
         {
-            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputF(0f);
 
             PLAYER.MOVEMENT.Flash();
         }
 
 
         // Dialogo
-        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH == 1f)
+        if (PLAYER.INPUTTRANSFORMER.F == 1f)
         {
             STATEMACHINE.ChangeState(PLAYER.STATES.DialogueState(STATEMACHINE));
+        }
+
+
+        // Inventory
+        if (PLAYER.INPUTTRANSFORMER.I == 1f)
+        {
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputI(0f);
+
+            // Pruebas
+            //PLAYER.HEALTH.TakeDamage(1);
+            PLAYER.savePointA.OnInteract();
+        }
+
+
+        // Bestiary
+        if (PLAYER.INPUTTRANSFORMER.B == 1f)
+        {
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputB(0f);
+
+            // Pruebas
+            //PLAYER.HEALTH.RegenerateHealth(2);
+            PLAYER.savePointB.OnInteract();
         }
     }
     

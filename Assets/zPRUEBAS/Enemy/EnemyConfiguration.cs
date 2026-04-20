@@ -6,6 +6,12 @@ public class EnemyConfiguration : MonoBehaviour
 {
     [Header("Configuration")]
 
+    #region Stats
+    [Header("Stats")]
+    [SerializeField] private int damage;
+    public int DAMAGE => damage;
+    #endregion
+
     #region Wander
     [Header("Wandering")]
     [SerializeField] float wanderRadius;

@@ -27,6 +27,14 @@ public class PetrifiedState : EnemyState
     {
         lowLevelMachine.Update();
 
+        // Temporal
+        // Destroy
+        if (ENEMY.COLLISION.ATTACK)
+        {
+            Object.Destroy(ENEMY.Rigidbody.gameObject);
+        }
+
+
         base.Update();
     }
     
