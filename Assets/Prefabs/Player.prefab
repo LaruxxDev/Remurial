@@ -325,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   moveSpeed: 5
+  aimSpeedMultiplier: 0.5
   rotationSpeed: 120
   health: 6
   maxHealth: 6
