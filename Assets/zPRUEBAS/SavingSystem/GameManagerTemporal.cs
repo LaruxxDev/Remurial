@@ -4,13 +4,13 @@ using System.Collections;
 [DefaultExecutionOrder(100)]
 public class GameManagerTemporal : MonoBehaviour
 {
-    public static GameManagerTemporal instance;
+    public static GameManagerTemporal Instance;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {

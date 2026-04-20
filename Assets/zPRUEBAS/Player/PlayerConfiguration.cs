@@ -85,7 +85,9 @@ public class PlayerConfiguration : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
 
             rb.position = spawnData.position;
-            rb.rotation = spawnData.rotation;
+
+            Quaternion rot = spawnData.rotation;
+            rb.rotation = (rot == default) ? Quaternion.identity : rot.normalized;
         }
 
 

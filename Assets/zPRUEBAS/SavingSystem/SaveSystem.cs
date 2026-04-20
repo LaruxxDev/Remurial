@@ -79,7 +79,7 @@ public class SaveSystem
     // Cargado de datos
     private static void HandleLoadData()
     {
-        GameManagerTemporal.instance.PLAYER.LoadData(_saveData.PointData, _saveData.PlayerData);
+        GameManagerTemporal.Instance.PLAYER.LoadData(_saveData.PointData, _saveData.PlayerData);
     }
     #endregion
 }

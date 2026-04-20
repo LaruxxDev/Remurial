@@ -56,6 +56,8 @@ public class PlayerGeneral : MonoBehaviour
     public RevealPhoto heldPhoto;
 
 
+
+
     //[Header("Animations")]
     //[SerializeField] AnimationManager AnimationManager;
     //public AnimationManager ANIMATION => AnimationManager;
@@ -87,6 +89,8 @@ public class PlayerGeneral : MonoBehaviour
             subStateText.text = neutral.subMachine.state.Name;
         if (StateMachine.state is OnCameraState onCamera)
             subStateText.text = onCamera.subMachine.state.Name;
+        if (STATEMACHINE.state is DialogueState)
+            subStateText.text = "";
     }
 
     [Header("Debug")]

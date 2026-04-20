@@ -12,6 +12,7 @@ public class StateCollection
     // States
     public NeutralState NeutralState(StateMachine sm) => new NeutralState(sm, player);
     public OnCameraState OnCameraState(StateMachine sm) => new OnCameraState(sm, player);
+    public DialogueState DialogueState(StateMachine sm) => new DialogueState(sm, player);
 
 
     // SubStates

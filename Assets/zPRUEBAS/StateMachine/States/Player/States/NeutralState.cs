@@ -40,11 +40,18 @@ public class NeutralState : PlayerState
 
 
         // Flash
-        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH > 0f)
+        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH == 1f)
         {
             PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
 
             PLAYER.MOVEMENT.Flash();
+        }
+
+
+        // Dialogo
+        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH == 1f)
+        {
+            STATEMACHINE.ChangeState(PLAYER.STATES.DialogueState(STATEMACHINE));
         }
     }
     
