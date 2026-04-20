@@ -309,7 +309,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 3490895012402314197, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
       propertyPath: fotoArea
       value: 
@@ -359,12 +358,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 845715343928475888, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1016352952}
-=======
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
->>>>>>> origin/SergioOrganizando
   m_SourcePrefab: {fileID: 100100000, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
 --- !u!1 &193330888
 GameObject:
@@ -2749,7 +2742,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
-<<<<<<< HEAD
 --- !u!1 &1016352949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 845715343928475888, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
@@ -2789,8 +2781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEnemy
   enemiesFlashed: []
-=======
->>>>>>> origin/SergioOrganizando
 --- !u!1001 &1046762981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4440,16 +4430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e95ae1f65e9c3b4186ba1cc4fc7db73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashEnemy
-<<<<<<< HEAD
   enemiesFlashed: []
-=======
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
->>>>>>> origin/SergioOrganizando
 --- !u!65 &1947921172
 BoxCollider:
   m_ObjectHideFlags: 0
