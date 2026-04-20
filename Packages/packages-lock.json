@@ -130,11 +130,22 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.2.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+=======
+    "com.unity.postprocessing": {
+      "version": "3.5.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.physics": "1.0.0"
+      },
+>>>>>>> origin/SergioOrganizando
       "url": "https://packages.unity.com"
     },
     "com.unity.probuilder": {

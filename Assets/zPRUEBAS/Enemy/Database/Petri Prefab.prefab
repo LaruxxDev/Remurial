@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8322562675394692191}
   - component: {fileID: 1922126966635609935}
   - component: {fileID: 6739427358692022058}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: SubState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3103069651668144690}
   - component: {fileID: 1597846509774581983}
   - component: {fileID: 4920852291870419276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Configuration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 638335086071017219}
   - component: {fileID: 9078994739242493902}
   - component: {fileID: 5657507711619832737}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469341069875288248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,9 +363,9 @@ GameObject:
   - component: {fileID: 2687673227452630444}
   - component: {fileID: 4794857957821131243}
   - component: {fileID: 3908984952111115092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,6 +415,7 @@ MonoBehaviour:
   attackRadius: 5
   attackGizmoz: 1
   FLASH: 0
+  FOTOMADE: 0
 --- !u!136 &3908984952111115092
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665344097522947497}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +481,7 @@ GameObject:
   - component: {fileID: 7152274984338030021}
   - component: {fileID: 4933477181643703247}
   - component: {fileID: 5445603246396106926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +571,7 @@ GameObject:
   - component: {fileID: 6464772625909236049}
   - component: {fileID: 2588798081255113941}
   - component: {fileID: 7951709665561609884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8063911222494739739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +693,7 @@ GameObject:
   - component: {fileID: 723918458525643835}
   - component: {fileID: 7997790227025850428}
   - component: {fileID: 588159977094236272}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650067147920106811}
   - component: {fileID: 2941425082039971121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +839,7 @@ GameObject:
   - component: {fileID: 4808283739259665477}
   - component: {fileID: 7252259042241734461}
   - component: {fileID: 3378036761927535300}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -975,7 +976,7 @@ GameObject:
   - component: {fileID: 7753345833627499372}
   - component: {fileID: 6934884235757072774}
   - component: {fileID: 3660909641064388377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Petri Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1064,7 @@ GameObject:
   - component: {fileID: 3557444495298069647}
   - component: {fileID: 2723680250003416614}
   - component: {fileID: 8218864706108029525}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Debug
   m_TagString: Untagged
   m_Icon: {fileID: 0}

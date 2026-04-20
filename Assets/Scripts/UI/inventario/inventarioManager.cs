@@ -26,6 +26,7 @@ public class InventarioManager : MonoBehaviour
     [Header("Referencias")]
     [SerializeField] private InputActionReference inventoryAction;
     [SerializeField] private InspectSystem inspectSystem;
+    [SerializeField] private GameInputReader _input;
 
     private bool _isInventoryOpen = false;
 
@@ -68,7 +69,7 @@ public class InventarioManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab) || inventoryAction.action.WasPressedThisFrame())
+        if ( inventoryAction.action.WasPressedThisFrame())
         {
             ToggleInventory();
         }
@@ -113,6 +114,7 @@ public class InventarioManager : MonoBehaviour
         if (item.esFoto && item.datosFoto != null)
         {
             item.datosFoto.LiberarTextura();
+            Debug.Log($"Textura liberada al eliminar item: {item.name}");
         }
 
         itemsList.Remove(item);
@@ -145,6 +147,7 @@ public class InventarioManager : MonoBehaviour
             if (item.esFoto && item.datosFoto != null)
             {
                 item.datosFoto.LiberarTextura();
+                Debug.Log($"Textura liberada al cerrar inventario: {item.name}");
             }
         }
     }
@@ -157,14 +160,15 @@ public class InventarioManager : MonoBehaviour
 
         if (_isInventoryOpen)
         {
+            _input.DisableAll();
+            _input.EnableUI(); 
             _mainContainer.style.display = DisplayStyle.Flex;
             UpdateUI();
             _root.Focus();
         }
         else
         {
-            // Al cerrar, liberar texturas de fotos que se cargaron para mostrar
-            LiberarTexturasVisibles();
+            _input.EnableGameplay();
             _mainContainer.style.display = DisplayStyle.None;
         }
     }
@@ -279,17 +283,6 @@ public class InventarioManager : MonoBehaviour
         return Sprite.Create(textura, new Rect(0, 0, textura.width, textura.height), new Vector2(0.5f, 0.5f));
     }
 
-    // Libera texturas de fotos al cerrar el inventario
-    private void LiberarTexturasVisibles()
-    {
-        foreach (Item item in itemsList)
-        {
-            if (item.esFoto && item.datosFoto != null)
-            {
-                item.datosFoto.LiberarTextura();
-            }
-        }
-    }
 
     private VisualElement CrearItemCarrusel(Item item, bool esSeleccionado)
     {
