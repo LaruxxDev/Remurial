@@ -260,9 +260,9 @@ public class InventarioManager : MonoBehaviour
         if (currentItem.esFoto && currentItem.datosFoto != null)
         {
             currentItem.datosFoto.CargarTextura();
-            if (currentItem.datosFoto.texture != null)
+            if (currentItem.datosFoto.textura != null)
             {
-                Sprite spriteTextura = TexturaASprite(currentItem.datosFoto.texture);
+                Sprite spriteTextura = TexturaASprite(currentItem.datosFoto.textura);
                 _bigItemImage.style.backgroundImage = new StyleBackground(spriteTextura);
             }
         }
@@ -297,9 +297,9 @@ public class InventarioManager : MonoBehaviour
         if (item.esFoto && item.datosFoto != null)
         {
             item.datosFoto.CargarTextura();
-            if (item.datosFoto.texture != null)
+            if (item.datosFoto.textura != null)
             {
-                ve.style.backgroundImage = new StyleBackground(TexturaASprite(item.datosFoto.texture));
+                ve.style.backgroundImage = new StyleBackground(TexturaASprite(item.datosFoto.textura));
                 ve.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
                 ve.style.unityBackgroundImageTintColor = Color.white;
             }

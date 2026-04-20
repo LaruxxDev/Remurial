@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class FlashEnemy : MonoBehaviour
+public class FlashEnemy2 : MonoBehaviour
 {
     [SerializeField] private List<EnemyCollision> enemiesFlashed = new List<EnemyCollision>();
 

@@ -2,36 +2,43 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class PhotoData
+public class DatosFotos
 {
-    public string photoID;
+    public string idFoto;
     public string folderRoute;
     public float revealTime;
 
+    public List<GameObject> enemigosCapturados = new List<GameObject>();
     public List<EnemyCollision> enemiesCaught = new List<EnemyCollision>();
 
     [System.NonSerialized] public float revealProgress;
-    [System.NonSerialized] public Texture2D texture;
+    [System.NonSerialized] public Texture2D textura;
     [System.NonSerialized] public bool inProcess;
 
     public bool EstaRevelada => revealProgress >= 1f;
 
-    public PhotoData(string photoID, string folderRoute, float revealTime, List<EnemyCollision> enemiesCaught = null)
+    public DatosFotos(string idFoto, string folderRoute, float revealTime, List<GameObject> objectsCaught = null)
     {
-        this.photoID = photoID;
+        this.idFoto = idFoto;
         this.folderRoute = folderRoute;
         this.revealTime = revealTime;
         revealProgress = 0f;
-        texture = null;
+        textura = null;
 
         if (enemiesCaught != null)
-            this.enemiesCaught = enemiesCaught;
+        {
+            foreach (GameObject item in objectsCaught)
+            {
+                if (item.TryGetComponent<EnemyCollision>(out EnemyCollision enemy))
+                    enemiesCaught.Add(enemy);
+            }
+        }
     }
 
     // Carga la textura desde disco solo cuando la necesitas
     public void CargarTextura()
     {
-        if (texture != null) return; // Ya está cargada, no duplicar
+        if (textura != null) return; // Ya está cargada, no duplicar
 
         if (!System.IO.File.Exists(folderRoute))
         {
@@ -41,20 +48,20 @@ public class PhotoData
 
         // Cargar foto desde archivo
         byte[] bytes = System.IO.File.ReadAllBytes(folderRoute);
-        texture = new Texture2D(2, 2);
-        texture.LoadImage(bytes);
+        textura = new Texture2D(2, 2);
+        textura.LoadImage(bytes);
 
-        Debug.Log("Textura cargada desde disco: " + photoID);
+        Debug.Log("Textura cargada desde disco: " + idFoto);
     }
 
     // Libera la textura de memoria cuando no la necesitas
     public void LiberarTextura()
     {
-        if (texture == null) return;
+        if (textura == null) return;
 
-        Object.Destroy(texture);
-        texture = null;
+        Object.Destroy(textura);
+        textura = null;
 
-        Debug.Log("Textura liberada de memoria: " + photoID);
+        Debug.Log("Textura liberada de memoria: " + idFoto);
     }
 }

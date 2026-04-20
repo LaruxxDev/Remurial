@@ -146,7 +146,7 @@ public class FotoRevelado : MonoBehaviour
                 var collision = enemigo.GetComponentInChildren<EnemyCollision>();
                 if (collision != null)
                 {
-                    collision.REVELADO = true;
+                    collision.REVEALED = true;
                     Destroy(enemigo);
                     Debug.Log($"Enemigo revelado: {enemigo.name}");
                 }

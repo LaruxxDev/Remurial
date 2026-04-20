@@ -29,15 +29,10 @@ public class EnemyCollision : MonoBehaviour
     [Header("Flash")]
     public bool FLASH;
 
-<<<<<<< HEAD
     public bool PHOTOMADE;
 
     public bool REVEALED;
 
-=======
-    public bool FOTOMADE;
-    public bool REVELADO;
->>>>>>> origin/SergioOrganizando
 
     public bool GROUND => Physics.Raycast(groundCheck.position, -transform.up, -groundDistance, groundLayer);
 

@@ -230,7 +230,7 @@ public class PhotoController : MonoBehaviour
             string rutaCompleta = Path.Combine(folderRoute, idFoto + ".png");
 
             // Crear los datos con la ruta correcta y la textura ya cargada en memoria
-            PhotoData nuevaFoto = new PhotoData(idFoto, rutaCompleta, revealTime, enemiesCaughtScript.enemiesCaught);
+            DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, revealTime);
 
             fotoInstanciada.GetComponent<RevealPhoto>().datos = nuevaFoto;
 
@@ -254,7 +254,7 @@ public class PhotoController : MonoBehaviour
     }
 
     // Guarda la foto en memoria/inventario
-    public void SavePhoto(GameObject foto, Texture2D texturaFoto, PhotoData data, string idFoto, string rutaCompleta)
+    public void SavePhoto(GameObject foto, Texture2D texturaFoto, DatosFotos data, string idFoto, string rutaCompleta)
     {
         if (foto == null)
             return;

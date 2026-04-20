@@ -13,7 +13,7 @@ public class Item
     public Sprite sprite;
 
     public bool esFoto = false;
-    public PhotoData datosFoto; 
+    public DatosFotos datosFoto; 
 
     public GameObject prefabItem;
 
@@ -31,7 +31,7 @@ public class Item
         // Si es foto, le cargamos la textura
         if (esFoto && datosFoto != null)
         {
-            if (datosFoto.texture == null)
+            if (datosFoto.textura == null)
             {
                 datosFoto.CargarTextura();
             }
@@ -40,12 +40,8 @@ public class Item
             if (meshRenderer != null)
             {
                 meshRenderer.material = new Material(meshRenderer.material);
-<<<<<<< HEAD:Assets/Scripts/Item.cs
-                meshRenderer.material.mainTexture = datosFoto.texture;
-=======
                 meshRenderer.material.mainTexture = datosFoto.textura;
                 Debug.Log("Textura aplicada a la instancia de foto: " + name);
->>>>>>> origin/SergioOrganizando:Assets/Scripts/Interaction/ItemData/Item.cs
             }
             else
             {

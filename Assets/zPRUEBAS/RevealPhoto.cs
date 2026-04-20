@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class RevealPhoto : MonoBehaviour
 {
     [Header("Referencia a los datos")]
-    public PhotoData datos;                    // Asignado al instanciar la foto
+    public DatosFotos datos;                    // Asignado al instanciar la foto
 
     [Header("Configuración del Revelado")]
     public float shakeBoostInicial = 1f;        // Multiplicador inicial al agitar

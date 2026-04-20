@@ -40,7 +40,6 @@ public class AwareState : EnemyState
 
 
         // Camera Detection
-<<<<<<< HEAD
         if (ENEMY.COLLISION.PHOTOMADE)
         {
 
