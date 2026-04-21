@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
         _input.OnAimCanceled    += HandleAimEnd;
         _input.OnRevealUp          += HandleReveal;
         _input.OnInteractPerformed += HandleInteract;
+        _input.OnFaceCameraStarted          += HandleFaceCameraStarted;
+        _input.OnFaceCameraCanceled          += HandleFaceCameraCanceled;
     }
 
     private void OnDisable()
@@ -77,7 +79,29 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
 // ── Handlers ─────────────────────────────────────────────────────────
+    private void HandleFaceCameraStarted()
+    {
+        if (_currentState == PlayerState.Interacting) return;
+
+        // Si el personaje ya está mirando a la cámara, volver a la dirección del movimiento
+        if (_currentState == PlayerState.Walking && _moveInput != Vector2.zero)
+        {
+            _currentState = PlayerState.Walking;
+        }
+        else
+        {
+            _currentState = PlayerState.Idle; // O podrías crear un estado específico para "mirando a la cámara"
+        }
+    }
+    private void HandleFaceCameraCanceled()
+    {
+        if (_currentState == PlayerState.Interacting) return;
+
+        // Al soltar el botón, volver a Idle o Walking según el input
+        _currentState = _moveInput != Vector2.zero ? PlayerState.Walking : PlayerState.Idle;
+    }
 
     private void HandleAimStart()
     {

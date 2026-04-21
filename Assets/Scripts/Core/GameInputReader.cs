@@ -43,6 +43,8 @@ public class GameInputReader : ScriptableObject,
     public event Action OnCancelUIEvent;        // Para salir de la inspección
 
     // ────────────────────────────────────────────────────────────
+    public event Action OnFaceCameraStarted; // Para que el personaje mire a la cámara (usado en la inspección)
+    public event Action OnFaceCameraCanceled; // Para que el personaje deje de mirar a la cámara (usado en la inspección)
 
     private void OnEnable()
     {
@@ -77,6 +79,7 @@ public class GameInputReader : ScriptableObject,
     void PlayerInputActions.IPlayerActions.OnFlash(InputAction.CallbackContext ctx) { if (ctx.started) OnFlashStarted?.Invoke(); }
     void PlayerInputActions.IPlayerActions.OnToggleFlash(InputAction.CallbackContext ctx) { if (ctx.started) OnToggleFlash?.Invoke(); }
     void PlayerInputActions.IPlayerActions.OnRevealUp(InputAction.CallbackContext ctx) { if (ctx.started) OnRevealUp?.Invoke(); }
+    void PlayerInputActions.IPlayerActions.OnFaceCamera(InputAction.CallbackContext ctx) { if (ctx.started) OnFaceCameraStarted?.Invoke(); if (ctx.canceled) OnFaceCameraCanceled?.Invoke(); }
     void PlayerInputActions.IPlayerActions.OnRevealDown(InputAction.CallbackContext ctx) { if (ctx.started) OnRevealDown?.Invoke(); }
     void PlayerInputActions.IPlayerActions.OnInventario(InputAction.CallbackContext ctx) { if (ctx.started) OnInventario?.Invoke(); }
     void PlayerInputActions.IPlayerActions.OnReload(InputAction.CallbackContext ctx) { if (ctx.started) OnReload?.Invoke(); }

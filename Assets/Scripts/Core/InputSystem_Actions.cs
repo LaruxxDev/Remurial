@@ -199,6 +199,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FaceCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""40ca8b0d-1218-461b-9577-befc93da20cf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -628,6 +637,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Save"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64becdfb-1b8b-450c-bc53-1ebfb119eefc"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""FaceCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf3c18fb-1c21-402d-8d98-2be48080f326"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""FaceCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1289,6 +1320,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Inventario = m_Player.FindAction("Inventario", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_Save = m_Player.FindAction("Save", throwIfNotFound: true);
+        m_Player_FaceCamera = m_Player.FindAction("FaceCamera", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1396,6 +1428,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Inventario;
     private readonly InputAction m_Player_Reload;
     private readonly InputAction m_Player_Save;
+    private readonly InputAction m_Player_FaceCamera;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1455,6 +1488,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Save".
         /// </summary>
         public InputAction @Save => m_Wrapper.m_Player_Save;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/FaceCamera".
+        /// </summary>
+        public InputAction @FaceCamera => m_Wrapper.m_Player_FaceCamera;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1517,6 +1554,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Save.started += instance.OnSave;
             @Save.performed += instance.OnSave;
             @Save.canceled += instance.OnSave;
+            @FaceCamera.started += instance.OnFaceCamera;
+            @FaceCamera.performed += instance.OnFaceCamera;
+            @FaceCamera.canceled += instance.OnFaceCamera;
         }
 
         /// <summary>
@@ -1564,6 +1604,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Save.started -= instance.OnSave;
             @Save.performed -= instance.OnSave;
             @Save.canceled -= instance.OnSave;
+            @FaceCamera.started -= instance.OnFaceCamera;
+            @FaceCamera.performed -= instance.OnFaceCamera;
+            @FaceCamera.canceled -= instance.OnFaceCamera;
         }
 
         /// <summary>
@@ -1970,6 +2013,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSave(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "FaceCamera" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFaceCamera(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
