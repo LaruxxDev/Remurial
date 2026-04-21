@@ -58,43 +58,47 @@ Assets/PSXShaderKit/Demo/
 Assets/PSXShaderKit/Scripts/
  PSXPostProcessEffect.cs
  PSXShaderManager.cs
-Assets/Scripts/
- Audio/Sound.cs
- Camera/
-  CameraController.cs
-  DetectorEnemigosEnFoto.cs
-  RoomCamera.cs
- Core/
-  AudioManager.cs
-  GameEvents.cs
-  GameInputReader.cs
-  GameManager.cs
-  InputSystem_Actions.cs
- Interaction/
-  IInteractable.cs
-  InspectSystem.cs
-  ItemData/
-   Item.cs
-   PickableItem.cs
-  PickupInteractable .cs
-  Tp.cs
- Photo/
-  DatosFotos.cs
-  FotoRevelado .cs
- Player/
-  AnimatorManager.cs
-  FlashEnemy.cs
-  InputManager.cs
-  PlayerController.cs
-  PlayerData.cs
-  PlayerInteractor.cs
- Save/SaveSystemBinario.cs
- UI/
-  Bestiario/BestiarioManager.cs
-  HUD/HudManager.cs
-  inventario/inventarioManager.cs
-  MainMenu/MainMenuManager.cs
 Assets/
+ PSX_Camera_Pack/Scripts/PSXCameraFeature.cs
+ Scripts/
+  Audio/Sound.cs
+  Camera/
+   CameraController.cs
+   DetectorEnemigosEnFoto.cs
+   RoomCamera.cs
+  Core/
+   AudioManager.cs
+   GameEvents.cs
+   GameInputReader.cs
+   GameManager.cs
+   InputSystem_Actions.cs
+  Interaction/
+   IInteractable.cs
+   InspectSystem.cs
+   ItemData/
+    Item.cs
+    PickableItem.cs
+   PickupInteractable .cs
+   Tp.cs
+  Photo/
+   DatosFotos.cs
+   FotoRevelado .cs
+  Player/
+   AnimatorManager.cs
+   FlashEnemy.cs
+   InputManager.cs
+   PlayerController.cs
+   PlayerData.cs
+   PlayerInteractor.cs
+  Save/SaveSystemBinario.cs
+  UI/
+   Bestiario/BestiarioManager.cs
+   HUD/HudManager.cs
+   inventario/
+    ECGMonitor.cs
+    inventarioManager.cs
+   MainMenu/MainMenuManager.cs
+   PantallaCarga/LoadScreenManager.cs
  TutorialInfo/Scripts/Readme.cs
  zPRUEBAS/Camera/
   Camera Register.cs
