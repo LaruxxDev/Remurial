@@ -8845,10 +8845,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2585642976059539605, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3462703441784986005, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.992
@@ -8904,58 +8900,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4236645278533769487, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 448913651107689292}
-    - targetCorrespondingSourceObject: {fileID: 4236645278533769487, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 448913651107689291}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
 --- !u!4 &448913651107689289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3462703441784986005, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
   m_PrefabInstance: {fileID: 448913651107689288}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &448913651107689290 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4236645278533769487, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
-  m_PrefabInstance: {fileID: 448913651107689288}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &448913651107689291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448913651107689290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineVolumeSettings
-  Weight: 1
-  FocusTracking: 0
-  FocusTarget: {fileID: 0}
-  FocusOffset: 0
-  Profile: {fileID: 0}
---- !u!114 &448913651107689292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448913651107689290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePostProcessing
-  Weight: 1
-  FocusTracking: 0
-  FocusTarget: {fileID: 0}
-  FocusOffset: 0
-  Profile: {fileID: 11400000, guid: 1348ca3861a1aa246a60e6c7ddbcee20, type: 2}
 --- !u!1001 &5603900345360540847
 PrefabInstance:
   m_ObjectHideFlags: 0
