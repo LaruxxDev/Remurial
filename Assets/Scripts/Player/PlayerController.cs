@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameInputReader _input;
 
     [Header("Movimiento")]
-    public float moveSpeed = 3f;
+    public float moveSpeed = 5f;
+    public float aimSpeedMultiplier = 0.5f;
     public float rotationSpeed = 120f;
 
     [Header("Vida")]
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
         _input.OnAimCanceled    += HandleAimEnd;
         _input.OnRevealUp          += HandleReveal;
         _input.OnInteractPerformed += HandleInteract;
+        _input.OnFaceCameraStarted          += HandleFaceCameraStarted;
+        _input.OnFaceCameraCanceled          += HandleFaceCameraCanceled;
     }
 
     private void OnDisable()
@@ -76,14 +79,36 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
 // ── Handlers ─────────────────────────────────────────────────────────
+    private void HandleFaceCameraStarted()
+    {
+        if (_currentState == PlayerState.Interacting) return;
+
+        // Si el personaje ya está mirando a la cámara, volver a la dirección del movimiento
+        if (_currentState == PlayerState.Walking && _moveInput != Vector2.zero)
+        {
+            _currentState = PlayerState.Walking;
+        }
+        else
+        {
+            _currentState = PlayerState.Idle; // O podrías crear un estado específico para "mirando a la cámara"
+        }
+    }
+    private void HandleFaceCameraCanceled()
+    {
+        if (_currentState == PlayerState.Interacting) return;
+
+        // Al soltar el botón, volver a Idle o Walking según el input
+        _currentState = _moveInput != Vector2.zero ? PlayerState.Walking : PlayerState.Idle;
+    }
 
     private void HandleAimStart()
     {
         if (_currentState == PlayerState.Interacting) return;
         _estaApuntando = true;
         _currentState  = PlayerState.TakingPhoto;
-        _animator.SetTrigger("TakePhoto");
+        //_animator.SetTrigger("TakePhoto");
     }
 
     private void HandleAimEnd()
@@ -99,7 +124,7 @@ public class PlayerController : MonoBehaviour
         if (_currentState == PlayerState.Interacting) return;
 
         _currentState = PlayerState.Revealing;
-        _animator.SetTrigger("Reveal");
+        //_animator.SetTrigger("Reveal");
     }
 
     private void HandleInteract()
@@ -110,7 +135,7 @@ public class PlayerController : MonoBehaviour
         if (animatorManager != null)
             animatorManager.HandleAnimatorValues(0f, 0f);
 
-        _animator.SetTrigger("Interact");
+        //_animator.SetTrigger("Interact");
     }
 
     // Llama desde Animation Event al terminar animaciones de acción
@@ -157,9 +182,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDirection = (forward * _moveInput.y + right * _moveInput.x).normalized;
         _rb.linearVelocity = new Vector3(
-            moveDirection.x * moveSpeed,
+            moveDirection.x * (moveSpeed * aimSpeedMultiplier),
             _rb.linearVelocity.y,
-            moveDirection.z * moveSpeed
+            moveDirection.z * (moveSpeed * aimSpeedMultiplier)
         );
 
         // ── 2. El cuerpo rota hacia donde mira la cámara (solo eje Y) ──

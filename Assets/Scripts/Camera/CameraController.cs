@@ -107,12 +107,8 @@ public class CameraController : MonoBehaviour
     private void HandleAimStop()
     {
         _estaApuntando = false;
-        if (panTiltComponent != null)
-        {
-            panTiltComponent.PanAxis.Value = 0f;
-            panTiltComponent.TiltAxis.Value = 0f;
-        }
         aimCamera.Priority = defaultPriority;
+        ResetearRotacionCameraMesh();
     }
 
     private void HandleAttack()
@@ -192,7 +188,7 @@ public class CameraController : MonoBehaviour
             CameraMesh.transform.localRotation = Quaternion.identity;
             if (panTiltComponent != null)
             {
-                panTiltComponent.PanAxis.Value = 0f;
+                panTiltComponent.PanAxis.Value = transform.eulerAngles.y;
                 panTiltComponent.TiltAxis.Value = 0f;
             }
         }
