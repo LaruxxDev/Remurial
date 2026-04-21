@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/HUD/HudStyles.uss?fileID=7433441132597879392&amp;guid=fef6d60fbeb0c3847afe011eb497c956&amp;type=3#HudStyles"/>
+    <ui:VisualElement name="HudRoot" style="flex-grow: 1; width: auto; height: auto; align-items: flex-end;">
+        <ui:VisualElement name="NotificacionContainer" style="flex-grow: 1; position: absolute;">
+            <ui:Label text="Label" name="TextNotificacion"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

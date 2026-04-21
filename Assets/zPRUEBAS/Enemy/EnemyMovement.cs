@@ -14,44 +14,20 @@ public class EnemyMovement
         this.EnemyConfiguration = EnemyConfiguration;
     }
 
-    #region Movement
-    // Modifica la velocidad del NavMeshAgent según la acción que efectúa el enemigo
-    public void SetSpeed(string action)
-    {
-        switch (action)
-        {
-            case "wander":
-                agent.speed = EnemyConfiguration.WANDERSPEED;
-                break;
 
-            case "follow":
-                agent.speed = EnemyConfiguration.FOLLOWSPEED;
-                break;
-
-            case "attack":
-                agent.speed = 0;
-                break;
-
-            default:
-                Debug.LogError("WRONG ACTION SELECTED");
-                break;
-        }      
-    }
-
-
-    public bool HasArrived()
-    {
-        return agent.remainingDistance <= agent.stoppingDistance;
-    }
-
+    #region Wander
+    // Setea la velocidad y el destino aleatorio
     public void SetRandomDestination()
     {
+        agent.speed = EnemyConfiguration.WANDERSPEED;
+
         agent.SetDestination(GetRandomPoint());
     }
 
-
+    // Genera un punto aleatorio dentro del área
     public Vector3 GetRandomPoint()
     {
+        // Genera un punto aleatorio
         Vector3 randomDirection = Random.insideUnitSphere * EnemyConfiguration.WANDERRADIUS;
         randomDirection.y = 0f;
 
@@ -60,12 +36,34 @@ public class EnemyMovement
         NavMeshHit hit;
         Vector3 finalPosition = rigidbody.transform.position;
 
-        if (NavMesh.SamplePosition(randomPoint, out hit, 2f, 1))
-        {
+        // Designa el punto si es correcto
+        if (NavMesh.SamplePosition(randomPoint, out hit, 2f, 1))       
             finalPosition = hit.position;
-        }
 
         return finalPosition;
     }
+
+    // Detecta si ha llegado a su objetivo
+    public bool HasArrived()
+    {
+        return agent.remainingDistance <= agent.stoppingDistance;
+    }
     #endregion
+
+    #region Chase
+    // Setea la velocidad y el jugador como el destino
+    public void ChasePlayer(Vector3 playerPosition)
+    {
+        agent.speed = EnemyConfiguration.FOLLOWSPEED;
+
+        agent.SetDestination(playerPosition);
+    }
+    #endregion
+
+    public void StopMovement()
+    {
+        agent.speed = 0f;
+
+        agent.ResetPath();
+    }
 }

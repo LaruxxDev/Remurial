@@ -2,10 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-// BORRAR // BORRAR // BORRAR // BORRAR // BORRAR // BORRAR
-using Unity.Cinemachine;
-// BORRAR // BORRAR // BORRAR // BORRAR // BORRAR // BORRAR
-
 public class InputManager2 : MonoBehaviour
 {
     [SerializeField] PlayerGeneral PLAYER;
@@ -34,20 +30,17 @@ public class InputManager2 : MonoBehaviour
 
     public void InputCameraSwap(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            // Swap Camera
+            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(1f);
+        }
 
-            Debug.Log("Swap Camera");
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(0f);
         }
     }
 
-
-
-    // BORRAR // BORRAR // BORRAR // BORRAR // BORRAR // BORRAR
-    public CinemachineCamera thirdPersonCamera;
-    public CinemachineCamera firstPersonCamera;
-    // BORRAR // BORRAR // BORRAR // BORRAR // BORRAR // BORRAR
 
     public void InputInteract(InputAction.CallbackContext context)
     {
@@ -55,21 +48,21 @@ public class InputManager2 : MonoBehaviour
         {
             // Interact
 
-            CameraManager.SwitchCamera(firstPersonCamera);
-
             Debug.Log("Interact");
         }
     }
 
+
     public void InputFlash(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            // Flash
+            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(1f);
+        }
 
-            CameraManager.SwitchCamera(thirdPersonCamera);
-
-            Debug.Log("Flash");
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
         }
     }
     #endregion

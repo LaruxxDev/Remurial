@@ -1,35 +1,75 @@
 using UnityEngine;
-
+using System.Collections;
 
 public class PlayerMovement
 {
-    Rigidbody rigidbody;
+    Rigidbody playerRigidbody;
     PlayerConfiguration PlayerConfiguration;
+    PlayerGeneral PLAYER;
 
-    public PlayerMovement(Rigidbody rigidbody, PlayerConfiguration playerConfiguration)
+    public PlayerMovement(Rigidbody rigidbody, PlayerConfiguration playerConfiguration, PlayerGeneral player)
     {
-        this.rigidbody = rigidbody;
+        this.playerRigidbody = rigidbody;
         this.PlayerConfiguration = playerConfiguration;
+        this.PLAYER = player;
     }
 
     #region Movement
+
     public void VelocityMovement(Vector2 inputVec, Transform cameraTransform)
     {
-        // Forward Axis
-        Vector3 movement = rigidbody.transform.forward * inputVec.y * PlayerConfiguration.MOVESPEED;
+        Vector3 movement = playerRigidbody.transform.forward * inputVec.y * PlayerConfiguration.MOVESPEED;
 
-        rigidbody.linearVelocity = new Vector3(movement.x, rigidbody.linearVelocity.y, movement.z);
+        playerRigidbody.linearVelocity = new Vector3(
+            movement.x,
+            playerRigidbody.linearVelocity.y,
+            movement.z
+        );
 
-        // Right Axis
         float rotation = inputVec.x * PlayerConfiguration.TURNSPEED * Time.deltaTime;
         Quaternion deltaRotation = Quaternion.Euler(0f, rotation, 0f);
 
-        rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
+        playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);
+    }
+
+    public void VelocityCamera(Vector2 inputVec, Transform cameraTransform)
+    {
+        Vector3 movement = playerRigidbody.transform.forward * inputVec.y * PlayerConfiguration.CAMERAMOVESPEED;
+
+        playerRigidbody.linearVelocity = new Vector3(
+            movement.x,
+            playerRigidbody.linearVelocity.y,
+            movement.z
+        );
+
+        float rotation = inputVec.x * PlayerConfiguration.TURNSPEED * Time.deltaTime;
+        Quaternion deltaRotation = Quaternion.Euler(0f, rotation, 0f);
+
+        playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);
     }
 
     public void VelocityIdle()
     {
-        rigidbody.linearVelocity = Vector3.zero;
+        playerRigidbody.linearVelocity = Vector3.zero;
     }
+
+    #endregion
+
+    #region Actions
+
+    public void Flash()
+    {
+        PLAYER.StartCoroutine(FlashRoutine(0.2f));
+    }
+
+    private IEnumerator FlashRoutine(float delay)
+    {
+        PLAYER.flashObject.SetActive(true);
+
+        yield return new WaitForSeconds(delay);
+
+        PLAYER.flashObject.SetActive(false);
+    }
+
     #endregion
 }

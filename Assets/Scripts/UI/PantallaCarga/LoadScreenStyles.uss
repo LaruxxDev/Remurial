@@ -1,0 +1,26 @@
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    
+    /* Grosor */
+    border-left-width: 10px;
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+
+    /* Estilo (Indispensable para que se dibuje) */
+    border-left-style: solid;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    
+    /* Colores */
+    border-left-color: rgba(255, 255, 255, 0.2);
+    border-top-color: #FFFFFF;
+    border-right-color: rgba(255, 255, 255, 0.2);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}

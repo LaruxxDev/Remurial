@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3225535521704854253}
   - component: {fileID: 8501649854913452572}
   - component: {fileID: 494630288669200462}
-  m_Layer: 0
+  - component: {fileID: 6626755837368841876}
+  m_Layer: 7
   m_Name: Foto
   m_TagString: Interactuable
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 71c12f87fe37b844f9845d61b2b88dfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,17 +128,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e39c30bbd5af148a5f4e1f21dd66dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FotoRevelado
-  r1Action: {fileID: 7077589526085625986, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  l1Action: {fileID: -2983940406519912593, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   datos:
     idFoto: 
     rutaDelArchivoLocal: 
     revealTime: 10
+    enemigosCapturados: []
   shakeBoostInicial: 1
   incrementoVelocidad: 0.5
+  boostDecaimiento: 0.8
   distanciaAgite: 0.15
   velocidadRetorno: 12
   reveal: {fileID: 3802400139476070591}
+  isInspecting: 0
+--- !u!114 &6626755837368841876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864132496829830496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be284c2fb04aa84fac0632dbd5989f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractuableItem
+  _data:
+    name: Foto
+    description: description
+    id: 0
+    isKeyItem: 0
+    isUsable: 0
+    quantity: 1
+    maxStack: 99
+    sprite: {fileID: 0}
+    esFoto: 1
+    datosFoto:
+      idFoto: 
+      rutaDelArchivoLocal: 
+      revealTime: 0
+      enemigosCapturados: []
+    prefabItem: {fileID: 864132496829830496}
+  _inspectSystem: {fileID: 0}
 --- !u!1 &3802400139476070591
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +181,7 @@ GameObject:
   - component: {fileID: 851545040048635431}
   - component: {fileID: 6104834651722375397}
   - component: {fileID: 6765871225673322645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Reveal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +272,7 @@ GameObject:
   - component: {fileID: 1520973501262532670}
   - component: {fileID: 8841942317460942486}
   - component: {fileID: 2682016124962312973}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Papel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

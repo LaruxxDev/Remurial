@@ -3,19 +3,15 @@ using UnityEngine;
 public class WanderSubState : EnemyState
 {
     public override string Name => "Wander SubState";
-    public WanderSubState(StateMachine STATEMACHINE, EnemyGeneral ENEMY) : base(STATEMACHINE, ENEMY) { }
+    public WanderSubState(EnemyGeneral ENEMY) : base(ENEMY) { }
 
 
     public override void Enter()
     {
         base.Enter();
 
-
-
-        Debug.Log("Entering: Wander");
-
         ENEMY.MOVEMENT.SetRandomDestination();
-        ENEMY.MOVEMENT.SetSpeed("wander");
+
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Movement);
     }
 
@@ -24,14 +20,13 @@ public class WanderSubState : EnemyState
         // Idle
         if (ENEMY.MOVEMENT.HasArrived())
         {
-            STATEMACHINE.ChangeState(ENEMY.STATES.IdleEnemySubState(STATEMACHINE));
+            if (ENEMY.CONFIGURATION.hasIdle)
+            STATEMACHINE.ChangeState(ENEMY.STATES.IdleSubState);
         }
     }
 
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-
-        // Moving logic
     }
 }

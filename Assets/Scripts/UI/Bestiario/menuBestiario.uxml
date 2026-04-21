@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/Bestiario/BestiarioStyles.uss?fileID=7433441132597879392&amp;guid=8a742b9f81708994f8dc74f9c3b9a987&amp;type=3#BestiarioStyles"/>
+    <ui:VisualElement name="LibroFondo" style="flex-grow: 1;">
+        <ui:VisualElement name="TabContainer" style="flex-grow: 1; flex-direction: row; align-items: flex-start;">
+            <ui:Button text="Button" name="HospitalButton"/>
+            <ui:Button text="Button" name="IglesiaButton"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="PagContainer" style="flex-grow: 1;">
+            <ui:VisualElement name="PagDerecha" style="flex-grow: 1;"/>
+            <ui:VisualElement name="PagIzquierda" style="flex-grow: 1;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

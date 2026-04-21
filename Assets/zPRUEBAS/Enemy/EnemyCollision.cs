@@ -10,14 +10,62 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField] float groundDistance;
     [SerializeField] bool groundGizmoz;
 
+
     [Header("Detection")]
     [SerializeField] Transform playerCheck;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] float detectionRadius;
-    [SerializeField] bool playerGizmoz;
+    [SerializeField] bool detectionGizmoz;
+
+    public Transform detectedPlayer;
+
+
+    [Header("Attack")]
+    [SerializeField] float attackRadius;
+    [SerializeField] bool attackGizmoz;
+
+
+
+    [Header("Flash")]
+    public bool FLASH;
+
+    public bool FOTOMADE;
+    public bool REVELADO;
 
     public bool GROUND => Physics.Raycast(groundCheck.position, -transform.up, -groundDistance, groundLayer);
-    public bool PLAYER => Physics.CheckSphere(playerCheck.position, detectionRadius, playerLayer);
+
+    public bool PLAYER
+    {
+        get
+        {
+            Collider[] hits = Physics.OverlapSphere(playerCheck.position, detectionRadius, playerLayer);
+
+            if (hits.Length > 0)
+            {
+                detectedPlayer = hits[0].transform;
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+
+    public bool ATTACK
+    {
+        get
+        {
+            Collider[] hits = Physics.OverlapSphere(playerCheck.position, attackRadius, playerLayer);
+
+            if (hits.Length > 0)
+            {
+                detectedPlayer = hits[0].transform;
+                return true;
+            }
+
+            return false;
+        }
+    }
 
     private void OnDrawGizmos()
     {
@@ -29,17 +77,21 @@ public class EnemyCollision : MonoBehaviour
             Gizmos.DrawRay(groundCheck.position, -transform.up * -groundDistance);
         }
 
-        if (playerGizmoz)
+        if (detectionGizmoz)
         {
             if (PLAYER) Gizmos.color = Color.green;
             else Gizmos.color = Color.red;
 
             Gizmos.DrawWireSphere(playerCheck.position, detectionRadius);
         }
+
+        if (attackGizmoz)
+        {
+            if (ATTACK) Gizmos.color = Color.green;
+            else Gizmos.color = Color.red;
+
+            Gizmos.DrawWireSphere(playerCheck.position, attackRadius);
+        }
     }
 
-    private void Update()
-    {
-        if (PLAYER) Debug.Log("Player Detected");
-    }
 }

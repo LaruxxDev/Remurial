@@ -22,6 +22,26 @@ public class NeutralState : PlayerState
         lowLevelMachine.Update();
 
         base.Update();
+
+
+        // Camera
+        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA > 0f)
+        {
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(0f);
+
+            CameraManager.SwitchCamera(PLAYER.firstPersonCamera);
+            STATEMACHINE.ChangeState(PLAYER.STATES.OnCameraState(STATEMACHINE));
+        }
+
+
+        // Flash
+        if (PLAYER.INPUTTRANSFORMER.INPUTFLASH > 0f)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputFlash(0f);
+
+            PLAYER.MOVEMENT.Flash();
+        }
     }
     
     public override void FixedUpdate() => lowLevelMachine.FixedUpdate();

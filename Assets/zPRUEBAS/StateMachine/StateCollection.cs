@@ -17,4 +17,6 @@ public class StateCollection
     // SubStates
     public IdleSubState IdleSubState(StateMachine sm) => new IdleSubState(sm, player);
     public MoveSubState MoveSubState(StateMachine sm) => new MoveSubState(sm, player);
+    public CameraIdleSubState CameraIdleSubState(StateMachine sm) => new CameraIdleSubState(sm, player);
+    public CameraMoveSubState CameraMoveSubState(StateMachine sm) => new CameraMoveSubState(sm, player);
 }

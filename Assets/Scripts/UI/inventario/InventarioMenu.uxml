@@ -1,0 +1,26 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/inventario/InventarioStyles.uss?fileID=7433441132597879392&amp;guid=de279f083e41e414aa23055e34dddeb9&amp;type=3#InventarioStyles"/>
+    <ui:VisualElement name="MainContainer" class="Styles" style="flex-grow: 1; flex-direction: column; background-color: rgba(24, 21, 21, 0.76);">
+        <ui:VisualElement name="TopContainer" style="flex-grow: 1; align-items: stretch; flex-direction: row; align-self: stretch; justify-content: space-between; height: auto;">
+            <ui:VisualElement name="InfoContainer" style="flex-grow: 1; align-self: stretch; flex-direction: row; background-color: rgb(192, 179, 207);">
+                <ui:VisualElement name="CharacterPhoto" style="flex-grow: 1;"/>
+                <ui:VisualElement name="ECGContainer" style="flex-grow: 1;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="CamaraContainer" style="flex-grow: 1; align-self: stretch; align-items: stretch; background-color: rgb(39, 28, 137);"/>
+            <ui:VisualElement name="BestiarioContainer" style="flex-grow: 1; background-color: rgb(202, 161, 161);"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="BottomContainer" class="Styles" style="flex-grow: 1; flex-direction: row; height: 37%;">
+            <ui:VisualElement name="CarruselContainer" class="Styles" style="flex-grow: 1; flex-direction: row;">
+                <ui:Button text="Button" name="LeftButton" style="overflow: visible;"/>
+                <ui:VisualElement name="Carrusel" class="Styles" style="flex-grow: 1; flex-direction: row; align-items: center; overflow: hidden; justify-content: center; background-color: rgba(114, 100, 132, 0); padding-right: 0; flex-shrink: 1;"/>
+                <ui:Button text="Button" name="RightButton"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="DescrContainer" class="Styles" style="flex-grow: 1; background-color: rgb(53, 31, 31); width: 0%; justify-content: flex-start; align-self: stretch; align-content: auto;">
+                <ui:Label text="Titulo" name="ItemName" style="flex-wrap: wrap; align-items: flex-start; height: auto; font-size: 60px; white-space: normal; width: auto; flex-direction: row; top: auto; -unity-font-style: bold; color: rgb(250, 247, 247);"/>
+                <ui:VisualElement name="ItemImage" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Fotos/Captura_2026-03-19_22-01-08-787_1.png?fileID=2800000&amp;guid=632a24f2d36578f4691bff4c93641259&amp;type=3#Captura_2026-03-19_22-01-08-787_1&quot;);"/>
+                <ui:Label text="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" name="ItemDesc" style="font-size: 30px; flex-direction: row; flex-wrap: wrap; top: auto; align-items: flex-start; white-space: pre-wrap; -unity-text-align: upper-left; color: rgb(253, 242, 242);"/>
+                <ui:Button text="USE" name="ActionButton"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
