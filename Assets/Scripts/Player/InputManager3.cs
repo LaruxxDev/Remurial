@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InputManager3 : MonoBehaviour
 {
     [Header("Input Actions")]
     [SerializeField] private InputActionReference moveAction; 

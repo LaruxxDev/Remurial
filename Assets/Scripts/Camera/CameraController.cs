@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     private CinemachinePanTilt panTiltComponent;
 
     [Header("Input")]
-    [SerializeField] private GameInputReader _input;
+    //[SerializeField] private GameInputReader _input;
 
     [Header("Configuración")]
     public int aimPriority = 20;
@@ -75,22 +75,22 @@ public class CameraController : MonoBehaviour
 
     private void OnEnable()
     {
-        _input.OnAttackStarted  += HandleAttack;
-        _input.OnAimStarted     += HandleAimStart;
-        _input.OnAimCanceled    += HandleAimStop;
-        _input.OnFlashStarted   += HandleFlash;
-        _input.OnToggleFlash    += HandleToggleFlash;
-        _input.OnSave           += HandleSave;
+        //_input.OnAttackStarted  += HandleAttack;
+        //_input.OnAimStarted     += HandleAimStart;
+        //_input.OnAimCanceled    += HandleAimStop;
+        //_input.OnFlashStarted   += HandleFlash;
+        //_input.OnToggleFlash    += HandleToggleFlash;
+        //_input.OnSave           += HandleSave;
     }
 
     private void OnDisable()
     {
-        _input.OnAttackStarted  -= HandleAttack;
-        _input.OnAimStarted     -= HandleAimStart;
-        _input.OnAimCanceled    -= HandleAimStop;
-        _input.OnFlashStarted   -= HandleFlash;
-        _input.OnToggleFlash    -= HandleToggleFlash;
-        _input.OnSave           -= HandleSave;
+        //_input.OnAttackStarted  -= HandleAttack;
+        //_input.OnAimStarted     -= HandleAimStart;
+        //_input.OnAimCanceled    -= HandleAimStop;
+        //_input.OnFlashStarted   -= HandleFlash;
+        //_input.OnToggleFlash    -= HandleToggleFlash;
+        //_input.OnSave           -= HandleSave;
     }
 
     #endregion

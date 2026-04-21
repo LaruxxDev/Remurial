@@ -1,15 +1,55 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputTransformer
 {
-    public InputTransformer() { }
+    public InputTransformer(PlayerInput playerInput) 
+    {
+        this.playerInput = playerInput;
+    }
+
+
+
+    #region General
+    private PlayerInput playerInput;
+
     private bool inputsEnabled = true;
 
 
+
+    public void EnableInputs(bool areEnabled)
+    {
+        inputsEnabled = areEnabled;
+    }
+
+
+    public void ToggleInputMap(string map)
+    {
+        switch (map.ToLower().Trim())
+        {
+            case "player":
+                if (playerInput.currentActionMap.name != "Player")
+                    playerInput.SwitchCurrentActionMap("Player");
+                break;
+
+            case "ui":
+                if (playerInput.currentActionMap.name != "UI")
+                    playerInput.SwitchCurrentActionMap("UI");
+                break;
+
+            default:
+                Debug.LogError("InputMap not found.");
+                break;
+        }
+    }
+    #endregion
+
+    #region Player
+    #region Vectores
     // Movement
-    Vector2 inputVector;
-    public Vector2 INPUTVECTOR => inputVector;
-    public Vector2 INPUTVECTORNORMAL => inputVector.normalized;
+    Vector2 intputMovement;
+    public Vector2 INPUTMOVEMENT => intputMovement;
+    public Vector2 INPUTMOVEMENTNORMAL => intputMovement.normalized;
 
     // Aim
     Vector2 inputAim;
@@ -17,6 +57,25 @@ public class InputTransformer
     public Vector2 INPUTAIMNORMAL => inputAim.normalized;
 
 
+    public void ProcessInputMovement(Vector2 value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.inputNavegate = value;
+    }
+
+
+    public void ProcessInputAim(Vector2 value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.inputAim = value;
+    }
+    #endregion
+
+    #region Inputs Singulares
     // Left Click
     float LeftClickInput;
     public float LEFTCLICK => LeftClickInput;
@@ -32,6 +91,26 @@ public class InputTransformer
     public float F => fInput;
 
 
+    // Q
+    float qInput;
+    public float Q => qInput;
+
+
+    // G
+    float gInput;
+    public float G => gInput;
+
+
+    // R
+    float rInput;
+    public float R => rInput;
+
+
+    // E
+    float eInput;
+    public float E => eInput;
+
+
     // I
     float iInput;
     public float I => iInput;
@@ -42,33 +121,25 @@ public class InputTransformer
     public float B => bInput;
 
 
+    // Tab
+    float tabInput;
+    public float TAB => tabInput;
+
+
+    // Control
+    float controlInput;
+    public float CONTROL => controlInput;
+
+
+    // Shift
+    float shiftInput;
+    public float SHIFT => shiftInput;
+
+
     // Esc
     float escapeInput;
     public float ESC => escapeInput;
 
-
-
-    public void EnableInputs(bool areEnabled)
-    {
-        inputsEnabled = areEnabled;
-    }
-
-
-    public void ProcessInputVector(Vector2 value)
-    {
-        if (!inputsEnabled)
-            return;
-
-        this.inputVector = value;
-    }
-
-    public void ProcessInputAim(Vector2 value)
-    {
-        if (!inputsEnabled)
-            return;
-
-        this.inputAim = value;
-    }
 
 
     public void ProcessInputLeftClick(float value)
@@ -86,6 +157,42 @@ public class InputTransformer
             return;
 
         this.RightClickInput = value;
+    }
+
+
+    public void ProcessInputQ(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.qInput = value;
+    }
+
+
+    public void ProcessInputR(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.rInput = value;
+    }
+
+
+    public void ProcessInputG(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.gInput = value;
+    }
+
+
+    public void ProcessInputE(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.eInput = value;
     }
 
 
@@ -116,8 +223,84 @@ public class InputTransformer
     }
 
 
+    public void ProcessInputTab(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.tabInput = value;
+    }
+
+
+    public void ProcessInputControl(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.controlInput = value;
+    }
+
+
+    public void ProcessInputShift(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.shiftInput = value;
+    }
+
+
     public void ProcessInputEsc(float value)
     {
         this.escapeInput = value;
     }
+    #endregion
+    #endregion
+
+
+
+    #region UI
+    #region Vectores
+    // Movement
+    Vector2 inputNavegate;
+    public Vector2 INPUTNAVEGATE => inputNavegate;
+    public Vector2 INPUTNAVEGATENORMAL => inputNavegate.normalized;
+
+
+    public void ProcessInputNavigate(Vector2 value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.inputNavegate = value;
+    }
+    #endregion
+
+    #region Inputs Singulares
+    // Confirm
+    float confirmInput;
+    public float CONFIRM => confirmInput;
+
+
+    // EscDos
+    float escDosInput;
+    public float ESCDOS => escDosInput;
+
+    public void ProcessInputConfirm(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.confirmInput = value;
+    }
+
+    public void ProcessInputEscDos(float value)
+    {
+        if (!inputsEnabled)
+            return;
+
+        this.escDosInput = value;
+    }
+    #endregion
+    #endregion
 }

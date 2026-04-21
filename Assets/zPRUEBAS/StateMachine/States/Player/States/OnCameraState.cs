@@ -14,6 +14,8 @@ public class OnCameraState : PlayerState
 
     public override void Enter()
     {
+        PLAYER.INPUTTRANSFORMER.ToggleInputMap("player");
+
         lowLevelMachine.ChangeState(PLAYER.STATES.CameraIdleSubState(lowLevelMachine));
     }
 
@@ -28,7 +30,6 @@ public class OnCameraState : PlayerState
         // Neutral State
         if (PLAYER.INPUTTRANSFORMER.RIGHTCLICK == 0f)
         {
-            //CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
             STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
         }
 

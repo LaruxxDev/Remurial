@@ -10,6 +10,8 @@ public class InspectState : PlayerState
     {
         base.Enter();
 
+        PLAYER.INPUTTRANSFORMER.ToggleInputMap("ui");
+
         // Pantalla congelada
         PLAYER.MOVEMENT.VelocityIdle();
         Time.timeScale = 0f;
@@ -21,7 +23,9 @@ public class InspectState : PlayerState
     {
         PLAYER.INSPECT.CustomUpdate();
 
-        if (PLAYER.INPUTTRANSFORMER.F == 1f)
+
+        // Volver a Neutral
+        if (PLAYER.INPUTTRANSFORMER.ESC == 1f)
         {  
             // Consumir el input
             PLAYER.INPUTTRANSFORMER.ProcessInputF(0f);

@@ -66,6 +66,16 @@ public class PlayerGeneral : MonoBehaviour
     public InspectSystem INSPECT;
     public GameObject inspectionItem;
 
+    [Header("InputMap")]
+    [SerializeField] private PlayerInput PlayerInput;
+
+    [Header("Inventory")]
+    [SerializeField] InventoryManager InventoryManager;
+    public InventoryManager INVENTORY => InventoryManager;
+
+
+
+
     //[Header("Animations")]
     //[SerializeField] AnimationManager AnimationManager;
     //public AnimationManager ANIMATION => AnimationManager;
@@ -74,9 +84,14 @@ public class PlayerGeneral : MonoBehaviour
 
     private void Awake()
     {
+        // StateMachine
         StateMachine = new StateMachine();
         States = new StateCollection(this);
-        InputTransformer = new InputTransformer();
+
+        // Inputs
+        InputTransformer = new InputTransformer(PlayerInput);
+
+        // Stats
         PlayerMovement = new PlayerMovement(Rigidbody, PlayerConfiguration, this);
         PlayerHealth = new PlayerHealth(PlayerConfiguration, this);
     }
@@ -100,7 +115,7 @@ public class PlayerGeneral : MonoBehaviour
             subStateText.text = neutral.subMachine.state.Name;
         if (StateMachine.state is OnCameraState onCamera)
             subStateText.text = onCamera.subMachine.state.Name;
-        if (STATEMACHINE.state is DialogueState || STATEMACHINE.state is InspectState|| STATEMACHINE.state is DeadState)
+        if (STATEMACHINE.state is DialogueState || STATEMACHINE.state is InspectState || STATEMACHINE.state is InventoryState || STATEMACHINE.state is DeadState)
             subStateText.text = "";
 
         // HP

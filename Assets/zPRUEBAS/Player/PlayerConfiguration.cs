@@ -16,8 +16,6 @@ public class PlayerConfiguration : MonoBehaviour
     public int health = 6;
     public int maxHealth = 6;
     public int healthRegen = 1;
-
-
     #endregion
 
     #region Movement

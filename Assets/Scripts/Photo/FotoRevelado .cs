@@ -3,7 +3,7 @@ using UnityEngine;
 public class FotoRevelado : MonoBehaviour
 {
     [Header("Input")]
-    [SerializeField] private GameInputReader input; 
+    //[SerializeField] private GameInputReader input; 
 
     [Header("Referencia a los datos")]
     public DatosFotos datos;
@@ -31,16 +31,16 @@ public class FotoRevelado : MonoBehaviour
     private void OnEnable()
     {
         // Solo nos suscribimos si el input está asignado
-        if (input == null) return;
-        input.OnRevealUp   += HandleRevealUp;
-        input.OnRevealDown += HandleRevealDown;
+        //if (input == null) return;
+        //input.OnRevealUp   += HandleRevealUp;
+        //input.OnRevealDown += HandleRevealDown;
     }
 
     private void OnDisable()
     {
-        if (input == null) return;
-        input.OnRevealUp   -= HandleRevealUp;
-        input.OnRevealDown -= HandleRevealDown;
+        //if (input == null) return;
+        //input.OnRevealUp   -= HandleRevealUp;
+        //input.OnRevealDown -= HandleRevealDown;
     }
 
     // ── Handlers de input ──────────────────────────────────────────────────────

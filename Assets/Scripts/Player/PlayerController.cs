@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState _currentState = PlayerState.Idle;
 
     [Header("Input")]
-    [SerializeField] private GameInputReader _input;
+    //[SerializeField] private GameInputReader _input;
 
     [Header("Movimiento")]
     public float moveSpeed = 5f;
@@ -37,20 +37,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _input.OnMoveEvent         += HandleMove;
-        _input.OnAimStarted     += HandleAimStart;
-        _input.OnAimCanceled    += HandleAimEnd;
-        _input.OnRevealUp          += HandleReveal;
-        _input.OnInteractPerformed += HandleInteract;
+        //_input.OnMoveEvent         += HandleMove;
+        //_input.OnAimStarted     += HandleAimStart;
+        //_input.OnAimCanceled    += HandleAimEnd;
+        //_input.OnRevealUp          += HandleReveal;
+        //_input.OnInteractPerformed += HandleInteract;
     }
 
     private void OnDisable()
     {
-        _input.OnMoveEvent         -= HandleMove;
-        _input.OnAimStarted     -= HandleAimStart;
-        _input.OnAimCanceled    -= HandleAimEnd;
-        _input.OnRevealUp          -= HandleReveal;
-        _input.OnInteractPerformed -= HandleInteract;
+        //_input.OnMoveEvent         -= HandleMove;
+        //_input.OnAimStarted     -= HandleAimStart;
+        //_input.OnAimCanceled    -= HandleAimEnd;
+        //_input.OnRevealUp          -= HandleReveal;
+        //_input.OnInteractPerformed -= HandleInteract;
     }
 
     private void FixedUpdate()

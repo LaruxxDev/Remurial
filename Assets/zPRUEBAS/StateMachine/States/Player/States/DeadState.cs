@@ -10,6 +10,8 @@ public class DeadState : PlayerState
     {
         base.Enter();
 
+        PLAYER.INPUTTRANSFORMER.ToggleInputMap("ui");
+
         // Pantalla congelada
         PLAYER.MOVEMENT.VelocityIdle();
         Time.timeScale = 0f;

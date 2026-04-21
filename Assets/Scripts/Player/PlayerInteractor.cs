@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private GameInputReader _input;
+    //[SerializeField] private GameInputReader _input;
 
     private IInteractable _currentInteractable;
     private GameObject interactuableItem; // Guardamos el objeto interactuable detectado para usarlo al interactuar
 
-    private void OnEnable()  => _input.OnInteractStarted += HandleInteract;
-    private void OnDisable() => _input.OnInteractStarted -= HandleInteract;
+    //private void OnEnable()  => _input.OnInteractStarted += HandleInteract;
+    //private void OnDisable() => _input.OnInteractStarted -= HandleInteract;
 
     private void OnTriggerEnter(Collider other)
     {

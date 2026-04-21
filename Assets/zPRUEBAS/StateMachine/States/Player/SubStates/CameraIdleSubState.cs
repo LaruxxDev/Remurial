@@ -16,7 +16,7 @@ public class CameraIdleSubState : PlayerState
 
     public override void Update()
     {
-        if (PLAYER.INPUTTRANSFORMER.INPUTVECTORNORMAL.magnitude > 0.1f)
+        if (PLAYER.INPUTTRANSFORMER.INPUTNAVEGATENORMAL.magnitude > 0.1f)
         {
             STATEMACHINE.ChangeState(PLAYER.STATES.CameraMoveSubState(STATEMACHINE));
         }

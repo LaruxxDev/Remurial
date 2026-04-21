@@ -19,6 +19,10 @@ public class InventoryManager : MonoBehaviour
     private bool _isInventoryOpen = false;
 
 
+    [SerializeField] private PlayerGeneral PLAYER;
+
+
+
     [Header("UI")]
     [SerializeField] private VisualElement _root;
     [SerializeField] private VisualElement _mainContainer;
@@ -27,12 +31,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Label _labelName;
     [SerializeField] private Label _labelDesc;
     [SerializeField] private Button _actionButton;
-
-
-    [Header("Referencias")]
-    //[SerializeField] private InputActionReference inventoryAction;
-    [SerializeField] private InspectSystem inspectSystem;
-    [SerializeField] private GameInputReader _input;
 
 
     // Eventos
@@ -45,6 +43,7 @@ public class InventoryManager : MonoBehaviour
     #region Unity Methods
     void Awake()
     {
+        // Singleton
         if (Instance == null)
         {
             Instance = this;
@@ -71,14 +70,6 @@ public class InventoryManager : MonoBehaviour
     void OnDestroy()
     {
         LiberarTodasLasTexturas();
-    }
-
-    void Update()
-    {
-        //if (inventoryAction.action.WasPressedThisFrame())
-        //{
-        //    ToggleInventory();
-        //}
     }
     #endregion
 
@@ -160,45 +151,29 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     #region UI Methods
-    public void ToggleInventory()
-    {
-        _isInventoryOpen = !_isInventoryOpen;
-
-        if (_isInventoryOpen)
-        {
-            _input.DisableAll();
-            _input.EnableUI();
-            _mainContainer.style.display = DisplayStyle.Flex;
-            UpdateUI();
-            _root.Focus();
-        }
-        else
-        {
-            _input.EnableGameplay();
-            _mainContainer.style.display = DisplayStyle.None;
-        }
-    }
-
     private void ConfigurarEventos()
     {
-        _root.RegisterCallback<NavigationMoveEvent>(evt =>
-        {
-            if (!_isInventoryOpen || itemsList.Count == 0) return;
 
-            if (evt.direction == NavigationMoveEvent.Direction.Right)
-            {
-                _index = (_index + 1) % itemsList.Count;
-                UpdateUI();
-            }
-            else if (evt.direction == NavigationMoveEvent.Direction.Left)
-            {
-                _index = (_index - 1 + itemsList.Count) % itemsList.Count;
-                UpdateUI();
-            }
-        });
+        // BORRABLE?
+        //_root.RegisterCallback<NavigationMoveEvent>(evt =>
+        //{
+        //    if (!_isInventoryOpen || itemsList.Count == 0) return;
+
+        //    if (evt.direction == NavigationMoveEvent.Direction.Right)
+        //    {
+        //        _index = (_index + 1) % itemsList.Count;
+        //        UpdateUI();
+        //    }
+        //    else if (evt.direction == NavigationMoveEvent.Direction.Left)
+        //    {
+        //        _index = (_index - 1 + itemsList.Count) % itemsList.Count;
+        //        UpdateUI();
+        //    }
+        //});
 
         _root.Q<Button>("RightButton").clicked += () =>
         {
+            Debug.Log("Right");
             if (itemsList.Count == 0) return;
             _index = (_index + 1) % itemsList.Count;
             UpdateUI();
@@ -206,6 +181,7 @@ public class InventoryManager : MonoBehaviour
 
         _root.Q<Button>("LeftButton").clicked += () =>
         {
+            Debug.Log("Left");
             if (itemsList.Count == 0) return;
             _index = (_index - 1 + itemsList.Count) % itemsList.Count;
             UpdateUI();
@@ -213,24 +189,15 @@ public class InventoryManager : MonoBehaviour
 
         _actionButton.clicked += () =>
         {
-            if (itemsList.Count == 0) return;
+            if (itemsList.Count == 0)
+                return;
 
-            var item = itemsList[_index];
+            TryActionCurrentItem(out bool wantsInspect, out GameObject inspectTarget);
 
-            if (item.isUsable)
+            if (wantsInspect && inspectTarget != null)
             {
-                Debug.Log($"Usando {item.name}");
-                // Tu lógica de usar item aquí
-            }
-            else
-            {
-                GameObject goInspeccion = item.ObtenerGameObjectParaInspeccion();
-                if (goInspeccion != null)
-                {
-                    ToggleInventory();
-                    inspectSystem.EnterInspectionMode(goInspeccion);
-                    Destroy(goInspeccion);
-                }
+                PLAYER.inspectionItem = inspectTarget;
+                PLAYER.STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(PLAYER.STATEMACHINE));
             }
         };
     }
@@ -328,4 +295,69 @@ public class InventoryManager : MonoBehaviour
         return ve;
     }
     #endregion
+
+
+
+    public void OpenInventory()
+    {
+        _isInventoryOpen = true;
+        _mainContainer.style.display = DisplayStyle.Flex;
+        UpdateUI();
+        _root.Focus();
+    }
+
+    public void CloseInventory()
+    {
+        _isInventoryOpen = false;
+        _mainContainer.style.display = DisplayStyle.None;
+    }
+
+    private float _navCooldown = 0f;
+    private const float NAV_COOLDOWN_TIME = 0.02f;
+
+    public void NavigateRight()
+    {
+        if (itemsList.Count == 0 || Time.unscaledTime < _navCooldown)
+            return;
+
+        _index = (_index + 1) % itemsList.Count;
+        _navCooldown = Time.unscaledTime + NAV_COOLDOWN_TIME;
+        UpdateUI();
+    }
+
+    public void NavigateLeft()
+    {
+        if (itemsList.Count == 0 || Time.unscaledTime < _navCooldown) 
+            return;
+
+        _index = (_index - 1 + itemsList.Count) % itemsList.Count;
+        _navCooldown = Time.unscaledTime + NAV_COOLDOWN_TIME;
+        UpdateUI();
+    }
+
+    public void TryActionCurrentItem(out bool wantsInspect, out GameObject inspectTarget)
+    {
+        wantsInspect = false;
+        inspectTarget = null;
+
+        if (itemsList.Count == 0)
+            return;
+
+        var item = itemsList[_index];
+
+        if (item.isUsable)
+        {
+            // Usar
+        }
+        else
+        {
+            inspectTarget = item.ObtenerGameObjectParaInspeccion();
+
+            if (inspectTarget != null)
+            {
+                wantsInspect = true;
+                EliminarItem(item.id);
+            }
+        }
+    }
 }
