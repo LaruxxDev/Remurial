@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class MainMenuManager : MonoBehaviour
     private Button _loadGameButton;
     private Button _optionsButton;
     private Button _exitButton;
+
+    public GameObject loadingScreen;
 
     void Start()
     {
@@ -25,15 +28,49 @@ public class MainMenuManager : MonoBehaviour
         _loadGameButton.clicked += OnLoadGameClicked;
         _optionsButton.clicked += OnOptionsClicked;
         _exitButton.clicked += OnExitClicked;
-        
+
+        if (loadingScreen != null) loadingScreen.SetActive(false);
     }
 
     private void OnNewGameClicked()
     {
+    
         Debug.Log("New Game Clicked");
-        _root.style.display = DisplayStyle.None; // Oculta el menú principal
-        SceneManager.LoadScene("SampleSceneUI"); // TODO: Cambia "SampleSceneUI" por el nombre de la escena definitiva
+        if (loadingScreen != null)
+        {
+            loadingScreen.SetActive(true);
+        }
         _root.style.display = DisplayStyle.None;
+        
+        StartCoroutine(LoadSceneAsync("SampleSceneUI")); //TODO
+        
+    }
+    IEnumerator LoadSceneAsync(string sceneName)
+    {
+        // Esto inicia la carga en segundo plano
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        // Evitamos que la escena se active automáticamente al llegar al 100%
+        operation.allowSceneActivation = false;
+
+        // 2. Tiempo mínimo de espera (ejemplo: 3 segundos)
+        float timer = 0f;
+        float minWaitTime = 3f; 
+
+        // 3. El bucle se mantiene mientras no termine de cargar O no pase el tiempo mínimo
+        while (operation.progress < 0.9f || timer < minWaitTime)
+        {
+            timer += Time.deltaTime;
+            
+            // Debug para ver cómo progresa el tiempo en consola
+            // Debug.Log($"Cargando... Tiempo transcurrido: {timer:F2}s");
+
+            yield return null; 
+        }
+
+        // 4. Una vez cumplido el tiempo y la carga, activamos la escena
+        Debug.Log("Tiempo mínimo cumplido, cambiando de escena...");
+        operation.allowSceneActivation = true;
     }
 
     private void OnLoadGameClicked()
@@ -52,6 +89,9 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Exit Clicked");
         Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Para que funcione en el editor
+#endif
     }
 
 }
