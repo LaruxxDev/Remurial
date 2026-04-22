@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/OpcionesMenu/OpcionesStyles.uss?fileID=7433441132597879392&amp;guid=978807ebbd125c74484a4561653b33cb&amp;type=3#OpcionesStyles"/>
+    <ui:VisualElement style="flex-grow: 1; justify-content: center; background-color: rgb(149, 115, 115);">
+        <ui:Slider label="Volumen" value="42" high-value="100" fill="true" name="VolumeSlider"/>
+        <ui:Slider label="Brillo&#10;" value="0" high-value="3" fill="true" name="BrilloSlider" low-value="-3" enabled="true"/>
+        <ui:Button text="Resume" name="ResumeButton"/>
+        <ui:Button text="Salir" name="ExitButton"/>
+    </ui:VisualElement>
+</ui:UXML>
