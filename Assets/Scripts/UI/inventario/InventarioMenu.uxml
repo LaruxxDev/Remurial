@@ -1,24 +1,26 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/UI/inventario/InventarioStyles.uss?fileID=7433441132597879392&amp;guid=de279f083e41e414aa23055e34dddeb9&amp;type=3#InventarioStyles"/>
-    <ui:VisualElement name="MainContainer" class="Styles" style="flex-grow: 1; flex-direction: column; background-color: rgba(24, 21, 21, 0.76);">
-        <ui:VisualElement name="TopContainer" style="flex-grow: 1; align-items: stretch; flex-direction: row; align-self: stretch; justify-content: space-between; height: auto;">
+    <ui:VisualElement name="MainContainer" class="Styles" style="flex-grow: 1; flex-direction: column; background-color: rgba(24, 21, 21, 0.76); background-image: url(&quot;project://database/Assets/Externals%20Assets/360_F_184640234_wz0yGglOLBLWraF07A86Wnpadmrs28lo.jpg?fileID=2800000&amp;guid=ef2daac8cbc9f1347861289fec0341b6&amp;type=3#360_F_184640234_wz0yGglOLBLWraF07A86Wnpadmrs28lo&quot;); -unity-background-image-tint-color: rgb(101, 99, 99); position: relative; align-items: stretch; align-content: flex-start;">
+        <ui:VisualElement name="TopContainer" style="flex-grow: 1; align-items: stretch; flex-direction: row; align-self: stretch; justify-content: space-between; height: auto; align-content: flex-start; margin-right: 0; margin-left: 0;">
             <ui:VisualElement name="InfoContainer" style="flex-grow: 1; align-self: stretch; flex-direction: row; background-color: rgb(192, 179, 207);">
-                <ui:VisualElement name="CharacterPhoto" style="flex-grow: 1;"/>
+                <ui:VisualElement name="CharacterPhoto" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Fotos/Screenshot_1055.png?fileID=2800000&amp;guid=afb5f50654d42f34ab6dc8d63e9da435&amp;type=3#Screenshot_1055&quot;);"/>
                 <ui:VisualElement name="ECGContainer" style="flex-grow: 1;"/>
             </ui:VisualElement>
-            <ui:VisualElement name="CamaraContainer" style="flex-grow: 1; align-self: stretch; align-items: stretch; background-color: rgb(39, 28, 137);"/>
-            <ui:VisualElement name="BestiarioContainer" style="flex-grow: 1; background-color: rgb(202, 161, 161);"/>
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 5px; max-width: 50px;"/>
+            <ui:VisualElement name="CamaraContainer" style="flex-grow: 1; align-self: stretch; align-items: stretch; background-color: rgba(39, 28, 137, 0); width: auto; justify-content: flex-start; opacity: 1; margin-right: 0; background-image: url(&quot;project://database/Assets/Externals%20Assets/camara-retro-vintage-aislada-fondo.png?fileID=2800000&amp;guid=805f13b6cd11ccb429426a189941a0b4&amp;type=3#camara-retro-vintage-aislada-fondo&quot;); background-size: 150% 150%; max-width: 300px;"/>
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; max-width: 200px;"/>
+            <ui:VisualElement name="BestiarioContainer" style="flex-grow: 1; background-color: rgba(248, 235, 235, 0.2); background-image: url(&quot;project://database/Assets/Externals%20Assets/Red_Book_PNG_Clipart-1063.png?fileID=2800000&amp;guid=ab29f83b4873d7b4580c1540fba9291f&amp;type=3#Red_Book_PNG_Clipart-1063&quot;); max-width: 200px;"/>
         </ui:VisualElement>
         <ui:VisualElement name="BottomContainer" class="Styles" style="flex-grow: 1; flex-direction: row; height: 37%;">
-            <ui:VisualElement name="CarruselContainer" class="Styles" style="flex-grow: 1; flex-direction: row;">
-                <ui:Button text="Button" name="LeftButton" style="overflow: visible;"/>
+            <ui:VisualElement name="CarruselContainer" class="Styles" style="flex-grow: 1; flex-direction: row; background-image: none; -unity-background-image-tint-color: rgb(94, 94, 94);">
+                <ui:Button text="Button" name="LeftButton" style="overflow: visible; width: 100px; height: 100px; top: 100px; background-image: url(&quot;project://database/Assets/Externals%20Assets/0648b1c3f060c9284471cd425fb84af1.png?fileID=2800000&amp;guid=d44d5d09049505b48a79e2d1e28b0729&amp;type=3#0648b1c3f060c9284471cd425fb84af1&quot;);"/>
                 <ui:VisualElement name="Carrusel" class="Styles" style="flex-grow: 1; flex-direction: row; align-items: center; overflow: hidden; justify-content: center; background-color: rgba(114, 100, 132, 0); padding-right: 0; flex-shrink: 1;"/>
-                <ui:Button text="Button" name="RightButton"/>
+                <ui:Button text="Button" name="RightButton" style="-unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); background-image: url(&quot;project://database/Assets/Externals%20Assets/0648b1c3f060c9284471cd425fb84af1.png?fileID=2800000&amp;guid=d44d5d09049505b48a79e2d1e28b0729&amp;type=3#0648b1c3f060c9284471cd425fb84af1&quot;); width: 100px; height: 100px; margin-top: 2px; position: relative; top: 100px;"/>
             </ui:VisualElement>
             <ui:VisualElement name="DescrContainer" class="Styles" style="flex-grow: 1; background-color: rgb(53, 31, 31); width: 0%; justify-content: flex-start; align-self: stretch; align-content: auto;">
                 <ui:Label text="Titulo" name="ItemName" style="flex-wrap: wrap; align-items: flex-start; height: auto; font-size: 60px; white-space: normal; width: auto; flex-direction: row; top: auto; -unity-font-style: bold; color: rgb(250, 247, 247);"/>
-                <ui:VisualElement name="ItemImage" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Fotos/Captura_2026-03-19_22-01-08-787_1.png?fileID=2800000&amp;guid=632a24f2d36578f4691bff4c93641259&amp;type=3#Captura_2026-03-19_22-01-08-787_1&quot;);"/>
-                <ui:Label text="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" name="ItemDesc" style="font-size: 30px; flex-direction: row; flex-wrap: wrap; top: auto; align-items: flex-start; white-space: pre-wrap; -unity-text-align: upper-left; color: rgb(253, 242, 242);"/>
+                <ui:VisualElement name="ItemImage" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Fotos/Captura_2026-03-19_22-01-08-787_1.png?fileID=2800000&amp;guid=632a24f2d36578f4691bff4c93641259&amp;type=3#Captura_2026-03-19_22-01-08-787_1&quot;); width: 262px; align-self: center; justify-content: space-evenly;"/>
+                <ui:Label text="Item description&#10;" name="ItemDesc" style="font-size: 30px; flex-direction: row; flex-wrap: wrap; top: auto; align-items: flex-start; white-space: pre-wrap; -unity-text-align: upper-left; color: rgb(253, 242, 242);"/>
                 <ui:Button text="USE" name="ActionButton"/>
             </ui:VisualElement>
         </ui:VisualElement>
