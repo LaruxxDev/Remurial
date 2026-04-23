@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
+/*
 public class InputManager2 : MonoBehaviour
 {
     [SerializeField] PlayerGeneral PLAYER;
@@ -81,3 +81,4 @@ public class InputManager2 : MonoBehaviour
     }
     #endregion
 }
+*/

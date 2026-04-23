@@ -1,44 +1,22 @@
 using UnityEngine;
-using System.Collections;
 
-public class PlayerConfiguration : MonoBehaviour
+[CreateAssetMenu(menuName = "Player/Configuration")]
+public class PlayerConfiguration : ScriptableObject
 {
-    [Header("Configuration")]
-
-    #region Movement
     [Header("Movement")]
-    [SerializeField] float moveSpeed;
-    public float MOVESPEED => moveSpeed;
+    [SerializeField] float _moveSpeed = 5f;
+    [SerializeField] float _turnSpeed = 120f;
+    [SerializeField][Range(0f, 100f)] float _cameraSpeedPercent = 50f;
 
+    public float MoveSpeed => _moveSpeed;
+    public float TurnSpeed => _turnSpeed;
 
-    [SerializeField] float cameraModifier;
-    [SerializeField] float cameraMoveSpeed;
-    public float CAMERAMOVESPEED => cameraMoveSpeed;
+    public float CameraMoveSpeed => _moveSpeed * (_cameraSpeedPercent / 100f);
 
-    [SerializeField] float turnSpeed;
-    public float TURNSPEED => turnSpeed;
-    #endregion
+    [Header("Health")]
+    [SerializeField] int _maxHealth = 6;
+    [SerializeField] int _healthRegen = 1;
 
-    #region Rotations
-    private Quaternion horizontalRotation;
-    [HideInInspector] public Quaternion HORIZONTAL => horizontalRotation;
-
-    private Quaternion invertedRotation;
-    [HideInInspector] public Quaternion INVERTED => invertedRotation;
-
-    private void SetRotations()
-    {
-        horizontalRotation = Quaternion.Euler(-90f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-
-        invertedRotation = Quaternion.Inverse(transform.rotation);
-    }
-    #endregion
-
-
-    private void Awake()
-    {
-        SetRotations();
-
-        cameraMoveSpeed = moveSpeed * (cameraModifier / 100);
-    }
+    public int MaxHealth  => _maxHealth;
+    public int HealthRegen => _healthRegen;
 }

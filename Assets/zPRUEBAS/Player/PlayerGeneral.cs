@@ -7,11 +7,11 @@ public class PlayerGeneral : MonoBehaviour
 {
     #region References
     [Header("StateMachine")]
-    StateMachine StateMachine;
-    public StateMachine STATEMACHINE => StateMachine;
+    StateMachine _stateMachine;
+    public StateMachine StateMachine => _stateMachine;
 
-    StateCollection States;
-    public StateCollection STATES => States;
+    StateCollection _states;
+    public StateCollection States => _states;
 
 
     [Header("Componentes")]
@@ -19,72 +19,77 @@ public class PlayerGeneral : MonoBehaviour
     public Transform mainCamera;
 
     [Header("Configuration")]
-    [SerializeField] PlayerConfiguration PlayerConfiguration;
-    public PlayerConfiguration CONFIGURATION => PlayerConfiguration;
+    [SerializeField] PlayerConfiguration _playerConfiguration;
+    public PlayerConfiguration Configuration => _playerConfiguration;
 
 
     [Header("Collider")]
-    [SerializeField] PlayerCollision PlayerCollision;
-    public PlayerCollision COLLISION => PlayerCollision;
+    [SerializeField] PlayerCollision _playerCollision;
+    public PlayerCollision Collision => _playerCollision;
 
 
     [Header("Inputs")]
-    InputTransformer InputTransformer;
-    public InputTransformer INPUTTRANSFORMER => InputTransformer;
+    GameInputReader _input;
+    public GameInputReader Input => _input;
 
 
     [Header("Movement")]
-    PlayerMovement PlayerMovement;
-    public PlayerMovement MOVEMENT => PlayerMovement;
+    PlayerMovement _playerMovement;
+    public PlayerMovement Movement => _playerMovement;
 
 
     [Header("Cameras")]
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
 
+    CameraController _cameraController;
+    public CameraController CameraController => _cameraController;
 
     [Header("Objects")]
     public GameObject flashObject;
 
-
-    //[Header("Animations")]
-    //[SerializeField] AnimationManager AnimationManager;
-    //public AnimationManager ANIMATION => AnimationManager;
+    [Header("Animations")]
+    [SerializeField] AnimatorManager _animationManager;
+    public AnimatorManager Animator => _animationManager;
     #endregion
 
 
     private void Awake()
     {
-        StateMachine = new StateMachine();
-        States = new StateCollection(this);
-        InputTransformer = new InputTransformer();
-        PlayerMovement = new PlayerMovement(Rigidbody, PlayerConfiguration, this);
+        _stateMachine = new StateMachine();
+        _states = new StateCollection(this);
+        _input = new GameInputReader();
+        _playerMovement = new PlayerMovement(Rigidbody, _playerConfiguration, this);
+        _cameraController = new CameraController();
     }
 
     void Start()
     {
-        StateMachine.ChangeState(States.NeutralState(StateMachine));
+        _stateMachine.ChangeState(_states.NeutralState(_stateMachine));
     }
 
     void Update()
     {
-        StateMachine.Update();
+        _stateMachine.Update();
 
+        if (!showSubState)
+            return;
 
         // DEBUG
-        stateText.text = StateMachine.state.Name;
+        stateText.text = _stateMachine.state.Name;
 
-        if (StateMachine.state is NeutralState neutral)
+        if (_stateMachine.state is NeutralState neutral)
             subStateText.text = neutral.subMachine.state.Name;
-        if (StateMachine.state is OnCameraState onCamera)
+        if (_stateMachine.state is OnCameraState onCamera)
             subStateText.text = onCamera.subMachine.state.Name;
     }
 
     [Header("Debug")]
     public TextMeshProUGUI stateText;
     public TextMeshProUGUI subStateText;
+    public bool showSubState;
 
-    void FixedUpdate() => StateMachine.FixedUpdate();
+    void FixedUpdate() => _stateMachine.FixedUpdate();
 
-    void LateUpdate() => StateMachine.LateUpdate();
+    void LateUpdate() => _stateMachine.LateUpdate();
 }

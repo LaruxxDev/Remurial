@@ -16,13 +16,8 @@ public class CameraMoveSubState : PlayerState
     public override void Update()
     {
         // Idle
-        if (PLAYER.INPUTTRANSFORMER.INPUTVECTORNORMAL.magnitude < 0.1f)
-            STATEMACHINE.ChangeState(PLAYER.STATES.CameraIdleSubState(STATEMACHINE));
+        if (Player.Movement.MoveInput.magnitude < 0.1f)
+            StateMachine.ChangeState(Player.States.CameraIdleSubState(StateMachine));
     }
 
-    public override void FixedUpdate()
-    {
-        base.FixedUpdate();
-        PLAYER.MOVEMENT.VelocityCamera(PLAYER.INPUTTRANSFORMER.INPUTVECTORNORMAL, PLAYER.mainCamera);
-    }
 }

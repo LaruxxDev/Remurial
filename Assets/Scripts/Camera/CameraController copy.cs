@@ -4,7 +4,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CameraController2 : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     #region Values
     [Header("Cámaras")]

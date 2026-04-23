@@ -2,13 +2,13 @@ using UnityEngine;
 
 public abstract class PlayerState : State
 {
-    protected StateMachine STATEMACHINE;
-    protected PlayerGeneral PLAYER;
+    protected StateMachine StateMachine;
+    protected PlayerGeneral Player;
 
-    public PlayerState(StateMachine STATEMACHINE, PlayerGeneral PLAYER)
+    public PlayerState(StateMachine StateMachine, PlayerGeneral Player)
     {
-        this.STATEMACHINE = STATEMACHINE;
-        this.PLAYER = PLAYER;
+        this.StateMachine = StateMachine;
+        this.Player = Player;
     }
 
     public virtual void FixedUpdate() { }

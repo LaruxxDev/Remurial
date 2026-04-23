@@ -10,15 +10,15 @@ public class CameraIdleSubState : PlayerState
     {
         base.Enter();
 
-        PLAYER.MOVEMENT.VelocityIdle();
+        Player.Movement.StopMovement();
         //PLAYER.ANIMATION.SetAnimation(PlayerAnimation.Idle);
     }
 
     public override void Update()
     {
-        if (PLAYER.INPUTTRANSFORMER.INPUTVECTORNORMAL.magnitude > 0.1f)
+        if (Player.Movement.MoveInput.magnitude > 0.1f)
         {
-            STATEMACHINE.ChangeState(PLAYER.STATES.CameraMoveSubState(STATEMACHINE));
+            StateMachine.ChangeState(Player.States.CameraMoveSubState(StateMachine));
         }
     }
 }

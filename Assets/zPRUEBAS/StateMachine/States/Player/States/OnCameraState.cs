@@ -1,39 +1,51 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class OnCameraState : PlayerState
 {
-    private StateMachine lowLevelMachine;
-    public StateMachine subMachine => lowLevelMachine;
-
+    private StateMachine _subMachine;
+    public StateMachine subMachine => _subMachine;
     public override string Name => "OnCamera State";
-    public OnCameraState(StateMachine STATEMACHINE, PlayerGeneral PLAYER) : base(STATEMACHINE, PLAYER)
+
+    public OnCameraState(StateMachine stateMachine, PlayerGeneral player) 
+        : base(stateMachine, player)
     {
-        lowLevelMachine = new StateMachine();
+        _subMachine = new StateMachine();
     }
 
     public override void Enter()
     {
-        lowLevelMachine.ChangeState(PLAYER.STATES.CameraIdleSubState(lowLevelMachine));
+        Player.Input.OnMoveEvent   += HandleMove;
+        Player.Input.OnAimCanceled += HandleAimEnd;
+
+        _subMachine.ChangeState(Player.States.CameraIdleSubState(_subMachine));
     }
 
-    public override void Update()
+    public override void Exit()
     {
-        lowLevelMachine.Update();
+        Player.Input.OnMoveEvent   -= HandleMove;
+        Player.Input.OnAimCanceled -= HandleAimEnd;
 
-        base.Update();
-
-
-        if (PLAYER.INPUTTRANSFORMER.INPUTCAMERA > 0f)
-        {
-            // Consumir el input
-            PLAYER.INPUTTRANSFORMER.ProcessInputCamera(0f);
-
-            CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
-            STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
-        }
+        Player.Movement.SetMoveInput(Vector2.zero);
     }
-    
-    public override void FixedUpdate() => lowLevelMachine.FixedUpdate();
-    public override void LateUpdate() => lowLevelMachine.LateUpdate();
+
+    public override void Update()      => _subMachine.Update();
+    public override void FixedUpdate()
+    {
+        _subMachine.FixedUpdate();
+        Player.Movement.MoveFirstPerson();
+    }
+    public override void LateUpdate()  => _subMachine.LateUpdate();
+
+    // ── Handlers ────────────────────────────────────────────
+
+    private void HandleMove(Vector2 dir)
+    {
+        Player.Movement.SetMoveInput(dir);
+    }
+
+    private void HandleAimEnd()
+    {
+        CameraManager.SwitchCamera(Player.thirdPersonCamera);
+        StateMachine.ChangeState(Player.States.NeutralState(StateMachine));
+    }
 }
