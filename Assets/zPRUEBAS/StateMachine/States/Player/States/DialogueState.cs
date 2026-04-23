@@ -10,8 +10,6 @@ public class DialogueState : PlayerState
     {
         base.Enter();
 
-        PLAYER.INPUTTRANSFORMER.ToggleInputMap("player");
-
         // Pantalla congelada
         PLAYER.MOVEMENT.VelocityIdle();
         Time.timeScale = 0f;

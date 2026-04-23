@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
-//using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {

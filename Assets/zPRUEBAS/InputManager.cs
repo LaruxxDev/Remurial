@@ -23,9 +23,9 @@ public class InputManager : MonoBehaviour
             return;
 
         if (context.canceled)
-            PLAYER.INPUTTRANSFORMER.ProcessInputNavigate(Vector2.zero);
+            PLAYER.INPUTTRANSFORMER.ProcessInputMovement(Vector2.zero);
         else
-            PLAYER.INPUTTRANSFORMER.ProcessInputNavigate(context.ReadValue<Vector2>());
+            PLAYER.INPUTTRANSFORMER.ProcessInputMovement(context.ReadValue<Vector2>());
     }
 
     // Aim

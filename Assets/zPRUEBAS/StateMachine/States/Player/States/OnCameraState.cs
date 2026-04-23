@@ -14,8 +14,6 @@ public class OnCameraState : PlayerState
 
     public override void Enter()
     {
-        PLAYER.INPUTTRANSFORMER.ToggleInputMap("player");
-
         lowLevelMachine.ChangeState(PLAYER.STATES.CameraIdleSubState(lowLevelMachine));
     }
 

@@ -18,6 +18,7 @@ public class InspectSystem : MonoBehaviour
 
     [Header("Prueba")]
     [SerializeField] private PlayerGeneral PLAYER;
+    [SerializeField] private GameObject inspectionLight;
 
     public void CustomUpdate()
     {
@@ -60,7 +61,8 @@ public class InspectSystem : MonoBehaviour
             mrNuevo.material = new Material(mrOriginal.material);
             mrNuevo.material.mainTexture = mrOriginal.material.mainTexture;
         }
-        
+
+        inspectionLight.SetActive(true);
         rawImageUI.SetActive(true); 
         isInspecting = true;
     }
@@ -70,7 +72,9 @@ public class InspectSystem : MonoBehaviour
         if (!isInspecting) 
             return; 
 
-        Destroy(currentInspectedObject); 
+        Destroy(currentInspectedObject);
+
+        inspectionLight.SetActive(false);
         rawImageUI.SetActive(false); 
         isInspecting = false;
     }

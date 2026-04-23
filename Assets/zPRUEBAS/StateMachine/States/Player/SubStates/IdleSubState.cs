@@ -16,7 +16,7 @@ public class IdleSubState : PlayerState
 
     public override void Update()
     {
-        if (PLAYER.INPUTTRANSFORMER.INPUTNAVEGATENORMAL.magnitude > 0.1f)
+        if (PLAYER.INPUTTRANSFORMER.INPUTMOVEMENTNORMAL.magnitude > 0.1f)
         {
             STATEMACHINE.ChangeState(PLAYER.STATES.MoveSubState(STATEMACHINE));
         }

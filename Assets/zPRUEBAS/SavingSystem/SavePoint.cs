@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class SavePoint : MonoBehaviour
+public class SavePoint : MonoBehaviour, IInteractable
 {
     [Header("ID")]
     [SerializeField] private string ID;
+    [SerializeField] private string interactText;
 
     [Header("World Transform")]
     [SerializeField] private Vector3 position;
@@ -16,11 +17,23 @@ public class SavePoint : MonoBehaviour
         data.rotation = rotation;
     }
 
-
+    // Borrable en futuro
     public void OnInteract()
     {
         SaveSystem.Save(this);
         Debug.Log("Saved in: " + this);
+    }
+
+    public void Interact(GameObject interactor)
+    {
+        SaveSystem.Save(this);
+        Debug.Log("Saved in: " + this);
+        Debug.Log("Saved through Interact!");
+    }
+
+    public string GetInteractText()
+    {
+        return interactText;
     }
 }
 

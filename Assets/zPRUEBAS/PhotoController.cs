@@ -281,7 +281,7 @@ public class PhotoController : MonoBehaviour
             prefabItem = photoPrefab
         };
 
-        bool agregada = InventarioManager.Instance.AgregarItem(itemFoto);
+        bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
 
         Destroy(texturaFoto);
 

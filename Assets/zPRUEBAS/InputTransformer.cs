@@ -47,9 +47,9 @@ public class InputTransformer
     #region Player
     #region Vectores
     // Movement
-    Vector2 intputMovement;
-    public Vector2 INPUTMOVEMENT => intputMovement;
-    public Vector2 INPUTMOVEMENTNORMAL => intputMovement.normalized;
+    Vector2 inputMovement;
+    public Vector2 INPUTMOVEMENT => inputMovement;
+    public Vector2 INPUTMOVEMENTNORMAL => inputMovement.normalized;
 
     // Aim
     Vector2 inputAim;
@@ -62,7 +62,7 @@ public class InputTransformer
         if (!inputsEnabled)
             return;
 
-        this.inputNavegate = value;
+        this.inputMovement = value;
     }
 
 
@@ -262,9 +262,9 @@ public class InputTransformer
     #region UI
     #region Vectores
     // Movement
-    Vector2 inputNavegate;
-    public Vector2 INPUTNAVEGATE => inputNavegate;
-    public Vector2 INPUTNAVEGATENORMAL => inputNavegate.normalized;
+    Vector2 inputNavigate;
+    public Vector2 INPUTNAVIGATE => inputNavigate;
+    public Vector2 INPUTNAVIGATENORMAL => inputNavigate.normalized;
 
 
     public void ProcessInputNavigate(Vector2 value)
@@ -272,7 +272,7 @@ public class InputTransformer
         if (!inputsEnabled)
             return;
 
-        this.inputNavegate = value;
+        this.inputNavigate = value;
     }
     #endregion
 

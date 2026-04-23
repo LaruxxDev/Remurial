@@ -336,7 +336,7 @@ public class CameraController : MonoBehaviour
             prefabItem = prefabFotoFisica
         };
 
-        bool agregada = InventarioManager.Instance.AgregarItem(itemFoto);
+        bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
         if (agregada)
             Debug.Log("Foto guardada: " + rutaCompleta);
         else

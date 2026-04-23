@@ -13,4 +13,9 @@ public abstract class PlayerState : State
 
     public virtual void FixedUpdate() { }
     public virtual void LateUpdate() { }
+
+
+    // En caso de acabar usando eventos para los inputs
+    public virtual void HandleSubscriptions() { }
+    public virtual void HandleUnSubscriptions() { }
 }

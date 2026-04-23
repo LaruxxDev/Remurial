@@ -14,8 +14,6 @@ public class NeutralState : PlayerState
 
     public override void Enter()
     {
-        PLAYER.INPUTTRANSFORMER.ToggleInputMap("player");
-
         lowLevelMachine.ChangeState(PLAYER.STATES.IdleSubState(lowLevelMachine));
     }
 
@@ -74,6 +72,21 @@ public class NeutralState : PlayerState
             // Pruebas
             //PLAYER.HEALTH.RegenerateHealth(2);
             PLAYER.savePointB.OnInteract();
+        }
+
+
+        // Interact
+        if (PLAYER.INPUTTRANSFORMER.E == 1f)
+        {
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputE(0f);
+
+            if (PLAYER.COLLISION.INTERACT)
+            {
+                PLAYER.COLLISION.currentInteractable.Interact(PLAYER.COLLISION.interactableItem);
+
+                STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(STATEMACHINE));
+            }
         }
     }
     

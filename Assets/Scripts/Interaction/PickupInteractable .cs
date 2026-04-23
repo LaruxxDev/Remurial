@@ -11,7 +11,7 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
         _inspectSystem.EnterInspectionMode(interactor);
         AudioManager.instance.Play2D("RecogerItem");
 
-        InventarioManager.Instance.AgregarItem(_data);
+        InventoryManager.Instance.AgregarItem(_data);
         Destroy(gameObject);
     }
 

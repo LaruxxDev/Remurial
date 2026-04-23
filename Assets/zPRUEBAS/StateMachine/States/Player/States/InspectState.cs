@@ -25,10 +25,10 @@ public class InspectState : PlayerState
 
 
         // Volver a Neutral
-        if (PLAYER.INPUTTRANSFORMER.ESC == 1f)
+        if (PLAYER.INPUTTRANSFORMER.ESCDOS == 1f)
         {  
             // Consumir el input
-            PLAYER.INPUTTRANSFORMER.ProcessInputF(0f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputEscDos(0f);
 
             STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
         }
@@ -40,5 +40,12 @@ public class InspectState : PlayerState
         {
             PLAYER.INSPECT.ExitInspectionMode();
         }
+
+        Time.timeScale = 1f;
+
+        PLAYER.INPUTTRANSFORMER.ProcessInputMovement(Vector2.zero);
+        PLAYER.INPUTTRANSFORMER.ProcessInputAim(Vector2.zero);
+
+        PLAYER.INPUTTRANSFORMER.ToggleInputMap("player");
     }
 }

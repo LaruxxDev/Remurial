@@ -16,13 +16,13 @@ public class MoveSubState : PlayerState
     public override void Update()
     {
         // Idle
-        if (PLAYER.INPUTTRANSFORMER.INPUTNAVEGATENORMAL.magnitude < 0.1f)
+        if (PLAYER.INPUTTRANSFORMER.INPUTMOVEMENTNORMAL.magnitude < 0.1f)
             STATEMACHINE.ChangeState(PLAYER.STATES.IdleSubState(STATEMACHINE));
     }
 
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        PLAYER.MOVEMENT.VelocityMovement(PLAYER.INPUTTRANSFORMER.INPUTNAVEGATENORMAL, PLAYER.mainCamera);
+        PLAYER.MOVEMENT.VelocityMovement(PLAYER.INPUTTRANSFORMER.INPUTMOVEMENTNORMAL, PLAYER.mainCamera);
     }
 }

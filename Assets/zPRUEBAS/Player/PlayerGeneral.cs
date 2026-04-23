@@ -63,7 +63,8 @@ public class PlayerGeneral : MonoBehaviour
 
     [Header("Inspection")]
     [SerializeField] InspectSystem InspectSystem;
-    public InspectSystem INSPECT;
+    public InspectSystem INSPECT => InspectSystem;
+
     public GameObject inspectionItem;
 
     [Header("InputMap")]

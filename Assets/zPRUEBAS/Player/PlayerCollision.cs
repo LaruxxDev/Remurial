@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    #region Ground
     [Header("Ground")]
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
@@ -11,7 +12,38 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] bool groundGizmoz;
 
     public bool GROUND => Physics.Raycast(groundCheck.position, -transform.up, -groundDistance, groundLayer);
+    #endregion
 
+    #region Interaction
+    [Header("Interaction")]
+    public IInteractable currentInteractable { get; private set; }
+    public GameObject interactableItem { get; private set; }
+
+    public bool INTERACT => currentInteractable != null;
+
+
+    public void OnInteractionEnter(Collider other)
+    {
+        interactableItem = other.tag == "Tp" ? this.gameObject : other.gameObject;
+
+        if (other.TryGetComponent<IInteractable>(out var interactable))
+        {
+            currentInteractable = interactable;
+
+            if (HudManager.Instance != null)
+                HudManager.Instance.MostrarMensaje(currentInteractable.GetInteractText());
+        }
+    }
+
+    public void OnInteractionExit(Collider other)
+    {
+        if (other.TryGetComponent<IInteractable>(out var interactable) && interactable == currentInteractable)
+        {
+            currentInteractable = null;
+            interactableItem = null;
+        }
+    }
+    #endregion
 
     private void OnDrawGizmos()
     {

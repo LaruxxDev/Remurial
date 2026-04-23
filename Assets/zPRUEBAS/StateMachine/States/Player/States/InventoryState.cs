@@ -22,7 +22,7 @@ public class InventoryState : PlayerState
     public override void Update()
     {
         // Navegar
-        Vector2 nav = PLAYER.INPUTTRANSFORMER.INPUTNAVEGATENORMAL;
+        Vector2 nav = PLAYER.INPUTTRANSFORMER.INPUTNAVIGATENORMAL;
 
         if (nav.x > 0.05f)
             PLAYER.INVENTORY.NavigateRight();
@@ -60,6 +60,8 @@ public class InventoryState : PlayerState
         base.Exit();
 
         PLAYER.INVENTORY.CloseInventory();
+
+        PLAYER.INPUTTRANSFORMER.ToggleInputMap("player");
 
         Time.timeScale = 1f;
     }
