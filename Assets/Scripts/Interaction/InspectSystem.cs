@@ -8,7 +8,7 @@ public class InspectSystem : MonoBehaviour
     public GameObject rawImageUI; 
 
     [Header("Settings")]
-    public float rotationSpeed = 10f; 
+    public float rotationSpeed = 100f; 
 
     private GameObject currentInspectedObject; 
     public bool isInspecting { get; private set; } 
@@ -25,7 +25,7 @@ public class InspectSystem : MonoBehaviour
         if (!isInspecting || currentInspectedObject == null)
             return;
 
-        Vector2 finalRotation = PLAYER.INPUTTRANSFORMER.INPUTAIM;
+        Vector2 finalRotation = PLAYER.INPUTTRANSFORMER.INPUTNAVIGATENORMAL;
 
         if (finalRotation == Vector2.zero)
             return;
@@ -70,7 +70,19 @@ public class InspectSystem : MonoBehaviour
     public void ExitInspectionMode()
     {
         if (!isInspecting) 
-            return; 
+            return;
+
+        FotoRevelado cloneRevelado = currentInspectedObject.GetComponent<FotoRevelado>();
+        if (cloneRevelado != null && PLAYER.inspectionItem != null)
+        {
+            FotoRevelado originalRevelado = PLAYER.inspectionItem.GetComponentInChildren<FotoRevelado>();
+            if (originalRevelado != null)
+                originalRevelado.datos.revealProgress = cloneRevelado.datos.revealProgress;
+        }
+
+        MeshRenderer mr = currentInspectedObject.GetComponentInChildren<MeshRenderer>();
+        if (mr != null)
+            Destroy(mr.material);
 
         Destroy(currentInspectedObject);
 

@@ -46,6 +46,7 @@ public class PlayerGeneral : MonoBehaviour
     [Header("Cameras")]
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
+    public CinemachineCamera inspectionCamera;
 
 
     [Header("Objects")]

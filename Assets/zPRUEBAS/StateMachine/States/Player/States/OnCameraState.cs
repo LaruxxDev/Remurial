@@ -1,4 +1,3 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class OnCameraState : PlayerState
@@ -15,6 +14,8 @@ public class OnCameraState : PlayerState
     public override void Enter()
     {
         lowLevelMachine.ChangeState(PLAYER.STATES.CameraIdleSubState(lowLevelMachine));
+
+        CameraManager.SwitchCamera(PLAYER.firstPersonCamera);
     }
 
     public override void Update()

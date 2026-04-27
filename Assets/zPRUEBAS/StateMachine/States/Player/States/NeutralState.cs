@@ -1,4 +1,3 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class NeutralState : PlayerState
@@ -34,7 +33,6 @@ public class NeutralState : PlayerState
         // Camera
         if (PLAYER.INPUTTRANSFORMER.RIGHTCLICK == 1f)
         {
-            CameraManager.SwitchCamera(PLAYER.firstPersonCamera);
             STATEMACHINE.ChangeState(PLAYER.STATES.OnCameraState(STATEMACHINE));
         }
 

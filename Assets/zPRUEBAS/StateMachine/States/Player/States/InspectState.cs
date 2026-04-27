@@ -1,4 +1,3 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class InspectState : PlayerState
@@ -16,6 +15,8 @@ public class InspectState : PlayerState
         PLAYER.MOVEMENT.VelocityIdle();
         Time.timeScale = 0f;
 
+        CameraManager.SwitchCamera(PLAYER.inspectionCamera, CameraManager.BlendStyle.Instant);
+        
         PLAYER.INSPECT.EnterInspectionMode(PLAYER.inspectionItem);
     }
 
@@ -47,5 +48,7 @@ public class InspectState : PlayerState
         PLAYER.INPUTTRANSFORMER.ProcessInputAim(Vector2.zero);
 
         PLAYER.INPUTTRANSFORMER.ToggleInputMap("player");
+
+        CameraManager.SwitchCamera(PLAYER.thirdPersonCamera, CameraManager.BlendStyle.Instant);
     }
 }

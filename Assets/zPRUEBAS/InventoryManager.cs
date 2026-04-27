@@ -172,7 +172,6 @@ public class InventoryManager : MonoBehaviour
 
         _root.Q<Button>("RightButton").clicked += () =>
         {
-            Debug.Log("Right");
             if (itemsList.Count == 0) return;
             _index = (_index + 1) % itemsList.Count;
             UpdateUI();
@@ -180,7 +179,6 @@ public class InventoryManager : MonoBehaviour
 
         _root.Q<Button>("LeftButton").clicked += () =>
         {
-            Debug.Log("Left");
             if (itemsList.Count == 0) return;
             _index = (_index - 1 + itemsList.Count) % itemsList.Count;
             UpdateUI();
