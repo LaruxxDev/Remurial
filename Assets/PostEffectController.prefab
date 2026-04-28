@@ -51,7 +51,7 @@ MonoBehaviour:
   volumeProfile: {fileID: 11400000, guid: 7bbe35cdf5d69e14abbb03eccedaa5bd, type: 2}
   isEnabled: 1
   fogDensity: 10
-  fogDistance: 4.7
+  fogDistance: 58
   fogNear: 0
   fogFar: 81.3
   fogAltScale: 10
