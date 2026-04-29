@@ -9059,6 +9059,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4236645278533769487, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10315,11 +10319,11 @@ PrefabInstance:
     - target: {fileID: -5763012627804232645, guid: 658cf1594c3505f4eaa47c1a6708d4f6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d2f004ffa3bf66a4bb727287c8fce39c, type: 2}
+      objectReference: {fileID: 2100000, guid: b461de806a54a8f4683283c5b8461747, type: 2}
     - target: {fileID: -2497042905631214616, guid: 658cf1594c3505f4eaa47c1a6708d4f6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b461de806a54a8f4683283c5b8461747, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c7b444c3f97e1a4dbd0ccf649336454, type: 2}
     - target: {fileID: 919132149155446097, guid: 658cf1594c3505f4eaa47c1a6708d4f6, type: 3}
       propertyPath: m_Name
       value: GraveYardGateMain
@@ -10478,10 +10482,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6093592463355912122, guid: 970405a8f324efd4fad559618111e0f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c7b444c3f97e1a4dbd0ccf649336454, type: 2}
     - target: {fileID: -1806680513116206669, guid: 970405a8f324efd4fad559618111e0f3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
+    - target: {fileID: -1461304994638716399, guid: 970405a8f324efd4fad559618111e0f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d2f004ffa3bf66a4bb727287c8fce39c, type: 2}
     - target: {fileID: 919132149155446097, guid: 970405a8f324efd4fad559618111e0f3, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesSingle
@@ -13675,7 +13687,7 @@ PrefabInstance:
     - target: {fileID: -6093592463355912122, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2aa38b8d51c3a7544af05363c52bb956, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c7b444c3f97e1a4dbd0ccf649336454, type: 2}
     - target: {fileID: -1461304994638716399, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
