@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class AnimatorManager : MonoBehaviour
 {
-    Animator animator;
+    [SerializeField] private Animator animator;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
 
     public void HandleAnimatorValues(float horizontalMovement, float verticalMovement)
     {

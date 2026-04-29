@@ -6,40 +6,45 @@ public class AttackSubState : EnemyState
     public AttackSubState(EnemyGeneral ENEMY) : base(ENEMY) { }
 
 
+    private float timer;
+
+
     public override void Enter()
     {
         base.Enter();
+
+        timer = ENEMY.CONFIGURATION.ATTACKCD;
 
         // Dañar al Jugador
         if (ENEMY.COLLISION.detectedPlayer != null)
         {
             PlayerGeneral player = ENEMY.COLLISION.detectedPlayer.parent.GetComponentInChildren<PlayerGeneral>();
-            player.HEALTH.TakeDamage(ENEMY.CONFIGURATION.DAMAGE);
+
+            if (player != null)
+                player.HEALTH.TakeDamage(ENEMY.CONFIGURATION.DAMAGE);
+            
         }
 
-
+        ENEMY.MOVEMENT.StopMovement();
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Attack);
     }
 
 
-    public float timer = 1f;
     public override void Update()
     {
-        // Enter Chase after attack animation delay
         timer -= Time.deltaTime;
 
-        switch (timer)
+        // CD terminado
+        if (timer <= 0f)
         {
-            case <= 0f:
-                if (ENEMY.CONFIGURATION.hasChase)
-                    STATEMACHINE.ChangeState(ENEMY.STATES.ChaseSubState);            
-                break;
-
-            case <= 0.5f:
-
-                // Stop
-                ENEMY.MOVEMENT.StopMovement();
-                break;
+            if (ENEMY.COLLISION.ATTACK)
+            {
+                STATEMACHINE.ChangeState(ENEMY.STATES.AttackSubState);
+            }
+            else if (ENEMY.CONFIGURATION.hasChase)
+            {
+                STATEMACHINE.ChangeState(ENEMY.STATES.ChaseSubState);
+            }
         }
     }
 

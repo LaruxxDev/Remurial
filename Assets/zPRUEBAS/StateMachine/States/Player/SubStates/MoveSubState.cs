@@ -10,7 +10,8 @@ public class MoveSubState : PlayerState
     {
         base.Enter();
 
-        //PLAYER.ANIMATION.SetAnimation(PlayerAnimation.Movement);
+        //PLAYER.ANIMATION.SetAnimation(AnimatorManager.Movement);
+        PLAYER.ANIMATION.HandleAnimatorValues(0f, 0f);
     }
 
     public override void Update()

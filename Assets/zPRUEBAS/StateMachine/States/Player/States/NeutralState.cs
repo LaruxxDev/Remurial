@@ -54,10 +54,6 @@ public class NeutralState : PlayerState
             PLAYER.INPUTTRANSFORMER.ProcessInputTab(0f);
 
             STATEMACHINE.ChangeState(PLAYER.STATES.InventoryState(STATEMACHINE));
-
-            // Pruebas
-            //PLAYER.HEALTH.TakeDamage(1);
-            //PLAYER.savePointA.OnInteract();
         }
 
 
@@ -66,10 +62,6 @@ public class NeutralState : PlayerState
         {
             // Consumir el input
             PLAYER.INPUTTRANSFORMER.ProcessInputB(0f);
-
-            // Pruebas
-            //PLAYER.HEALTH.RegenerateHealth(2);
-            PLAYER.savePointB.OnInteract();
         }
 
 
@@ -83,7 +75,8 @@ public class NeutralState : PlayerState
             {
                 PLAYER.COLLISION.currentInteractable.Interact(PLAYER.COLLISION.interactableItem);
 
-                STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(STATEMACHINE));
+                if (PLAYER.inspectionItem != null)
+                    STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(STATEMACHINE));
             }
         }
     }

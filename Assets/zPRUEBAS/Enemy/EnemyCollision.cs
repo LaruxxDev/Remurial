@@ -14,8 +14,12 @@ public class EnemyCollision : MonoBehaviour
     [Header("Detection")]
     [SerializeField] Transform playerCheck;
     [SerializeField] LayerMask playerLayer;
+    [SerializeField] LayerMask obstacleLayer;
     [SerializeField] float detectionRadius;
+    [SerializeField] bool requiresRange;
+    [SerializeField] bool requiresLineOfSight;
     [SerializeField] bool detectionGizmoz;
+
 
     public Transform detectedPlayer;
 
@@ -40,34 +44,54 @@ public class EnemyCollision : MonoBehaviour
     {
         get
         {
-            Collider[] hits = Physics.OverlapSphere(playerCheck.position, detectionRadius, playerLayer);
-
-            if (hits.Length > 0)
-            {
-                detectedPlayer = hits[0].transform;
+            if (!requiresRange && detectedPlayer != null)
                 return true;
-            }
 
-            return false;
+            bool seen = CheckLineOfSight(detectionRadius, out Transform found);
+
+            detectedPlayer = found;
+            return seen;
         }
     }
-
 
     public bool ATTACK
     {
         get
         {
-            Collider[] hits = Physics.OverlapSphere(playerCheck.position, attackRadius, playerLayer);
+            bool seen = CheckLineOfSight(attackRadius, out Transform found);
 
-            if (hits.Length > 0)
+            return seen;
+        }
+    }
+
+
+
+    private bool CheckLineOfSight(float radius, out Transform found)
+    {
+        Collider[] hits = Physics.OverlapSphere(playerCheck.position, radius, playerLayer);
+
+        foreach (Collider hit in hits)
+        {
+            if (!requiresLineOfSight)
             {
-                detectedPlayer = hits[0].transform;
+                found = hit.transform;
                 return true;
             }
 
-            return false;
+            Vector3 directionToPlayer = hit.bounds.center - playerCheck.position;
+            float distanceToPlayer = directionToPlayer.magnitude;
+
+            if (!Physics.Raycast(playerCheck.position, directionToPlayer.normalized, distanceToPlayer, obstacleLayer))
+            {
+                found = hit.transform;
+                return true;
+            }
         }
+
+        found = null; 
+        return false;
     }
+
 
     private void OnDrawGizmos()
     {

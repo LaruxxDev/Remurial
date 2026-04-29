@@ -10,6 +10,9 @@ public class EnemyConfiguration : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private int damage;
     public int DAMAGE => damage;
+
+    [SerializeField] private float attackCD;
+    public float ATTACKCD => attackCD;
     #endregion
 
     #region Wander

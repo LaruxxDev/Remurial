@@ -31,6 +31,7 @@ public class PlayerGeneral : MonoBehaviour
     [Header("Inputs")]
     InputTransformer InputTransformer;
     public InputTransformer INPUTTRANSFORMER => InputTransformer;
+    [SerializeField] private PlayerInput PlayerInput;
 
 
     [Header("Movement")]
@@ -43,44 +44,33 @@ public class PlayerGeneral : MonoBehaviour
     public PlayerHealth HEALTH => PlayerHealth;
 
 
-    [Header("Cameras")]
-    public CinemachineCamera firstPersonCamera;
-    public CinemachineCamera thirdPersonCamera;
-    public CinemachineCamera inspectionCamera;
-
-
-    [Header("Objects")]
+    [Header("PhotoController")]
+    [SerializeField] PhotoController FotoController;
+    public PhotoController PHOTO => FotoController;
+    public RevealPhoto heldPhoto;
     public GameObject flashObject;
 
 
     [Header("Animations")]
-    [SerializeField] PhotoController FotoController;
-    public PhotoController PHOTO => FotoController;
-
-
-    [Header("Photograph")]
-    public RevealPhoto heldPhoto;
+    [SerializeField] AnimatorManager AnimatorManager;
+    public AnimatorManager ANIMATION => AnimatorManager;
 
 
     [Header("Inspection")]
     [SerializeField] InspectSystem InspectSystem;
     public InspectSystem INSPECT => InspectSystem;
-
     public GameObject inspectionItem;
 
-    [Header("InputMap")]
-    [SerializeField] private PlayerInput PlayerInput;
 
     [Header("Inventory")]
     [SerializeField] InventoryManager InventoryManager;
     public InventoryManager INVENTORY => InventoryManager;
 
 
-
-
-    //[Header("Animations")]
-    //[SerializeField] AnimationManager AnimationManager;
-    //public AnimationManager ANIMATION => AnimationManager;
+    [Header("Cameras")]
+    public CinemachineCamera firstPersonCamera;
+    public CinemachineCamera thirdPersonCamera;
+    public CinemachineCamera inspectionCamera;
     #endregion
 
 
@@ -124,6 +114,9 @@ public class PlayerGeneral : MonoBehaviour
         hpText.text = PlayerConfiguration.health.ToString();
     }
 
+    [Space]
+    [Space]
+    [Space]
     [Header("Debug")]
     public TextMeshProUGUI stateText;
     public TextMeshProUGUI subStateText;

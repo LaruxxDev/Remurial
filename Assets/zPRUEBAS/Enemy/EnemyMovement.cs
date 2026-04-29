@@ -62,7 +62,8 @@ public class EnemyMovement
 
     public void StopMovement()
     {
-        agent.speed = 0f;
+        agent.speed = 0f;               // Velocidad 0
+        agent.velocity = Vector3.zero;  // Inercia 0
 
         agent.ResetPath();
     }

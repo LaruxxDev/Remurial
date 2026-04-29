@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86333cecf7467c444b920a044b617519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfiguration
+  damage: 0
   wanderRadius: 0
   wanderSpeed: 0
   wanderTurnSpeed: 0
@@ -409,13 +410,19 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  detectionRadius: 10
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  detectionRadius: 1
+  requiresRange: 0
+  requiresLineOfSight: 0
   detectionGizmoz: 1
   detectedPlayer: {fileID: 0}
   attackRadius: 5
   attackGizmoz: 1
   FLASH: 0
-  FOTOMADE: 0
+  PHOTOMADE: 0
+  REVEALED: 0
 --- !u!136 &3908984952111115092
 CapsuleCollider:
   m_ObjectHideFlags: 0
