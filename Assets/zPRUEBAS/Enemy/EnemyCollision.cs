@@ -119,5 +119,4 @@ public class EnemyCollision : MonoBehaviour
             Gizmos.DrawWireSphere(playerCheck.position, attackRadius);
         }
     }
-
 }

@@ -17,7 +17,7 @@ public class InspectState : PlayerState
 
         CameraManager.SwitchCamera(PLAYER.inspectionCamera, CameraManager.BlendStyle.Instant);
         
-        PLAYER.INSPECT.EnterInspectionMode(PLAYER.inspectionItem);
+        PLAYER.INSPECT.EnterInspectionMode(PLAYER.COLLISION.interactableItem);
     }
 
     public override void Update()
@@ -40,6 +40,11 @@ public class InspectState : PlayerState
         if (PLAYER.INSPECT.isInspecting)
         {
             PLAYER.INSPECT.ExitInspectionMode();
+        }
+
+        if (PLAYER.COLLISION.interactableItem != null)
+        {
+            PLAYER.COLLISION.DestroyInteractable();
         }
 
         Time.timeScale = 1f;

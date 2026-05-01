@@ -201,7 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86333cecf7467c444b920a044b617519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfiguration
-  damage: 0
+  damage: 1
+  attackCD: 1
   wanderRadius: 0
   wanderSpeed: 0
   wanderTurnSpeed: 0
@@ -418,7 +419,7 @@ MonoBehaviour:
   requiresLineOfSight: 0
   detectionGizmoz: 1
   detectedPlayer: {fileID: 0}
-  attackRadius: 5
+  attackRadius: 1
   attackGizmoz: 1
   FLASH: 0
   PHOTOMADE: 0

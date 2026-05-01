@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 864132496829830496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.639967, y: 3.0291386, z: 11.9835205}
-  m_LocalScale: {x: 0.42, y: 0.4241798, z: 0.0038415096}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.015}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6619406915093291152}
@@ -113,7 +113,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -129,17 +129,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b0a36a91fd9af4e9915bf2b7436443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RevealPhoto
+  PLAYER: {fileID: 0}
   datos:
     idFoto: 
-    rutaDelArchivoLocal: 
-    revealTime: 10
-  shakeBoostInicial: 1
-  incrementoVelocidad: 0.5
+    folderRoute: 
+    revealTime: 30
+    enemigosCapturados: []
+    enemiesCaught: []
+  shakeReduction: 2
+  remainingTime: 0
   distanciaAgite: 0.15
   velocidadRetorno: 12
   reveal: {fileID: 3802400139476070591}
+  reveladoCompleto: 0
   isInspecting: 0
-  PLAYER: {fileID: 0}
 --- !u!114 &494630288669200462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,12 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e39c30bbd5af148a5f4e1f21dd66dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FotoRevelado
-  input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   datos:
     idFoto: 
-    rutaDelArchivoLocal: 
+    folderRoute: 
     revealTime: 10
     enemigosCapturados: []
+    enemiesCaught: []
   shakeBoostInicial: 1
   incrementoVelocidad: 0.5
   boostDecaimiento: 0.8
@@ -172,7 +175,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864132496829830496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4be284c2fb04aa84fac0632dbd5989f3, type: 3}
   m_Name: 
@@ -189,9 +192,10 @@ MonoBehaviour:
     esFoto: 1
     datosFoto:
       idFoto: 
-      rutaDelArchivoLocal: 
+      folderRoute: 
       revealTime: 0
       enemigosCapturados: []
+      enemiesCaught: []
     prefabItem: {fileID: 864132496829830496}
   _inspectSystem: {fileID: 0}
 --- !u!1 &3802400139476070591
@@ -295,7 +299,6 @@ GameObject:
   - component: {fileID: 6619406915093291152}
   - component: {fileID: 1520973501262532670}
   - component: {fileID: 8841942317460942486}
-  - component: {fileID: 2682016124962312973}
   m_Layer: 7
   m_Name: Papel
   m_TagString: Untagged
@@ -375,24 +378,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2682016124962312973
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5507783971011313437}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

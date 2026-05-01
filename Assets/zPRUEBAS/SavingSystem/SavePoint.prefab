@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5906222898993177344}
   - component: {fileID: 356942835570800676}
   - component: {fileID: 5673443474073188403}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Altar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 6615591756744545665}
   - component: {fileID: 2344976143160655792}
   - component: {fileID: 7086686762008794887}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 6800236533023772587}
   - component: {fileID: 6442511572902850657}
   - component: {fileID: 6559430576501412803}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SavePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

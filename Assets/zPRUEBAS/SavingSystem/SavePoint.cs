@@ -10,6 +10,8 @@ public class SavePoint : MonoBehaviour, IInteractable
     [SerializeField] private Vector3 position;
     [SerializeField] private Quaternion rotation;
 
+    public bool isInspectable => false;
+
     public void SaveData(ref SavePointData data)
     {
         data.ID = ID;
@@ -17,18 +19,11 @@ public class SavePoint : MonoBehaviour, IInteractable
         data.rotation = rotation;
     }
 
-    // Borrable en futuro
-    public void OnInteract()
-    {
-        SaveSystem.Save(this);
-        Debug.Log("Saved in: " + this);
-    }
 
     public void Interact(GameObject interactor)
     {
         SaveSystem.Save(this);
         Debug.Log("Saved in: " + this);
-        Debug.Log("Saved through Interact!");
     }
 
     public string GetInteractText()

@@ -201,7 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86333cecf7467c444b920a044b617519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfiguration
-  damage: 0
+  damage: 1
+  attackCD: 1
   wanderRadius: 10
   wanderSpeed: 3.5
   wanderTurnSpeed: 0

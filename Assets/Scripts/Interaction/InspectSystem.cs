@@ -73,9 +73,9 @@ public class InspectSystem : MonoBehaviour
             return;
 
         FotoRevelado cloneRevelado = currentInspectedObject.GetComponent<FotoRevelado>();
-        if (cloneRevelado != null && PLAYER.inspectionItem != null)
+        if (cloneRevelado != null && PLAYER.COLLISION.interactableItem != null)
         {
-            FotoRevelado originalRevelado = PLAYER.inspectionItem.GetComponentInChildren<FotoRevelado>();
+            FotoRevelado originalRevelado = PLAYER.COLLISION.interactableItem.GetComponentInChildren<FotoRevelado>();
             if (originalRevelado != null)
                 originalRevelado.datos.revealProgress = cloneRevelado.datos.revealProgress;
         }

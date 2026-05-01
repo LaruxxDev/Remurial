@@ -24,10 +24,10 @@ public class PlayerCollision : MonoBehaviour
 
     public void OnInteractionEnter(Collider other)
     {
-        interactableItem = other.tag == "Tp" ? this.gameObject : other.gameObject;
-
         if (other.TryGetComponent<IInteractable>(out var interactable))
         {
+            //interactableItem = other.tag == "Tp" ? this.gameObject : other.gameObject;
+
             currentInteractable = interactable;
 
             if (HudManager.Instance != null)
@@ -42,6 +42,14 @@ public class PlayerCollision : MonoBehaviour
             currentInteractable = null;
             interactableItem = null;
         }
+    }
+
+    public void DestroyInteractable()
+    {
+        Destroy(interactableItem);
+
+        currentInteractable = null;
+        interactableItem = null;
     }
     #endregion
 

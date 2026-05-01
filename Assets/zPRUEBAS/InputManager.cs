@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
     // Left Click
     public void InputLeftClick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
             PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(1f);
         }
@@ -56,6 +56,7 @@ public class InputManager : MonoBehaviour
             PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(0f);
         }
     }
+
 
     // Right Click
     public void InputRightClick(InputAction.CallbackContext context)

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 [System.Serializable]
 public class DatosFotos
 {
+    [Header("Datos")]
     public string idFoto;
     public string folderRoute;
     public float revealTime;
 
-    public List<GameObject> enemigosCapturados = new List<GameObject>();
+    [Header("Enemigos")]
     public List<EnemyCollision> enemiesCaught = new List<EnemyCollision>();
 
     [System.NonSerialized] public float revealProgress;
@@ -17,7 +18,7 @@ public class DatosFotos
 
     public bool EstaRevelada => revealProgress >= 1f;
 
-    public DatosFotos(string idFoto, string folderRoute, float revealTime, List<GameObject> objectsCaught = null)
+    public DatosFotos(string idFoto, string folderRoute, float revealTime, List<EnemyCollision> objectsCaught = null)
     {
         this.idFoto = idFoto;
         this.folderRoute = folderRoute;
@@ -28,13 +29,9 @@ public class DatosFotos
         if (objectsCaught == null)
             return;
 
-        foreach (GameObject item in objectsCaught)
+        foreach (EnemyCollision enemy in objectsCaught)
         {
-            if (item.TryGetComponent(out EnemyCollision enemy))
-            {
-                enemiesCaught.Add(enemy);
-                Debug.Log(enemy.name);
-            }
+            enemiesCaught.Add(enemy);
         }      
     }
 

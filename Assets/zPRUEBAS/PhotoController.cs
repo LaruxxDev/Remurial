@@ -7,20 +7,15 @@ using UnityEditor.Timeline.Actions;
 
 public class PhotoController : MonoBehaviour
 {
-    #region Values
-
-
-
     [Header("Configuración")]
-    public float revealTime = 5f;   // Tiempo que tarda en revelarse la foto
-    [SerializeField] private string folderRoute;       // Ruta donde se guardarán las fotos
+    public float revealTime = 5f;                   // Tiempo que tarda en revelarse la foto
+    [SerializeField] private string folderRoute;    // Ruta donde se guardarán las fotos
 
 
-    [Header("Interaction")]
-    public InspectSystem inspectSystem;
-    [SerializeField] private BoxCollider objetosCapturados;
+    //[Header("Interaction")]
+    //public InspectSystem inspectSystem; // Eliminable
+    //[SerializeField] private BoxCollider objetosCapturados;
 
-    #endregion
 
     #region Unity Methods
     // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDRÁN LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
@@ -93,7 +88,7 @@ public class PhotoController : MonoBehaviour
         if (foto != null)
         {
             Debug.Log("Interacción con la foto: " + foto.name);
-            inspectSystem.EnterInspectionMode(foto);
+            //inspectSystem.EnterInspectionMode(foto);
         }
         else
         {
@@ -180,6 +175,9 @@ public class PhotoController : MonoBehaviour
     #region Photo
     public void TakePhoto()
     {
+        if (photoPrefab == null || photoSpawnPoint == null)
+            return;
+
         if (!PLAYER.CONFIGURATION.CanUseCamera())
             return;
 
@@ -198,18 +196,18 @@ public class PhotoController : MonoBehaviour
     // Corrutina. Toma la foto
     private IEnumerator TakePhotoProcess()
     {
-        Destroy(photoObject);
+        if (photoObject != null)
+            Destroy(photoObject);
 
+        // Detección de enemigos
+        photoArea.SetActive(true);
         yield return new WaitForEndOfFrame();
 
         // Screenshot
         Texture2D fotoCapturada = ScreenCapture.CaptureScreenshotAsTexture();
-        
-        // Detección de enemegios
-        photoArea.SetActive(true);
 
         // Pequeño delay
-        yield return new WaitForSeconds(0.1f);
+        yield return null;
         photoArea.SetActive(false);
 
 
@@ -219,6 +217,9 @@ public class PhotoController : MonoBehaviour
             // Creamos el prefab en la posición y rotación del punto de aparición
             GameObject fotoInstanciada = Instantiate(photoPrefab, photoSpawnPoint.position, photoSpawnPoint.rotation);
             fotoInstanciada.transform.SetParent(photoSpawnPoint);
+
+            fotoInstanciada.transform.localPosition = new Vector3(0f, 0f, 0f);
+            fotoInstanciada.transform.localScale = new Vector3(0.3f, 0.3f, 0.015f);
 
             // Buscamos el MeshRenderer 
             MeshRenderer meshRenderer = fotoInstanciada.GetComponentInChildren<MeshRenderer>();
@@ -230,11 +231,9 @@ public class PhotoController : MonoBehaviour
             string rutaCompleta = Path.Combine(folderRoute, idFoto + ".png");
 
             // Crear los datos con la ruta correcta y la textura ya cargada en memoria
-            DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, revealTime);
+            DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, revealTime, enemiesCaughtScript.GetEnemiesCaught());
 
             fotoInstanciada.GetComponent<RevealPhoto>().datos = nuevaFoto;
-
-            enemiesCaughtScript.ClearList();
 
 
             if (meshRenderer != null)
@@ -250,6 +249,10 @@ public class PhotoController : MonoBehaviour
 
                 //InteractuarConFoto(fotoInstanciada);
             }
+
+
+            yield return null;
+            enemiesCaughtScript.ClearList();
         }
     }
 
@@ -283,15 +286,12 @@ public class PhotoController : MonoBehaviour
 
         bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
 
-        Destroy(texturaFoto);
-
-
         if (!agregada)
             Debug.LogWarning("No se pudo agregar al inventario (¿lleno?).");
 
 
         // Destruir la foto física del mundo después de guardarla
-        Destroy(foto);
+        //Destroy(foto);
 
         Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
     }

@@ -22,11 +22,13 @@ public class NeutralState : PlayerState
 
         base.Update();
 
-
         // Revelar foto
         if (PLAYER.INPUTTRANSFORMER.LEFTCLICK == 1f && PLAYER.heldPhoto != null)
         {
-            PLAYER.heldPhoto.RevelarInstantaneo();
+            // Consumir el input
+            PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(0f);
+
+            PLAYER.heldPhoto.ShakeBoost();
         }
 
 
@@ -73,10 +75,13 @@ public class NeutralState : PlayerState
 
             if (PLAYER.COLLISION.INTERACT)
             {
-                PLAYER.COLLISION.currentInteractable.Interact(PLAYER.COLLISION.interactableItem);
+                var interactable = PLAYER.COLLISION.currentInteractable;
+                interactable.Interact(PLAYER.COLLISION.interactableItem);
 
-                if (PLAYER.inspectionItem != null)
+                if (interactable.isInspectable)
+                {
                     STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(STATEMACHINE));
+                }
             }
         }
     }

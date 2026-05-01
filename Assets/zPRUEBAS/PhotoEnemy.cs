@@ -9,6 +9,7 @@ public class PhotoEnemy : MonoBehaviour
 
     [Header("List")]
     [SerializeField] private List<EnemyCollision> enemiesCaught = new List<EnemyCollision>();
+    public List<EnemyCollision> GetEnemiesCaught() => enemiesCaught;
 
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +32,7 @@ public class PhotoEnemy : MonoBehaviour
             if (enemyCollision != null)
             {
                 enemyCollision.PHOTOMADE = true;
-
+                Debug.Log("New Enemy: " + enemyCollision.gameObject.transform.parent.name);
                 if (!enemiesCaught.Contains(enemyCollision))
                     enemiesCaught.Add(enemyCollision);
             }

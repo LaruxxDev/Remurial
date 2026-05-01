@@ -2874,7 +2874,7 @@ GameObject:
   - component: {fileID: 664268908218212597}
   - component: {fileID: 3939403698417211482}
   - component: {fileID: 84878080065564082}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: IteractCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
