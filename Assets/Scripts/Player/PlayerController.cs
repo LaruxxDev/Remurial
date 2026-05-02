@@ -108,8 +108,8 @@ public class PlayerController : MonoBehaviour
         _currentState = PlayerState.Interacting;
         _moveInput = Vector2.zero;
 
-        if (animatorManager != null)
-            animatorManager.HandleAnimatorValues(0f, 0f);
+        //if (animatorManager != null)
+        //    animatorManager.HandleAnimatorValues(0f, 0f);
 
         //_animator.SetTrigger("Interact");
     }
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         if (_smoothMoveInput.magnitude < 0.01f)
             _smoothMoveInput = Vector2.zero;
 
-        animatorManager?.HandleAnimatorValues(0f, _smoothMoveInput.magnitude);
+        //animatorManager?.HandleAnimatorValues(0f, _smoothMoveInput.magnitude);
     }
     private void MoverPersonaje()
     {

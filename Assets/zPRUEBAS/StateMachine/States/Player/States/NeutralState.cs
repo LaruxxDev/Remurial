@@ -85,7 +85,13 @@ public class NeutralState : PlayerState
             }
         }
     }
-    
-    public override void FixedUpdate() => lowLevelMachine.FixedUpdate();
+
+    public override void FixedUpdate()
+    {
+        lowLevelMachine.FixedUpdate();
+
+        PLAYER.ANIMATION.HandleAnimatorValues(PLAYER.Rigidbody);
+    }
+
     public override void LateUpdate() => lowLevelMachine.LateUpdate();
 }

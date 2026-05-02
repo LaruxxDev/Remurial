@@ -170,6 +170,7 @@ public class InventoryManager : MonoBehaviour
         //    }
         //});
 
+        // Botón Derecho
         _root.Q<Button>("RightButton").clicked += () =>
         {
             if (itemsList.Count == 0) return;
@@ -177,6 +178,7 @@ public class InventoryManager : MonoBehaviour
             UpdateUI();
         };
 
+        // Botón Izquierdo
         _root.Q<Button>("LeftButton").clicked += () =>
         {
             if (itemsList.Count == 0) return;
@@ -184,6 +186,7 @@ public class InventoryManager : MonoBehaviour
             UpdateUI();
         };
 
+        // Botón Inspeccionar
         _actionButton.clicked += () =>
         {
             if (itemsList.Count == 0)

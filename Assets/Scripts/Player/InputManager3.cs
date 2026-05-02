@@ -32,7 +32,7 @@ public class InputManager3 : MonoBehaviour
     private void Update()
     {
         movementInput = moveAction.action.ReadValue<Vector2>();
-        animatorManager.HandleAnimatorValues(movementInput.x, movementInput.y);
+        //animatorManager.HandleAnimatorValues(movementInput.x, movementInput.y);
 
 
         if (interactAction.action.WasPressedThisFrame() && interactuableItem != null)

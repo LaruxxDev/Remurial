@@ -11,7 +11,9 @@ public class MoveSubState : PlayerState
         base.Enter();
 
         //PLAYER.ANIMATION.SetAnimation(AnimatorManager.Movement);
-        PLAYER.ANIMATION.HandleAnimatorValues(0f, 0f);
+        //PLAYER.ANIMATION.HandleAnimatorValues(0f, 0f);
+
+        //PLAYER.ANIMATION.PlayAnimation("Walk");
     }
 
     public override void Update()
@@ -24,6 +26,7 @@ public class MoveSubState : PlayerState
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+
         PLAYER.MOVEMENT.VelocityMovement(PLAYER.INPUTTRANSFORMER.INPUTMOVEMENTNORMAL, PLAYER.mainCamera);
     }
 }

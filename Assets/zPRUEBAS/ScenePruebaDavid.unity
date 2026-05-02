@@ -1757,7 +1757,6 @@ MonoBehaviour:
       idFoto: 
       folderRoute: 
       revealTime: 0
-      enemigosCapturados: []
       enemiesCaught: []
     prefabItem: {fileID: 0}
   _inspectSystem: {fileID: 1366240735}
@@ -2811,7 +2810,6 @@ MonoBehaviour:
       idFoto: 
       folderRoute: 
       revealTime: 0
-      enemigosCapturados: []
       enemiesCaught: []
     prefabItem: {fileID: 0}
   _inspectSystem: {fileID: 1366240735}
@@ -4452,12 +4450,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8333302471007792719, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8797564378312936183, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7209782423197000780, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
