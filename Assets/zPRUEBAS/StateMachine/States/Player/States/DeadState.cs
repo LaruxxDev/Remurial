@@ -15,6 +15,8 @@ public class DeadState : PlayerState
         // Pantalla congelada
         PLAYER.MOVEMENT.VelocityIdle();
         Time.timeScale = 0f;
+
+        //PLAYER.ANIMATION.PlayAnimation("Dead");
     }
 
     public override void Update()

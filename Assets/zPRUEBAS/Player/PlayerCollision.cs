@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.TryGetComponent<IInteractable>(out var interactable))
         {
-            //interactableItem = other.tag == "Tp" ? this.gameObject : other.gameObject;
+            interactableItem = other.tag == "Tp" ? this.gameObject : other.gameObject;
 
             currentInteractable = interactable;
 

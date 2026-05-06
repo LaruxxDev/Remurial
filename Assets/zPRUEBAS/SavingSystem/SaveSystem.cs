@@ -7,8 +7,9 @@ public class SaveSystem
     [System.Serializable]
     public struct SaveData
     {
-        public PlayerSaveData PlayerData;   // Stats
-        public SavePointData PointData;     // World Transform  
+        public PlayerSaveData PlayerData;       // Stats
+        public SavePointData PointData;         // World Transform  
+        public InventorySaveData InventoryData; // Inventory
     }
 
     private static SaveData _saveData = new SaveData();
@@ -60,6 +61,7 @@ public class SaveSystem
     {
         savePoint.SaveData(ref _saveData.PointData);
         GameManagerTemporal.Instance.PLAYER.SaveData(ref _saveData.PlayerData);
+        InventoryManager.Instance.SaveData(ref _saveData.InventoryData);
     }
     #endregion
 
@@ -80,7 +82,10 @@ public class SaveSystem
     // Cargado de datos
     private static void HandleLoadData()
     {
-        GameManagerTemporal.Instance.PLAYER.LoadData(_saveData.PointData, _saveData.PlayerData);
+        GameManagerTemporal.Instance.PLAYER.LoadData(_saveData.PointData, _saveData.PlayerData); 
+
+        if (_saveData.InventoryData.items != null && _saveData.InventoryData.items.Count != 0)
+            InventoryManager.Instance.LoadData(_saveData.InventoryData);
     }
     #endregion
 }

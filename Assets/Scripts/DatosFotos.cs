@@ -15,6 +15,7 @@ public class DatosFotos
     [System.NonSerialized] public float revealProgress;
     [System.NonSerialized] public Texture2D textura;
     [System.NonSerialized] public bool inProcess;
+    [System.NonSerialized] public Sprite spriteCache;
 
     public bool EstaRevelada => revealProgress >= 1f;
 
@@ -38,7 +39,7 @@ public class DatosFotos
     // Carga la textura desde disco solo cuando la necesitas
     public void CargarTextura()
     {
-        if (textura != null) return; // Ya está cargada, no duplicar
+        if (textura != null && spriteCache != null) return; // Ya está cargada, no duplicar
 
         if (!System.IO.File.Exists(folderRoute))
         {
@@ -52,16 +53,25 @@ public class DatosFotos
         textura.LoadImage(bytes);
 
         Debug.Log("Textura cargada desde disco: " + idFoto);
+
+        spriteCache = Sprite.Create(textura, new Rect(0, 0, textura.width, textura.height), new Vector2(0.5f, 0.5f));
     }
 
     // Libera la textura de memoria cuando no la necesitas
     public void LiberarTextura()
     {
-        if (textura == null) return;
+        if (spriteCache != null)
+        {
+            Object.Destroy(spriteCache);
+            spriteCache = null;
+        }
 
-        Object.Destroy(textura);
-        textura = null;
+        if (textura != null)
+        {
+            Object.Destroy(textura);
+            textura = null;
 
-        Debug.Log("Textura liberada de memoria: " + idFoto);
+            Debug.Log("Textura liberada de memoria: " + idFoto);
+        }
     }
 }

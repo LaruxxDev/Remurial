@@ -51,4 +51,9 @@ public class Item
 
         return instancia;
     }
+
+    public bool HasValidSprite()
+    {
+        return sprite != null;
+    }
 }

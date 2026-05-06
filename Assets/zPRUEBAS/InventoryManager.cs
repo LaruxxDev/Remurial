@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -236,12 +237,19 @@ public class InventoryManager : MonoBehaviour
             if (currentItem.datosFoto.textura != null)
             {
                 Sprite spriteTextura = TexturaASprite(currentItem.datosFoto.textura);
-                _bigItemImage.style.backgroundImage = new StyleBackground(spriteTextura);
+
+                if (spriteTextura != null)
+                    _bigItemImage.style.backgroundImage = new StyleBackground(spriteTextura);
+                else
+                    _bigItemImage.style.backgroundImage = StyleKeyword.None;
             }
         }
         else
         {
-            _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
+            if (currentItem.sprite != null)
+                _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
+            else 
+                _bigItemImage.style.backgroundImage = StyleKeyword.None;
         }
 
         _bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
@@ -270,6 +278,12 @@ public class InventoryManager : MonoBehaviour
         if (item.esFoto && item.datosFoto != null)
         {
             item.datosFoto.CargarTextura();
+
+            if (item.datosFoto.spriteCache != null)
+            {
+                ve.style.backgroundImage = new StyleBackground(item.datosFoto.spriteCache);
+            }
+
             if (item.datosFoto.textura != null)
             {
                 ve.style.backgroundImage = new StyleBackground(TexturaASprite(item.datosFoto.textura));
@@ -360,4 +374,133 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+
+    #region Save & Load
+
+    [Header("Save")]
+    [SerializeField] private ItemDatabase itemDatabase;
+
+    public void SaveData(ref InventorySaveData data)
+    {
+        data.items = new List<ItemSaveData>(itemsList.Count);
+
+        foreach (Item item in itemsList)
+        {
+            var entry = new ItemSaveData()
+            {
+                name = item.name,
+                description = item.description,
+                id = item.id,
+                isKeyItem = item.isKeyItem,
+                isUsable = item.isUsable,
+                quantity = item.quantity,
+                maxStack = item.maxStack,
+                itemDatabaseID = item.id.ToString(),
+                esFoto = item.esFoto,
+            };
+
+            if (item.esFoto && item.datosFoto != null)
+            {
+                var fotoData = new DatosFotosSaveData
+                {
+                    idFoto = item.datosFoto.idFoto,
+                    folderRoute = item.datosFoto.folderRoute,
+                    revealTime = item.datosFoto.revealTime,
+                    revealProgress = item.datosFoto.revealProgress,
+                    enemyIDs = new List<string>()
+                };
+
+                foreach (var enemy in item.datosFoto.enemiesCaught)
+                {
+                    if (enemy != null)
+                        fotoData.enemyIDs.Add(enemy.gameObject.name);
+                }
+
+                entry.datosFoto = fotoData;
+            }
+
+            data.items.Add(entry);
+        }
+    }
+
+    public void LoadData(InventorySaveData data)
+    {
+        itemsList.Clear();
+        _index = 0;
+
+        if (data.items == null)
+            return;
+
+        foreach (ItemSaveData savedItem in data.items)
+        {
+            Item item = new Item
+            {
+                name = savedItem.name,
+                description = savedItem.description,
+                id = savedItem.id,
+                isKeyItem = savedItem.isKeyItem,
+                isUsable = savedItem.isUsable,
+                quantity = savedItem.quantity,
+                maxStack = savedItem.maxStack,
+                esFoto = savedItem.esFoto,
+            };
+
+            if (itemDatabase != null && itemDatabase.TryGet(savedItem.itemDatabaseID, out var dbEntry))
+            {
+                item.sprite = dbEntry.sprite;
+                item.prefabItem = dbEntry.prefab;
+            }
+
+            if (savedItem.esFoto)
+            {
+                item.datosFoto = new DatosFotos(
+                    savedItem.datosFoto.idFoto,
+                    savedItem.datosFoto.folderRoute,
+                    savedItem.datosFoto.revealTime
+                );
+                item.datosFoto.revealProgress = savedItem.datosFoto.revealProgress;
+            }
+
+            bool added = AgregarItem(item);
+
+            if (!added)            
+                break;     
+        }
+    }
+    #endregion
+}
+
+[System.Serializable]
+public struct InventorySaveData
+{
+    // Lista de objetos
+    public List<ItemSaveData> items;
+}
+
+[System.Serializable]
+public struct ItemSaveData
+{
+    public string name;
+    public string description;
+    public int id;
+    public bool isKeyItem;
+    public bool isUsable;
+    public int quantity;
+    public int maxStack;
+
+    public string itemDatabaseID;
+    public bool esFoto;
+    public DatosFotosSaveData datosFoto; // Si: esFoto == true
+}
+
+[System.Serializable]
+public struct DatosFotosSaveData
+{
+    public string idFoto;
+    public string folderRoute;
+    public float revealTime;
+    public float revealProgress;
+
+    public List<string> enemyIDs;
 }
