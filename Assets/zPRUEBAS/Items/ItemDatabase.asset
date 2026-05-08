@@ -13,11 +13,5 @@ MonoBehaviour:
   m_Name: ItemDatabase
   m_EditorClassIdentifier: Assembly-CSharp::ItemDatabase
   entries:
-  - displayName: Sphere
-    databaseID: 0
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    prefab: {fileID: 139143767809750571, guid: ce3dedb33037c61499e8199bc5332314, type: 3}
-  - displayName: Capsule
-    databaseID: 1
-    sprite: {fileID: 21300000, guid: 8ae8845c95d5dba45a7f6634b39e1099, type: 3}
-    prefab: {fileID: 1022647563748670022, guid: ab2e6a85a2ed58a4c90f6148bf9a83b1, type: 3}
+  - {fileID: 11400000, guid: a9fb576525f79d746bfacb2c82d27715, type: 2}
+  - {fileID: 11400000, guid: 07e86a830c28d81479f17a734ec20004, type: 2}

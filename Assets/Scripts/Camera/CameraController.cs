@@ -267,14 +267,14 @@ public class CameraController : MonoBehaviour
                 Debug.LogError("El prefab de la foto no tiene MeshRenderer.");
             }
             //DatosFotos nuevosDatosFoto = new DatosFotos("Foto_" + contadorFotos, "", reavelTime, enemigosCapturados);
-            Item nuevoItem = new Item
-            {
-                name = "Foto_" + contadorFotos,
-                description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
-                esFoto = true,
-                //datosFoto = nuevosDatosFoto,
-                prefabItem = prefabFotoFisica
-            };
+            //Item nuevoItem = new Item
+            //{
+            //    name = "Foto_" + contadorFotos,
+            //    description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
+            //    esFoto = true,
+            //    //datosFoto = nuevosDatosFoto,
+            //    prefabItem = prefabFotoFisica
+            //};
             FotoRevelado scriptRevelado = fotoInstanciada.GetComponent<FotoRevelado>();
             //if (scriptRevelado != null)
             //    scriptRevelado.datos = nuevosDatosFoto;
@@ -327,20 +327,20 @@ public class CameraController : MonoBehaviour
         //    revealProgress = progresoRescatado
         //};
 
-        Item itemFoto = new Item
-        {
-            name = idFoto,
-            description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
-            esFoto = true,
-            //datosFoto = nuevaFoto,
-            prefabItem = prefabFotoFisica
-        };
+        //Item itemFoto = new Item
+        //{
+        //    name = idFoto,
+        //    description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
+        //    esFoto = true,
+        //    //datosFoto = nuevaFoto,
+        //    prefabItem = prefabFotoFisica
+        //};
 
-        bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
-        if (agregada)
-            Debug.Log("Foto guardada: " + rutaCompleta);
-        else
-            Debug.LogWarning("No se pudo agregar al inventario.");
+        //bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
+        //if (agregada)
+        //    Debug.Log("Foto guardada: " + rutaCompleta);
+        //else
+        //    Debug.LogWarning("No se pudo agregar al inventario.");
 
         Destroy(texturaFoto);
         Destroy(foto);

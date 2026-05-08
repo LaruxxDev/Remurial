@@ -12,11 +12,6 @@ public class PhotoController : MonoBehaviour
     [SerializeField] private string folderRoute;    // Ruta donde se guardarán las fotos
 
 
-    //[Header("Interaction")]
-    //public InspectSystem inspectSystem; // Eliminable
-    //[SerializeField] private BoxCollider objetosCapturados;
-
-
     #region Unity Methods
     // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDRÁN LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
     void Awake()
@@ -25,7 +20,9 @@ public class PhotoController : MonoBehaviour
         folderRoute = Path.Combine(Application.persistentDataPath, "AlbumPolaroid");
 
         if (!Directory.Exists(folderRoute))       
-            Directory.CreateDirectory(folderRoute);      
+            Directory.CreateDirectory(folderRoute);
+
+        photoCount = Directory.GetFiles(folderRoute, "*.png").Length;
     }
 
 
@@ -137,6 +134,7 @@ public class PhotoController : MonoBehaviour
     [SerializeField] private float pitchLimit;          // Min/Max del pitch
     private float pitchCurrent;
 
+    [SerializeField] private ItemDefinition photoDefinition;
 
     #endregion
 
@@ -259,12 +257,8 @@ public class PhotoController : MonoBehaviour
     // Guarda la foto en memoria/inventario
     public void SavePhoto(GameObject foto, Texture2D texturaFoto, DatosFotos data, string idFoto, string rutaCompleta)
     {
-        if (foto == null)
+        if (foto == null || texturaFoto == null)
             return;
-
-        if (texturaFoto == null)
-            return;
-
 
         // Asegurarse de que la carpeta exista
         if (!Directory.Exists(folderRoute))
@@ -275,14 +269,11 @@ public class PhotoController : MonoBehaviour
         byte[] bytes = texturaFoto.EncodeToPNG();
         File.WriteAllBytes(rutaCompleta, bytes);
 
-        Item itemFoto = new Item
-        {
-            name = idFoto,
-            description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
-            esFoto = true,
-            datosFoto = data,
-            prefabItem = photoPrefab
-        };
+
+        Item itemFoto = new Item(photoDefinition, 1);
+        itemFoto.datosFoto = data;
+        itemFoto.customName = idFoto;
+        itemFoto.customDescription = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy");
 
         bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
 
@@ -291,7 +282,7 @@ public class PhotoController : MonoBehaviour
 
 
         // Destruir la foto física del mundo después de guardarla
-        //Destroy(foto);
+        Destroy(foto);
 
         Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
     }

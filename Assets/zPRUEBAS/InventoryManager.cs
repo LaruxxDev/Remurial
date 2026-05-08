@@ -22,7 +22,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private PlayerGeneral PLAYER;
 
 
-
     [Header("UI")]
     [SerializeField] private VisualElement _root;
     [SerializeField] private VisualElement _mainContainer;
@@ -32,6 +31,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Label _labelDesc;
     [SerializeField] private Button _actionButton;
 
+
+    [Header("Save")]
+    [SerializeField] private ItemDatabase itemDatabase;
 
     // Eventos
     public event Action<Item> OnItemAgregado;
@@ -94,7 +96,7 @@ public class InventoryManager : MonoBehaviour
 
         if (_isInventoryOpen) UpdateUI();
 
-        Debug.Log($"Item agregado: {item.name} | Total: {itemsList.Count}/{maxItems}");
+        Debug.Log($"Item agregado: {item.itemName} | Total: {itemsList.Count}/{maxItems}");
         return true;
     }
 
@@ -108,10 +110,10 @@ public class InventoryManager : MonoBehaviour
         }
 
         // Si es foto, liberar su textura antes de eliminar
-        if (item.esFoto && item.datosFoto != null)
+        if (item.isPhoto && item.datosFoto != null)
         {
             item.datosFoto.LiberarTextura();
-            Debug.Log($"Textura liberada al eliminar item: {item.name}");
+            Debug.Log($"Textura liberada al eliminar item: {item.itemName}");
         }
 
         itemsList.Remove(item);
@@ -125,13 +127,13 @@ public class InventoryManager : MonoBehaviour
 
         if (_isInventoryOpen) UpdateUI();
 
-        Debug.Log($"Item eliminado: {item.name} | Total: {itemsList.Count}/{maxItems}");
+        Debug.Log($"Item eliminado: {item.itemName} | Total: {itemsList.Count}/{maxItems}");
         return true;
     }
 
-    public Item BuscarItem(int id)
+    public Item BuscarItem(int ID)
     {
-        return itemsList.Find(i => i.id == id);
+        return itemsList.Find(i => i.ID == ID);
     }
 
     public bool InventarioLleno() => itemsList.Count >= maxItems;
@@ -141,10 +143,10 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (Item item in itemsList)
         {
-            if (item.esFoto && item.datosFoto != null)
+            if (item.isPhoto && item.datosFoto != null)
             {
                 item.datosFoto.LiberarTextura();
-                Debug.Log($"Textura liberada al cerrar inventario: {item.name}");
+                Debug.Log($"Textura liberada al cerrar inventario: {item.itemName}");
             }
         }
     }
@@ -231,7 +233,7 @@ public class InventoryManager : MonoBehaviour
             _carrusel.Add(CrearItemCarrusel(itemsList[nextIndex], false));
 
         // Si el item actual es foto, cargar su textura para mostrarla
-        if (currentItem.esFoto && currentItem.datosFoto != null)
+        if (currentItem.isPhoto && currentItem.datosFoto != null)
         {
             currentItem.datosFoto.CargarTextura();
             if (currentItem.datosFoto.textura != null)
@@ -253,7 +255,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         _bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
-        _labelName.text = currentItem.name.ToUpper();
+        _labelName.text = currentItem.itemName.ToUpper();
         _labelDesc.text = currentItem.description;
         _actionButton.text = currentItem.isUsable ? "USE" : "EXAMINE";
     }
@@ -275,7 +277,7 @@ public class InventoryManager : MonoBehaviour
         ve.style.flexShrink = 0;
 
         // Si es foto usamos su textura, si no su sprite normal
-        if (item.esFoto && item.datosFoto != null)
+        if (item.isPhoto && item.datosFoto != null)
         {
             item.datosFoto.CargarTextura();
 
@@ -365,44 +367,42 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            inspectTarget = item.ObtenerGameObjectParaInspeccion();
-
+            inspectTarget = item.GetObjectForInspection();
+            if (inspectTarget == null)
+            {
+                Debug.Log("Null");
+            }
             if (inspectTarget != null)
             {
                 wantsInspect = true;
-                EliminarItem(item.id);
+                EliminarItem(item.ID);
             }
         }
     }
 
 
     #region Save & Load
-
-    [Header("Save")]
-    [SerializeField] private ItemDatabase itemDatabase;
-
     public void SaveData(ref InventorySaveData data)
     {
         data.items = new List<ItemSaveData>(itemsList.Count);
 
         foreach (Item item in itemsList)
         {
+            // Generar la entrada a guardar
             var entry = new ItemSaveData()
             {
-                name = item.name,
-                description = item.description,
-                id = item.id,
-                isKeyItem = item.isKeyItem,
-                isUsable = item.isUsable,
+                definitionID = item.ID,
                 quantity = item.quantity,
-                maxStack = item.maxStack,
-                itemDatabaseID = item.id.ToString(),
-                esFoto = item.esFoto,
+                isPhoto = item.isPhoto,
+                customName = item.customName,
+                customDescription = item.customDescription,
             };
 
-            if (item.esFoto && item.datosFoto != null)
+            // Si es foto, se guarda la información de la foto
+            if (item.isPhoto && item.datosFoto != null)
             {
-                var fotoData = new DatosFotosSaveData
+                // Información varia
+                entry.datosFoto = new DatosFotosSaveData
                 {
                     idFoto = item.datosFoto.idFoto,
                     folderRoute = item.datosFoto.folderRoute,
@@ -411,15 +411,14 @@ public class InventoryManager : MonoBehaviour
                     enemyIDs = new List<string>()
                 };
 
-                foreach (var enemy in item.datosFoto.enemiesCaught)
-                {
+                // lista de enemigos
+                foreach (var enemy in item.datosFoto.enemiesCaught)               
                     if (enemy != null)
-                        fotoData.enemyIDs.Add(enemy.gameObject.name);
-                }
-
-                entry.datosFoto = fotoData;
+                        entry.datosFoto.enemyIDs.Add(enemy.gameObject.name);
+                
             }
 
+            // Guardar la entrada
             data.items.Add(entry);
         }
     }
@@ -434,25 +433,17 @@ public class InventoryManager : MonoBehaviour
 
         foreach (ItemSaveData savedItem in data.items)
         {
-            Item item = new Item
-            {
-                name = savedItem.name,
-                description = savedItem.description,
-                id = savedItem.id,
-                isKeyItem = savedItem.isKeyItem,
-                isUsable = savedItem.isUsable,
-                quantity = savedItem.quantity,
-                maxStack = savedItem.maxStack,
-                esFoto = savedItem.esFoto,
-            };
+            if (!itemDatabase.TryGet(savedItem.definitionID, out ItemDefinition def))            
+                continue;
+            
+            // Se crea un objeto nuevo
+            Item item = new Item(def, savedItem.quantity);
 
-            if (itemDatabase != null && itemDatabase.TryGet(savedItem.itemDatabaseID, out var dbEntry))
-            {
-                item.sprite = dbEntry.sprite;
-                item.prefabItem = dbEntry.prefab;
-            }
+            item.customName = savedItem.customName;
+            item.customDescription = savedItem.customDescription;
 
-            if (savedItem.esFoto)
+            // Copiado de datos
+            if (savedItem.isPhoto)
             {
                 item.datosFoto = new DatosFotos(
                     savedItem.datosFoto.idFoto,
@@ -481,16 +472,14 @@ public struct InventorySaveData
 [System.Serializable]
 public struct ItemSaveData
 {
-    public string name;
-    public string description;
-    public int id;
-    public bool isKeyItem;
-    public bool isUsable;
+    // General
+    public int definitionID;
     public int quantity;
-    public int maxStack;
 
-    public string itemDatabaseID;
-    public bool esFoto;
+    // Foto
+    public bool isPhoto;
+    public string customName;
+    public string customDescription;
     public DatosFotosSaveData datosFoto; // Si: esFoto == true
 }
 

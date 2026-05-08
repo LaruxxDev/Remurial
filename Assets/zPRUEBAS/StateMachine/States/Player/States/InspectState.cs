@@ -17,7 +17,7 @@ public class InspectState : PlayerState
 
         CameraManager.SwitchCamera(PLAYER.inspectionCamera, CameraManager.BlendStyle.Instant);
         
-        PLAYER.INSPECT.EnterInspectionMode(PLAYER.COLLISION.interactableItem);
+        PLAYER.INSPECT.EnterInspectionMode(PLAYER.inspectionItem);
     }
 
     public override void Update()

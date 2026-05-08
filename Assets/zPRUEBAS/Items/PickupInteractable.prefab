@@ -48,23 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be284c2fb04aa84fac0632dbd5989f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupInteractable
-  _data:
-    name: Prueba 1
-    description: Solo soy una prueba
-    id: 0
-    isKeyItem: 0
-    isUsable: 0
-    quantity: 2
-    maxStack: 99
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      folderRoute: 
-      revealTime: 0
-      enemiesCaught: []
-    prefabItem: {fileID: 0}
-  _inspectSystem: {fileID: 0}
+  definition: {fileID: 11400000, guid: a9fb576525f79d746bfacb2c82d27715, type: 2}
+  quantity: 1
+  inspectSystem: {fileID: 0}
 --- !u!23 &7373811628803208721
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -141,7 +127,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5960574910940942127
 GameObject:

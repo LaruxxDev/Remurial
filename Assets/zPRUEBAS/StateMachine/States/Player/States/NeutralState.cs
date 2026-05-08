@@ -80,6 +80,7 @@ public class NeutralState : PlayerState
 
                 if (interactable.isInspectable)
                 {
+                    PLAYER.inspectionItem = PLAYER.COLLISION.interactableItem;
                     STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(STATEMACHINE));
                 }
             }
