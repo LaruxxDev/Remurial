@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   highlights:
     m_OverrideState: 1
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -219,7 +219,7 @@ MonoBehaviour:
     m_Value: 0
   tintColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.8776717, b: 0.7028302, a: 1}
   bloomMip:
     m_OverrideState: 1
     m_Value: 1
@@ -541,7 +541,7 @@ MonoBehaviour:
     m_Value: 27.6
   fogDistance:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 60
   fogColor:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 0}
@@ -550,10 +550,10 @@ MonoBehaviour:
     m_Value: {r: 0, g: 0, b: 0, a: 0}
   fogNear:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 50
   fogFar:
     m_OverrideState: 1
-    m_Value: 81.3
+    m_Value: 80
   fogAltScale:
     m_OverrideState: 1
     m_Value: 10
@@ -603,13 +603,13 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.96
+    m_Value: 1
   contrast:
     m_OverrideState: 1
     m_Value: 0
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.95220107, b: 0.7028302, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
