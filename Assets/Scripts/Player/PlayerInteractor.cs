@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour
 {
     [SerializeField] private GameInputReader _input;
+    public Transform leftHand; // Asigna el transform de la mano izquierda en el inspector
 
     private IInteractable _currentInteractable;
     private GameObject interactuableItem; // Guardamos el objeto interactuable detectado para usarlo al interactuar
@@ -44,7 +45,7 @@ public class PlayerInteractor : MonoBehaviour
         if (_currentInteractable != null)
         {
             Debug.Log("Interactuando con: " + (_currentInteractable as MonoBehaviour)?.name);
-            _currentInteractable.Interact(interactuableItem);
+            _currentInteractable.Interact(this.gameObject);
         }
         else
         {

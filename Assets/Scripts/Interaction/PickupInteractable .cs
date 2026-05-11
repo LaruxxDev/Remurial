@@ -8,12 +8,16 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
     public void Interact(GameObject interactor)
     {
         Debug.Log($"Recogiste: {_data.name}");
-        _inspectSystem.EnterInspectionMode(interactor);
+        _inspectSystem.EnterInspectionMode(this.gameObject);
         AudioManager.instance.Play2D("RecogerItem");
 
         InventarioManager.Instance.AgregarItem(_data);
         Destroy(gameObject);
     }
 
+    public void UseItem(GameObject interactor)
+    {
+        // No se puede usar un item recogido, solo interactuar para recogerlo.
+    }
     public string GetInteractText() => $"Recoger {_data.name}";
 }

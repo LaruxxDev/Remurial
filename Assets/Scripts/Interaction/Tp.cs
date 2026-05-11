@@ -5,7 +5,6 @@ public class Tp : MonoBehaviour, IInteractable
 {
     [SerializeField] private Transform destino;
     [SerializeField] private float tiempoEnNegro = 1f; // Tiempo extra que se queda en negro antes de volver
-    [SerializeField] private GameObject player;
     private bool estaTeletransportando = false;
 
     public void Interact(GameObject interactor)
