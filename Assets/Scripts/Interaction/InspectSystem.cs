@@ -97,6 +97,7 @@ public class InspectSystem : MonoBehaviour
     
     public void EnterInspectionMode(GameObject objectToInspect)
     {
+        InventarioManager.Instance.isIspecting = true; // Informamos al inventario que estamos inspeccionando
         if (isInspecting) return; 
         
         Debug.Log("Entrando en modo inspección con el objeto: " + objectToInspect.name);
@@ -127,6 +128,7 @@ public class InspectSystem : MonoBehaviour
 
     public void ExitInspectionMode()
     {
+        InventarioManager.Instance.isIspecting = false; // Informamos al inventario que ya no estamos inspeccionando
         if (!isInspecting) return; 
 
         Destroy(currentInspectedObject); 

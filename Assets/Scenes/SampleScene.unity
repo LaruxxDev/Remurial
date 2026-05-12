@@ -1281,103 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353649b5e74726048b822af37271bb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::inventario
-  itemsList:
-  - name: camara
-    description: es una camara que siempre lleva a topdos lados. es un recuerdo de
-      alguien muy querido
-    id: 0
-    isKeyItem: 0
-    isUsable: 0
-    quantity: 1
-    maxStack: 0
-    sprite: {fileID: 21300000, guid: 8ae8845c95d5dba45a7f6634b39e1099, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 0}
-  - name: pastillas
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 1
-    isKeyItem: 0
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 0}
-  - name: bestiario
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 2
-    isKeyItem: 0
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 0}
-  - name: cartuchos polaroid
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 3
-    isKeyItem: 0
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 0}
-  - name: llave
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 4
-    isKeyItem: 1
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 0}
-  - name: key 2
-    description: me las receto el medico para poder estar alegre. solo tengo que
-      tomarla cuando mas la necesito
-    id: 5
-    isKeyItem: 1
-    isUsable: 1
-    quantity: 3
-    maxStack: 10
-    sprite: {fileID: 21300000, guid: 83d2020c49797574098efba5a2e06edb, type: 3}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 0}
+  itemsList: []
   maxItems: 20
   inventoryAction: {fileID: -4782559618413106243, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inspectSystem: {fileID: 1284797779}
@@ -8187,7 +8091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1389381035
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8267,22 +8171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabInteractable
   playerTag: Player
-  _data:
-    name: item
-    description: description
-    id: 0
-    isKeyItem: 1
-    isUsable: 0
-    quantity: 1
-    maxStack: 99
-    sprite: {fileID: 0}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 0}
+  _data: {fileID: 0}
   _inspectSystem: {fileID: 1284797779}
 --- !u!135 &1389381039
 SphereCollider:
@@ -8514,60 +8403,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1 &1632744309
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1632744311}
-  - component: {fileID: 1632744310}
-  m_Layer: 0
-  m_Name: PSXEffects
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1632744310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632744309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1a4c69f7a9d3ea43907b5765229dc85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXShaderManager
-  _TextureWarpingFactor: 1
-  _TextureWarpingMode: 0
-  _VertexGridResolution: 100
-  _VertexWobbleMode: 0
-  _UseRetroVertexLighting: 1
-  _RetroLightingNormalFactor: 0
-  _RetroLightFalloffStart: 0
-  _FlatShadingMode: 0
-  _TriangleSortMode: 0
-  _DepthDebugView: 0
---- !u!4 &1632744311
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632744309}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.92028, y: 0.5481, z: -13.24217}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668750005
 GameObject:
   m_ObjectHideFlags: 0
@@ -8820,7 +8655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1859518304
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9022,22 +8857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be284c2fb04aa84fac0632dbd5989f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItem
-  _data:
-    name: item
-    description: description
-    id: 0
-    isKeyItem: 0
-    isUsable: 0
-    quantity: 1
-    maxStack: 99
-    sprite: {fileID: 0}
-    esFoto: 0
-    datosFoto:
-      idFoto: 
-      rutaDelArchivoLocal: 
-      revealTime: 0
-      enemigosCapturados: []
-    prefabItem: {fileID: 1907083121}
+  _data: {fileID: 0}
   _inspectSystem: {fileID: 1284797779}
 --- !u!1 &2070373666
 GameObject:
@@ -9279,6 +9099,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3462703441784986005, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
   m_PrefabInstance: {fileID: 448913651107689288}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4138894808643678493
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.58387
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.709
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.65922
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 970752919492392136, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663572956976824545, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 5118b42eef5cd8e48b19a734eddb7ba4, type: 2}
+    - target: {fileID: 3663572956976824545, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: _data.isUsable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663572956976824545, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: _inspectSystem
+      value: 
+      objectReference: {fileID: 1284797779}
+    - target: {fileID: 3663572956976824545, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: _data.isKeyItem
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861810572274479603, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
+      propertyPath: m_Name
+      value: "Mu\xF1eca"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3ef2cfddb280794e918f2493f365585, type: 3}
 --- !u!1001 &5603900345360540847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9493,5 +9386,5 @@ SceneRoots:
   - {fileID: 946004776}
   - {fileID: 108031897}
   - {fileID: 613498268}
-  - {fileID: 1632744311}
   - {fileID: 1389381036}
+  - {fileID: 4138894808643678493}

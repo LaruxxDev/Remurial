@@ -1,9 +1,10 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Item
+[CreateAssetMenu(fileName = "NewItem", menuName = "Inventario/Item")]
+public class Item : ScriptableObject
 {
-    public string name = "item";
+    public new string name = "item";
     public string description = "description";
     public int id = 0;
     public bool isKeyItem = false;
@@ -22,7 +23,7 @@ public class Item
     {
         if (prefabItem == null)
         {
-            Debug.LogError("El item " + name + " no tiene prefab de inspección asignado.");
+            Debug.LogError("El item " + name + " no tiene prefab de inspección asignado." + prefabItem);
             return null;
         }
 

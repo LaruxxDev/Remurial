@@ -46,10 +46,27 @@ public class PlayerInteractor : MonoBehaviour
         {
             Debug.Log("Interactuando con: " + (_currentInteractable as MonoBehaviour)?.name);
             _currentInteractable.Interact(this.gameObject);
+        
         }
         else
         {
             Debug.Log("No hay ningún objeto interactuable cercano.");
         }
+    }
+
+    private void AgarrarObjeto(Transform playerTransform)
+    {
+        // Desactivar física y colisiones
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            // rb.detectCollisions = false;
+        }
+
+        // Posicionar el objeto en la mano del jugador
+        transform.SetParent(playerTransform);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity; // opcional: ajustar rotación
     }
 }
