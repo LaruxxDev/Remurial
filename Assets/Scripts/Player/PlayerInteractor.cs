@@ -7,6 +7,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private IInteractable _currentInteractable;
     private GameObject interactuableItem; // Guardamos el objeto interactuable detectado para usarlo al interactuar
+    private GameObject grabbedItem;
 
     private void OnEnable()  => _input.OnInteractStarted += HandleInteract;
     private void OnDisable() => _input.OnInteractStarted -= HandleInteract;
@@ -42,6 +43,11 @@ public class PlayerInteractor : MonoBehaviour
 
     private void HandleInteract()
     {
+        if (grabbedItem != null)
+        {
+            grabbedItem.GetComponent<PickupInteractable>()?.UseItem(this.gameObject);
+            Destroy(grabbedItem);
+        }
         if (_currentInteractable != null)
         {
             Debug.Log("Interactuando con: " + (_currentInteractable as MonoBehaviour)?.name);
@@ -54,19 +60,27 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    private void AgarrarObjeto(Transform playerTransform)
+    public void AgarrarObjeto(GameObject item)
     {
+        if (grabbedItem != null)
+        {
+            Destroy(grabbedItem);
+
+        }
         // Desactivar física y colisiones
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.isKinematic = true;
+            //rb.isKinematic = true;
             // rb.detectCollisions = false;
         }
-
+        GameObject objetoAgarrado = Instantiate(item);
+        grabbedItem = objetoAgarrado;
         // Posicionar el objeto en la mano del jugador
-        transform.SetParent(playerTransform);
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity; // opcional: ajustar rotación
+        objetoAgarrado.transform.SetParent(leftHand);
+        objetoAgarrado.transform.localPosition = Vector3.zero;
+        objetoAgarrado.transform.localRotation = Quaternion.identity; // opcional: ajustar rotación
     }
+
+
 }

@@ -4,6 +4,7 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
     [SerializeField] private Item _data;
     [SerializeField] private InspectSystem _inspectSystem;
     public Item Data => _data;
+    public bool isInportant = false;
 
     public void Interact(GameObject interactor)
     {
@@ -16,23 +17,9 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
     }
     private void GuardarItemEnInventario()
     {
-        Item item = new Item
-        {
-            name = Data.name,
-            description = Data.description,
-            id = Data.id,
-            isKeyItem = Data.isKeyItem,
-            isUsable = Data.isUsable,
-            quantity = Data.quantity,
-            maxStack = Data.maxStack,
-            sprite = Data.sprite,
-            esFoto = Data.esFoto,
-            datosFoto = Data.datosFoto,
-            prefabItem = Data.prefabItem
-        };
-        Debug.Log($"Guardando item en inventario: {item.name}"+item.prefabItem);
+        Debug.Log($"Guardando item en inventario: {Data.name}"+Data.prefabItem);
         
-        InventarioManager.Instance.AgregarItem(item);
+        InventarioManager.Instance.AgregarItem(Data);
     }
     public void UseItem(GameObject interactor)
     {

@@ -1285,8 +1285,10 @@ MonoBehaviour:
   maxItems: 20
   inventoryAction: {fileID: -4782559618413106243, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inspectSystem: {fileID: 1284797779}
+  playerInteraction: {fileID: 448913651107689290}
   _input: {fileID: 11400000, guid: fdf4e89cf5a659d46b596b0ed48eb2ba, type: 2}
   debugHealth: 1
+  isIspecting: 0
 --- !u!114 &445431819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8859,6 +8861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItem
   _data: {fileID: 0}
   _inspectSystem: {fileID: 1284797779}
+  isInportant: 0
 --- !u!1 &2070373666
 GameObject:
   m_ObjectHideFlags: 0
@@ -9099,6 +9102,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3462703441784986005, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
   m_PrefabInstance: {fileID: 448913651107689288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &448913651107689290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6239973686006610112, guid: a2d3722c31901ac4eb84c6739929bf11, type: 3}
+  m_PrefabInstance: {fileID: 448913651107689288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3d144fc4ecb4d4f8447578dcf30165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
 --- !u!1001 &4138894808643678493
 PrefabInstance:
   m_ObjectHideFlags: 0

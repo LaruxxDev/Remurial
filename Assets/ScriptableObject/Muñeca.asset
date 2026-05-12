@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Dool
   description: Baby Dool
   id: 0
-  isKeyItem: 0
-  isUsable: 0
+  isKeyItem: 1
+  isUsable: 1
   quantity: 1
   maxStack: 1
   sprite: {fileID: 0}

@@ -6,11 +6,15 @@ public class Tp : MonoBehaviour, IInteractable
     [SerializeField] private Transform destino;
     [SerializeField] private float tiempoEnNegro = 1f; // Tiempo extra que se queda en negro antes de volver
     private bool estaTeletransportando = false;
+    public bool isInportant = false;
+    public bool isOpen = true;
+    public int IdDoor=0; 
 
     public void Interact(GameObject interactor)
     {
+        if (!isOpen) return;
         // Evitamos que se use el TP varias veces seguidas si ya está en proceso
-        if (estaTeletransportando) return;
+        if (estaTeletransportando ) return;
 
         StartCoroutine(ProcesoTeletransporte(interactor));
     }
