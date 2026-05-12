@@ -10,7 +10,7 @@ public class PhotoController : MonoBehaviour
     #region Values and References
     [Header("Configuración")]
     public float revealTime = 5f;                   // Tiempo que tarda en revelarse la foto
-    private string folderRoute;    // Ruta donde se guardarán las fotos
+    private string folderRoute;                     // Ruta donde se guardarán las fotos
     [SerializeField] private PlayerGeneral PLAYER;
 
     GameObject photoObject = null;

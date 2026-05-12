@@ -4042,6 +4042,10 @@ PrefabInstance:
       propertyPath: itemDatabase
       value: 
       objectReference: {fileID: 11400000, guid: 15adeba8d3ff2f442ad6d62a11d1a043, type: 2}
+    - target: {fileID: 1239311418115521078, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3535874411905697664, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4114,6 +4118,22 @@ PrefabInstance:
       propertyPath: subStateText
       value: 
       objectReference: {fileID: 2005634117}
+    - target: {fileID: 9083805410137984529, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
+      propertyPath: modifier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083805410137984529, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
+      propertyPath: smoothTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083805410137984529, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
+      propertyPath: accelerationSmooth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9083805410137984529, guid: 45035782440c88d47bf38b77f3a9d9ae, type: 3}
+      propertyPath: decelerationSmooth
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

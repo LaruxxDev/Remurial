@@ -4,26 +4,27 @@ public class AnimatorManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
+    private Vector2 _smoothVelocity;
 
-    //public void HandleAnimatorValues(float horizontalMovement, float verticalMovement)
-    //{
-    //    // Redondeamos valores muy pequeños a 0
-    //    float speed = Mathf.Round(verticalMovement * 100f) / 100f; // Redondea a 2 decimales
+    [SerializeField][Range(1f, 15f)] private float accelerationSmooth = 1f;
+    [SerializeField][Range(1f, 15f)] private float decelerationSmooth = 7f;
 
-    //    animator.SetFloat("Speed", speed, 0.1f, Time.deltaTime);
-    //}
+    public float speedModifier;
 
-
-    public void HandleAnimatorValues(Rigidbody rb)
+    public void HandleAnimatorValues(Rigidbody rb, float moveSpeed)
     {
-        Transform transform = rb.transform;
-        Vector3 localVelocity = transform.InverseTransformDirection(rb.linearVelocity);
+        Vector3 localVelocity = rb.transform.InverseTransformDirection(rb.linearVelocity);
+        Vector2 targetVelocity = new Vector2(localVelocity.x / moveSpeed, localVelocity.z / moveSpeed);
 
-        //float horizontal = localVelocity.x;
-        float vertical = localVelocity.z;
+        float lerpSpeed = targetVelocity.magnitude > _smoothVelocity.magnitude ? accelerationSmooth : decelerationSmooth;
+        _smoothVelocity = Vector2.Lerp(_smoothVelocity, targetVelocity, lerpSpeed * Time.fixedDeltaTime);
 
-        //animator.SetFloat("Horizontal", horizontal, 0.15f, Time.deltaTime);
-        animator.SetFloat("Speed", vertical, 0.15f, Time.deltaTime);
+        float normalizedSpeed = Mathf.Abs(_smoothVelocity.y);
+        animator.SetFloat("Speed", normalizedSpeed, 0f, Time.fixedDeltaTime);
+        animator.speed = Mathf.Lerp(0f, 1f, normalizedSpeed) * speedModifier;
+
+        float targetMotionSpeed = _smoothVelocity.y < -0.01f ? -1f : 1f;
+        animator.SetFloat("MotionSpeed", targetMotionSpeed, 0.1f, Time.fixedDeltaTime);
     }
 
 

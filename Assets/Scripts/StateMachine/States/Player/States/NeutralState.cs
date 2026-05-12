@@ -91,7 +91,7 @@ public class NeutralState : PlayerState
     {
         lowLevelMachine.FixedUpdate();
 
-        PLAYER.ANIMATION.HandleAnimatorValues(PLAYER.Rigidbody);
+        PLAYER.ANIMATION.HandleAnimatorValues(PLAYER.Rigidbody, PLAYER.CONFIGURATION.MOVESPEED);
     }
 
     public override void LateUpdate() => lowLevelMachine.LateUpdate();
