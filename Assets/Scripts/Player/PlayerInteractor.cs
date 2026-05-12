@@ -45,7 +45,8 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (grabbedItem != null)
         {
-            grabbedItem.GetComponent<PickupInteractable>()?.UseItem(this.gameObject);
+            Debug.Log("Usando objeto agarrado: " + grabbedItem.name);
+            grabbedItem.GetComponent<Tp>()?.TryOpen(grabbedItem.GetComponent<Item>()?.id ?? 0); // Reemplaza 1 con el ID real
             Destroy(grabbedItem);
         }
         if (_currentInteractable != null)

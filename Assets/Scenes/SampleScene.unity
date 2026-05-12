@@ -7798,6 +7798,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puerta (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5730220381806365317, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
+      propertyPath: IdDoor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730220381806365317, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
+      propertyPath: isInportant
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7136782762560856270, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
       propertyPath: m_LocalScale.x
       value: 5.9925756
@@ -9197,6 +9205,14 @@ PrefabInstance:
     - target: {fileID: 4790687677618267925, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
       propertyPath: m_Name
       value: Puerta
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730220381806365317, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
+      propertyPath: IdDoor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730220381806365317, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
+      propertyPath: isOpen
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7136782762560856270, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
       propertyPath: m_LocalScale.x

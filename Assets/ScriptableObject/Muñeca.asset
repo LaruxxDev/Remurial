@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   name: Dool
   description: Baby Dool
-  id: 0
+  id: 1
   isKeyItem: 1
   isUsable: 1
   quantity: 1

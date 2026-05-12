@@ -8,7 +8,7 @@ public class Tp : MonoBehaviour, IInteractable
     private bool estaTeletransportando = false;
     public bool isInportant = false;
     public bool isOpen = true;
-    public int IdDoor=0; 
+    public int IdDoor=1; 
 
     public void Interact(GameObject interactor)
     {
@@ -17,6 +17,15 @@ public class Tp : MonoBehaviour, IInteractable
         if (estaTeletransportando ) return;
 
         StartCoroutine(ProcesoTeletransporte(interactor));
+    }
+
+    public void TryOpen(int id)
+    {
+        Debug.Log($"Intentando abrir TP con ID: {id}");
+        if (id == IdDoor)
+        {
+            isOpen = true;
+        }
     }
 
     private IEnumerator ProcesoTeletransporte(GameObject interactor)
