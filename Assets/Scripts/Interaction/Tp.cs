@@ -8,6 +8,8 @@ public class Tp : MonoBehaviour, IInteractable
     [SerializeField] private GameObject player;
     private bool estaTeletransportando = false;
 
+    public bool isInspectable => false;
+
     public void Interact(GameObject interactor)
     {
         // Evitamos que se use el TP varias veces seguidas si ya está en proceso

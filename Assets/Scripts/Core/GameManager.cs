@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        StartCoroutine(DelayedStart()); // SaveSystem
+    }
+
+    #region Fade
     // ── Llama a esta función para que la pantalla se ponga negra ──
     public void HacerBlackout()
     {
@@ -59,4 +65,23 @@ public class GameManager : MonoBehaviour
             yield return null; // Esperamos al siguiente frame
         }
     }
+    #endregion
+
+    #region Save&Load    
+    [Header("Save Locations")]
+    [SerializeField] private PlayerConfiguration player;    // Referencia al player
+    public PlayerConfiguration PLAYER
+    {
+        get => player;
+        set => player = value;
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return new WaitUntil(() => player != null);
+        yield return new WaitForFixedUpdate();
+
+        SaveSystem.Initialize();
+    }
+    #endregion
 }
