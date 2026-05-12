@@ -55,6 +55,7 @@ public class OnCameraState : PlayerState
     {
         base.Exit();
 
+        PLAYER.PHOTO.ResetCamera();
         CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
     }
     public override void FixedUpdate() => lowLevelMachine.FixedUpdate();

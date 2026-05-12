@@ -7,102 +7,14 @@ using UnityEditor.Timeline.Actions;
 
 public class PhotoController : MonoBehaviour
 {
+    #region Values and References
     [Header("Configuración")]
     public float revealTime = 5f;                   // Tiempo que tarda en revelarse la foto
-    [SerializeField] private string folderRoute;    // Ruta donde se guardarán las fotos
-
-
-    #region Unity Methods
-    // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDRÁN LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
-    void Awake()
-    {
-        // Guardaremos las fotos en una subcarpeta llamada "AlbumPolaroid"
-        folderRoute = Path.Combine(Application.persistentDataPath, "AlbumPolaroid");
-
-        if (!Directory.Exists(folderRoute))       
-            Directory.CreateDirectory(folderRoute);
-
-        photoCount = Directory.GetFiles(folderRoute, "*.png").Length;
-    }
-
-
-    void Start()
-    {
-        if (aimCamera != null)       
-            panTiltComponent = aimCamera.GetComponent<CinemachinePanTilt>();
-        
-
-        flashMaxIntensity = flashLight.intensity;
-    }
-
-    void Update()
-    {
-        //if (saveAction.action.WasPressedThisFrame())
-        //{
-        //    if (photoObject != null)
-        //    {
-        //        //Guardar la foto actual en el inventario
-        //        MeshRenderer meshRenderer = photoObject.GetComponentInChildren<MeshRenderer>();
-        //        if (meshRenderer == null)
-        //        {
-        //            Debug.LogWarning("La foto física no tiene MeshRenderer.");
-        //            return;
-        //        }
-
-        //        Texture2D textura = meshRenderer.material.mainTexture as Texture2D;
-        //        if (textura == null)
-        //        {
-        //            Debug.LogWarning("La foto física no tiene textura asignada.");
-        //            return;
-        //        }
-
-        //        GuardarFoto(photoObject, textura); // Pasamos null porque la textura ya está guardada en el proceso de tomar foto
-        //    }
-        //}
-    }
-
-    #endregion
-
-    #region REVISAR
-    // REVISAR
-    private void ResetearRotacionCameraMesh()
-    {
-        if (CameraMesh != null)
-        {
-            CameraMesh.transform.localRotation = Quaternion.identity;
-
-            if (panTiltComponent != null)
-            {
-                panTiltComponent.PanAxis.Value = 0f;
-                panTiltComponent.TiltAxis.Value = 0f;
-            }
-        }
-    }
-
-    // REVISAR
-    public void InteractuarConFoto(GameObject foto)
-    {
-        if (foto != null)
-        {
-            Debug.Log("Interacción con la foto: " + foto.name);
-            //inspectSystem.EnterInspectionMode(foto);
-        }
-        else
-        {
-            Debug.LogError("No se puede interactuar con una foto nula.");
-        }
-    }
-    #endregion
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    #region Values and References
-    [Header("Prueba")]
+    private string folderRoute;    // Ruta donde se guardarán las fotos
     [SerializeField] private PlayerGeneral PLAYER;
-    [SerializeField] private GameObject photoArea;
 
     GameObject photoObject = null;
+
 
     [Header("Camera")]
     [SerializeField] private CinemachineCamera aimCamera;
@@ -112,6 +24,7 @@ public class PhotoController : MonoBehaviour
 
 
     [Header("Flash")]
+    [SerializeField] private GameObject photoArea;      // Area de la foto
     [SerializeField] private GameObject flashArea;      // Area del flash 
     [SerializeField] private Light flashLight;          // Luz del flash
 
@@ -135,8 +48,29 @@ public class PhotoController : MonoBehaviour
     private float pitchCurrent;
 
     [SerializeField] private ItemDefinition photoDefinition;
-
     #endregion
+
+
+    // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDRÁN LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
+    void Awake()
+    {
+        // Guardaremos las fotos en una subcarpeta llamada "AlbumPolaroid"
+        folderRoute = Path.Combine(Application.persistentDataPath, "AlbumPolaroid");
+
+        if (!Directory.Exists(folderRoute))
+            Directory.CreateDirectory(folderRoute);
+
+        photoCount = Directory.GetFiles(folderRoute, "*.png").Length;
+    }
+
+    void Start()
+    {
+        if (aimCamera != null)
+            panTiltComponent = aimCamera.GetComponent<CinemachinePanTilt>();
+
+
+        flashMaxIntensity = flashLight.intensity;
+    }
 
 
     // Update solo llamado cuando el estado correcto está activo
@@ -167,6 +101,26 @@ public class PhotoController : MonoBehaviour
         // Set
         panTiltComponent.PanAxis.Value = yawCurrent;
         panTiltComponent.TiltAxis.Value = pitchCurrent;
+    }    
+    
+    // Resetear Valores al salir de la cámara
+    public void ResetCamera()
+    {
+        if (aimCamera == null)
+            return;
+
+        // Rotación
+        aimCamera.transform.localRotation = Quaternion.identity;
+
+        // Modo Cámara
+        if (panTiltComponent != null)
+        {
+            panTiltComponent.PanAxis.Value = 0f;
+            panTiltComponent.TiltAxis.Value = 0f;
+
+            pitchCurrent = 0f;
+            yawCurrent = 0f;
+        }   
     }
     #endregion
 
@@ -244,8 +198,6 @@ public class PhotoController : MonoBehaviour
                 SavePhoto(fotoInstanciada, fotoCapturada, nuevaFoto, idFoto, rutaCompleta);
 
                 photoObject = fotoInstanciada;
-
-                //InteractuarConFoto(fotoInstanciada);
             }
 
 
