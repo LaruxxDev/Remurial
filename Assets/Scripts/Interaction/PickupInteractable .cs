@@ -4,7 +4,6 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
     [SerializeField] private Item _data;
     [SerializeField] private InspectSystem _inspectSystem;
     public Item Data => _data;
-    public bool isInportant = false;
 
     public void Interact(GameObject interactor)
     {
@@ -21,9 +20,10 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
         
         InventarioManager.Instance.AgregarItem(Data);
     }
-    public void UseItem(GameObject interactor)
+    public bool UseItem(int id)
     {
         // No se puede usar un item recogido, solo interactuar para recogerlo.
+        return false;
     }
     public string GetInteractText() => $"Recoger {Data.name}";
 }

@@ -43,22 +43,36 @@ public class PlayerInteractor : MonoBehaviour
 
     private void HandleInteract()
     {
+        if (_currentInteractable == null)
+        {
+            Debug.Log("No hay ningún objeto interactuable cercano.");
+            return;
+        }
+
+        // Caso 1: Hay un objeto agarrado → intentar usarlo en el interactuable
         if (grabbedItem != null)
         {
             Debug.Log("Usando objeto agarrado: " + grabbedItem.name);
-            grabbedItem.GetComponent<Tp>()?.TryOpen(grabbedItem.GetComponent<Item>()?.id ?? 0); // Reemplaza 1 con el ID real
-            Destroy(grabbedItem);
+
+            var pickup = grabbedItem.GetComponent<PickupInteractable>();
+            int itemId = pickup?.Data?.id ?? 0;
+
+            if (_currentInteractable.UseItem(itemId))
+            {
+                Destroy(grabbedItem);
+                grabbedItem = null;
+            }
+            else
+            {
+                Debug.Log("No se puede usar el objeto agarrado aquí: " + interactuableItem?.name);
+            }
+
+            return; // No continuar hacia Interact() si estábamos usando un ítem
         }
-        if (_currentInteractable != null)
-        {
-            Debug.Log("Interactuando con: " + (_currentInteractable as MonoBehaviour)?.name);
-            _currentInteractable.Interact(this.gameObject);
-        
-        }
-        else
-        {
-            Debug.Log("No hay ningún objeto interactuable cercano.");
-        }
+
+        // Caso 2: No hay objeto agarrado → interacción normal
+        Debug.Log("Interactuando con: " + (_currentInteractable as MonoBehaviour)?.name);
+        _currentInteractable.Interact(this.gameObject);
     }
 
     public void AgarrarObjeto(GameObject item)

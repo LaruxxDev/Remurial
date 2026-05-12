@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private Image imagenNegra;
     [SerializeField] private float velocidadFade = 1.5f; // A mayor número, más rápido se hace el fade
+    private bool estaPausado = false;
 
     private void Awake()
     {
@@ -22,6 +23,23 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void PausarJuego()
+    {
+        Time.timeScale = 0f; 
+        estaPausado = true;
+    }
+
+    public void ReanudarJuego()
+    {
+        Time.timeScale = 1f;
+        estaPausado = false;
+    }
+
+    public void TogglePausa()
+    {
+        if (estaPausado) ReanudarJuego();
+        else PausarJuego();
     }
 
     // ── Llama a esta función para que la pantalla se ponga negra ──
