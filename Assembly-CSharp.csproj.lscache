@@ -71,6 +71,7 @@ Assets/
    GameManager.cs
    InputSystem_Actions.cs
   Interaction/
+   Cuna.cs
    GrabInteractable.cs
    IInteractable.cs
    InspectSystem.cs

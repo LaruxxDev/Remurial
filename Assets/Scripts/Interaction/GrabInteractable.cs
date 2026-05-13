@@ -29,7 +29,7 @@ public class GrabInteractable : MonoBehaviour, IInteractable
         
         AudioManager.instance.Play2D("RecogerItem");
     }
-    public bool UseItem(int id)
+    public bool UseItem(GameObject id)
     {
         // No se puede usar un item agarrado, solo interactuar para recogerlo.
         return false;

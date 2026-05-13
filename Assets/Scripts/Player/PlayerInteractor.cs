@@ -54,12 +54,12 @@ public class PlayerInteractor : MonoBehaviour
         {
             Debug.Log("Usando objeto agarrado: " + grabbedItem.name);
 
-            var pickup = grabbedItem.GetComponent<PickupInteractable>();
-            int itemId = pickup?.Data?.id ?? 0;
+            //var pickup = grabbedItem.GetComponent<PickupInteractable>();
+            //int itemId = pickup?.Data?.id ?? 0;
 
-            if (_currentInteractable.UseItem(itemId))
+            if (_currentInteractable.UseItem(grabbedItem))
             {
-                Destroy(grabbedItem);
+                //Destroy(grabbedItem);
                 grabbedItem = null;
             }
             else

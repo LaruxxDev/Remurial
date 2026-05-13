@@ -245,7 +245,6 @@ public class InventarioManager : MonoBehaviour
             }
             else
             {
-                
                 //Debug.Log($"Examinando {item.name}"+item.prefabItem);
                 GameObject goInspeccion = item.ObtenerGameObjectParaInspeccion();
                 if (goInspeccion != null)

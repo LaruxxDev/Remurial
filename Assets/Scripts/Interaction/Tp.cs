@@ -35,10 +35,12 @@ public class Tp : MonoBehaviour, IInteractable
         enCooldownPuertaCerrada = false;
     }
 
-    public bool UseItem(int id)
+    public bool UseItem(GameObject item)
     {
-        Debug.Log($"Intentando abrir TP con ID: {id}");
-        if (id == IdDoor && !isOpen)
+        var pickup = item.GetComponent<PickupInteractable>();
+        int itemId = pickup?.Data?.id ?? 0;
+        Debug.Log($"Intentando abrir TP con ID: {itemId}");
+        if (itemId == IdDoor && !isOpen)
         {
             isOpen = true;
             return true;

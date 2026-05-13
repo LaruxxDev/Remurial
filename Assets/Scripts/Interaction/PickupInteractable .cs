@@ -20,7 +20,7 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
         
         InventarioManager.Instance.AgregarItem(Data);
     }
-    public bool UseItem(int id)
+    public bool UseItem(GameObject item)
     {
         // No se puede usar un item recogido, solo interactuar para recogerlo.
         return false;

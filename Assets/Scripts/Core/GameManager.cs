@@ -24,6 +24,18 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #region Puzles
+    public void ResolverPuzle(int idPuzle)
+    {
+        Debug.Log($"Puzle resuelto: {idPuzle}");
+        // Aquí puedes agregar lógica adicional para manejar el puzle resuelto, como abrir una puerta o activar un evento.
+    }
+
+    #endregion
+
+
+
+    #region Funciones de Pausa y Blackout
     public void PausarJuego()
     {
         Time.timeScale = 0f; 
@@ -77,4 +89,5 @@ public class GameManager : MonoBehaviour
             yield return null; // Esperamos al siguiente frame
         }
     }
+    #endregion
 }
