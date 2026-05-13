@@ -21,7 +21,6 @@ public class PlayerInteractor : MonoBehaviour
         {
             _currentInteractable = interactable;
             Debug.Log("Detectado: " + other.name);
-
             if (HudManager.Instance != null)
                 HudManager.Instance.MostrarMensaje(_currentInteractable.GetInteractText());
             else

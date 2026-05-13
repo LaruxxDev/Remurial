@@ -26,7 +26,7 @@ public class InventarioManager : MonoBehaviour
 
     [Header("Referencias")]
     [SerializeField] private InputActionReference inventoryAction;
-    [SerializeField] private InspectSystem inspectSystem;
+    [SerializeField] public InspectSystem inspectSystem;
     [SerializeField] private PlayerInteractor playerInteraction;
 
     [SerializeField] private GameInputReader _input;

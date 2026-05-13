@@ -42,6 +42,7 @@ public class Tp : MonoBehaviour, IInteractable
         Debug.Log($"Intentando abrir TP con ID: {itemId}");
         if (itemId == IdDoor && !isOpen)
         {
+            InventarioManager.Instance.EliminarItem(itemId); // Eliminar el item del inventario al usarlo
             isOpen = true;
             return true;
         }
