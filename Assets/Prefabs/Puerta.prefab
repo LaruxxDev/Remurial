@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 4790687677618267925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.511259, y: 1.9453601, z: -2.5777197}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.4867, y: 3.6396687, z: 0.3451}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -181,4 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tp
   destino: {fileID: 8874069852426124224}
   tiempoEnNegro: 0.5
-  player: {fileID: 0}
+  cooldownPuertaCerrada: 2
+  isOpen: 1
+  IdDoor: 1
