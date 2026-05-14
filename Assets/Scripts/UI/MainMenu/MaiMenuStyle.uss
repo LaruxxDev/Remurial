@@ -1,1 +1,31 @@
-VisualElement {}
+#NewGameButton:hover {
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    background-image: url('project:/Assets/UI Elements/MenuHover.png');
+    background-color: rgba(0,0,0,0);
+    background-size: 475px 180px;
+}
+
+#LoadGameButton:hover {
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    background-image: url('project:/Assets/UI Elements/MenuHover.png');
+    background-color: rgba(0,0,0,0);
+    background-size: 475px 180px;
+}
+
+#OptionsButton:hover {
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    background-image: url('project:/Assets/UI Elements/MenuHover.png');
+    background-color: rgba(0,0,0,0);
+    background-size: 475px 180px;
+}
+
+#ExitButton:hover {
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(255, 255, 255);
+    background-image: url('project:/Assets/UI Elements/MenuHover.png');
+    background-color: rgba(0,0,0,0);
+    background-size: 475px 180px;
+}
