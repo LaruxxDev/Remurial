@@ -2,18 +2,27 @@ using UnityEngine;
 public class PickupInteractable  : MonoBehaviour, IInteractable
 {
     [SerializeField] private Item _data;
-    [SerializeField] private InspectSystem _inspectSystem;
     public Item Data => _data;
 
     public void Interact(GameObject interactor)
     {
-        Debug.Log($"Recogiste: {_data.name}");
-        _inspectSystem.EnterInspectionMode(interactor);
+        Debug.Log($"Recogiste: {Data.name}");
+        InventarioManager.Instance.inspectSystem.EnterInspectionMode(this.gameObject);
         AudioManager.instance.Play2D("RecogerItem");
 
-        InventarioManager.Instance.AgregarItem(_data);
+        GuardarItemEnInventario();
         Destroy(gameObject);
     }
-
-    public string GetInteractText() => $"Recoger {_data.name}";
+    private void GuardarItemEnInventario()
+    {
+        Debug.Log($"Guardando item en inventario: {Data.name}"+Data.prefabItem);
+        
+        InventarioManager.Instance.AgregarItem(Data);
+    }
+    public bool UseItem(GameObject item)
+    {
+        // No se puede usar un item recogido, solo interactuar para recogerlo.
+        return false;
+    }
+    public string GetInteractText() => $"Recoger {Data.name}";
 }

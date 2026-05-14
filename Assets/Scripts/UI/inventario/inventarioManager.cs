@@ -26,14 +26,16 @@ public class InventarioManager : MonoBehaviour
 
     [Header("Referencias")]
     [SerializeField] private InputActionReference inventoryAction;
-    [SerializeField] private InspectSystem inspectSystem;
+    [SerializeField] public InspectSystem inspectSystem;
+    [SerializeField] private PlayerInteractor playerInteraction;
+
     [SerializeField] private GameInputReader _input;
 
     private ECGMonitor _ecgMonitor;
     [Range(0, 1)] public float debugHealth = 1.0f;
 
     private bool _isInventoryOpen = false;
-
+    public bool isIspecting = false;
     // Eventos
     public event System.Action<Item> OnItemAgregado;
     public event System.Action<Item> OnItemEliminado;
@@ -87,7 +89,7 @@ public class InventarioManager : MonoBehaviour
 
         if (_isInventoryOpen && _ecgMonitor != null)
         {
-            Debug.Log("Actualizando ECG Monitor en Update del InventarioManager");
+            //Debug.Log("Actualizando ECG Monitor en Update del InventarioManager");
 
             // Sustituye 'debugHealth' por la variable real de salud de tu jugador
             _ecgMonitor.healthPercent = debugHealth; 
@@ -114,10 +116,11 @@ public class InventarioManager : MonoBehaviour
 
         itemsList.Add(item);
         OnItemAgregado?.Invoke(item);
+        //foreach (var i in itemsList) Debug.Log($"Item en inventario: {i.name}"+i.prefabItem );
 
         if (_isInventoryOpen) UpdateUI();
 
-        Debug.Log($"Item agregado: {item.name} | Total: {itemsList.Count}/{maxItems}");
+        //Debug.Log($"Item agregado: {item.name} | Total: {itemsList.Count}/{maxItems}"+item.prefabItem);
         return true;
     }
 
@@ -176,6 +179,8 @@ public class InventarioManager : MonoBehaviour
     #region UI Methods
     private void ToggleInventory()
     {
+        if (isIspecting)return; // No abrir/cerrar inventario si estamos inspeccionando
+
         _isInventoryOpen = !_isInventoryOpen;
 
         if (_isInventoryOpen)
@@ -235,9 +240,12 @@ public class InventarioManager : MonoBehaviour
             {
                 Debug.Log($"Usando {item.name}");
                 // Tu lógica de usar item aquí
+                ToggleInventory(); // Cerramos el inventario al usar un item
+                playerInteraction.AgarrarObjeto(item.prefabItem); // Agarramos el objeto para usarlo
             }
             else
             {
+                //Debug.Log($"Examinando {item.name}"+item.prefabItem);
                 GameObject goInspeccion = item.ObtenerGameObjectParaInspeccion();
                 if (goInspeccion != null)
                 {

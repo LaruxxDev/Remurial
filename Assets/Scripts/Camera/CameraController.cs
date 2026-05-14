@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float intensidadMaximaFlash = 122f;
     [SerializeField] private float duracionApagadoFlash = 1f;
 
-    private int contadorFotos = 0;
+    private int contadorFotos = 100;
     private float tiempoProximaFoto = 0f;
     private bool toggleFlash = true;
     private GameObject fotoFisica = null;

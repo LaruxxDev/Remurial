@@ -60,8 +60,8 @@ public class InspectSystem : MonoBehaviour
             // Si hay alguna rotación (ya sea de mando o de ratón con click)
             if (finalRotation != Vector2.zero)
             {
-                float rotationX = finalRotation.x * rotationSpeed * Time.deltaTime;
-                float rotationY = finalRotation.y * rotationSpeed * Time.deltaTime;
+                float rotationX = finalRotation.x * rotationSpeed * Time.unscaledDeltaTime;
+                float rotationY = finalRotation.y * rotationSpeed * Time.unscaledDeltaTime;
 
                 currentInspectedObject.transform.Rotate(Vector3.up, -rotationX, Space.World);
                 currentInspectedObject.transform.Rotate(Vector3.right, -rotationY, Space.World);
@@ -97,8 +97,9 @@ public class InspectSystem : MonoBehaviour
     
     public void EnterInspectionMode(GameObject objectToInspect)
     {
+        InventarioManager.Instance.isIspecting = true; // Informamos al inventario que estamos inspeccionando
         if (isInspecting) return; 
-        
+        GameManager.Instancia.TogglePausa(); // Pausamos el juego al entrar en modo inspección
         Debug.Log("Entrando en modo inspección con el objeto: " + objectToInspect.name);
         currentInspectedObject = Instantiate(objectToInspect, AparitionPoint.position, Quaternion.identity);
         
@@ -127,7 +128,9 @@ public class InspectSystem : MonoBehaviour
 
     public void ExitInspectionMode()
     {
+        InventarioManager.Instance.isIspecting = false; // Informamos al inventario que ya no estamos inspeccionando
         if (!isInspecting) return; 
+        GameManager.Instancia.TogglePausa(); // DesPausamos el juego al entrar en modo inspección
 
         Destroy(currentInspectedObject); 
         rawImageUI.SetActive(false); 
