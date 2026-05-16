@@ -73,7 +73,13 @@ public class AwareState : EnemyState
 
         base.Update();
     }
-    
-    public override void FixedUpdate() => lowLevelMachine.FixedUpdate();
+
+    public override void FixedUpdate()
+    {
+        lowLevelMachine.FixedUpdate();
+
+        ENEMY.ANIMATION.HandleAnimatorValues(ENEMY.Rigidbody, ENEMY.CONFIGURATION.FOLLOWSPEED);
+    }
+
     public override void LateUpdate() => lowLevelMachine.LateUpdate();
 }

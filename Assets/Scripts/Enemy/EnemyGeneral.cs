@@ -46,9 +46,9 @@ public class EnemyGeneral : MonoBehaviour
     public EnemyMovement MOVEMENT => EnemyMovement;
 
 
-    //[Header("Animations")]
-    //[SerializeField] AnimationManager AnimationManager;
-    //public AnimationManager ANIMATION => AnimationManager;
+    [Header("Animations")]
+    [SerializeField] AnimatorManager AnimationManager;
+    public AnimatorManager ANIMATION => AnimationManager;
     #endregion
 
 
