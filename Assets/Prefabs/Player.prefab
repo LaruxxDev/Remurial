@@ -569,7 +569,7 @@ MonoBehaviour:
   photoSpawnPoint: {fileID: 8700557397750070460}
   yawLimit: 50
   pitchLimit: 40
-  photoDefinition: {fileID: 0}
+  photoDefinition: {fileID: 11400000, guid: f242f91d9be31c74b8ae1d383e92b7a3, type: 2}
 --- !u!1 &1739312052843395967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,7 +2279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   maxItems: 20
   PLAYER: {fileID: 8389472957426224030}
-  itemDatabase: {fileID: 0}
+  itemDatabase: {fileID: 11400000, guid: 15adeba8d3ff2f442ad6d62a11d1a043, type: 2}
 --- !u!114 &4173102530058185892
 MonoBehaviour:
   m_ObjectHideFlags: 0
