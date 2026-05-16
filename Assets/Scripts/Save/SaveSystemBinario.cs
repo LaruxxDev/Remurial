@@ -13,9 +13,9 @@ public class SaveSystemBinario : MonoBehaviour {
         using (BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Create))) {
             writer.Write(data.inventory.Count);
             foreach (Item item in data.inventory) {
-                writer.Write(item.name);
+                writer.Write(item.itemName);
                 writer.Write(item.description);
-                writer.Write(item.id);
+                //writer.Write(item.id);
                 writer.Write(item.isKeyItem);
                 writer.Write(item.isUsable);
                 writer.Write(item.quantity);
@@ -39,15 +39,15 @@ public class SaveSystemBinario : MonoBehaviour {
                 int inventoryCount = reader.ReadInt32();
                 data.inventory = new List<Item>();
                 for (int i = 0; i < inventoryCount; i++) {
-                    Item item = new Item();
-                    item.name = reader.ReadString();
-                    item.description = reader.ReadString();
-                    item.id = reader.ReadInt32();
-                    item.isKeyItem = reader.ReadBoolean();
-                    item.isUsable = reader.ReadBoolean();
-                    item.quantity = reader.ReadInt32();
-                    item.maxStack = reader.ReadInt32();
-                    data.inventory.Add(item);
+                    //Item item = new Item();
+                    //item.name = reader.ReadString();
+                    //item.description = reader.ReadString();
+                    //item.id = reader.ReadInt32();
+                    //item.isKeyItem = reader.ReadBoolean();
+                    //item.isUsable = reader.ReadBoolean();
+                    //item.quantity = reader.ReadInt32();
+                    //item.maxStack = reader.ReadInt32();
+                    //data.inventory.Add(item);
                 }
                 data.health = reader.ReadSingle();
                 data.checkpoint = reader.ReadString();

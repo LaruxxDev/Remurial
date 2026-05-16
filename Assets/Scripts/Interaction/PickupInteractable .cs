@@ -1,19 +1,26 @@
 using UnityEngine;
 public class PickupInteractable  : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Item _data;
-    [SerializeField] private InspectSystem _inspectSystem;
-    public Item Data => _data;
+    [SerializeField] private ItemDefinition definition;
+    [SerializeField] private int quantity = 1;
+    [SerializeField] private InspectSystem inspectSystem;
+
+
+    public bool isInspectable => true;
 
     public void Interact(GameObject interactor)
     {
-        Debug.Log($"Recogiste: {_data.name}");
-        _inspectSystem.EnterInspectionMode(interactor);
+        Debug.Log($"Recogiste: {definition.itemName}");
+
         AudioManager.instance.Play2D("RecogerItem");
 
-        InventarioManager.Instance.AgregarItem(_data);
-        Destroy(gameObject);
+        Item item = new Item(definition, quantity);
+
+        bool picked = InventoryManager.Instance.AgregarItem(item);
+
+        if (picked)
+            Destroy(gameObject);
     }
 
-    public string GetInteractText() => $"Recoger {_data.name}";
+    public string GetInteractText() => $"Recoger {definition.itemName}";
 }

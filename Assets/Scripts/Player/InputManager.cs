@@ -1,97 +1,282 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class InputManager : MonoBehaviour
 {
-    [Header("Input Actions")]
-    [SerializeField] private InputActionReference moveAction; 
-    [SerializeField] private InputActionReference attackAction; 
-    [SerializeField] private InputActionReference interactAction; 
+    [SerializeField] PlayerGeneral PLAYER;
 
-    [Header("Movement Settings")]
-    private Rigidbody rb;
-    public float moveSpeed = 5f;
-    public float rotationSpeed = 120f;
-    public Vector2 movementInput { get; private set; }
+    private bool inputsEnabled = true;
 
 
-    [Header("Interaction")]
-    public InspectSystem inspectSystem; 
-    private GameObject interactuableItem; // Objeto interacutuable que el jugador puede recoger
-
-
-
-    public AnimatorManager animatorManager;
-
-
-    private void Start()
+    public void EnableInputs(bool areEnabled)
     {
-        rb = GetComponent<Rigidbody>();    
+        inputsEnabled = areEnabled;
     }
-    
-    private void Update()
+
+    #region Player
+    #region Vectores
+    // Movement
+    public void InputMovement(InputAction.CallbackContext context)
     {
-        movementInput = moveAction.action.ReadValue<Vector2>();
-        animatorManager.HandleAnimatorValues(movementInput.x, movementInput.y);
+        if (!inputsEnabled)
+            return;
+
+        if (context.canceled)
+            PLAYER.INPUTTRANSFORMER.ProcessInputMovement(Vector2.zero);
+        else
+            PLAYER.INPUTTRANSFORMER.ProcessInputMovement(context.ReadValue<Vector2>());
+    }
+
+    // Aim
+    public void InputAim(InputAction.CallbackContext context)
+    {
+        if (!inputsEnabled)
+            return;
+
+        if (context.canceled)
+            PLAYER.INPUTTRANSFORMER.ProcessInputAim(Vector2.zero);
+        else
+            PLAYER.INPUTTRANSFORMER.ProcessInputAim(context.ReadValue<Vector2>());
+    }
+    #endregion
 
 
-        if (interactAction.action.WasPressedThisFrame() && interactuableItem != null)
+    #region Input Singulares
+    // Left Click
+    public void InputLeftClick(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
-            
-            // animatorManager.PlayInteractAnimation();
-            inspectSystem.EnterInspectionMode(interactuableItem); // Entrar en modo inspección con el objeto interactuable
-            Destroy(interactuableItem); // Destruir el objeto interactuable después de usarlo (opcional)
-            interactuableItem = null; // Limpiar la referencia al objeto interactuable después de usarlo
-            
+            PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(1f);
         }
 
-    }
-
-    private void FixedUpdate()
-    {
-        // 1. ROTACIÓN TIPO TANQUE (Eje X del input)
-        // Calculamos los grados a rotar basados en la velocidad y el tiempo de físicas
-        float turn = movementInput.x * rotationSpeed * Time.fixedDeltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        
-        // Aplicamos la rotación al Rigidbody
-        rb.MoveRotation(rb.rotation * turnRotation);
-
-        // 2. MOVIMIENTO ADELANTE/ATRÁS (Eje Y del input)
-        // Usamos 'transform.forward' para que siempre avance hacia donde está mirando
-        Vector3 moveDirection = transform.forward * movementInput.y * moveSpeed;
-
-        // Aplicamos la velocidad, respetando la gravedad en el eje Y
-        rb.linearVelocity = new Vector3(moveDirection.x, rb.linearVelocity.y, moveDirection.z);
-    }
-    
-    
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Interactuable"))
+        if (context.canceled)
         {
-            interactuableItem = other.gameObject; // Guardamos el objeto interacutuable para usarlo al interactuar
-            Debug.Log("Detectado objeto: " + other.name);
-            if (HudManager.Instance != null)
-            {
-                HudManager.Instance.MostrarMensaje("Pulsa [E] para inspeccionar " + other.name);
-            }
-            else 
-            {
-                Debug.LogWarning("No se encontró el HUDManager en la escena.");
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Interactuable") && interactuableItem == other.gameObject)
-        {
-            interactuableItem = null; // Limpiamos la referencia al salir del área de interacción
+            PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(0f);
         }
     }
 
 
+    // Right Click
+    public void InputRightClick(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputRightClick(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputRightClick(0f);
+        }
+    }
+
+
+    // G
+    public void InputG(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputG(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputG(0f);
+        }
+    }
+
+
+    // R
+    public void InputR(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputR(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputR(0f);
+        }
+    }
+
+
+    // Q
+    public void InputQ(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputQ(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputQ(0f);
+        }
+    }
+
+
+    // E
+    public void InputE(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputE(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputE(0f);
+        }
+    }
+
+
+    // F
+    public void InputF(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputF(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputF(0f);
+        }
+    }
+
+    // I
+    public void InputI(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputI(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputI(0f);
+        }
+    }
+
+    // B
+    public void InputB(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputB(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputB(0f);
+        }
+    }
+
+    // Tab
+    public void InputTab(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputTab(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputTab(0f);
+        }
+    }
+
+    // Control
+    public void InputControl(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputControl(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputControl(0f);
+        }
+    }
+
+    // Shift
+    public void InputShift(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputShift(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputShift(0f);
+        }
+    }
+
+    // Escape
+    public void InputEsc(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // Pause
+
+            Debug.Log("Pause");
+
+            //if (!GameManager.instance.gameEnded)
+            //    GameManager.instance.TogglePause("pause");
+        }
+    }
+    #endregion
+    #endregion
+
+    #region UI
+    #region Vectores
+    // Navegar
+    public void InputNavigate(InputAction.CallbackContext context)
+    {
+        if (!inputsEnabled)
+            return;
+
+        if (context.canceled)
+            PLAYER.INPUTTRANSFORMER.ProcessInputNavigate(Vector2.zero);
+        else
+            PLAYER.INPUTTRANSFORMER.ProcessInputNavigate(context.ReadValue<Vector2>());
+    }
+    #endregion
+
+
+    #region Input Singulares
+    // Left Click
+    public void InputConfirm(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputConfirm(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputConfirm(0f);
+        }
+    }
+
+    // Esc DOS
+    public void InputEscDos(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputEscDos(1f);
+        }
+
+        if (context.canceled)
+        {
+            PLAYER.INPUTTRANSFORMER.ProcessInputEscDos(0f);
+        }
+    }
+    #endregion
+    #endregion
 }
-
