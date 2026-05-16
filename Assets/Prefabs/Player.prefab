@@ -555,12 +555,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FotoController
   revealTime: 30
-  folderRoute: 
   PLAYER: {fileID: 8389472957426224030}
-  photoArea: {fileID: 7684489405054537405}
   aimCamera: {fileID: 3940301254123704928}
   CameraMesh: {fileID: 0}
   panTiltComponent: {fileID: 0}
+  photoArea: {fileID: 7684489405054537405}
   flashArea: {fileID: 1266281017808535786}
   flashLight: {fileID: 1190592033353981067}
   toggleFlash: 1
@@ -570,6 +569,7 @@ MonoBehaviour:
   photoSpawnPoint: {fileID: 8700557397750070460}
   yawLimit: 50
   pitchLimit: 40
+  photoDefinition: {fileID: 0}
 --- !u!1 &1739312052843395967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,9 +2165,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5957083888168936432, guid: 6485838b6039f5449a05ce19f790d9ba, type: 3}
+  - {fileID: 2100000, guid: 0b3400897932c23468da04c4926c47e0, type: 2}
   - {fileID: -3846018093981099296, guid: 6485838b6039f5449a05ce19f790d9ba, type: 3}
-  - {fileID: -7561420464453532903, guid: 6485838b6039f5449a05ce19f790d9ba, type: 3}
+  - {fileID: 2100000, guid: 1e6c492a8b8af064d9b25554857a829c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2278,8 +2278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   maxItems: 20
-  itemsList: []
   PLAYER: {fileID: 8389472957426224030}
+  itemDatabase: {fileID: 0}
 --- !u!114 &4173102530058185892
 MonoBehaviour:
   m_ObjectHideFlags: 0

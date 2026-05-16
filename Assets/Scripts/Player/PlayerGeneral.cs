@@ -100,18 +100,18 @@ public class PlayerGeneral : MonoBehaviour
 
         // DEBUG
         // States
-        stateText.text = StateMachine.state.Name;
+        //stateText.text = StateMachine.state.Name;
 
         // SubStates
-        if (StateMachine.state is NeutralState neutral)
-            subStateText.text = neutral.subMachine.state.Name;
-        if (StateMachine.state is OnCameraState onCamera)
-            subStateText.text = onCamera.subMachine.state.Name;
-        if (STATEMACHINE.state is DialogueState || STATEMACHINE.state is InspectState || STATEMACHINE.state is InventoryState || STATEMACHINE.state is DeadState)
-            subStateText.text = "";
+        //if (StateMachine.state is NeutralState neutral)
+        //    subStateText.text = neutral.subMachine.state.Name;
+        //if (StateMachine.state is OnCameraState onCamera)
+        //    subStateText.text = onCamera.subMachine.state.Name;
+        //if (STATEMACHINE.state is DialogueState || STATEMACHINE.state is InspectState || STATEMACHINE.state is InventoryState || STATEMACHINE.state is DeadState)
+        //    subStateText.text = "";
 
         // HP
-        hpText.text = PlayerConfiguration.health.ToString();
+        //hpText.text = PlayerConfiguration.health.ToString();
     }
 
     [Space]

@@ -1478,10 +1478,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Q => m_Wrapper.m_Player_Q;
         /// <summary>
-        /// Provides access to the underlying input action "Player/FaceCamera".
-        /// </summary>
-        public InputAction @FaceCamera => m_Wrapper.m_Player_FaceCamera;
-        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
