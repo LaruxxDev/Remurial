@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: FinalDialog_es
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: b196cc271be04d14099b2faf57f59d9f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18489056276480
+    m_Localized: "Este pasillo est\uFFFD muy oscuro. Ah\uFFFD no me meto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489060470785
+    m_Localized: "\uFFFDPartida guardada con \uFFFDxito!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665089
+    m_Localized: "Est\uFFFD cerrada."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665090
+    m_Localized: "\uFFFDAbierta!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665091
+    m_Localized: Necesita una llave.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665093
+    m_Localized: "Esta pared est\uFFFD hecha una pena. Podr\uFFFDa tirarla de un
+      soplo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665094
+    m_Localized: "\uFFFDSe ha roto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665096
+    m_Localized: "Ah\uFFFD hay un martillo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665097
+    m_Localized: "Por fin me hago con \uFFFDl."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489064665099
+    m_Localized: "\uFFFDPor qu\uFFFD me has llevado a ese hospital? \uFFFDD\uFFFDnde
+      estamos realmente?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859392
+    m_Localized: "Yo no te he llevado a ning\uFFFDn sitio, bichito."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859393
+    m_Localized: "Pero me dijiste que ten\uFFFDa que recuperar una reliquia. \uFFFDQu\uFFFD
+      tiene que ver con este peluche?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859394
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859395
+    m_Localized: Responde.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859396
+    m_Localized: Todo a su debido tiempo, petalito.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859397
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859399
+    m_Localized: "Una mu\uFFFDeca."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859408
+    m_Localized: "Analg\uFFFDsicos. Me los llevo por si acaso."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859412
+    m_Localized: "Vaya, un drag\uFFFDn. Me transmite una sensaci\uFFFDn c\uFFFDlida,
+      como de hogar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489068859413
+    m_Localized: "Una sirena\uFFFD Me recuerda a la fuente del patio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18489073053696
+    m_Localized: "Ay, ojal\uFFFD estar descansando a la sombrita de un \uFFFDrbol."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

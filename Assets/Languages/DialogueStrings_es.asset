@@ -18,20 +18,92 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 291831240790016
-    m_Localized: No
+  - m_Id: 10359278445637632
+    m_Localized: "Este pasillo est\uFFFD muy oscuro. Ah\uFFFD no me meto."
     m_Metadata:
       m_Items: []
-  - m_Id: 291831194652672
-    m_Localized: Comprame algo
+  - m_Id: 10359278512746497
+    m_Localized: "\uFFFDPartida guardada con \uFFFDxito!"
     m_Metadata:
       m_Items: []
-  - m_Id: 291831240790017
-    m_Localized: Pues fuera fuera
+  - m_Id: 10359278512746499
+    m_Localized: "Est\uFFFD cerrada."
     m_Metadata:
       m_Items: []
-  - m_Id: 291831240790018
-    m_Localized: Vale :(
+  - m_Id: 10359278512746500
+    m_Localized: "\uFFFDAbierta!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746501
+    m_Localized: Necesita una llave.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746503
+    m_Localized: "Esta pared est\uFFFD hecha una pena. Podr\uFFFDa tirarla de un
+      soplo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746504
+    m_Localized: "\uFFFDSe ha roto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746506
+    m_Localized: "Ah\uFFFD hay un martillo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746507
+    m_Localized: "Por fin me hago con \uFFFDl."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746509
+    m_Localized: "\uFFFDPor qu\uFFFD me has llevado a ese hospital? \uFFFDD\uFFFDnde
+      estamos realmente?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135104
+    m_Localized: "Yo no te he llevado a ning\uFFFDn sitio, bichito."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135105
+    m_Localized: "Pero me dijiste que ten\uFFFDa que recuperar una reliquia. \uFFFDQu\uFFFD
+      tiene que ver con este peluche?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135106
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135107
+    m_Localized: Responde.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135108
+    m_Localized: Todo a su debido tiempo, petalito.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135109
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135111
+    m_Localized: "Una mu\uFFFDeca."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135120
+    m_Localized: "Analg\uFFFDsicos. Me los llevo por si acaso."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135124
+    m_Localized: "Vaya, un drag\uFFFDn. Me transmite una sensaci\uFFFDn c\uFFFDlida,
+      como de hogar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135125
+    m_Localized: "Una sirena\uFFFD Me recuerda a la fuente del patio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135126
+    m_Localized: "Ay, ojal\uFFFD estar descansando a la sombrita de un \uFFFDrbol."
     m_Metadata:
       m_Items: []
   references:

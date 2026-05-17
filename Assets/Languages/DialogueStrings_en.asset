@@ -18,20 +18,89 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 291831240790016
-    m_Localized: No
+  - m_Id: 10359278445637632
+    m_Localized: "That hallway seems dark. There is no way I\uFFFDm going inside."
     m_Metadata:
       m_Items: []
-  - m_Id: 291831194652672
-    m_Localized: Buy me something
+  - m_Id: 10359278512746497
+    m_Localized: File saved successfully!
     m_Metadata:
       m_Items: []
-  - m_Id: 291831240790017
-    m_Localized: Well get out then
+  - m_Id: 10359278512746499
+    m_Localized: "It\uFFFDs closed."
     m_Metadata:
       m_Items: []
-  - m_Id: 291831240790018
-    m_Localized: Ok :(
+  - m_Id: 10359278512746500
+    m_Localized: It opened!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746501
+    m_Localized: Needs a key.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746503
+    m_Localized: 'This wall seems really weak. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746504
+    m_Localized: It broke!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746506
+    m_Localized: There is a hammer there.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746507
+    m_Localized: I got it at last.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746509
+    m_Localized: Why did you bring me to that hospital? Where are we really?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135104
+    m_Localized: "I didn\uFFFDt take you anywhere, my dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135105
+    m_Localized: You asked me to retrieve a relic. What does this plush have to do
+      with anything?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135106
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135107
+    m_Localized: Answer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135108
+    m_Localized: Everything in due time, petal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135109
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135111
+    m_Localized: There is a doll there.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135120
+    m_Localized: "Painkillers. I\uFFFDll take them just in case."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135124
+    m_Localized: A dragon. It evokes a warm sensation, like home.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135125
+    m_Localized: A siren. Reminds me of the fountain in the yard.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135126
+    m_Localized: I wish I could be sleeping under a tree right now...
     m_Metadata:
       m_Items: []
   references:
