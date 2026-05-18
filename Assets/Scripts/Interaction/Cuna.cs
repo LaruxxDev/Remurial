@@ -8,7 +8,11 @@ public class Cuna : MonoBehaviour, IInteractable
     [SerializeField] private int IdCuna = 2;
     [SerializeField] private Transform destino;
 
+
     private GameObject itemEnCuna;
+
+    public bool isInspectable => false;
+
     public void Interact(GameObject interactor)
     {
         if ( itemEnCuna != null)
@@ -25,12 +29,12 @@ public class Cuna : MonoBehaviour, IInteractable
     {
         if (isCorrect) return false; // Si ya se ha usado el item correcto, no hacer nada.
         var pickup = item.GetComponent<PickupInteractable>();
-        int itemId = pickup?.Data?.id ?? 0;
+        int itemId = pickup?.Definition?.ID ?? 0;
         Debug.Log($"Intentando colocar el item en la Cuna con ID: {itemId}");
         if (itemId == IdCuna && !isCorrect)
         {
             Debug.Log("Item correcto usado en la cuna.");
-            InventarioManager.Instance.EliminarItem(itemId); // Eliminar el item del inventario al usarlo
+            InventoryManager.Instance.EliminarItem(itemId); // Eliminar el item del inventario al usarlo
             item.GetComponent<Collider>().enabled = false; // Desactivar colisión para evitar problemas durante la interpolación
             interpolarCuna(item);
             

@@ -30,6 +30,11 @@ public class SavePoint : MonoBehaviour, IInteractable
     {
         return interactText;
     }
+
+    public bool UseItem(GameObject item)
+    {
+        return false;
+    }
 }
 
 [System.Serializable]

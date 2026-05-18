@@ -2,8 +2,11 @@ using UnityEngine;
 public class PickupInteractable  : MonoBehaviour, IInteractable
 {
     [SerializeField] private ItemDefinition definition;
+    public ItemDefinition Definition => definition;
     [SerializeField] private int quantity = 1;
     [SerializeField] private InspectSystem inspectSystem;
+
+
 
 
     public bool isInspectable => true;
@@ -23,4 +26,9 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
     }
 
     public string GetInteractText() => $"Recoger {definition.itemName}";
+
+    public bool UseItem(GameObject item)
+    {
+        return false;
+    }
 }

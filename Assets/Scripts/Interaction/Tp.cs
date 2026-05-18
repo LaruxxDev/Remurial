@@ -40,11 +40,11 @@ public class Tp : MonoBehaviour, IInteractable
     public bool UseItem(GameObject item)
     {
         var pickup = item.GetComponent<PickupInteractable>();
-        int itemId = pickup?.Data?.id ?? 0;
+        int itemId = pickup?.Definition?.ID ?? 0;
         Debug.Log($"Intentando abrir TP con ID: {itemId}");
         if (itemId == IdDoor && !isOpen)
         {
-            InventarioManager.Instance.EliminarItem(itemId); // Eliminar el item del inventario al usarlo
+            InventoryManager.Instance.EliminarItem(itemId); // Eliminar el item del inventario al usarlo
             isOpen = true;
             return true;
         }

@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
-    [SerializeField] private GameInputReader _input;
+    [SerializeField] private InputTransformer _input;
     public Transform leftHand; // Asigna el transform de la mano izquierda en el inspector
 
     private IInteractable _currentInteractable;
     private GameObject interactuableItem; // Guardamos el objeto interactuable detectado para usarlo al interactuar
     private GameObject grabbedItem;
 
-    //private void OnEnable()  => _input.OnInteractStarted += HandleInteract;
-    //private void OnDisable() => _input.OnInteractStarted -= HandleInteract;
+    private void OnEnable()
+    {
+        if (_input != null){
+            _input.OnInteractStarted += HandleInteract;
+        }
+    } 
+    
+    private void OnDisable() {
+        if (_input != null){
+            _input.OnInteractStarted -= HandleInteract;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

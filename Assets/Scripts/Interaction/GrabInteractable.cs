@@ -12,6 +12,8 @@ public class GrabInteractable : MonoBehaviour, IInteractable
     public Item Data => _data;
     private bool _agarrado = false;
 
+    public bool isInspectable => true;
+
     public void Interact(GameObject interactor)
     {
         if (_agarrado) return;
@@ -23,7 +25,7 @@ public class GrabInteractable : MonoBehaviour, IInteractable
             return;
         }
 
-        Debug.Log($"Recogiste: {_data.name}");
+        //Debug.Log($"Recogiste: {_data.name}");
         AgarrarObjeto(leftHand);
         _inspectSystem.EnterInspectionMode(this.gameObject);
         
@@ -50,6 +52,6 @@ public class GrabInteractable : MonoBehaviour, IInteractable
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity; // opcional: ajustar rotación
     }
-    public string GetInteractText() => $"Recoger {_data.name}";
+    public string GetInteractText() => $"Recoger {_data.itemName}";
 
 }
