@@ -209,7 +209,9 @@ public class InventoryManager : MonoBehaviour
                     PLAYER.heldPhoto = null;
                 }
 
-                GameObject fotoInstanciada = Instantiate(item.prefabItem, PLAYER.heldPosition.position, PLAYER.heldPosition.rotation);
+                GameObject itemInstanciado = Instantiate(item.prefabItem, PLAYER.heldPosition.position, PLAYER.heldPosition.rotation);
+                itemInstanciado.transform.SetParent(PLAYER.heldPosition);
+                PLAYER.heldItem = itemInstanciado;
             }
         
         };
