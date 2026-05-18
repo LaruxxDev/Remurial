@@ -1,0 +1,39 @@
+Key,Id,English(en),Spanish(es)
+Darkhallw1,0,That hallway seems dark. There is no way I’m going inside.,Este pasillo está muy oscuro. Ahí no me meto.
+,,,
+Saving,0,File saved successfully!,¡Partida guardada con éxito!
+,,,
+DoorLocked,0,It’s closed.,Está cerrada.
+DoorOpened,0,It opened!,¡Abierta!
+DoorNeedsKey,0,Needs a key.,Necesita una llave.
+,,,
+WallBreakable,0,This wall seems really weak. ,Esta pared está hecha una pena. Podría tirarla de un soplo.
+WallBroken,0,It broke!,¡Se ha roto!
+,,,
+HammerSeen,0,There is a hammer there.,Ahí hay un martillo.
+HammerObtained,0,I got it at last.,Por fin me hago con él.
+,,,
+KC_EndingDialog_C1,0,Why did you bring me to that hospital? Where are we really?,¿Por qué me has llevado a ese hospital? ¿Dónde estamos realmente?
+KC_EndingDialog_K1,0,"I didn’t take you anywhere, my dear.","Yo no te he llevado a ningún sitio, bichito."
+KC_EndingDialog_C2,0,You asked me to retrieve a relic. What does this plush have to do with anything?,Pero me dijiste que tenía que recuperar una reliquia. ¿Qué tiene que ver con este peluche?
+KC_EndingDialog_K2,0,…,…
+KC_EndingDialog_C3,0,Answer.,Responde.
+KC_EndingDialog_K3,0,"Everything in due time, petal.","Todo a su debido tiempo, petalito."
+Kc_EndingDialog_C4,0,…,…
+,,,
+DollFound,0,There is a doll there.,Una muñeca.
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+CatFrame,0,A cat and her owner. Cute. It reads “Mint and I”.,Una gata con su dueña. Pone “Menta y yo”.
+,,,
+Painkillers,0,Painkillers. I’ll take them just in case.,Analgésicos. Me los llevo por si acaso.
+,,,
+,,,
+,,,
+PuzzleDragon,0,"A dragon. It evokes a warm sensation, like home.","Vaya, un dragón. Me transmite una sensación cálida, como de hogar."
+PuzzleSiren,0,A siren. Reminds me of the fountain in the yard.,Una sirena… Me recuerda a la fuente del patio.
+PuzzleDryad,0,I wish I could be sleeping under a tree right now...,"Ay, ojalá estar descansando a la sombrita de un árbol."

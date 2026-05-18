@@ -10,7 +10,7 @@ namespace PSX
 
         public override void Create()
         {
-            fogPass = new FogPass(RenderPassEvent.AfterRenderingPostProcessing);
+            fogPass = new FogPass(RenderPassEvent.BeforeRenderingPostProcessing);
         }
 
         //ScripstableRendererFeature is an abstract class, you need this method
