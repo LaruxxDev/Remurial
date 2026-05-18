@@ -15,20 +15,156 @@ MonoBehaviour:
   m_TableCollectionName: DialogueStrings
   m_TableCollectionNameGuidString: bcc276741de44c348bb12478772571ae
   m_Entries:
-  - m_Id: 291831194652672
-    m_Key: Tendero_Line1
+  - m_Id: 10359278445637632
+    m_Key: Darkhallw1
     m_Metadata:
       m_Items: []
-  - m_Id: 291831240790016
-    m_Key: Chiro_Line1
+  - m_Id: 10409241955381248
+    m_Key: New Entry 17
     m_Metadata:
       m_Items: []
-  - m_Id: 291831240790017
-    m_Key: Tendero_Line2
+  - m_Id: 10359278512746497
+    m_Key: Saving
     m_Metadata:
       m_Items: []
-  - m_Id: 291831240790018
-    m_Key: Chiro_Line2
+  - m_Id: 10409242022490112
+    m_Key: New Entry 18
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746499
+    m_Key: DoorLocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746500
+    m_Key: DoorOpened
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746501
+    m_Key: DoorNeedsKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242022490113
+    m_Key: New Entry 19
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746503
+    m_Key: WallBreakable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746504
+    m_Key: WallBroken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242022490114
+    m_Key: New Entry 20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746506
+    m_Key: HammerSeen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746507
+    m_Key: HammerObtained
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242022490115
+    m_Key: New Entry 21
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278512746509
+    m_Key: KC_EndingDialog_C1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135104
+    m_Key: KC_EndingDialog_K1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135105
+    m_Key: KC_EndingDialog_C2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135106
+    m_Key: KC_EndingDialog_K2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135107
+    m_Key: KC_EndingDialog_C3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135108
+    m_Key: KC_EndingDialog_K3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135109
+    m_Key: Kc_EndingDialog_C4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242022490116
+    m_Key: New Entry 22
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135111
+    m_Key: DollFound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242022490117
+    m_Key: New Entry 23
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684416
+    m_Key: New Entry 24
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684417
+    m_Key: New Entry 25
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684418
+    m_Key: New Entry 26
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684419
+    m_Key: New Entry 27
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684420
+    m_Key: New Entry 28
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684421
+    m_Key: CatFrame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684422
+    m_Key: New Entry 29
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135120
+    m_Key: Painkillers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684423
+    m_Key: New Entry 30
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684424
+    m_Key: New Entry 31
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10409242026684425
+    m_Key: New Entry 32
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135124
+    m_Key: PuzzleDragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135125
+    m_Key: PuzzleSiren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10359278521135126
+    m_Key: PuzzleDryad
     m_Metadata:
       m_Items: []
   m_Metadata:
