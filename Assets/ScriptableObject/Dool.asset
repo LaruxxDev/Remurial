@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e509cf5361c18f145a351494b74b28e1, type: 3}
+  m_Name: Dool
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  name: Dool
+  description: Baby Dool
+  id: 2
+  isKeyItem: 0
+  isUsable: 1
+  quantity: 1
+  maxStack: 1
+  sprite: {fileID: 0}
+  esFoto: 0
+  datosFoto:
+    idFoto: 
+    rutaDelArchivoLocal: 
+    revealTime: 0
+    enemigosCapturados: []
+  prefabItem: {fileID: 2358587924480333764, guid: eefb7ac70db784f4d9790aab71924521, type: 3}
