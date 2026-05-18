@@ -106,6 +106,10 @@ MonoBehaviour:
     m_Localized: "Ay, ojal\uFFFD estar descansando a la sombrita de un \uFFFDrbol."
     m_Metadata:
       m_Items: []
+  - m_Id: 10409242026684421
+    m_Localized: "Una gata con su due\uFFFDa. Pone \uFFFDMenta y yo\uFFFD."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

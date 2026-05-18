@@ -103,6 +103,10 @@ MonoBehaviour:
     m_Localized: I wish I could be sleeping under a tree right now...
     m_Metadata:
       m_Items: []
+  - m_Id: 10409242026684421
+    m_Localized: "A cat and her owner. Cute. It reads \uFFFDMint and I\uFFFD."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
