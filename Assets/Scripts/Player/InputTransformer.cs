@@ -15,7 +15,7 @@ public class InputTransformer
 
     private bool inputsEnabled = true;
 
-
+    public System.Action OnInteractStarted;
 
     public void EnableInputs(bool areEnabled)
     {

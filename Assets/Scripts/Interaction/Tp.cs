@@ -4,45 +4,67 @@ using UnityEngine;
 public class Tp : MonoBehaviour, IInteractable
 {
     [SerializeField] private Transform destino;
-    [SerializeField] private float tiempoEnNegro = 1f; // Tiempo extra que se queda en negro antes de volver
-    [SerializeField] private GameObject player;
+    [SerializeField] private float tiempoEnNegro = 1f;
+    [SerializeField] private float cooldownPuertaCerrada = 2f; // Tiempo entre sonidos
+
     private bool estaTeletransportando = false;
+    private bool enCooldownPuertaCerrada = false; 
+
+    public bool isOpen = true;
+    public int IdDoor = 1;
 
     public bool isInspectable => false;
 
     public void Interact(GameObject interactor)
     {
-        // Evitamos que se use el TP varias veces seguidas si ya está en proceso
-        if (estaTeletransportando) return;
+        if (!isOpen)
+        {
+            if (enCooldownPuertaCerrada) return; 
 
+            StartCoroutine(CooldownPuertaCerrada());
+            AudioManager.instance.Play3D("ClosedDoor", transform.position);
+            return; 
+        }
+
+        if (estaTeletransportando) return;
         StartCoroutine(ProcesoTeletransporte(interactor));
+    }
+
+    private IEnumerator CooldownPuertaCerrada()
+    {
+        enCooldownPuertaCerrada = true;
+        yield return new WaitForSeconds(cooldownPuertaCerrada);
+        enCooldownPuertaCerrada = false;
+    }
+
+    public bool UseItem(GameObject item)
+    {
+        var pickup = item.GetComponent<PickupInteractable>();
+        int itemId = pickup?.Definition?.ID ?? 0;
+        Debug.Log($"Intentando abrir TP con ID: {itemId}");
+        if (itemId == IdDoor && !isOpen)
+        {
+            InventoryManager.Instance.EliminarItem(itemId); // Eliminar el item del inventario al usarlo
+            isOpen = true;
+            return true;
+        }
+        return false;
     }
 
     private IEnumerator ProcesoTeletransporte(GameObject interactor)
     {
         estaTeletransportando = true;
         AudioManager.instance.Play3D("OpenDoor", transform.position);
-        // 1. Iniciamos el fundido a negro
+
         GameManager.Instancia.HacerBlackout();
+        yield return new WaitForSeconds(1.0f);
 
-        // 2. Esperamos a que la pantalla esté negra (aprox 1 segundo o lo que dure tu fade)
-        yield return new WaitForSeconds(1.0f); 
-
-        // ── AQUÍ PODEMOS LA ANIMACIÓN EN EL FUTURO ──
-        // yield return new WaitForSeconds(duracionDeAnimacion);
-        // ────────────────────────────────────────────────
-
-        // 3. Movemos al jugador
         interactor.transform.position = destino.position;
-
-        // 4. Pequeña espera de seguridad para que la cámara de Cinemachine se asiente
         yield return new WaitForSeconds(tiempoEnNegro);
 
-        // 5. Quitamos el negro
         GameManager.Instancia.QuitarBlackout();
-
         estaTeletransportando = false;
     }
 
-    public string GetInteractText() => $"Teletransportarse a {destino.name}";
+    public string GetInteractText() => isOpen ? $"Teletransportarse a {destino.name}" : "Puerta cerrada";
 }

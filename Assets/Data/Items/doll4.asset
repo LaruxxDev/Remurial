@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce30becff44fc204f9c2b9d8293d3e13, type: 3}
+  m_Name: doll4
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDefinition
+  ID: 8
+  itemName: "Mu\xF1eca 4"
+  description: fksjdhkfjsdhf
+  maxStack: 1
+  isKeyItem: 0
+  isUsable: 1
+  isPhoto: 0
+  sprite: {fileID: 21300000, guid: b916a0e11ba39054396076babec49e29, type: 3}
+  prefabPickableItem: {fileID: 2121761907109290500, guid: 512dd8d726f33464d94353d8b06c6ddf, type: 3}
+  prefabInspectionItem: {fileID: 2121761907109290500, guid: 0d904ffa94a0e3046ad94a9163d4eaa6, type: 3}

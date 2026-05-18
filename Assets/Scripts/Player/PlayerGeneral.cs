@@ -71,6 +71,10 @@ public class PlayerGeneral : MonoBehaviour
     public CinemachineCamera firstPersonCamera;
     public CinemachineCamera thirdPersonCamera;
     public CinemachineCamera inspectionCamera;
+
+    public GameObject heldItem;
+    public Transform heldPosition;
+
     #endregion
 
 

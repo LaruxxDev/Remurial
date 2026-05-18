@@ -18,16 +18,17 @@
 //    private VisualElement _root;
 //    private VisualElement _mainContainer;
 //    private VisualElement _carrusel;
-//    private VisualElement _bigItemImage;
 //    private Label _labelName;
 //    private Label _labelDesc;
 //    private Button _actionButton;
 //    private VisualElement _ecgContainer;
+//    private Button _examineButton;
+//    private Button _cancelButton;
 //
 //    [Header("Referencias")]
 //    [SerializeField] private InputActionReference inventoryAction;
 //    [SerializeField] private InspectSystem inspectSystem;
-//    //[SerializeField] private GameInputReader _input;
+//    [SerializeField] private GameInputReader _input;
 //
 //    private ECGMonitor _ecgMonitor;
 //    [Range(0, 1)] public float debugHealth = 1.0f;
@@ -59,10 +60,11 @@
 //        _mainContainer.style.display = DisplayStyle.None;
 //        _carrusel = _root.Q<VisualElement>("Carrusel");
 //        _labelName = _root.Q<Label>("ItemName");
-//        _bigItemImage = _root.Q<VisualElement>("ItemImage");
 //        _labelDesc = _root.Q<Label>("ItemDesc");
 //        _actionButton = _root.Q<Button>("ActionButton");
 //        _ecgContainer = _root.Q<VisualElement>("ECGContainer");
+//        _examineButton = _root.Q<Button>("ExamineButton");
+//        _cancelButton = _root.Q<Button>("CancelButton");  
 //        if (_ecgContainer != null)
 //    {
 //        _ecgMonitor = new ECGMonitor();
@@ -246,6 +248,26 @@
 //                    Destroy(goInspeccion);
 //                }
 //            }
+//
+//
+//        };
+//
+//        _examineButton.clicked += () =>
+//        {
+//            if (itemsList.Count == 0) return;
+//
+//            var item = itemsList[_index];
+//
+//
+//
+//            GameObject goInspeccion = item.ObtenerGameObjectParaInspeccion();
+//            if (goInspeccion != null)
+//            {
+//                ToggleInventory();
+//                inspectSystem.EnterInspectionMode(goInspeccion);
+//                Destroy(goInspeccion);
+//            }
+//
 //        };
 //    }
 //
@@ -253,8 +275,7 @@
 //    {
 //        if (itemsList.Count == 0)
 //        {
-//            _carrusel.Clear();
-//            _bigItemImage.style.backgroundImage = null;
+//            _carrusel.Clear();            
 //            _labelName.text = "EMPTY";
 //            _labelDesc.text = "No items in inventory.";
 //            _actionButton.style.display = DisplayStyle.None;
@@ -274,27 +295,12 @@
 //        _carrusel.Add(CrearItemCarrusel(itemsList[_index], true));
 //
 //        if (itemsList.Count > 2)
-//            _carrusel.Add(CrearItemCarrusel(itemsList[nextIndex], false));
+//            _carrusel.Add(CrearItemCarrusel(itemsList[nextIndex], false));   
+//       
 //
-//        // Si el item actual es foto, cargar su textura para mostrarla
-//        if (currentItem.esFoto && currentItem.datosFoto != null)
-//        {
-//            currentItem.datosFoto.CargarTextura();
-//            if (currentItem.datosFoto.textura != null)
-//            {
-//                Sprite spriteTextura = TexturaASprite(currentItem.datosFoto.textura);
-//                _bigItemImage.style.backgroundImage = new StyleBackground(spriteTextura);
-//            }
-//        }
-//        else
-//        {
-//            _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
-//        }
-//
-//        _bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
+//        
 //        _labelName.text = currentItem.name.ToUpper();
-//        _labelDesc.text = currentItem.description;
-//        _actionButton.text = currentItem.isUsable ? "USE" : "EXAMINE";
+//        _labelDesc.text = currentItem.description;        
 //    }
 //
 //    // Convierte Texture2D a Sprite para mostrarlo en UI Toolkit
