@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; }
 
 
-    [Header("Configuración")]
+    [Header("Configuraciï¿½n")]
     [SerializeField] private int maxItems = 20;
 
     public List<Item> itemsList = new List<Item>();
@@ -30,6 +30,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Label _labelName;
     [SerializeField] private Label _labelDesc;
     [SerializeField] private Button _actionButton;
+    private Button _examineButton;
+    private Button _cancelButton;
 
 
     [Header("Save")]
@@ -65,6 +67,8 @@ public class InventoryManager : MonoBehaviour
         _bigItemImage = _root.Q<VisualElement>("ItemImage");
         _labelDesc = _root.Q<Label>("ItemDesc");
         _actionButton = _root.Q<Button>("ActionButton");
+        _examineButton = _root.Q<Button>("ExamineButton");
+        _cancelButton = _root.Q<Button>("CancelButton");  
 
         ConfigurarEventos();
     }
@@ -105,7 +109,7 @@ public class InventoryManager : MonoBehaviour
         Item item = BuscarItem(id);
         if (item == null)
         {
-            Debug.LogWarning("No se encontró el item con id: " + id);
+            Debug.LogWarning("No se encontrï¿½ el item con id: " + id);
             return false;
         }
 
@@ -119,7 +123,7 @@ public class InventoryManager : MonoBehaviour
         itemsList.Remove(item);
         OnItemEliminado?.Invoke(item);
 
-        // Ajustar índice si quedó fuera de rango
+        // Ajustar ï¿½ndice si quedï¿½ fuera de rango
         if (_index >= itemsList.Count)
         {
             _index = Mathf.Max(0, itemsList.Count - 1);
@@ -173,7 +177,7 @@ public class InventoryManager : MonoBehaviour
         //    }
         //});
 
-        // Botón Derecho
+        // Botï¿½n Derecho
         _root.Q<Button>("RightButton").clicked += () =>
         {
             if (itemsList.Count == 0) return;
@@ -181,7 +185,7 @@ public class InventoryManager : MonoBehaviour
             UpdateUI();
         };
 
-        // Botón Izquierdo
+        // Botï¿½n Izquierdo
         _root.Q<Button>("LeftButton").clicked += () =>
         {
             if (itemsList.Count == 0) return;
@@ -189,19 +193,46 @@ public class InventoryManager : MonoBehaviour
             UpdateUI();
         };
 
-        // Botón Inspeccionar
+        // Botï¿½n Usar
         _actionButton.clicked += () =>
         {
             if (itemsList.Count == 0)
                 return;
 
-            TryActionCurrentItem(out bool wantsInspect, out GameObject inspectTarget);
+            var item = itemsList[_index];
+
+            if (item.isUsable)
+            {
+                if (PLAYER.heldPhoto == null)
+                {
+                    Destroy(PLAYER.heldPhoto);
+                    PLAYER.heldPhoto = null;
+                }
+
+                GameObject fotoInstanciada = Instantiate(item.prefabItem, PLAYER.heldPosition.position, PLAYER.heldPosition.rotation);
+            }
+        
+        };
+
+        // Botï¿½n Examinar
+        _examineButton.clicked += () =>
+        {
+            if (itemsList.Count == 0) return;
+
+            var item = itemsList[_index];
+
+            GameObject inspectTarget = item.GetObjectForInspection();
+            bool wantsInspect = false;
+
+            if (inspectTarget != null)
+                wantsInspect = true;
 
             if (wantsInspect && inspectTarget != null)
             {
                 PLAYER.inspectionItem = inspectTarget;
                 PLAYER.STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(PLAYER.STATEMACHINE));
             }
+
         };
     }
 
@@ -398,10 +429,10 @@ public class InventoryManager : MonoBehaviour
                 customDescription = item.customDescription,
             };
 
-            // Si es foto, se guarda la información de la foto
+            // Si es foto, se guarda la informaciï¿½n de la foto
             if (item.isPhoto && item.datosFoto != null)
             {
-                // Información varia
+                // Informaciï¿½n varia
                 entry.datosFoto = new DatosFotosSaveData
                 {
                     idFoto = item.datosFoto.idFoto,

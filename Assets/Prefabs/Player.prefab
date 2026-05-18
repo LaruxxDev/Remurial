@@ -1913,6 +1913,8 @@ MonoBehaviour:
   firstPersonCamera: {fileID: 3940301254123704928}
   thirdPersonCamera: {fileID: 889706556622278431}
   inspectionCamera: {fileID: 9045454855389233345}
+  heldItem: {fileID: 0}
+  heldPosition: {fileID: 8700557397750070460}
   stateText: {fileID: 0}
   subStateText: {fileID: 0}
   hpText: {fileID: 0}
