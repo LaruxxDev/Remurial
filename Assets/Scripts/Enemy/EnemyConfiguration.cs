@@ -5,6 +5,7 @@ using System.Collections;
 public class EnemyConfiguration : MonoBehaviour
 {
     [Header("Configuration")]
+    [SerializeField] private EnemyGeneral EnemyGeneral;
 
     #region Stats
     [Header("Stats")]
@@ -66,10 +67,12 @@ public class EnemyConfiguration : MonoBehaviour
     private IEnumerator FlashMovementRoutine(float delay)
     {
         followSpeed = baseFollowSpeed;
+        EnemyGeneral.ANIMATION.SetBool("isChasing", true);
 
         yield return new WaitForSeconds(delay);
 
-        followSpeed = 0f;
+        followSpeed = 0f; 
+        EnemyGeneral.ANIMATION.SetBool("isChasing", false);
     }
     #endregion
 

@@ -26,7 +26,7 @@ public class AttackSubState : EnemyState
         }
 
         ENEMY.MOVEMENT.StopMovement();
-        //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Attack);
+        ENEMY.ANIMATION.SetTrigger("Attack");
     }
 
 

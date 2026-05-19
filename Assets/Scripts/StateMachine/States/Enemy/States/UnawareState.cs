@@ -23,6 +23,7 @@ public class UnawareState : EnemyState
             ENEMY.STATES.WanderSubState.SetMachine(lowLevelMachine);
 
 
+        ENEMY.ANIMATION.SetBool("isChasing", false);
 
         lowLevelMachine.ChangeState(ENEMY.STATES.IdleSubState);
     }
@@ -69,7 +70,15 @@ public class UnawareState : EnemyState
 
         base.Update();
     }
-    
-    public override void FixedUpdate() => lowLevelMachine.FixedUpdate();
+
+    public override void FixedUpdate()
+    {
+        lowLevelMachine.FixedUpdate();
+
+        //ENEMY.ANIMATION.HandleAnimatorValues(ENEMY.Rigidbody, ENEMY.CONFIGURATION.WANDERSPEED);
+        ENEMY.ANIMATION.HandleAnimatorValues(ENEMY.NAVMESH.velocity, ENEMY.Rigidbody.transform, ENEMY.CONFIGURATION.WANDERSPEED);
+
+    }
+
     public override void LateUpdate() => lowLevelMachine.LateUpdate();
 }
