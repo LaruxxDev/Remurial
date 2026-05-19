@@ -15,6 +15,7 @@ public class Cuna : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
+        Debug.Log("Cuna viva");
         if ( itemEnCuna != null)
         {
             itemEnCuna.GetComponent<PickupInteractable>().Interact(interactor); // Permitir recoger el item de la cuna

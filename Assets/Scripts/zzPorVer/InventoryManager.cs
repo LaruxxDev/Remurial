@@ -243,7 +243,7 @@ public class InventoryManager : MonoBehaviour
         if (itemsList.Count == 0)
         {
             _carrusel.Clear();
-            _bigItemImage.style.backgroundImage = null;
+            //_bigItemImage.style.backgroundImage = null;
             _labelName.text = "EMPTY";
             _labelDesc.text = "No items in inventory.";
             _actionButton.style.display = DisplayStyle.None;
@@ -273,24 +273,24 @@ public class InventoryManager : MonoBehaviour
             {
                 Sprite spriteTextura = TexturaASprite(currentItem.datosFoto.textura);
 
-                if (spriteTextura != null)
-                    _bigItemImage.style.backgroundImage = new StyleBackground(spriteTextura);
-                else
-                    _bigItemImage.style.backgroundImage = StyleKeyword.None;
+                //if (spriteTextura != null)
+                //    _bigItemImage.style.backgroundImage = new StyleBackground(spriteTextura);
+                //else
+                //    _bigItemImage.style.backgroundImage = StyleKeyword.None;
             }
         }
         else
         {
-            if (currentItem.sprite != null)
-                _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
-            else 
-                _bigItemImage.style.backgroundImage = StyleKeyword.None;
+           // if (currentItem.sprite != null)
+           //     _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
+           // else 
+           //     _bigItemImage.style.backgroundImage = StyleKeyword.None;
         }
 
-        _bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
+        //_bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
         _labelName.text = currentItem.itemName.ToUpper();
         _labelDesc.text = currentItem.description;
-        _actionButton.text = currentItem.isUsable ? "USE" : "EXAMINE";
+        //_actionButton.text = currentItem.isUsable ? "USE";
     }
 
     // Convierte Texture2D a Sprite para mostrarlo en UI Toolkit
