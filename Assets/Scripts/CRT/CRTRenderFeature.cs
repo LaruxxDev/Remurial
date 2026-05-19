@@ -10,7 +10,7 @@ namespace PSX
 
         public override void Create()
         {
-            crtPass = new CRTPass(RenderPassEvent.AfterRenderingPostProcessing);
+            crtPass = new CRTPass(RenderPassEvent.BeforeRenderingPostProcessing);
         }
 
         //ScripstableRendererFeature is an abstract class, you need this method
