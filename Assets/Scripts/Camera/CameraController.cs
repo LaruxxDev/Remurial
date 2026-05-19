@@ -74,6 +74,8 @@ public class CameraController : MonoBehaviour
             flashEffect.SetActive(false);
     }
 
+
+
     private void OnEnable()
     {
         //_input.OnAttackStarted  += HandleAttack;
@@ -209,9 +211,9 @@ public class CameraController : MonoBehaviour
         }
 
         // Testing lanzamiento de afterimage
-        Debug.Log("[Afterimage] TriggerFlash llamado. Instance: " + (AfterimagFeature.Instance != null ? "OK" : "NULL"));
+        Debug.Log("[Afterimage] Instance: " + (AfterimagFeature.Instance != null ? "OK" : "NULL"));
         AfterimagFeature.Instance?.TriggerFlash();
-        
+
 
         StartCoroutine(SecuenciaDesactivarFlash());
     }

@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private Image imagenNegra;
     [SerializeField] private float velocidadFade = 1.5f; // A mayor número, más rápido se hace el fade
+    [SerializeField] private int frameRate = 30;
     private bool estaPausado = false;
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = frameRate;
         // Configuramos el Singleton
         if (Instancia == null) 
         {

@@ -16984,6 +16984,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 996ca6bb38cbb9a4c81b58a6b32ce0ae, type: 3}
+      propertyPath: m_TagString
+      value: flash
+      objectReference: {fileID: 0}
     - target: {fileID: 1300264252759386080, guid: 996ca6bb38cbb9a4c81b58a6b32ce0ae, type: 3}
       propertyPath: m_LocalScale.x
       value: 176.79
