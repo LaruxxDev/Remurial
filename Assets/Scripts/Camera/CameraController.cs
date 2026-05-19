@@ -3,6 +3,7 @@ using UnityEngine;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using PSX;
 
 public class CameraController : MonoBehaviour
 {
@@ -206,6 +207,12 @@ public class CameraController : MonoBehaviour
             luzFlash.enabled = true;
             luzFlash.intensity = intensidadMaximaFlash;
         }
+
+        // Testing lanzamiento de afterimage
+        Debug.Log("[Afterimage] TriggerFlash llamado. Instance: " + (AfterimagFeature.Instance != null ? "OK" : "NULL"));
+        AfterimagFeature.Instance?.TriggerFlash();
+        
+
         StartCoroutine(SecuenciaDesactivarFlash());
     }
 
