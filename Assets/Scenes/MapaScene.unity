@@ -10702,6 +10702,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0000005, y: 2.0000002, z: 1.9999998}
   m_Center: {x: 0.00000047683716, y: 0.0000076293945, z: 0}
+--- !u!1 &743782175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18886da85fbd5714eb81a5d9fcac62b2, type: 3}
+  m_PrefabInstance: {fileID: 2071348309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &756165147
 GameObject:
   m_ObjectHideFlags: 0
@@ -18105,6 +18110,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18886da85fbd5714eb81a5d9fcac62b2, type: 3}
   m_PrefabInstance: {fileID: 2071348309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1378773275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743782175}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5941af99f4fbef5458da495c2280b499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TpScenes
+  sceneDestino: Cementerio
+  tiempoEnNegro: 1
+  cooldownPuertaCerrada: 2
+  isOpen: 1
+  IdDoor: 1
+--- !u!65 &1378773276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743782175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 4.4190555, y: 2.1421318, z: 3.2834072}
+  m_Center: {x: -0.9993012, y: 0.07106585, z: 0.000061035156}
 --- !u!4 &1382044823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 191412088031999917, guid: 37abfb435500bdb489a6e4946b0358b5, type: 3}
@@ -27757,10 +27800,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: puerta_doble
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18886da85fbd5714eb81a5d9fcac62b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18886da85fbd5714eb81a5d9fcac62b2, type: 3}
+      propertyPath: m_TagString
+      value: Tp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 18886da85fbd5714eb81a5d9fcac62b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1378773276}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 18886da85fbd5714eb81a5d9fcac62b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1378773275}
   m_SourcePrefab: {fileID: 100100000, guid: 18886da85fbd5714eb81a5d9fcac62b2, type: 3}
 --- !u!4 &2071796719 stripped
 Transform:
@@ -33211,6 +33268,10 @@ PrefabInstance:
     - target: {fileID: 6025536478214344220, guid: 851a3b7a34480cd439fab0b374373c73, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025536478214344220, guid: 851a3b7a34480cd439fab0b374373c73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6106078392043716225, guid: 851a3b7a34480cd439fab0b374373c73, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
