@@ -10,7 +10,7 @@ namespace PSX
 
         public override void Create()
         {
-            pixelationPass = new PixelationPass(RenderPassEvent.AfterRenderingPostProcessing);
+            pixelationPass = new PixelationPass(RenderPassEvent.BeforeRenderingPostProcessing);
         }
 
         //ScripstableRendererFeature is an abstract class, you need this method
