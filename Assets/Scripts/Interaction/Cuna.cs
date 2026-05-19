@@ -47,7 +47,7 @@ public class Cuna : MonoBehaviour, IInteractable
                     Debug.Log("bbb1");
                     // Limpiamos la mano del jugador
                     PLAYER.heldItem = null;
-                    Destroy(objetoEnMano);
+                    //Destroy(objetoEnMano);
                     return;
                 }
             }
@@ -58,10 +58,26 @@ public class Cuna : MonoBehaviour, IInteractable
 
     public bool UseItem(GameObject item)
     {
-        if (isCorrect) return false; // Si ya se ha usado el item correcto, no hacer nada.
+        if (isCorrect) return false; // Si ya se ha usado el item correcto, no hacer nada
         var pickup = item.GetComponent<PickupInteractable>();
-        int itemId = pickup?.Definition?.ID ?? 0;
-        Debug.Log($"Intentando colocar el item en la Cuna con ID: {itemId}");
+
+        // DEBUG: Vamos a ver qué está pasando exactamente
+        if (pickup == null) {
+            pickup = item.GetComponentInChildren<PickupInteractable>();
+            Debug.LogError("¡El objeto no tiene PickupInteractable!");
+            return false;
+        }
+        
+        if (pickup.Definition == null) {
+            Debug.LogError($"¡El objeto {item.name} tiene el script pero la Definition es NULL!");
+            return false;
+        }
+
+        int itemId = pickup.Definition != null ? pickup.Definition.ID : 0;
+        Debug.Log($"Intentando colocar objeto ID: {itemId}. ID de la Cuna requerida: {IdCuna}");
+
+        //int itemId = pickup?.Definition?.ID ?? 0;
+        //Debug.Log($"Intentando colocar el item en la Cuna con ID: {itemId}");
         if (itemId == IdCuna && !isCorrect)
         {
             Debug.Log("Item correcto usado en la cuna.");

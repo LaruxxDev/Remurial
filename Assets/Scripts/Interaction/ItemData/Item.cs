@@ -24,6 +24,7 @@ public class Item
     // References
     public Sprite sprite => definition.sprite;
     public GameObject prefabItem => definition.prefabInspectionItem;
+    public GameObject pickupPrefab => definition.prefabPickableItem;
 
 
     public Item(ItemDefinition definition, int quantity = 1)
