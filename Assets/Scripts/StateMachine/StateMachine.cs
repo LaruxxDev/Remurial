@@ -16,10 +16,12 @@ public class StateMachine
     public void FixedUpdate()
     {
         if (state is PlayerState ps) ps.FixedUpdate();
+        if (state is EnemyState es) es.FixedUpdate();
     }
 
     public void LateUpdate()
     {
         if (state is PlayerState ps) ps.LateUpdate();
+        if (state is EnemyState es) es.LateUpdate();
     }
 }

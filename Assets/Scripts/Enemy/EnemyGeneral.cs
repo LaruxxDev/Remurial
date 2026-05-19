@@ -41,14 +41,15 @@ public class EnemyGeneral : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] NavMeshAgent NavMeshAgent;
+    public NavMeshAgent NAVMESH => NavMeshAgent;
 
     EnemyMovement EnemyMovement;
     public EnemyMovement MOVEMENT => EnemyMovement;
 
 
-    //[Header("Animations")]
-    //[SerializeField] AnimationManager AnimationManager;
-    //public AnimationManager ANIMATION => AnimationManager;
+    [Header("Animations")]
+    [SerializeField] AnimatorManager AnimationManager;
+    public AnimatorManager ANIMATION => AnimationManager;
     #endregion
 
 
@@ -89,24 +90,7 @@ public class EnemyGeneral : MonoBehaviour
         StateMachine.ChangeState(mainState);
     }
 
-    void Update()
-    {
-        StateMachine.Update();
-
-        // DEBUG
-        stateText.text = StateMachine.state.Name;
-
-        if (StateMachine.state is UnawareState unaware)
-            subStateText.text = unaware.subMachine.state.Name;
-        if (StateMachine.state is AwareState aware)
-            subStateText.text = aware.subMachine.state.Name;
-        if (StateMachine.state is PetrifiedState petrified)
-            subStateText.text = petrified.subMachine.state.Name;
-    }
-
-    [Header("Debug")]
-    public TextMeshProUGUI stateText;
-    public TextMeshProUGUI subStateText;
+    void Update() => StateMachine.Update();
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 

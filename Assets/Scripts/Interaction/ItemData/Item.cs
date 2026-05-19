@@ -12,8 +12,15 @@ public class Item
 
     // Values
     public int ID => definition.ID;
-    public string itemName => customName ?? definition.itemName;
-    public string description => customDescription ?? definition.description;
+    public string itemName =>
+        string.IsNullOrWhiteSpace(customName)
+            ? definition.itemName
+            : customName;
+
+    public string description =>
+        string.IsNullOrWhiteSpace(customDescription)
+            ? definition.description
+            : customDescription;
     public int maxStack => definition.maxStack;
 
     // Designations

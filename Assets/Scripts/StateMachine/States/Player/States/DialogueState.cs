@@ -19,6 +19,7 @@ public class DialogueState : PlayerState
 
     public override void Update()
     {
+        // Acanzar / Skip
         if (PLAYER.INPUTTRANSFORMER.LEFTCLICK == 1f)
         {
             PLAYER.INPUTTRANSFORMER.ProcessInputLeftClick(0f);

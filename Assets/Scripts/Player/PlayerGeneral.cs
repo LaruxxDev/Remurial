@@ -97,38 +97,7 @@ public class PlayerGeneral : MonoBehaviour
         StateMachine.ChangeState(States.NeutralState(StateMachine));
     }
 
-    void Update()
-    {
-        StateMachine.Update();
-
-
-        // DEBUG
-        // States
-        //stateText.text = StateMachine.state.Name;
-
-        // SubStates
-        //if (StateMachine.state is NeutralState neutral)
-        //    subStateText.text = neutral.subMachine.state.Name;
-        //if (StateMachine.state is OnCameraState onCamera)
-        //    subStateText.text = onCamera.subMachine.state.Name;
-        //if (STATEMACHINE.state is DialogueState || STATEMACHINE.state is InspectState || STATEMACHINE.state is InventoryState || STATEMACHINE.state is DeadState)
-        //    subStateText.text = "";
-
-        // HP
-        //hpText.text = PlayerConfiguration.health.ToString();
-    }
-
-    [Space]
-    [Space]
-    [Space]
-    [Header("Debug")]
-    public TextMeshProUGUI stateText;
-    public TextMeshProUGUI subStateText;
-    public TextMeshProUGUI hpText;
-    [Space]
-    public SavePoint savePointA;
-    public SavePoint savePointB;
-
+    void Update() => StateMachine.Update();
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 
