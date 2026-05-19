@@ -253,11 +253,18 @@ public class InventoryManager : MonoBehaviour
             else 
                 _bigItemImage.style.backgroundImage = StyleKeyword.None;
         }
-
+        Debug.Log(currentItem.itemName);
+        Debug.Log(currentItem.description);
         _bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
-        _labelName.text = currentItem.itemName.ToUpper();
-        _labelDesc.text = currentItem.description;
+        //_labelName.text = currentItem.itemName.ToUpper();
+        //_labelDesc.text = currentItem.description;
         _actionButton.text = currentItem.isUsable ? "USE" : "EXAMINE";
+
+        string displayName = !string.IsNullOrEmpty(currentItem.customName) ? currentItem.customName : currentItem.itemName;
+        string displayDescription = !string.IsNullOrEmpty(currentItem.customDescription) ? currentItem.customDescription : currentItem.description;
+
+        _labelName.text = displayName.ToUpper();
+        _labelDesc.text = displayDescription.ToUpper();
     }
 
     // Convierte Texture2D a Sprite para mostrarlo en UI Toolkit

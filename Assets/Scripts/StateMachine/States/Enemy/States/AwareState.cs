@@ -23,6 +23,11 @@ public class AwareState : EnemyState
         if (ENEMY.CONFIGURATION.hasAttack)
             ENEMY.STATES.AttackSubState.SetMachine(lowLevelMachine);
 
+
+        if (ENEMY.enemyType != EnemyGeneral.EnemyType.flashyEnemy)
+            ENEMY.ANIMATION.SetBool("isChasing", true);
+
+
         lowLevelMachine.ChangeState(ENEMY.STATES.ChaseSubState);
     }
 
@@ -78,7 +83,9 @@ public class AwareState : EnemyState
     {
         lowLevelMachine.FixedUpdate();
 
-        ENEMY.ANIMATION.HandleAnimatorValues(ENEMY.Rigidbody, ENEMY.CONFIGURATION.FOLLOWSPEED);
+        //ENEMY.ANIMATION.HandleAnimatorValues(ENEMY.Rigidbody, ENEMY.CONFIGURATION.FOLLOWSPEED);
+        ENEMY.ANIMATION.HandleAnimatorValues(ENEMY.NAVMESH.velocity, ENEMY.Rigidbody.transform, ENEMY.CONFIGURATION.FOLLOWSPEED);
+
     }
 
     public override void LateUpdate() => lowLevelMachine.LateUpdate();

@@ -283,8 +283,8 @@ public class InputTransformer
 
 
     // EscDos
-    float escDosInput;
-    public float ESCDOS => escDosInput;
+    float denyInput;
+    public float DENY => denyInput;
 
     public void ProcessInputConfirm(float value)
     {
@@ -294,12 +294,12 @@ public class InputTransformer
         this.confirmInput = value;
     }
 
-    public void ProcessInputEscDos(float value)
+    public void ProcessInputDeny(float value)
     {
         if (!inputsEnabled)
             return;
 
-        this.escDosInput = value;
+        this.denyInput = value;
     }
     #endregion
     #endregion

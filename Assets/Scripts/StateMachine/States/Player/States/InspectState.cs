@@ -26,10 +26,10 @@ public class InspectState : PlayerState
 
 
         // Volver a Neutral
-        if (PLAYER.INPUTTRANSFORMER.ESCDOS == 1f)
+        if (PLAYER.INPUTTRANSFORMER.DENY == 1f)
         {  
             // Consumir el input
-            PLAYER.INPUTTRANSFORMER.ProcessInputEscDos(0f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputDeny(0f);
 
             STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
         }

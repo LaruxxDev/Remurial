@@ -9,7 +9,7 @@ public class ChaseSubState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        
+
 
         //ENEMY.ANIMATION.SetAnimation(EnemyAnimation.Movement);
     }

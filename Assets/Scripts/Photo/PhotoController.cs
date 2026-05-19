@@ -1,9 +1,8 @@
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using System.IO;
 using System.Collections;
-using UnityEditor.Timeline.Actions;
+
 
 public class PhotoController : MonoBehaviour
 {
@@ -17,8 +16,8 @@ public class PhotoController : MonoBehaviour
 
 
     [Header("Camera")]
+    [SerializeField] private CinemachineCamera mainCamera;
     [SerializeField] private CinemachineCamera aimCamera;
-    [SerializeField] private GameObject CameraMesh;
 
     [SerializeField] private CinemachinePanTilt panTiltComponent;
 
@@ -231,10 +230,6 @@ public class PhotoController : MonoBehaviour
 
         if (!agregada)
             Debug.LogWarning("No se pudo agregar al inventario (¿lleno?).");
-
-
-        // Destruir la foto física del mundo después de guardarla
-        Destroy(foto);
 
         Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
     }

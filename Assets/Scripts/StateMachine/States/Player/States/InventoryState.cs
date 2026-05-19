@@ -46,10 +46,10 @@ public class InventoryState : PlayerState
         }
 
         // Salir del inventario
-        if (PLAYER.INPUTTRANSFORMER.ESCDOS == 1f)
+        if (PLAYER.INPUTTRANSFORMER.DENY == 1f)
         {
             // Consumir Input
-            PLAYER.INPUTTRANSFORMER.ProcessInputEscDos(0f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputDeny(0f);
 
             STATEMACHINE.ChangeState(PLAYER.STATES.NeutralState(STATEMACHINE));
         }

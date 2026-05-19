@@ -250,7 +250,7 @@ public class InputManager : MonoBehaviour
 
 
     #region Input Singulares
-    // Left Click
+    // Confirm
     public void InputConfirm(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -264,17 +264,17 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    // Esc DOS
-    public void InputEscDos(InputAction.CallbackContext context)
+    // Deny
+    public void InputDeny(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            PLAYER.INPUTTRANSFORMER.ProcessInputEscDos(1f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputDeny(1f);
         }
 
         if (context.canceled)
         {
-            PLAYER.INPUTTRANSFORMER.ProcessInputEscDos(0f);
+            PLAYER.INPUTTRANSFORMER.ProcessInputDeny(0f);
         }
     }
     #endregion
