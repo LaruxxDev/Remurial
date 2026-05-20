@@ -7,7 +7,11 @@ public class PlayerConfiguration : MonoBehaviour
     [SerializeField] private GameObject player;
 
     [Header("Configuration")]
-
+    [Header("Flash")]
+    [SerializeField] public Light flashLight;          // Luz del flash
+    [SerializeField] public float flashDuration;       // Duracion del flash en segundos
+    [SerializeField] public float flashMaxIntensity;   // Intensidad maxima de la luz durante el flash
+    [SerializeField] public GameObject flashArea;      // Area del flash 
 
     #region Stats
     [Header("Stats")]
