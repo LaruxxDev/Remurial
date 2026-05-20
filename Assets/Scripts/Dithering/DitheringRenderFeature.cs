@@ -10,7 +10,7 @@ namespace PSX
 
         public override void Create()
         {
-            ditheringPass = new DitheringPass(RenderPassEvent.BeforeRenderingPostProcessing);
+            ditheringPass = new DitheringPass(RenderPassEvent.AfterRenderingPostProcessing);
         }
 
         //ScripstableRendererFeature is an abstract class, you need this method
