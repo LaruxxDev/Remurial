@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.IO;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class MainMenuManager : MonoBehaviour
     {
 
         DontDestroyOnLoad(gameObject);
-        
+
         _root = GetComponent<UIDocument>().rootVisualElement;
 
         _newGameButton = _root.Q<Button>("NewGameButton");
@@ -48,23 +49,30 @@ public class MainMenuManager : MonoBehaviour
         _optionsButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
         _exitButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
 
-        _loadGameButton.SetEnabled(true);
+        _loadGameButton.SetEnabled(SaveExists());
 
         if (loadingScreen != null) loadingScreen.SetActive(false);
+    }
+
+    private bool SaveExists()
+    {
+        return File.Exists(SaveSystem.SaveFileName());
+    }
+
+    private void StartGame()
+    {
+        if (loadingScreen != null) loadingScreen.SetActive(true);
+        _root.style.display = DisplayStyle.None;
+        StartCoroutine(LoadSceneAsync("MapaScene"));
     }
 
     private void OnNewGameClicked()
     {
     
         Debug.Log("New Game Clicked");
-        if (loadingScreen != null)
-        {
-            loadingScreen.SetActive(true);
-        }
-        _root.style.display = DisplayStyle.None;
-        
-        StartCoroutine(LoadSceneAsync("MapaScene"));
-        //SceneManager.LoadScene("MapaScene"); 
+        if (SaveExists())
+            File.Delete(SaveSystem.SaveFileName());
+        StartGame();
         
     }
     IEnumerator LoadSceneAsync(string sceneName)
@@ -98,7 +106,7 @@ public class MainMenuManager : MonoBehaviour
     private void OnLoadGameClicked()
     {
         Debug.Log("Load Game Clicked");
-        SceneManager.LoadScene("MapaScene"); //TODO
+        StartGame();
     }
 
     private void OnOptionsClicked()
