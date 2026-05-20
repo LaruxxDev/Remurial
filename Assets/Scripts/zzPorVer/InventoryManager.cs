@@ -55,11 +55,17 @@ public class InventoryManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
+            return;
+        }
+
+        if (PLAYER == null)
+        {
+            Debug.LogError("PlayerGeneral reference is not set in the inspector.");
             return;
         }
 
@@ -94,11 +100,12 @@ public class InventoryManager : MonoBehaviour
     {
         if (_ecgMonitor != null)
         {
-            Debug.Log("Actualizando ECG Monitor en Update del InventarioManager");
+            //Debug.Log("Actualizando ECG Monitor en Update del InventarioManager");
             float salud = (float)PLAYER.CONFIGURATION.health;
         
             // Asumiendo que health es 6 (máximo), normalizamos a 0.0 - 1.0
-            _ecgMonitor.healthPercent = salud / 6.0f;            _ecgMonitor.Tick();
+            _ecgMonitor.healthPercent = salud / 6.0f;            
+            _ecgMonitor.Tick();
         }
     }
     #endregion

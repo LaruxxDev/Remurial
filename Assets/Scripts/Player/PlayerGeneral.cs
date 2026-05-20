@@ -97,7 +97,10 @@ public class PlayerGeneral : MonoBehaviour
         StateMachine.ChangeState(States.NeutralState(StateMachine));
     }
 
-    void Update() => StateMachine.Update();
+    void Update()
+    {
+        StateMachine.Update();
+    }
 
     void FixedUpdate() => StateMachine.FixedUpdate();
 

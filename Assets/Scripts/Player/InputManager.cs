@@ -19,6 +19,7 @@ public class InputManager : MonoBehaviour
     // Movement
     public void InputMovement(InputAction.CallbackContext context)
     {
+        Debug.Log("InputMovement: " + context.ReadValue<Vector2>());
         if (!inputsEnabled)
             return;
 

@@ -17,9 +17,12 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject loadingScreen;
 
+
     void Start()
     {
 
+        DontDestroyOnLoad(gameObject);
+        
         _root = GetComponent<UIDocument>().rootVisualElement;
 
         _newGameButton = _root.Q<Button>("NewGameButton");
@@ -45,6 +48,8 @@ public class MainMenuManager : MonoBehaviour
         _optionsButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
         _exitButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
 
+        _loadGameButton.SetEnabled(true);
+
         if (loadingScreen != null) loadingScreen.SetActive(false);
     }
 
@@ -59,6 +64,7 @@ public class MainMenuManager : MonoBehaviour
         _root.style.display = DisplayStyle.None;
         
         StartCoroutine(LoadSceneAsync("MapaScene"));
+        //SceneManager.LoadScene("MapaScene"); 
         
     }
     IEnumerator LoadSceneAsync(string sceneName)
@@ -92,7 +98,7 @@ public class MainMenuManager : MonoBehaviour
     private void OnLoadGameClicked()
     {
         Debug.Log("Load Game Clicked");
-        // TODO: Implementar lógica de carga de partida 
+        SceneManager.LoadScene("MapaScene"); //TODO
     }
 
     private void OnOptionsClicked()

@@ -22,14 +22,14 @@ public class SaveSystem
 
 
     #region Path and Folder
-    // El path al que irán los save files
+    // El path al que irï¿½n los save files
     public static string GetSaveFolderPath()
     {
         string path = Application.persistentDataPath + "/SavedFiles";
         return path;
     }
 
-    // Genera el nombre del SaveFile. FALTA AÑADIR NUMERO POR NUMERO DE SAVE FUL
+    // Genera el nombre del SaveFile. FALTA Aï¿½ADIR NUMERO POR NUMERO DE SAVE FUL
     public static string SaveFileName()
     {
         string saveFile = GetSaveFolderPath() + "/Save" +  /* Save Number + */ ".save";
@@ -82,6 +82,10 @@ public class SaveSystem
     // Cargado de datos
     private static void HandleLoadData()
     {
+        Debug.Log("Loading Save Data: " + _saveData.PointData.position);
+        if (_saveData.PointData.position == Vector3.zero)
+            _saveData.PointData.position = GameManager.Instancia.spawnPoint.position;
+
         GameManager.Instancia.PLAYER.LoadData(_saveData.PointData, _saveData.PlayerData); 
 
         if (_saveData.InventoryData.items != null && _saveData.InventoryData.items.Count != 0)

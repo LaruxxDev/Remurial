@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image imagenNegra;
     [SerializeField] private float velocidadFade = 1.5f; // A mayor número, más rápido se hace el fade
     [SerializeField] private int frameRate = 30;
+    public Transform spawnPoint;
+
     private bool estaPausado = false;
 
     private void Awake()
