@@ -10588,7 +10588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!192 &596762089
 OcclusionArea:
   m_ObjectHideFlags: 0
@@ -10597,8 +10597,8 @@ OcclusionArea:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596762088}
   serializedVersion: 2
-  m_Size: {x: 24.629879, y: 30.554947, z: 15.735272}
-  m_Center: {x: 6.384737, y: -1.2107887, z: -0.015283823}
+  m_Size: {x: 24.629879, y: 30.554947, z: 19.448112}
+  m_Center: {x: 6.384737, y: -1.2107887, z: 1.8411367}
   m_IsViewVolume: 1
 --- !u!4 &596762090
 Transform:
@@ -36424,7 +36424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   imagenNegra: {fileID: 50940379}
   velocidadFade: 1.5
-  frameRate: 30
+  frameRate: 144
   player: {fileID: 0}
 --- !u!4 &2117413320
 Transform:
