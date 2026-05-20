@@ -29,9 +29,13 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private VisualElement _bigItemImage;
     [SerializeField] private Label _labelName;
     [SerializeField] private Label _labelDesc;
+    private VisualElement _ecgContainer;
     [SerializeField] private Button _actionButton;
     private Button _examineButton;
     private Button _cancelButton;
+
+    private ECGMonitor _ecgMonitor;
+    [Range(0, 1)] public float debugHealth = 1.0f;
 
 
     [Header("Save")]
@@ -64,11 +68,19 @@ public class InventoryManager : MonoBehaviour
         _mainContainer.style.display = DisplayStyle.None;
         _carrusel = _root.Q<VisualElement>("Carrusel");
         _labelName = _root.Q<Label>("ItemName");
-        _bigItemImage = _root.Q<VisualElement>("ItemImage");
+        //_bigItemImage = _root.Q<VisualElement>("ItemImage");
         _labelDesc = _root.Q<Label>("ItemDesc");
+        _ecgContainer = _root.Q<VisualElement>("ECGContainer");
         _actionButton = _root.Q<Button>("ActionButton");
         _examineButton = _root.Q<Button>("ExamineButton");
         _cancelButton = _root.Q<Button>("CancelButton");  
+
+        if (_ecgContainer != null)
+        {
+            _ecgMonitor = new ECGMonitor();
+            _ecgMonitor.style.flexGrow = 1; // Que ocupe todo el espacio
+            _ecgContainer.Add(_ecgMonitor);
+        }
 
         ConfigurarEventos();
     }
@@ -76,6 +88,18 @@ public class InventoryManager : MonoBehaviour
     void OnDestroy()
     {
         LiberarTodasLasTexturas();
+    }
+
+    void Update()
+    {
+        if (_ecgMonitor != null)
+        {
+            Debug.Log("Actualizando ECG Monitor en Update del InventarioManager");
+            float salud = (float)PLAYER.CONFIGURATION.health;
+        
+            // Asumiendo que health es 6 (máximo), normalizamos a 0.0 - 1.0
+            _ecgMonitor.healthPercent = salud / 6.0f;            _ecgMonitor.Tick();
+        }
     }
     #endregion
 

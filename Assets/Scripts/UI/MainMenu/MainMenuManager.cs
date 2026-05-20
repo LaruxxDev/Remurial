@@ -58,7 +58,7 @@ public class MainMenuManager : MonoBehaviour
         }
         _root.style.display = DisplayStyle.None;
         
-        StartCoroutine(LoadSceneAsync("SampleSceneUI")); //TODO
+        StartCoroutine(LoadSceneAsync("MapaScene"));
         
     }
     IEnumerator LoadSceneAsync(string sceneName)
