@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = frameRate;
         // Configuramos el Singleton
         if (Instancia == null) 
         {
@@ -28,7 +26,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        ApplyOptions();
     }
+
+    private void Start()
+    {
+        StartCoroutine(DelayedStart()); // SaveSystem
+    }
+
     #region Puzles
     public void ResolverPuzle(int idPuzle)
     {
@@ -37,8 +43,6 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-
-
 
     #region Funciones de Pausa y Blackout
     public void PausarJuego()
@@ -57,11 +61,6 @@ public class GameManager : MonoBehaviour
     {
         if (estaPausado) ReanudarJuego();
         else PausarJuego();
-    }
-
-    private void Start()
-    {
-        StartCoroutine(DelayedStart()); // SaveSystem
     }
 
     #region Fade
@@ -101,6 +100,15 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+    #endregion
+
+    #region Opciones
+    private void ApplyOptions()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = frameRate;
+    }
+    #endregion
 
     #region Save&Load    
     [Header("Save Locations")]
@@ -118,6 +126,5 @@ public class GameManager : MonoBehaviour
 
         SaveSystem.Initialize();
     }
-    #endregion
     #endregion
 }

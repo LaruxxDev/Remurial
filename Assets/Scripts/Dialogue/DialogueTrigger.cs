@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour, IInteractable
 {
     [Header("Lines")]
     [SerializeField] private DialogueData dialogueData;
@@ -8,15 +8,27 @@ public class DialogueTrigger : MonoBehaviour
 
     [Header("Bool")]
     [Tooltip("Can be retriggered multiple times.")]
+    [SerializeField] private TriggerType triggerType;
+    public enum TriggerType
+    {
+        onInteract,
+        onEnter,
+        both
+    }
+
     [SerializeField] private bool canRetrigger;
     [Space]
     [SerializeField] private bool triggered = false;
+
+    [Header("Interaction")]
+    [SerializeField] private string interactText;
+    public bool isInspectable => false;
 
 
     // Position
     private void OnTriggerEnter(Collider other)
     {
-        if (triggered)
+        if (triggered || triggerType == TriggerType.onInteract)
             return;
 
         var player = other.transform.parent?.GetComponentInChildren<PlayerGeneral>();
@@ -30,7 +42,19 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     // Items / NPCs
-    public void Interact(PlayerGeneral player) => StartDialogue(player);
+    //public void Interact(PlayerGeneral player) => StartDialogue(player);
+    public void Interact(GameObject interactor)
+    {
+        if (triggered || triggerType == TriggerType.onEnter)
+            return;
+
+        PlayerGeneral player = interactor.GetComponentInChildren<PlayerGeneral>();
+
+        if (player != null)
+        {
+            StartDialogue(player);
+        }
+    }
 
     private async void StartDialogue(PlayerGeneral player)
     {
@@ -52,4 +76,8 @@ public class DialogueTrigger : MonoBehaviour
         player.STATEMACHINE.ChangeState(player.STATES.DialogueState(player.STATEMACHINE));
     }
 
+
+
+    public bool UseItem(GameObject item) => false;
+    public string GetInteractText() => interactText;
 }
