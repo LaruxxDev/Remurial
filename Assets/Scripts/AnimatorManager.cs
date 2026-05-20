@@ -26,7 +26,15 @@ public class AnimatorManager : MonoBehaviour
         animator.speed = normalizedSpeed > 0.01f ? speedModifier : 1f;
 
         float targetMotionSpeed = _smoothVelocity.y < -0.01f ? -1f : 1f;
-        animator.SetFloat("MotionSpeed", targetMotionSpeed, 0.1f, Time.fixedDeltaTime);
+
+        foreach(AnimatorControllerParameter param in animator.parameters)
+{
+            if (param.name == "MotionSpeed")
+            {
+                animator.SetFloat("MotionSpeed", targetMotionSpeed, 0.1f, Time.deltaTime);
+                break;
+            }
+        }
     }
 
     public void SetTrigger(string triggerName)
