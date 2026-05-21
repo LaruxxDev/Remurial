@@ -12351,7 +12351,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 149070179162459733, guid: 8cb1f67c59d6eb6449dbf1d0d4864c1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.98
+      value: 177.5
       objectReference: {fileID: 0}
     - target: {fileID: 149070179162459733, guid: 8cb1f67c59d6eb6449dbf1d0d4864c1f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12359,7 +12359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 149070179162459733, guid: 8cb1f67c59d6eb6449dbf1d0d4864c1f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 118.81
+      value: 29.11
       objectReference: {fileID: 0}
     - target: {fileID: 149070179162459733, guid: 8cb1f67c59d6eb6449dbf1d0d4864c1f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15352,6 +15352,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.026, z: 0}
   m_TimeToStationary: 0.5
+--- !u!65 &776441598
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776441593}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0000005, y: 0.052534927, z: 1.9999999}
+  m_Center: {x: -0.000003824163, y: 0.026267445, z: 0.00000006102418}
 --- !u!1001 &779890176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25927,7 +25948,7 @@ Transform:
   m_GameObject: {fileID: 1375732925}
   serializedVersion: 2
   m_LocalRotation: {x: 0.086514555, y: 0, z: 0, w: 0.99625057}
-  m_LocalPosition: {x: 63.18, y: 2.519, z: 114.81}
+  m_LocalPosition: {x: 178.7, y: 2.519, z: 25.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45321,6 +45342,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7999924288736682422, guid: 14cc3e92dcc477441919b881187bdf6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 776441597}
+    - targetCorrespondingSourceObject: {fileID: 7999924288736682422, guid: 14cc3e92dcc477441919b881187bdf6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 776441598}
     - targetCorrespondingSourceObject: {fileID: 9141193572631593435, guid: 14cc3e92dcc477441919b881187bdf6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 370636834}
