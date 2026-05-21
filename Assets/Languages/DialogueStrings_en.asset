@@ -79,12 +79,8 @@ MonoBehaviour:
     m_Localized: Everything in due time, petal.
     m_Metadata:
       m_Items: []
-  - m_Id: 10359278521135109
-    m_Localized: "\uFFFD"
-    m_Metadata:
-      m_Items: []
   - m_Id: 10359278521135111
-    m_Localized: There is a doll there.
+    m_Localized: There is a doll there. It might be useful for later.
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135120
@@ -105,6 +101,38 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10409242026684421
     m_Localized: "A cat and her owner. Cute. It reads \uFFFDMint and I\uFFFD."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903936
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903950
+    m_Localized: "He he he\uFFFD Another soul arrives."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903951
+    m_Localized: "Where\uFFFD Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903952
+    m_Localized: "If I knew that I wouldn\uFFFDt be trapped here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903953
+    m_Localized: So what do I do?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903954
+    m_Localized: What will I find behind it?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903955
+    m_Localized: "I don\uFFFDt know, sweetie. Try that red door maybe,"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11804110248611843
+    m_Localized: "You\uFFFDll see."
     m_Metadata:
       m_Items: []
   references:

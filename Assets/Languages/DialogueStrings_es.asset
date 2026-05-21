@@ -81,12 +81,8 @@ MonoBehaviour:
     m_Localized: Todo a su debido tiempo, petalito.
     m_Metadata:
       m_Items: []
-  - m_Id: 10359278521135109
-    m_Localized: "\uFFFD"
-    m_Metadata:
-      m_Items: []
   - m_Id: 10359278521135111
-    m_Localized: "Una mu\uFFFDeca."
+    m_Localized: "Una mu\uFFFDeca. Quiz\uFFFD me sirva m\uFFFDs adelante."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135120
@@ -108,6 +104,39 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10409242026684421
     m_Localized: "Una gata con su due\uFFFDa. Pone \uFFFDMenta y yo\uFFFD."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903936
+    m_Localized: "\uFFFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903950
+    m_Localized: "Ji ji ji. . . Y as\uFFFD llega otra alma perdida."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903951
+    m_Localized: "\uFFFDD\uFFFDnde...estoy?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903952
+    m_Localized: "Si lo supiera no estar\uFFFDa atrapada aqu\uFFFD."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903953
+    m_Localized: "Bueno, \uFFFDy qu\uFFFD hago ahora?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903954
+    m_Localized: "\uFFFDQu\uFFFD me voy a encontrar?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903955
+    m_Localized: "No lo s\uFFFD. Podr\uFFFDas empezar por esa puerta roja de ah\uFFFD
+      atr\uFFFDs."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11804110248611843
+    m_Localized: "Ya ver\uFFFDs\uFFFD"
     m_Metadata:
       m_Items: []
   references:

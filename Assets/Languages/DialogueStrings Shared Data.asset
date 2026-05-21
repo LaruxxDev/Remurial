@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Key: Darkhallw1
     m_Metadata:
       m_Items: []
-  - m_Id: 10409241955381248
+  - m_Id: 11804110219251712
     m_Key: New Entry 17
     m_Metadata:
       m_Items: []
@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Key: Saving
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242022490112
+  - m_Id: 11804110244417536
     m_Key: New Entry 18
     m_Metadata:
       m_Items: []
@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Key: DoorNeedsKey
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242022490113
+  - m_Id: 11804110244417537
     m_Key: New Entry 19
     m_Metadata:
       m_Items: []
@@ -55,7 +55,7 @@ MonoBehaviour:
     m_Key: WallBroken
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242022490114
+  - m_Id: 11804110244417538
     m_Key: New Entry 20
     m_Metadata:
       m_Items: []
@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Key: HammerObtained
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242022490115
+  - m_Id: 11804110244417539
     m_Key: New Entry 21
     m_Metadata:
       m_Items: []
@@ -95,11 +95,11 @@ MonoBehaviour:
     m_Key: KC_EndingDialog_K3
     m_Metadata:
       m_Items: []
-  - m_Id: 10359278521135109
-    m_Key: Kc_EndingDialog_C4
+  - m_Id: 11801796980903936
+    m_Key: KC_EndingDialog_C4
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242022490116
+  - m_Id: 11804110244417540
     m_Key: New Entry 22
     m_Metadata:
       m_Items: []
@@ -107,27 +107,27 @@ MonoBehaviour:
     m_Key: DollFound
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242022490117
+  - m_Id: 11804110244417541
     m_Key: New Entry 23
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684416
+  - m_Id: 11804110244417542
     m_Key: New Entry 24
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684417
+  - m_Id: 11804110244417543
     m_Key: New Entry 25
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684418
+  - m_Id: 11804110244417544
     m_Key: New Entry 26
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684419
+  - m_Id: 11804110244417545
     m_Key: New Entry 27
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684420
+  - m_Id: 11804110244417546
     m_Key: New Entry 28
     m_Metadata:
       m_Items: []
@@ -135,7 +135,7 @@ MonoBehaviour:
     m_Key: CatFrame
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684422
+  - m_Id: 11804110244417547
     m_Key: New Entry 29
     m_Metadata:
       m_Items: []
@@ -143,15 +143,15 @@ MonoBehaviour:
     m_Key: Painkillers
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684423
+  - m_Id: 11804110244417548
     m_Key: New Entry 30
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684424
+  - m_Id: 11804110244417549
     m_Key: New Entry 31
     m_Metadata:
       m_Items: []
-  - m_Id: 10409242026684425
+  - m_Id: 11804110248611840
     m_Key: New Entry 32
     m_Metadata:
       m_Items: []
@@ -165,6 +165,42 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10359278521135126
     m_Key: PuzzleDryad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11804110248611841
+    m_Key: New Entry 34
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11804110248611842
+    m_Key: New Entry 35
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903950
+    m_Key: KC_StartingDialog_K1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903951
+    m_Key: KC_StartingDialog_C1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903952
+    m_Key: KC_StartingDialog_K2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903953
+    m_Key: KC_StartingDialog_C2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903955
+    m_Key: KC_StartingDialog_K3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11801796980903954
+    m_Key: KC_StartingDialog_C3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11804110248611843
+    m_Key: KC_StartingDialog_K4
     m_Metadata:
       m_Items: []
   m_Metadata:

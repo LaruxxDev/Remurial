@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 public class PickupInteractable  : MonoBehaviour, IInteractable
 {
@@ -21,8 +22,9 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
 
         bool picked = InventoryManager.Instance.AgregarItem(item);
 
-        if (picked)
-            Destroy(gameObject);
+        if (picked)  Destroy(gameObject);
+        
+    
     }
 
     public string GetInteractText() => $"Recoger {definition.itemName}";

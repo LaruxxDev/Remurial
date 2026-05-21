@@ -43,9 +43,15 @@ public class AudioManager : MonoBehaviour
         PlaySoundAtPosition(name, position, true);
     }
 
+
+        
     private void PlaySoundAtPosition(string name, Vector3 position, bool is3D)
     {
         Sound s = Array.Find(sounds, sound => sound.id == name);
+        bool alreadyPlaying = audioPool.Exists(source => source.isPlaying && source.clip == s.clip);
+        
+        if (alreadyPlaying && !s.loop) return;
+
         if (s == null)
         {
             Debug.LogWarning("Sonido no encontrado: " + name);
@@ -73,6 +79,7 @@ public class AudioManager : MonoBehaviour
             availableSource.maxDistance = s.maxDistance;
 
             availableSource.Play();
+    
         }
         else
         {
