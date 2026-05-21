@@ -37,19 +37,31 @@ public class PlayerCollision : MonoBehaviour
 
     public void OnInteractionExit(Collider other)
     {
+        if (currentInteractable == null)
+        {
+            ClearInteractable();
+            return;
+        }
+
         if (other.TryGetComponent<IInteractable>(out var interactable) && interactable == currentInteractable)
         {
-            currentInteractable = null;
-            interactableItem = null;
+            ClearInteractable();
         }
+    }
+
+    public void ClearInteractable()
+    {
+        currentInteractable = null;
+        interactableItem = null;
+
+        //if (HudManager.Instance != null)
+        //    HudManager.Instance.OcultarMensaje();
     }
 
     public void DestroyInteractable()
     {
         Destroy(interactableItem);
-
-        currentInteractable = null;
-        interactableItem = null;
+        ClearInteractable();
     }
     #endregion
 

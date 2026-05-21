@@ -8,23 +8,26 @@ public class PickupInteractable  : MonoBehaviour, IInteractable
     [SerializeField] private InspectSystem inspectSystem;
 
 
-
-
-    public bool isInspectable => true;
+    public bool isInspectable => false;
 
     public void Interact(GameObject interactor)
     {
-        Debug.Log($"Recogiste: {definition.itemName}");
-
-        AudioManager.instance.Play2D("RecogerItem");
+        
 
         Item item = new Item(definition, quantity);
 
         bool picked = InventoryManager.Instance.AgregarItem(item);
 
-        if (picked)  Destroy(gameObject);
-        
-    
+        if (picked)  
+        {
+            AudioManager.instance.Play2D("RecogerItem");
+            Debug.Log($"Recogiste: {definition.itemName}");
+            PlayerCollision collision = interactor.GetComponentInParent<PlayerCollision>();
+            if (collision == null) collision = FindAnyObjectByType<PlayerCollision>();
+            collision?.ClearInteractable();
+            Destroy(gameObject);
+
+        }
     }
 
     public string GetInteractText() => $"Recoger {definition.itemName}";
