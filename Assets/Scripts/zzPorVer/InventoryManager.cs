@@ -37,6 +37,11 @@ public class InventoryManager : MonoBehaviour
     private ECGMonitor _ecgMonitor;
     [Range(0, 1)] public float debugHealth = 1.0f;
 
+    // SOUND
+    [Header("Audio")]
+    [SerializeField] private AudioClip clickSoundClip;
+    [SerializeField] private AudioClip arrowSoundClip;
+    private AudioSource _audioSource;
 
     [Header("Save")]
     [SerializeField] private ItemDatabase itemDatabase;
@@ -69,6 +74,11 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
+        // SOUND
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+            _audioSource = gameObject.AddComponent<AudioSource>();
+
         _root = GetComponent<UIDocument>().rootVisualElement;
         _mainContainer = _root.Q<VisualElement>("MainContainer");
         _mainContainer.style.display = DisplayStyle.None;
@@ -79,7 +89,7 @@ public class InventoryManager : MonoBehaviour
         _ecgContainer = _root.Q<VisualElement>("ECGContainer");
         _actionButton = _root.Q<Button>("ActionButton");
         _examineButton = _root.Q<Button>("ExamineButton");
-        _cancelButton = _root.Q<Button>("CancelButton");  
+        _cancelButton = _root.Q<Button>("CancelButton");
 
         if (_ecgContainer != null)
         {
@@ -102,13 +112,20 @@ public class InventoryManager : MonoBehaviour
         {
             //Debug.Log("Actualizando ECG Monitor en Update del InventarioManager");
             float salud = (float)PLAYER.CONFIGURATION.health;
-        
-            // Asumiendo que health es 6 (máximo), normalizamos a 0.0 - 1.0
-            _ecgMonitor.healthPercent = salud / 6.0f;            
+
+            // Asumiendo que health es 6 (m�ximo), normalizamos a 0.0 - 1.0
+            _ecgMonitor.healthPercent = salud / 6.0f;
             _ecgMonitor.Tick();
         }
     }
     #endregion
+
+    // SOUND
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && _audioSource != null)
+            _audioSource.PlayOneShot(clip);
+    }
 
     #region Inventory Methods
     public bool AgregarItem(Item item)
@@ -212,6 +229,7 @@ public class InventoryManager : MonoBehaviour
         _root.Q<Button>("RightButton").clicked += () =>
         {
             if (itemsList.Count == 0) return;
+            PlaySound(arrowSoundClip); // SOUND
             _index = (_index + 1) % itemsList.Count;
             UpdateUI();
         };
@@ -220,6 +238,7 @@ public class InventoryManager : MonoBehaviour
         _root.Q<Button>("LeftButton").clicked += () =>
         {
             if (itemsList.Count == 0) return;
+            PlaySound(arrowSoundClip); // SOUND
             _index = (_index - 1 + itemsList.Count) % itemsList.Count;
             UpdateUI();
         };
@@ -229,6 +248,8 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemsList.Count == 0)
                 return;
+
+            PlaySound(clickSoundClip); // SOUND
 
             var item = itemsList[_index];
 
@@ -244,13 +265,15 @@ public class InventoryManager : MonoBehaviour
                 itemInstanciado.transform.SetParent(PLAYER.heldPosition);
                 PLAYER.heldItem = itemInstanciado;
             }
-        
+
         };
 
         // Bot�n Examinar
         _examineButton.clicked += () =>
         {
             if (itemsList.Count == 0) return;
+
+            PlaySound(clickSoundClip); // SOUND
 
             var item = itemsList[_index];
 
@@ -266,6 +289,12 @@ public class InventoryManager : MonoBehaviour
                 PLAYER.STATEMACHINE.ChangeState(PLAYER.STATES.InspectState(PLAYER.STATEMACHINE));
             }
 
+        };
+
+        // Bot�n Cancelar
+        _cancelButton.clicked += () =>
+        {
+            PlaySound(clickSoundClip); // SOUND
         };
     }
 
@@ -312,10 +341,10 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-           // if (currentItem.sprite != null)
-           //     _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
-           // else 
-           //     _bigItemImage.style.backgroundImage = StyleKeyword.None;
+            // if (currentItem.sprite != null)
+            //     _bigItemImage.style.backgroundImage = new StyleBackground(currentItem.sprite);
+            // else 
+            //     _bigItemImage.style.backgroundImage = StyleKeyword.None;
         }
 
         //_bigItemImage.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Contain);
@@ -407,7 +436,7 @@ public class InventoryManager : MonoBehaviour
 
     public void NavigateLeft()
     {
-        if (itemsList.Count == 0 || Time.unscaledTime < _navCooldown) 
+        if (itemsList.Count == 0 || Time.unscaledTime < _navCooldown)
             return;
 
         _index = (_index - 1 + itemsList.Count) % itemsList.Count;
@@ -476,10 +505,10 @@ public class InventoryManager : MonoBehaviour
                 };
 
                 // lista de enemigos
-                foreach (var enemy in item.datosFoto.enemiesCaught)               
+                foreach (var enemy in item.datosFoto.enemiesCaught)
                     if (enemy != null)
                         entry.datosFoto.enemyIDs.Add(enemy.gameObject.name);
-                
+
             }
 
             // Guardar la entrada
@@ -497,9 +526,9 @@ public class InventoryManager : MonoBehaviour
 
         foreach (ItemSaveData savedItem in data.items)
         {
-            if (!itemDatabase.TryGet(savedItem.definitionID, out ItemDefinition def))            
+            if (!itemDatabase.TryGet(savedItem.definitionID, out ItemDefinition def))
                 continue;
-            
+
             // Se crea un objeto nuevo
             Item item = new Item(def, savedItem.quantity);
 
@@ -519,8 +548,8 @@ public class InventoryManager : MonoBehaviour
 
             bool added = AgregarItem(item);
 
-            if (!added)            
-                break;     
+            if (!added)
+                break;
         }
     }
     #endregion
