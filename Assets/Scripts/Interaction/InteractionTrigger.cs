@@ -13,4 +13,10 @@ public class InteractionTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) => player.OnInteractionEnter(other);
     private void OnTriggerExit(Collider other) => player.OnInteractionExit(other);
+
+    private void Update()
+    {
+        if (player.currentInteractable != null && player.interactableItem == null)
+            player.ClearInteractable();
+    }
 }
