@@ -76,6 +76,11 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
         player.STATEMACHINE.ChangeState(player.STATES.DialogueState(player.STATEMACHINE));
     }
 
+    // Forma de llamar al diálogo de forma externa
+    public void CallDialogue()
+    {
+        StartDialogue(GameManager.Instancia.PLAYER.transform.parent.GetComponentInChildren<PlayerGeneral>());
+    }
 
 
     public bool UseItem(GameObject item) => false;
