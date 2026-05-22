@@ -60,6 +60,7 @@ public class Tp : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(1.0f);
 
         interactor.transform.position = destino.position;
+        interactor.transform.rotation = destino.rotation;
         yield return new WaitForSeconds(tiempoEnNegro);
 
         GameManager.Instancia.QuitarBlackout();
