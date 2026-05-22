@@ -295,6 +295,11 @@ public class InventoryManager : MonoBehaviour
         _cancelButton.clicked += () =>
         {
             PlaySound(clickSoundClip); // SOUND
+            if (PLAYER.heldItem != null) { 
+                Destroy(PLAYER.heldItem);
+                PLAYER.heldItem = null;
+            }
+
         };
     }
 
