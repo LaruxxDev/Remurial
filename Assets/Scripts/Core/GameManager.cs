@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private Image imagenNegra;
     [SerializeField] private float velocidadFade = 1.5f; // A mayor número, más rápido se hace el fade
+    [SerializeField] private int frameRate = 30;
+    public Transform spawnPoint;
+
+    private bool estaPausado = false;
 
     private void Awake()
     {
@@ -22,8 +27,61 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        ApplyOptions();
     }
 
+    private void Start()
+    {
+        StartCoroutine(DelayedStart()); // SaveSystem
+    }
+
+    #region Puzzles
+    [Header("Cuna")]
+    [SerializeField] private List<Cuna> cunas;
+    [SerializeField] private GameObject key;
+
+    public void TrySolvePuzzle()
+    {
+        bool allCorrect = true;
+
+        foreach (Cuna cuna in cunas)
+            if (!cuna.isCorrect)
+                allCorrect = false;
+
+
+        if (allCorrect)
+            SolvePuzzle();
+    }
+
+    public void SolvePuzzle()
+    {
+        Debug.Log("Puzzle resuelto");
+
+        key.SetActive(true);
+    }
+    #endregion
+
+    #region Funciones de Pausa y Blackout
+    public void PausarJuego()
+    {
+        Time.timeScale = 0f; 
+        estaPausado = true;
+    }
+
+    public void ReanudarJuego()
+    {
+        Time.timeScale = 1f;
+        estaPausado = false;
+    }
+
+    public void TogglePausa()
+    {
+        if (estaPausado) ReanudarJuego();
+        else PausarJuego();
+    }
+
+    #region Fade
     // ── Llama a esta función para que la pantalla se ponga negra ──
     public void HacerBlackout()
     {
@@ -59,4 +117,32 @@ public class GameManager : MonoBehaviour
             yield return null; // Esperamos al siguiente frame
         }
     }
+    #endregion
+    #endregion
+
+    #region Opciones
+    private void ApplyOptions()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = frameRate;
+    }
+    #endregion
+
+    #region Save&Load    
+    [Header("Save Locations")]
+    [SerializeField] private PlayerConfiguration player;    // Referencia al player
+    public PlayerConfiguration PLAYER
+    {
+        get => player;
+        set => player = value;
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return new WaitUntil(() => player != null);
+        yield return new WaitForFixedUpdate();
+
+        SaveSystem.Initialize();
+    }
+    #endregion
 }

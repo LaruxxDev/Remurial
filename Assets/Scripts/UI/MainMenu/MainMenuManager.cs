@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.IO;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -11,11 +12,17 @@ public class MainMenuManager : MonoBehaviour
     private Button _loadGameButton;
     private Button _optionsButton;
     private Button _exitButton;
+    public AudioClip hoverSound;
+    private AudioSource _audioSource;
+    public AudioClip clickSound;
 
     public GameObject loadingScreen;
 
+
     void Start()
     {
+
+        DontDestroyOnLoad(gameObject);
 
         _root = GetComponent<UIDocument>().rootVisualElement;
 
@@ -29,20 +36,43 @@ public class MainMenuManager : MonoBehaviour
         _optionsButton.clicked += OnOptionsClicked;
         _exitButton.clicked += OnExitClicked;
 
+        _audioSource = gameObject.AddComponent<AudioSource>();
+
+        //AudiosHover
+        _newGameButton.RegisterCallback<MouseEnterEvent>(evt => _audioSource.PlayOneShot(hoverSound));
+        _loadGameButton.RegisterCallback<MouseEnterEvent>(evt => _audioSource.PlayOneShot(hoverSound));
+        _optionsButton.RegisterCallback<MouseEnterEvent>(evt => _audioSource.PlayOneShot(hoverSound));
+        _exitButton.RegisterCallback<MouseEnterEvent>(evt => _audioSource.PlayOneShot(hoverSound));
+        //AudiosClick
+        _newGameButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
+        _loadGameButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
+        _optionsButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
+        _exitButton.RegisterCallback<ClickEvent>(evt => _audioSource.PlayOneShot(clickSound));
+
+        _loadGameButton.SetEnabled(SaveExists());
+
         if (loadingScreen != null) loadingScreen.SetActive(false);
+    }
+
+    private bool SaveExists()
+    {
+        return File.Exists(SaveSystem.SaveFileName());
+    }
+
+    private void StartGame()
+    {
+        if (loadingScreen != null) loadingScreen.SetActive(true);
+        _root.style.display = DisplayStyle.None;
+        StartCoroutine(LoadSceneAsync("MapaScene"));
     }
 
     private void OnNewGameClicked()
     {
     
         Debug.Log("New Game Clicked");
-        if (loadingScreen != null)
-        {
-            loadingScreen.SetActive(true);
-        }
-        _root.style.display = DisplayStyle.None;
-        
-        StartCoroutine(LoadSceneAsync("SampleSceneUI")); //TODO
+        if (SaveExists())
+            File.Delete(SaveSystem.SaveFileName());
+        StartGame();
         
     }
     IEnumerator LoadSceneAsync(string sceneName)
@@ -76,7 +106,7 @@ public class MainMenuManager : MonoBehaviour
     private void OnLoadGameClicked()
     {
         Debug.Log("Load Game Clicked");
-        // TODO: Implementar lógica de carga de partida 
+        StartGame();
     }
 
     private void OnOptionsClicked()

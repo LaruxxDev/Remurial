@@ -3,6 +3,7 @@ using UnityEngine;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using PSX;
 
 public class CameraController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CameraController : MonoBehaviour
     private CinemachinePanTilt panTiltComponent;
 
     [Header("Input")]
-    [SerializeField] private GameInputReader _input;
+    //[SerializeField] private GameInputReader _input;
 
     [Header("Configuración")]
     public int aimPriority = 20;
@@ -43,7 +44,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float intensidadMaximaFlash = 122f;
     [SerializeField] private float duracionApagadoFlash = 1f;
 
-    private int contadorFotos = 0;
+    private int contadorFotos = 100;
     private float tiempoProximaFoto = 0f;
     private bool toggleFlash = true;
     private GameObject fotoFisica = null;
@@ -73,24 +74,26 @@ public class CameraController : MonoBehaviour
             flashEffect.SetActive(false);
     }
 
+
+
     private void OnEnable()
     {
-        _input.OnAttackStarted  += HandleAttack;
-        _input.OnAimStarted     += HandleAimStart;
-        _input.OnAimCanceled    += HandleAimStop;
-        _input.OnFlashStarted   += HandleFlash;
-        _input.OnToggleFlash    += HandleToggleFlash;
-        _input.OnSave           += HandleSave;
+        //_input.OnAttackStarted  += HandleAttack;
+        //_input.OnAimStarted     += HandleAimStart;
+        //_input.OnAimCanceled    += HandleAimStop;
+        //_input.OnFlashStarted   += HandleFlash;
+        //_input.OnToggleFlash    += HandleToggleFlash;
+        //_input.OnSave           += HandleSave;
     }
 
     private void OnDisable()
     {
-        _input.OnAttackStarted  -= HandleAttack;
-        _input.OnAimStarted     -= HandleAimStart;
-        _input.OnAimCanceled    -= HandleAimStop;
-        _input.OnFlashStarted   -= HandleFlash;
-        _input.OnToggleFlash    -= HandleToggleFlash;
-        _input.OnSave           -= HandleSave;
+        //_input.OnAttackStarted  -= HandleAttack;
+        //_input.OnAimStarted     -= HandleAimStart;
+        //_input.OnAimCanceled    -= HandleAimStop;
+        //_input.OnFlashStarted   -= HandleFlash;
+        //_input.OnToggleFlash    -= HandleToggleFlash;
+        //_input.OnSave           -= HandleSave;
     }
 
     #endregion
@@ -206,6 +209,12 @@ public class CameraController : MonoBehaviour
             luzFlash.enabled = true;
             luzFlash.intensity = intensidadMaximaFlash;
         }
+
+        // Testing lanzamiento de afterimage
+        Debug.Log("[Afterimage] Instance: " + (AfterimagFeature.Instance != null ? "OK" : "NULL"));
+        AfterimagFeature.Instance?.TriggerFlash();
+
+
         StartCoroutine(SecuenciaDesactivarFlash());
     }
 
@@ -266,20 +275,20 @@ public class CameraController : MonoBehaviour
             {
                 Debug.LogError("El prefab de la foto no tiene MeshRenderer.");
             }
-            DatosFotos nuevosDatosFoto = new DatosFotos("Foto_" + contadorFotos, "", reavelTime, enemigosCapturados);
-            Item nuevoItem = new Item
-            {
-                name = "Foto_" + contadorFotos,
-                description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
-                esFoto = true,
-                datosFoto = nuevosDatosFoto,
-                prefabItem = prefabFotoFisica
-            };
+            //DatosFotos nuevosDatosFoto = new DatosFotos("Foto_" + contadorFotos, "", reavelTime, enemigosCapturados);
+            //Item nuevoItem = new Item
+            //{
+            //    name = "Foto_" + contadorFotos,
+            //    description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
+            //    esFoto = true,
+            //    //datosFoto = nuevosDatosFoto,
+            //    prefabItem = prefabFotoFisica
+            //};
             FotoRevelado scriptRevelado = fotoInstanciada.GetComponent<FotoRevelado>();
-            if (scriptRevelado != null)
-                scriptRevelado.datos = nuevosDatosFoto;
-            else
-                Debug.LogError("El prefab de la foto no tiene el script FotoRevelado.");
+            //if (scriptRevelado != null)
+            //    scriptRevelado.datos = nuevosDatosFoto;
+            //else
+            //    Debug.LogError("El prefab de la foto no tiene el script FotoRevelado.");
 
         }
         else
@@ -318,29 +327,29 @@ public class CameraController : MonoBehaviour
         {
             progresoRescatado = scriptRevelado.datos.revealProgress;
             // ¡Recuperamos la lista de enemigos que guardamos en ProcesoTomarFoto!
-            enemigosRescatados = scriptRevelado.datos.enemigosCapturados; 
+            //enemigosRescatados = scriptRevelado.datos.enemigosCapturados; 
         }
 
         // 4. CREAR EL NUEVO OBJETO DATOSFOTOS INCLUYENDO LA LISTA RESCATADA
-        DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime, enemigosRescatados)
-        {
-            revealProgress = progresoRescatado
-        };
+        //DatosFotos nuevaFoto = new DatosFotos(idFoto, rutaCompleta, reavelTime, enemigosRescatados)
+        //{
+        //    revealProgress = progresoRescatado
+        //};
 
-        Item itemFoto = new Item
-        {
-            name = idFoto,
-            description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
-            esFoto = true,
-            datosFoto = nuevaFoto,
-            prefabItem = prefabFotoFisica
-        };
+        //Item itemFoto = new Item
+        //{
+        //    name = idFoto,
+        //    description = "Una foto tomada el " + System.DateTime.Now.ToString("dd/MM/yyyy"),
+        //    esFoto = true,
+        //    //datosFoto = nuevaFoto,
+        //    prefabItem = prefabFotoFisica
+        //};
 
-        bool agregada = InventarioManager.Instance.AgregarItem(itemFoto);
-        if (agregada)
-            Debug.Log("Foto guardada: " + rutaCompleta);
-        else
-            Debug.LogWarning("No se pudo agregar al inventario.");
+        //bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
+        //if (agregada)
+        //    Debug.Log("Foto guardada: " + rutaCompleta);
+        //else
+        //    Debug.LogWarning("No se pudo agregar al inventario.");
 
         Destroy(texturaFoto);
         Destroy(foto);

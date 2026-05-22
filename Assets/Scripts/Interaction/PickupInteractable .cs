@@ -1,19 +1,39 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 public class PickupInteractable  : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Item _data;
-    [SerializeField] private InspectSystem _inspectSystem;
-    public Item Data => _data;
+    [SerializeField] private ItemDefinition definition;
+    public ItemDefinition Definition => definition;
+    [SerializeField] private int quantity = 1;
+    [SerializeField] private InspectSystem inspectSystem;
+
+
+    public bool isInspectable => false;
 
     public void Interact(GameObject interactor)
     {
-        Debug.Log($"Recogiste: {_data.name}");
-        _inspectSystem.EnterInspectionMode(interactor);
-        AudioManager.instance.Play2D("RecogerItem");
+        
 
-        InventarioManager.Instance.AgregarItem(_data);
-        Destroy(gameObject);
+        Item item = new Item(definition, quantity);
+
+        bool picked = InventoryManager.Instance.AgregarItem(item);
+
+        if (picked)  
+        {
+            AudioManager.instance.Play2D("RecogerItem");
+            Debug.Log($"Recogiste: {definition.itemName}");
+            PlayerCollision collision = interactor.GetComponentInParent<PlayerCollision>();
+            if (collision == null) collision = FindAnyObjectByType<PlayerCollision>();
+            collision?.ClearInteractable();
+            Destroy(gameObject);
+
+        }
     }
 
-    public string GetInteractText() => $"Recoger {_data.name}";
+    public string GetInteractText() => $"Recoger {definition.itemName}";
+
+    public bool UseItem(GameObject item)
+    {
+        return false;
+    }
 }

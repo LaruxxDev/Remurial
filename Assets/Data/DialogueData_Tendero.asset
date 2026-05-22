@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdad9e5b265b3eb4e9be7d20bf9fb4d5, type: 3}
+  m_Name: DialogueData_Tendero
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - line:
+      m_TableReference:
+        m_TableCollectionName: GUID:bcc276741de44c348bb12478772571ae
+      m_TableEntryReference:
+        m_KeyId: 291831194652672
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    textSpeed: 0.5
+    portrait: {fileID: 21300000, guid: 8ae8845c95d5dba45a7f6634b39e1099, type: 3}
+    sound: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []

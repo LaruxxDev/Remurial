@@ -16,7 +16,7 @@ public class ECGMonitor : VisualElement
     }
     public void Tick()
     {
-        Debug.Log($"ECG Tick - Health: {healthPercent * 100}%");
+        //Debug.Log($"ECG Tick - Health: {healthPercent * 100}%");
         // El latido se acelera según baja la vida (multiplicador de 1x a 4x)
         float speedMultiplier = 1.0f + (1.0f - healthPercent) * 3.0f;
         timer += Time.deltaTime * speedMultiplier;
@@ -35,7 +35,7 @@ public class ECGMonitor : VisualElement
         if (points.Count > 150) points.RemoveAt(points.Count - 1);
 
         MarkDirtyRepaint(); // Forzar a UIToolkit a redibujar este elemento
-        Debug.Log($"ECG Points Count: {points.Count} - Latest Y: {y}");
+        //Debug.Log($"ECG Points Count: {points.Count} - Latest Y: {y}");
     }
 
     private float GetECGValue(float t)

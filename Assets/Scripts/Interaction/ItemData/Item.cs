@@ -1,54 +1,69 @@
 using UnityEngine;
 
-[System.Serializable]
 public class Item
 {
-    public string name = "item";
-    public string description = "description";
-    public int id = 0;
-    public bool isKeyItem = false;
-    public bool isUsable = false;
-    public int quantity = 1;
-    public int maxStack = 99;
-    public Sprite sprite;
+    public ItemDefinition definition;
+    public int quantity;
+    public DatosFotos datosFoto;
 
-    public bool esFoto = false;
-    public DatosFotos datosFoto; 
+    // Custom Overrides
+    public string customName;
+    public string customDescription;
 
-    public GameObject prefabItem;
+    // Values
+    public int ID => definition.ID;
+    public string itemName =>
+        string.IsNullOrWhiteSpace(customName)
+            ? definition.itemName
+            : customName;
 
-    // Devuelve el GameObject listo para inspeccionar
-    public GameObject ObtenerGameObjectParaInspeccion()
+    public string description =>
+        string.IsNullOrWhiteSpace(customDescription)
+            ? definition.description
+            : customDescription;
+    public int maxStack => definition.maxStack;
+
+    // Designations
+    public bool isKeyItem => definition.isKeyItem;
+    public bool isUsable => definition.isUsable;
+    public bool isPhoto => definition.isPhoto;
+
+    // References
+    public Sprite sprite => definition.sprite;
+    public GameObject prefabItem => definition.prefabInspectionItem;
+    public GameObject pickupPrefab => definition.prefabPickableItem;
+
+
+    public Item(ItemDefinition definition, int quantity = 1)
+    {
+        this.definition = definition;
+        this.quantity = quantity;
+    }
+
+    // Intenta devolver el objeto para la inspección
+    public GameObject GetObjectForInspection()
     {
         if (prefabItem == null)
-        {
-            Debug.LogError("El item " + name + " no tiene prefab de inspección asignado.");
             return null;
-        }
 
-        GameObject instancia = GameObject.Instantiate(prefabItem,Vector3.zero, Quaternion.identity);
+        GameObject instance = Object.Instantiate(prefabItem, Vector3.zero, Quaternion.identity);
 
-        // Si es foto, le cargamos la textura
-        if (esFoto && datosFoto != null)
+        if (isPhoto && datosFoto != null)
         {
             if (datosFoto.textura == null)
-            {
                 datosFoto.CargarTextura();
-            }
 
-            MeshRenderer meshRenderer = instancia.GetComponentInChildren<MeshRenderer>();
-            if (meshRenderer != null)
+            MeshRenderer mRenderer = instance.GetComponentInChildren<MeshRenderer>();
+
+            if (mRenderer != null)
             {
-                meshRenderer.material = new Material(meshRenderer.material);
-                meshRenderer.material.mainTexture = datosFoto.textura;
-                Debug.Log("Textura aplicada a la instancia de foto: " + name);
-            }
-            else
-            {
-                Debug.LogError("El prefab de foto no tiene MeshRenderer.");
+                mRenderer.material = new Material(mRenderer.material);
+                mRenderer.material.mainTexture = datosFoto.textura;
             }
         }
 
-        return instancia;
+        return instance;
     }
+
+    public bool HasValidSprite() => definition.sprite != null;
 }
