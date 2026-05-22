@@ -19,6 +19,7 @@ public class PhotoController : MonoBehaviour
     [SerializeField] private CinemachineCamera mainCamera;
     [SerializeField] private CinemachineCamera aimCamera;
 
+    [SerializeField] private Transform hardLookAt;
     [SerializeField] private CinemachinePanTilt panTiltComponent;
 
 
@@ -35,18 +36,14 @@ public class PhotoController : MonoBehaviour
     [Header("Photo Prefab")]
     [SerializeField] private GameObject photoPrefab;    // Prefab de la foto
     [SerializeField] private Transform photoSpawnPoint; // Zona de creación
+    [SerializeField] private ItemDefinition photoDefinition;
 
     private int photoCount = 0; //GestorInventario.Instance.fotosEnInventario.Count; // Contador para nombrar las fotos de forma única
 
 
     [Header("Aim Values")]
-    [SerializeField] private float yawLimit;            // Min/Max del yaw
     private float yawCurrent;
-
-    [SerializeField] private float pitchLimit;          // Min/Max del pitch
     private float pitchCurrent;
-
-    [SerializeField] private ItemDefinition photoDefinition;
     #endregion
 
 
@@ -67,7 +64,6 @@ public class PhotoController : MonoBehaviour
         if (aimCamera != null)
             panTiltComponent = aimCamera.GetComponent<CinemachinePanTilt>();
 
-
         flashMaxIntensity = flashLight.intensity;
     }
 
@@ -83,6 +79,35 @@ public class PhotoController : MonoBehaviour
         ApplyLook(yaw, pitch);
     }
 
+    #region CameraSwitch
+    private Coroutine delayedSwitchCoroutine;
+    public void CameraSwitch(CinemachineCamera camera)
+    {
+        if (camera == aimCamera)
+        {
+            if (delayedSwitchCoroutine != null)
+            {
+                StopCoroutine(delayedSwitchCoroutine);
+                delayedSwitchCoroutine = null;
+            }
+
+            mainCamera.LookAt = null;
+        }
+        else
+        {
+            delayedSwitchCoroutine = StartCoroutine(DelayedSwitch(1.2f));
+        }
+    }
+
+    private IEnumerator DelayedSwitch(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        mainCamera.LookAt = hardLookAt;
+        delayedSwitchCoroutine = null;
+    }
+    #endregion
+
     #region Aim
     private void ApplyLook(float yaw, float pitch)
     {
@@ -91,11 +116,9 @@ public class PhotoController : MonoBehaviour
 
         // Yaw
         yawCurrent += yaw;
-        yawCurrent = Mathf.Clamp(yawCurrent, -yawLimit, yawLimit);
 
         // Pitch
         pitchCurrent -= pitch;
-        pitchCurrent = Mathf.Clamp(pitchCurrent, -pitchLimit, pitchLimit);
 
         // Set
         panTiltComponent.PanAxis.Value = yawCurrent;

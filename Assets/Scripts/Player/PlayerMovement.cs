@@ -15,9 +15,9 @@ public class PlayerMovement
     }
 
     #region Movement
-
     public void VelocityMovement(Vector2 inputVec, Transform cameraTransform)
     {
+        // Movement
         Vector3 movement = playerRigidbody.transform.forward * inputVec.y * PlayerConfiguration.MOVESPEED;
 
         playerRigidbody.linearVelocity = new Vector3(
@@ -26,15 +26,20 @@ public class PlayerMovement
             movement.z
         );
 
+        // Rotation
         float rotation = inputVec.x * PlayerConfiguration.TURNSPEED * Time.deltaTime;
         Quaternion deltaRotation = Quaternion.Euler(0f, rotation, 0f);
 
         playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);
     }
 
+
     public void VelocityCamera(Vector2 inputVec, Transform cameraTransform)
     {
-        Vector3 movement = playerRigidbody.transform.forward * inputVec.y * PlayerConfiguration.CAMERAMOVESPEED;
+        // Movement
+        Vector3 forward = cameraTransform.forward * inputVec.y;
+        Vector3 right = cameraTransform.right * inputVec.x;
+        Vector3 movement = (forward + right).normalized * PlayerConfiguration.CAMERAMOVESPEED;
 
         playerRigidbody.linearVelocity = new Vector3(
             movement.x,
@@ -42,6 +47,7 @@ public class PlayerMovement
             movement.z
         );
 
+        // Rotation
         float rotation = inputVec.x * PlayerConfiguration.TURNSPEED * Time.deltaTime;
         Quaternion deltaRotation = Quaternion.Euler(0f, rotation, 0f);
 
@@ -52,7 +58,6 @@ public class PlayerMovement
     {
         playerRigidbody.linearVelocity = Vector3.zero;
     }
-
     #endregion
 
     #region Actions

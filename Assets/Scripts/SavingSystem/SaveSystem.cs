@@ -82,6 +82,7 @@ public class SaveSystem
     // Cargado de datos
     private static void HandleLoadData()
     {
+        Debug.Log(_saveData.PointData.position);
         GameManager.Instancia.PLAYER.LoadData(_saveData.PointData, _saveData.PlayerData); 
 
         if (_saveData.InventoryData.items != null && _saveData.InventoryData.items.Count != 0)

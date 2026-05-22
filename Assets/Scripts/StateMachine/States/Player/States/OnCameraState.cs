@@ -15,7 +15,10 @@ public class OnCameraState : PlayerState
     {
         lowLevelMachine.ChangeState(PLAYER.STATES.CameraIdleSubState(lowLevelMachine));
 
-        CameraManager.SwitchCamera(PLAYER.firstPersonCamera);
+        PLAYER.PHOTO.CameraSwitch(PLAYER.firstPersonCamera);
+        CameraManager.SwitchCamera(PLAYER.firstPersonCamera); 
+        
+        PLAYER.MODEL.enabled = false;
     }
 
     public override void Update()
@@ -56,8 +59,12 @@ public class OnCameraState : PlayerState
         base.Exit();
 
         PLAYER.PHOTO.ResetCamera();
+        PLAYER.PHOTO.CameraSwitch(PLAYER.thirdPersonCamera);
         CameraManager.SwitchCamera(PLAYER.thirdPersonCamera);
+
+        PLAYER.MODEL.enabled = true;
     }
+
     public override void FixedUpdate() => lowLevelMachine.FixedUpdate();
     public override void LateUpdate() => lowLevelMachine.LateUpdate();
 }

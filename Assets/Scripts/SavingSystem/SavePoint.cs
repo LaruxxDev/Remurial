@@ -7,10 +7,19 @@ public class SavePoint : MonoBehaviour, IInteractable
     [SerializeField] private string interactText;
 
     [Header("World Transform")]
-    [SerializeField] private Vector3 position;
-    [SerializeField] private Quaternion rotation;
+    [SerializeField] private Transform spawnPoint;
+    private Vector3 position;
+    private Quaternion rotation;
 
     public bool isInspectable => false;
+
+
+    private void Start()
+    {
+        // World Transform
+        position = spawnPoint.position;
+        rotation = spawnPoint.rotation;
+    }
 
     public void SaveData(ref SavePointData data)
     {
