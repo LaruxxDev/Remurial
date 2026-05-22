@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cuna : MonoBehaviour, IInteractable
@@ -35,6 +36,7 @@ public class Cuna : MonoBehaviour, IInteractable
                 pickup.Interact(interactor);
             }
 
+            Destroy(itemEnCuna);
             isCorrect = false;
             isEmpty = true;
             itemEnCuna = null;
