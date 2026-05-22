@@ -4940,7 +4940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &151869698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63518,10 +63518,11 @@ GameObject:
   - component: {fileID: 2042258320}
   - component: {fileID: 2042258323}
   - component: {fileID: 2042258322}
-  - component: {fileID: 2042258321}
-  m_Layer: 0
+  - component: {fileID: 2042258324}
+  - component: {fileID: 2042258325}
+  m_Layer: 7
   m_Name: Poema
-  m_TagString: Untagged
+  m_TagString: Interactuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63534,35 +63535,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042258319}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.10250053, z: -0, w: 0.99473304}
-  m_LocalPosition: {x: 34.133, y: 0.78, z: 19.783}
+  m_LocalRotation: {x: -0, y: 0.15303655, z: -0, w: 0.9882206}
+  m_LocalPosition: {x: 34.461227, y: 0.78, z: 19.74672}
   m_LocalScale: {x: 0.020526018, y: 1, z: 0.031561777}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002247813}
-  m_LocalEulerAnglesHint: {x: 0, y: -11.766, z: 0}
---- !u!64 &2042258321
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042258319}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 17.606, z: 0}
 --- !u!23 &2042258322
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63621,6 +63600,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042258319}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &2042258324
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042258319}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 93.524284, y: 1.0085745, z: 51.19842}
+  m_Center: {x: -1.8746583, y: -0.50428724, z: -20.59932}
+--- !u!114 &2042258325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042258319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd3723ee3fd5724ea64abc9c71cc25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PoemReadable
+  player: {fileID: 609972875}
+  poem: {fileID: 151869697}
+  description: Un caramelitoooo
 --- !u!4 &2042413350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5188655200957057387, guid: b7b0f9b0d60c89841ba35dffb9d7768b, type: 3}
