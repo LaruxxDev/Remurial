@@ -215,17 +215,15 @@ MonoBehaviour:
   heldPhoto: {fileID: 0}
   flashObject: {fileID: 2491284864852101439}
   AnimatorManager: {fileID: 5553010249299298244}
+  PlayerModel: {fileID: 786896485679985159}
   InspectSystem: {fileID: 3365729149582917134}
   inspectionItem: {fileID: 0}
   InventoryManager: {fileID: 4060999334839560220}
   firstPersonCamera: {fileID: 409452219361696693}
   thirdPersonCamera: {fileID: 4564599316103284426}
   inspectionCamera: {fileID: 5658633048612374804}
-  stateText: {fileID: 0}
-  subStateText: {fileID: 0}
-  hpText: {fileID: 0}
-  savePointA: {fileID: 0}
-  savePointB: {fileID: 0}
+  heldItem: {fileID: 0}
+  heldPosition: {fileID: 0}
 --- !u!1 &890391843576991904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1109,7 @@ MonoBehaviour:
   PLAYER: {fileID: 5146783926852747851}
   mainCamera: {fileID: 4564599316103284426}
   aimCamera: {fileID: 409452219361696693}
+  hardLookAt: {fileID: 5930726565711452518}
   panTiltComponent: {fileID: 0}
   photoArea: {fileID: 6459467967940396904}
   flashArea: {fileID: 2491284864852101439}
@@ -1120,8 +1119,6 @@ MonoBehaviour:
   flashMaxIntensity: 0
   photoPrefab: {fileID: 864132496829830496, guid: 99eccdf6c75ba624c9102d92ab35c5d5, type: 3}
   photoSpawnPoint: {fileID: 5458080560018060649}
-  yawLimit: 50
-  pitchLimit: 40
   photoDefinition: {fileID: 11400000, guid: f242f91d9be31c74b8ae1d383e92b7a3, type: 2}
 --- !u!1 &2756959878103322078
 GameObject:
@@ -1949,6 +1946,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerConfiguration
   player: {fileID: 4723283638175634725}
+  flashLight: {fileID: 0}
+  flashDuration: 0
+  flashMaxIntensity: 0
+  flashArea: {fileID: 0}
   health: 6
   maxHealth: 6
   healthRegen: 1
@@ -3342,6 +3343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   maxItems: 20
   PLAYER: {fileID: 5146783926852747851}
+  debugHealth: 1
+  clickSoundClip: {fileID: 0}
+  arrowSoundClip: {fileID: 0}
   itemDatabase: {fileID: 11400000, guid: 15adeba8d3ff2f442ad6d62a11d1a043, type: 2}
 --- !u!114 &786369783858439537
 MonoBehaviour:

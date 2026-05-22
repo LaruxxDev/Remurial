@@ -65,6 +65,14 @@ PrefabInstance:
       value: martilloPickup
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 13c21ab0149ccb54a9e79862624cac2e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13c21ab0149ccb54a9e79862624cac2e, type: 3}
+      propertyPath: m_TagString
+      value: Interactuable
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 13c21ab0149ccb54a9e79862624cac2e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}

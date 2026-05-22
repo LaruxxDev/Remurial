@@ -76,11 +76,9 @@ public class NeutralState : PlayerState
             if (PLAYER.COLLISION.INTERACT)
             {
                 var interactable = PLAYER.COLLISION.currentInteractable;
-
                 bool isInspectable = interactable.isInspectable;
                 GameObject itemParaInspeccionar = PLAYER.COLLISION.interactableItem;
-                
-                
+
                 interactable.Interact(PLAYER.Rigidbody.gameObject);
 
                 if (isInspectable && itemParaInspeccionar != null)

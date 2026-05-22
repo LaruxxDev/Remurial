@@ -55,6 +55,9 @@ public class PlayerGeneral : MonoBehaviour
     [SerializeField] AnimatorManager AnimatorManager;
     public AnimatorManager ANIMATION => AnimatorManager;
 
+    [SerializeField] private SkinnedMeshRenderer PlayerModel;
+    public SkinnedMeshRenderer MODEL => PlayerModel;
+
 
     [Header("Inspection")]
     [SerializeField] InspectSystem InspectSystem;
@@ -90,6 +93,8 @@ public class PlayerGeneral : MonoBehaviour
         // Stats
         PlayerMovement = new PlayerMovement(Rigidbody, PlayerConfiguration, this);
         PlayerHealth = new PlayerHealth(PlayerConfiguration, this);
+
+        mainCamera = FindAnyObjectByType<Camera>().transform;
     }
 
     void Start()

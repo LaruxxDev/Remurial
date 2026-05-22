@@ -7,9 +7,9 @@ using System.Collections;
 public class PhotoController : MonoBehaviour
 {
     #region Values and References
-    [Header("Configuraci�n")]
+    [Header("Configuración")]
     public float revealTime = 5f;                   // Tiempo que tarda en revelarse la foto
-    private string folderRoute;                     // Ruta donde se guardar�n las fotos
+    private string folderRoute;                     // Ruta donde se guardarán las fotos
     [SerializeField] private PlayerGeneral PLAYER;
 
     GameObject photoObject = null;
@@ -19,6 +19,7 @@ public class PhotoController : MonoBehaviour
     [SerializeField] private CinemachineCamera mainCamera;
     [SerializeField] private CinemachineCamera aimCamera;
 
+    [SerializeField] private Transform hardLookAt;
     [SerializeField] private CinemachinePanTilt panTiltComponent;
 
 
@@ -28,29 +29,25 @@ public class PhotoController : MonoBehaviour
     [SerializeField] private Light flashLight;          // Luz del flash
 
     [SerializeField] private bool toggleFlash;          // Alternar el flash
-    [SerializeField] private float flashDuration;       // Duraci�n del flash en segundos
-    [SerializeField] private float flashMaxIntensity;   // Intensidad m�xima de la luz durante el flash
+    [SerializeField] private float flashDuration;       // Duración del flash en segundos
+    [SerializeField] private float flashMaxIntensity;   // Intensidad máxima de la luz durante el flash
 
 
     [Header("Photo Prefab")]
     [SerializeField] private GameObject photoPrefab;    // Prefab de la foto
-    [SerializeField] private Transform photoSpawnPoint; // Zona de creaci�n
+    [SerializeField] private Transform photoSpawnPoint; // Zona de creación
+    [SerializeField] private ItemDefinition photoDefinition;
 
-    private int photoCount = 0; //GestorInventario.Instance.fotosEnInventario.Count; // Contador para nombrar las fotos de forma �nica
+    private int photoCount = 0; //GestorInventario.Instance.fotosEnInventario.Count; // Contador para nombrar las fotos de forma única
 
 
     [Header("Aim Values")]
-    [SerializeField] private float yawLimit;            // Min/Max del yaw
     private float yawCurrent;
-
-    [SerializeField] private float pitchLimit;          // Min/Max del pitch
     private float pitchCurrent;
-
-    [SerializeField] private ItemDefinition photoDefinition;
     #endregion
 
 
-    // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDR�N LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
+    // CUANDO EXPORTEMOS LA CARPETA ASSETS NO SALDRÁN LOS ARCHIVOS DE FOTOS, POR ESO GUARDAMOS EN PERSISTENTDATA
     void Awake()
     {
         // Guardaremos las fotos en una subcarpeta llamada "AlbumPolaroid"
@@ -67,12 +64,11 @@ public class PhotoController : MonoBehaviour
         if (aimCamera != null)
             panTiltComponent = aimCamera.GetComponent<CinemachinePanTilt>();
 
-
         flashMaxIntensity = flashLight.intensity;
     }
 
 
-    // Update solo llamado cuando el estado correcto est� activo
+    // Update solo llamado cuando el estado correcto está activo
     public void CustomUpdate()
     {
         Vector2 look = PLAYER.INPUTTRANSFORMER.INPUTAIMNORMAL;
@@ -83,6 +79,35 @@ public class PhotoController : MonoBehaviour
         ApplyLook(yaw, pitch);
     }
 
+    #region CameraSwitch
+    private Coroutine delayedSwitchCoroutine;
+    public void CameraSwitch(CinemachineCamera camera)
+    {
+        if (camera == aimCamera)
+        {
+            if (delayedSwitchCoroutine != null)
+            {
+                StopCoroutine(delayedSwitchCoroutine);
+                delayedSwitchCoroutine = null;
+            }
+
+            mainCamera.LookAt = null;
+        }
+        else
+        {
+            delayedSwitchCoroutine = StartCoroutine(DelayedSwitch(1.2f));
+        }
+    }
+
+    private IEnumerator DelayedSwitch(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        mainCamera.LookAt = hardLookAt;
+        delayedSwitchCoroutine = null;
+    }
+    #endregion
+
     #region Aim
     private void ApplyLook(float yaw, float pitch)
     {
@@ -91,27 +116,25 @@ public class PhotoController : MonoBehaviour
 
         // Yaw
         yawCurrent += yaw;
-        yawCurrent = Mathf.Clamp(yawCurrent, -yawLimit, yawLimit);
 
         // Pitch
         pitchCurrent -= pitch;
-        pitchCurrent = Mathf.Clamp(pitchCurrent, -pitchLimit, pitchLimit);
 
         // Set
         panTiltComponent.PanAxis.Value = yawCurrent;
         panTiltComponent.TiltAxis.Value = pitchCurrent;
     }    
     
-    // Resetear Valores al salir de la c�mara
+    // Resetear Valores al salir de la cámara
     public void ResetCamera()
     {
         if (aimCamera == null)
             return;
 
-        // Rotaci�n
+        // Rotación
         aimCamera.transform.localRotation = Quaternion.identity;
 
-        // Modo C�mara
+        // Modo Cámara
         if (panTiltComponent != null)
         {
             panTiltComponent.PanAxis.Value = 0f;
@@ -150,22 +173,22 @@ public class PhotoController : MonoBehaviour
         if (photoObject != null)
             Destroy(photoObject);
 
-        // Detecci�n de enemigos
+        // Detección de enemigos
         photoArea.SetActive(true);
         yield return new WaitForEndOfFrame();
 
         // Screenshot
         Texture2D fotoCapturada = ScreenCapture.CaptureScreenshotAsTexture();
 
-        // Peque�o delay
+        // Pequeño delay
         yield return null;
         photoArea.SetActive(false);
 
 
-        // Instanciado de foto y asignaci�n
+        // Instanciado de foto y asignación
         if (photoPrefab != null && photoSpawnPoint != null)
         {
-            // Creamos el prefab en la posici�n y rotaci�n del punto de aparici�n
+            // Creamos el prefab en la posición y rotación del punto de aparición
             GameObject fotoInstanciada = Instantiate(photoPrefab, photoSpawnPoint.position, photoSpawnPoint.rotation);
             fotoInstanciada.transform.SetParent(photoSpawnPoint);
 
@@ -177,7 +200,7 @@ public class PhotoController : MonoBehaviour
 
             PhotoEnemy enemiesCaughtScript = photoArea.GetComponent<PhotoEnemy>();
 
-            // Identificar foto y ubicaci�n
+            // Identificar foto y ubicación
             string idFoto = "Foto_" + photoCount;
             string rutaCompleta = Path.Combine(folderRoute, idFoto + ".png");
 
@@ -191,7 +214,7 @@ public class PhotoController : MonoBehaviour
             {
                 // Le aplicamos el nuevo material al Quad
                 meshRenderer.material.mainTexture = fotoCapturada;
-                Debug.Log("�Foto creada f�sicamente y material aplicado al Quad!");
+                Debug.Log("¡Foto creada físicamente y material aplicado al Quad!");
 
                 // Guardarla
                 SavePhoto(fotoInstanciada, fotoCapturada, nuevaFoto, idFoto, rutaCompleta);
@@ -229,9 +252,9 @@ public class PhotoController : MonoBehaviour
         bool agregada = InventoryManager.Instance.AgregarItem(itemFoto);
 
         if (!agregada)
-            Debug.LogWarning("No se pudo agregar al inventario (�lleno?).");
+            Debug.LogWarning("No se pudo agregar al inventario (¿lleno?).");
 
-        Debug.Log("Foto guardada y a�adida al inventario: " + rutaCompleta);
+        Debug.Log("Foto guardada y añadida al inventario: " + rutaCompleta);
     }
     #endregion
 
@@ -257,8 +280,8 @@ public class PhotoController : MonoBehaviour
         if (flashLight == null) yield break;
 
         float tiempoPasado = 0f;
-        Debug.Log("Flash terminado"+tiempoPasado);
-        // Mientras el tiempo que ha pasado sea menor a la duraci�n que queremos...
+
+        // Mientras el tiempo que ha pasado sea menor a la duración que queremos...
         while (tiempoPasado < flashDuration)
         {
             tiempoPasado += Time.deltaTime;
@@ -269,7 +292,7 @@ public class PhotoController : MonoBehaviour
             // Esperamos al siguiente frame para seguir bajando la intensidad
             yield return null;
         }
-        Debug.Log("Flash terminado"+tiempoPasado);
+
         // Pasado ese tiempo, apagamos el efecto visual de golpe
         if (flashArea != null)
             flashArea.SetActive(false);
