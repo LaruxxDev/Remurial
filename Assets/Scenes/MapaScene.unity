@@ -1795,6 +1795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lantern (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1964,6 +1968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -2053,6 +2061,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3668,7 +3680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.25
+      value: -32.127
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3721,6 +3733,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3944,6 +3960,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4542,6 +4562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone001 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4836,6 +4860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4956,6 +4984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5000,6 +5032,49 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5698896470215032952, guid: 37abfb435500bdb489a6e4946b0358b5, type: 3}
   m_PrefabInstance: {fileID: 1414176439}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &155092506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155092507}
+  - component: {fileID: 155092508}
+  m_Layer: 0
+  m_Name: Occlusion Area_Laboratorio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &155092507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155092506}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -65.5, y: -2.07, z: 55.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &155092508
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155092506}
+  serializedVersion: 2
+  m_Size: {x: 16.07948, y: 12.039518, z: 11.398151}
+  m_Center: {x: -15.2496395, y: -1.283653, z: 8.087265}
+  m_IsViewVolume: 1
 --- !u!1001 &156017504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5200,6 +5275,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5482,14 +5561,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1153053705}
-  - {fileID: 394335144}
   - {fileID: 1211863811}
   - {fileID: 997604677}
   - {fileID: 1896111507}
   - {fileID: 1191386319}
   - {fileID: 1212645168}
   - {fileID: 604882609}
-  - {fileID: 678680645}
   - {fileID: 71397721}
   - {fileID: 490615558}
   - {fileID: 2080305556}
@@ -5769,6 +5846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5915,6 +5996,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 0.05662818, z: 2}
   m_Center: {x: 0, y: 0.028314091, z: 0.000000059604645}
+--- !u!1 &185337103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185337104}
+  - component: {fileID: 185337105}
+  m_Layer: 0
+  m_Name: Occlusion Area_Pasillo3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185337104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185337103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -149.5, y: -2.07, z: -26.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &185337105
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185337103}
+  serializedVersion: 2
+  m_Size: {x: 37.892612, y: 12.039518, z: 10.921091}
+  m_Center: {x: -15.545937, y: -1.283653, z: 8.712506}
+  m_IsViewVolume: 1
 --- !u!1001 &186514775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6048,6 +6172,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6349,6 +6477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6369,6 +6501,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 381127887835426725, guid: 8cb1f67c59d6eb6449dbf1d0d4864c1f, type: 3}
   m_PrefabInstance: {fileID: 609972874}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &210615825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210615826}
+  - component: {fileID: 210615827}
+  m_Layer: 0
+  m_Name: Occlusion Area_SafeRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210615826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210615825}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26, y: -2.07, z: -71.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &210615827
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210615825}
+  serializedVersion: 2
+  m_Size: {x: 27.645859, y: 12.039518, z: 29.367376}
+  m_Center: {x: -13.653786, y: -1.283653, z: 11.328593}
+  m_IsViewVolume: 1
 --- !u!1 &214429681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6922,6 +7097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7302,6 +7481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorPot (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7397,6 +7580,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7512,6 +7699,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8381,6 +8572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8852,6 +9047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -9167,6 +9366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9281,6 +9484,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9681,6 +9888,119 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cfebf13764f70b34d902fe6b016aee1c, type: 3}
   m_PrefabInstance: {fileID: 898802369}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &348595218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348595219}
+  - component: {fileID: 348595222}
+  - component: {fileID: 348595221}
+  - component: {fileID: 348595220}
+  m_Layer: 0
+  m_Name: Ramo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348595219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348595218}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.22292584, y: -0.67104703, z: 0.67104703, w: -0.22292584}
+  m_LocalPosition: {x: 27.12, y: 0.158, z: 34.506}
+  m_LocalScale: {x: 0.009360615, y: 0.009360615, z: 0.009360615}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1181391689}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 216.754}
+--- !u!64 &348595220
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348595218}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4003261156951770383, guid: 56673a4978fb6594cbdc885f2109bd12, type: 3}
+--- !u!23 &348595221
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348595218}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d31e5b3b56b172e46b060d40f1d1c1b2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &348595222
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348595218}
+  m_Mesh: {fileID: -4003261156951770383, guid: 56673a4978fb6594cbdc885f2109bd12, type: 3}
 --- !u!1 &350433770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fa82acca65adb464fafcbef9108e35f8, type: 3}
@@ -9976,6 +10296,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd606c783e01f7048a320b81b1ca679e, type: 3}
   m_PrefabInstance: {fileID: 356186537}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &357686927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357686928}
+  - component: {fileID: 357686929}
+  m_Layer: 0
+  m_Name: Occlusion Area_Pacientes4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &357686928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357686927}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -196.89, y: -2.07, z: -80.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &357686929
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357686927}
+  serializedVersion: 2
+  m_Size: {x: 19.397396, y: 12.039518, z: 18.901218}
+  m_Center: {x: -2.4601655, y: -1.283653, z: 7.507084}
+  m_IsViewVolume: 1
 --- !u!1 &360501315
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,6 +10456,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10578,6 +10945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10926,6 +11297,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11448,121 +11823,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5081707491375638201, guid: 9627b17e3fb0c8a4c9460ebe8df16269, type: 3}
   m_PrefabInstance: {fileID: 394099358}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &394335143
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 173357467}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6132
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6132
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6132
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -31.0261
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -84
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4683669308469848369, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: -1461304994638716399, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_Name
-      value: TombStone002 (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 394335146}
-  m_SourcePrefab: {fileID: 100100000, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
---- !u!4 &394335144 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 394335143}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &394335145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 394335143}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &394335146
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394335145}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.4554341, y: 2.2762384, z: 0.41786203}
-  m_Center: {x: -0.053450264, y: 1.0879893, z: -0.000000049670536}
 --- !u!1001 &397021973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11965,6 +12225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -12296,6 +12560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12573,6 +12841,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12900,6 +13172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13015,6 +13291,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13129,6 +13409,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13332,6 +13616,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13796,6 +14084,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14326,121 +14618,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5662574626550997582, guid: cee9ca60d51c8ea4fafe5af545ecbe85, type: 3}
   m_PrefabInstance: {fileID: 1948031588}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &484976694
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1738073511}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6132
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6132
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6132
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.8499
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -84
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4683669308469848369, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: -1461304994638716399, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_Name
-      value: TombStone002 (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 484976697}
-  m_SourcePrefab: {fileID: 100100000, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
---- !u!4 &484976695 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 484976694}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &484976696 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 484976694}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &484976697
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484976696}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.4554341, y: 2.2762384, z: 0.41786203}
-  m_Center: {x: -0.053450264, y: 1.0879893, z: -0.000000049670536}
 --- !u!1001 &487274968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14627,6 +14804,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14899,10 +15080,29 @@ Transform:
   - {fileID: 854679655}
   - {fileID: 1407344041}
   - {fileID: 270921857}
+  - {fileID: 576886860}
   - {fileID: 909407971}
   - {fileID: 1396418660}
   - {fileID: 928785678}
   - {fileID: 1597364175}
+  - {fileID: 970759258}
+  - {fileID: 1016122185}
+  - {fileID: 671732537}
+  - {fileID: 357686928}
+  - {fileID: 721799579}
+  - {fileID: 1078630626}
+  - {fileID: 737329896}
+  - {fileID: 1248759950}
+  - {fileID: 185337104}
+  - {fileID: 1253321973}
+  - {fileID: 210615826}
+  - {fileID: 756914133}
+  - {fileID: 1916168677}
+  - {fileID: 701263430}
+  - {fileID: 1162023354}
+  - {fileID: 155092507}
+  - {fileID: 696751231}
+  - {fileID: 1078301889}
   - {fileID: 41838745}
   - {fileID: 48906391}
   m_Father: {fileID: 0}
@@ -15074,6 +15274,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17403,6 +17607,119 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4127547336821203129, guid: 94f1bbf4cbd60a1438cb32d862719e43, type: 3}
   m_PrefabInstance: {fileID: 7468787868151274875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &531132144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531132145}
+  - component: {fileID: 531132148}
+  - component: {fileID: 531132147}
+  - component: {fileID: 531132146}
+  m_Layer: 0
+  m_Name: Ramo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531132145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531132144}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.29596278, y: -0.6421885, z: 0.6421885, w: -0.29596278}
+  m_LocalPosition: {x: 27.124, y: 0.186, z: 34.635}
+  m_LocalScale: {x: 0.009360615, y: 0.009360615, z: 0.009360615}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1181391689}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 229.487}
+--- !u!64 &531132146
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531132144}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4003261156951770383, guid: 56673a4978fb6594cbdc885f2109bd12, type: 3}
+--- !u!23 &531132147
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531132144}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7923a10c715e0c34cba33a15014ded6b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &531132148
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531132144}
+  m_Mesh: {fileID: -4003261156951770383, guid: 56673a4978fb6594cbdc885f2109bd12, type: 3}
 --- !u!1 &537516906
 GameObject:
   m_ObjectHideFlags: 0
@@ -17998,6 +18315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18194,6 +18515,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18407,6 +18732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18560,6 +18889,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa82acca65adb464fafcbef9108e35f8, type: 3}
   m_PrefabInstance: {fileID: 572337748}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &576886859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 576886860}
+  - component: {fileID: 576886861}
+  m_Layer: 0
+  m_Name: Occlusion Area_Cocina
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &576886860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576886859}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 114.3, y: -2.07, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &576886861
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576886859}
+  serializedVersion: 2
+  m_Size: {x: 30.112658, y: 12.039518, z: 26.144335}
+  m_Center: {x: 15.336293, y: -1.283653, z: 8.708072}
+  m_IsViewVolume: 1
 --- !u!1001 &577159800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18982,6 +19354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -19071,6 +19447,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19166,6 +19546,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19615,6 +19999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19734,6 +20122,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19903,7 +20295,7 @@ Mesh:
   m_KeepVertices: 1
   m_KeepIndices: 1
   m_IndexFormat: 0
-  m_IndexBuffer: 070006000500070005000400030002000400020001000400040001000700070001000000
+  m_IndexBuffer: 000001000200000002000300040005000300050006000300030006000000000006000700
   m_VertexData:
     serializedVersion: 3
     m_VertexCount: 8
@@ -19926,6 +20318,10 @@ Mesh:
       dimension: 0
     - stream: 0
       offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 48
       format: 0
       dimension: 2
     - stream: 0
@@ -19960,12 +20356,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 384
-    _typelessdata: 00000000e0388635000000007607e5b20000803fab84b6b30000803f7607e53271c77d27000080bfbe2128a9cadc77a90000000000004835000040c0eb3f58310000803f894468b40000803feb3f58b1d9afe426000080bf1287faa8000040c00000e84100003034e05138c0a07bb3330000803f60519ab20000803fa07bb3b300000000000080bf0000e841e05138c00000e841000028b500c4f53de8a21c340000803f55558d340000803fe8a21cb400000000000080bf0000e84100c4f53d0000804130c6ae35000000000b5253330000803ff8526eb30000803f0b5253b3ab803226000080bf000080417365eba900008041000085b5c4f5e841aafb15b20000803f6e51ae330000803faafb1532aa803226000080bf00008041c4f5e84100005041000092b5c4f5e841aaaa0ab30000803f8d87b3330000803faaaa0a338d87b39b000080bf00005041c4f5e8410000504164beb4350000000076a9fbb10000803f303d49b30000803f76a9fb310e24d826000080bf000050416b07e3a9
+    m_DataSize: 448
+    _typelessdata: 0000504164beb4350000000076a9fbb10000803f303d49b30000803f76a9fb310e24d826000080bf000050416b07e3a9fee0dd3d3301d23e00005041000092b5c4f5e841aaaa0ab30000803f8d87b3330000803faaaa0a338d87b39b000080bf00005041c4f5e84105427b3fc6dad33e00008041000085b5c4f5e841aafb15b20000803f6e51ae330000803faafb1532aa803226000080bf00008041c4f5e841a0297b3f7ff4003f0000804130c6ae35000000000b5253330000803ff8526eb30000803f0b5253b3ab803226000080bf000080417365eba9d81ddd3db607003f0000e841000028b500c4f53de8a21c340000803f55558d340000803fe8a21cb400000000000080bf0000e84100c4f53da02ee13d2cd2633f0000e84100003034e05138c0a07bb3330000803f60519ab20000803fa07bb3b300000000000080bf0000e841e05138c00bd7a33cc8b9633f0000000000004835000040c0eb3f58310000803f894468b40000803feb3f58b1d9afe426000080bf1287faa8000040c00bd7a33c0bd7a33c00000000e0388635000000007607e5b20000803fab84b6b30000803f7607e53271c77d27000080bfbe2128a9cadc77a9a82ee13d4fe4a63c
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -20026,7 +20418,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 1112.2725
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -21035,13 +21427,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puerta
       objectReference: {fileID: 0}
+    - target: {fileID: 4790687677618267925, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136782762560856270, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4359565
+      objectReference: {fileID: 0}
     - target: {fileID: 7136782762560856270, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.124924
+      value: 26.875
       objectReference: {fileID: 0}
     - target: {fileID: 7136782762560856270, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9289899
+      value: 1.41
       objectReference: {fileID: 0}
     - target: {fileID: 7136782762560856270, guid: ee5c14f65d2d02044a73b6d67a570ea7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22027,121 +22427,49 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fa82acca65adb464fafcbef9108e35f8, type: 3}
   m_PrefabInstance: {fileID: 1197135667}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &678680644
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 173357467}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -33.42
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -87
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4683669308469848369, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: -1461304994638716399, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_Name
-      value: TombStone002 (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 678680647}
-  m_SourcePrefab: {fileID: 100100000, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
---- !u!4 &678680645 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 678680644}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &678680646 stripped
+--- !u!1 &671732536
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 678680644}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &678680647
-BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678680646}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4554341, y: 2.2762384, z: 0.41786203}
-  m_Center: {x: -0.053450264, y: 1.0879893, z: -0.000000049670536}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671732537}
+  - component: {fileID: 671732538}
+  m_Layer: 0
+  m_Name: Occlusion Area_Pasillo2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671732537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671732536}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -162.93, y: -2.07, z: -57.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &671732538
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671732536}
+  serializedVersion: 2
+  m_Size: {x: 37.462524, y: 12.039518, z: 34.165558}
+  m_Center: {x: -0.7349019, y: -1.283653, z: 4.4938474}
+  m_IsViewVolume: 1
 --- !u!1001 &679154513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22217,6 +22545,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22572,6 +22904,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cfebf13764f70b34d902fe6b016aee1c, type: 3}
   m_PrefabInstance: {fileID: 696524710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &696751230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696751231}
+  - component: {fileID: 696751232}
+  m_Layer: 0
+  m_Name: Occlusion Area_Habitacion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &696751231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696751230}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.38, y: -2.07, z: -223.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &696751232
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696751230}
+  serializedVersion: 2
+  m_Size: {x: 16.07948, y: 12.039518, z: 11.398151}
+  m_Center: {x: -15.2496395, y: -1.283653, z: 8.087265}
+  m_IsViewVolume: 1
 --- !u!1001 &701226434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22632,6 +23007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone001
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22671,6 +23050,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.90050125, y: 1.2389503, z: 0.41786203}
   m_Center: {x: 0.009241104, y: 0.56934536, z: -0.000000044703484}
+--- !u!1 &701263429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701263430}
+  - component: {fileID: 701263431}
+  m_Layer: 0
+  m_Name: Occlusion Area_Enfermeria
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &701263430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701263429}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -105.25, y: -2.07, z: 31.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &701263431
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701263429}
+  serializedVersion: 2
+  m_Size: {x: 20.803955, y: 12.039518, z: 16.287558}
+  m_Center: {x: -14.331575, y: -1.283653, z: 8.257367}
+  m_IsViewVolume: 1
 --- !u!1001 &702398815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22896,6 +23318,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23243,6 +23669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23364,6 +23794,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e502ed31676ade429c0aca27f01688b, type: 3}
   m_PrefabInstance: {fileID: 721328530}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &721799578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721799579}
+  - component: {fileID: 721799580}
+  m_Layer: 0
+  m_Name: Occlusion Area_Pacientes2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721799579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721799578}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -39.7, y: -2.07, z: -24.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &721799580
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721799578}
+  serializedVersion: 2
+  m_Size: {x: 24.15242, y: 12.039518, z: 18.901218}
+  m_Center: {x: -2.4708648, y: -1.283653, z: 7.507084}
+  m_IsViewVolume: 1
 --- !u!1001 &727031739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23867,6 +24340,49 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &737329895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737329896}
+  - component: {fileID: 737329897}
+  m_Layer: 0
+  m_Name: Occlusion Area_Pacientes3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737329896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737329895}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -39.7, y: -2.07, z: 27.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &737329897
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737329895}
+  serializedVersion: 2
+  m_Size: {x: 12.806017, y: 12.039518, z: 10.638399}
+  m_Center: {x: -4.835805, y: -1.283653, z: 8.611972}
+  m_IsViewVolume: 1
 --- !u!4 &737385336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8960928853246202393, guid: 1f5786e4db297e046ac1b40a55990eb2, type: 3}
@@ -24074,6 +24590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lantern (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24168,6 +24688,49 @@ Transform:
   - {fileID: 139982221}
   m_Father: {fileID: 894962541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756914132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756914133}
+  - component: {fileID: 756914134}
+  m_Layer: 0
+  m_Name: Occlusion Area_SalaPruebas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756914133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756914132}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.9, y: -2.07, z: -104.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &756914134
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756914132}
+  serializedVersion: 2
+  m_Size: {x: 27.645859, y: 12.039518, z: 29.367376}
+  m_Center: {x: -13.653786, y: -1.283653, z: 11.328593}
+  m_IsViewVolume: 1
 --- !u!1001 &765243529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24223,6 +24786,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25346,6 +25913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25853,6 +26424,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26846,6 +27421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lantern (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27037,6 +27616,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27298,6 +27881,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27805,6 +28392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27919,6 +28510,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28346,6 +28941,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29070,6 +29669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -29565,6 +30168,49 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.794, z: -0.015000001}
   m_TimeToStationary: 0.5
+--- !u!1 &970759257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970759258}
+  - component: {fileID: 970759259}
+  m_Layer: 0
+  m_Name: "Occlusion Area_Ba\xF1o2"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970759258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970759257}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -121.95, y: -2.07, z: -84.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &970759259
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970759257}
+  serializedVersion: 2
+  m_Size: {x: 24.475973, y: 12.039518, z: 30.731766}
+  m_Center: {x: -6.1030884, y: -1.283653, z: 6.2107377}
+  m_IsViewVolume: 1
 --- !u!1 &971700871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4164872902341202798, guid: 851a3b7a34480cd439fab0b374373c73, type: 3}
@@ -30249,6 +30895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30538,6 +31188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30688,6 +31342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -30814,6 +31472,49 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011544119}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1016122184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016122185}
+  - component: {fileID: 1016122186}
+  m_Layer: 0
+  m_Name: "Occlusion Area_Ba\xF1o1"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016122185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016122184}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -121.95, y: -2.07, z: -50.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1016122186
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016122184}
+  serializedVersion: 2
+  m_Size: {x: 24.475973, y: 12.039518, z: 30.731766}
+  m_Center: {x: -6.1030884, y: -1.283653, z: 6.2107377}
+  m_IsViewVolume: 1
 --- !u!1001 &1019461141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31290,121 +31991,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4241979589122758, guid: 49bd04efa032c7d4c8bdc9a4a3e565ce, type: 3}
   m_PrefabInstance: {fileID: 1036732400}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1036965158
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1529711297}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -33.42
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -81
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4683669308469848369, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: -1461304994638716399, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_Name
-      value: TombStone002 (5)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1036965161}
-  m_SourcePrefab: {fileID: 100100000, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
---- !u!4 &1036965159 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 1036965158}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1036965160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 1036965158}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1036965161
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036965160}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4554341, y: 2.2762384, z: 0.41786203}
-  m_Center: {x: -0.053450264, y: 1.0879893, z: -0.000000049670536}
 --- !u!1001 &1040177998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31830,6 +32416,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32603,121 +33193,92 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48661232, y: 2.8596966, z: 45.130432}
   m_Center: {x: -0.25669384, y: 0.9298483, z: 22.065216}
---- !u!1001 &1082301541
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1921605698}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -33.42
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -75
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4683669308469848369, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: -1461304994638716399, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_Name
-      value: TombStone002 (9)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1082301544}
-  m_SourcePrefab: {fileID: 100100000, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
---- !u!4 &1082301542 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 1082301541}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1082301543 stripped
+--- !u!1 &1078301888
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 1082301541}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1082301544
-BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082301543}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4554341, y: 2.2762384, z: 0.41786203}
-  m_Center: {x: -0.053450264, y: 1.0879893, z: -0.000000049670536}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078301889}
+  - component: {fileID: 1078301890}
+  m_Layer: 0
+  m_Name: Occlusion Area_Cementerio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1078301889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078301888}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -78.41, y: -2.07, z: -223.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1078301890
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078301888}
+  serializedVersion: 2
+  m_Size: {x: 51.251602, y: 12.643452, z: 53.82148}
+  m_Center: {x: -19.147396, y: -0.9816873, z: 8.663219}
+  m_IsViewVolume: 1
+--- !u!1 &1078630625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078630626}
+  - component: {fileID: 1078630627}
+  m_Layer: 0
+  m_Name: Occlusion Area_Pacientes1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1078630626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078630625}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -39.7, y: -2.07, z: 4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1078630627
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078630625}
+  serializedVersion: 2
+  m_Size: {x: 18.531729, y: 12.039518, z: 15.899668}
+  m_Center: {x: -5.28121, y: -1.283653, z: 9.007859}
+  m_IsViewVolume: 1
 --- !u!1001 &1083396710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32867,6 +33428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lantern (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32973,6 +33538,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 970405a8f324efd4fad559618111e0f3, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesSingle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 970405a8f324efd4fad559618111e0f3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 970405a8f324efd4fad559618111e0f3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -33278,6 +33847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33467,6 +34040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33585,6 +34162,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -34028,6 +34609,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34527,6 +35112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34641,6 +35230,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34757,6 +35350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34796,6 +35393,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4554341, y: 2.2762384, z: 0.41786203}
   m_Center: {x: -0.053450264, y: 1.0879893, z: -0.000000049670536}
+--- !u!1 &1162023353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162023354}
+  - component: {fileID: 1162023355}
+  m_Layer: 0
+  m_Name: Occlusion Area_RayosX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1162023354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162023353}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -56.6, y: -2.07, z: 36.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1162023355
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162023353}
+  serializedVersion: 2
+  m_Size: {x: 16.07948, y: 12.039518, z: 11.398151}
+  m_Center: {x: -15.2496395, y: -1.283653, z: 8.087265}
+  m_IsViewVolume: 1
 --- !u!1001 &1165662240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35107,6 +35747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35299,6 +35943,8 @@ Transform:
   - {fileID: 1989560326}
   - {fileID: 544313230}
   - {fileID: 2010244061}
+  - {fileID: 531132145}
+  - {fileID: 348595219}
   m_Father: {fileID: 1196921879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1184324582
@@ -35783,6 +36429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35902,6 +36552,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -36222,23 +36876,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5015
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.8385376
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.268227
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.249142
+      value: 26.947
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07000001
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36274,7 +36928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8391222552659086748, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_Layer
@@ -36303,6 +36957,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
       propertyPath: m_TagString
       value: Tp
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36444,6 +37102,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36791,6 +37453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37135,6 +37801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37249,6 +37919,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37686,6 +38360,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5502293734229039019, guid: f821e0a3d41c01441b4a4f1918dc7f1e, type: 3}
   m_PrefabInstance: {fileID: 1241908247}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1248759949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248759950}
+  - component: {fileID: 1248759951}
+  m_Layer: 0
+  m_Name: Occlusion Area_Bebes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1248759950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248759949}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.08, y: -2.07, z: 51.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1248759951
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248759949}
+  serializedVersion: 2
+  m_Size: {x: 25.745472, y: 12.039518, z: 17.139889}
+  m_Center: {x: -0.3614421, y: -1.283653, z: 6.6193132}
+  m_IsViewVolume: 1
+--- !u!1 &1253321972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253321973}
+  - component: {fileID: 1253321974}
+  m_Layer: 0
+  m_Name: Occlusion Area_Pasillo1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1253321973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253321972}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -149.5, y: -2.07, z: -103.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1253321974
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253321972}
+  serializedVersion: 2
+  m_Size: {x: 37.892612, y: 12.039518, z: 29.45134}
+  m_Center: {x: -15.545937, y: -1.283653, z: 9.56278}
+  m_IsViewVolume: 1
 --- !u!1001 &1255252626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38168,6 +38928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorPot (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38449,6 +39213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38567,6 +39335,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -39076,6 +39848,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39765,6 +40541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40291,6 +41071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40385,6 +41169,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40517,7 +41305,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4196278d69e98534bba7619db5e6f254, type: 2}
+  - {fileID: 2100000, guid: 8832d5336e8d176458006b6b1fbccf22, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -42867,6 +43655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorPot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43464,6 +44256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43777,6 +44573,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44449,6 +45249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -44842,6 +45646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorPot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44957,6 +45765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45047,6 +45859,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45270,6 +46086,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45730,7 +46550,6 @@ Transform:
   - {fileID: 1153836417}
   - {fileID: 1648021798}
   - {fileID: 1001727529}
-  - {fileID: 1036965159}
   - {fileID: 1204560577}
   - {fileID: 1604378318}
   - {fileID: 557115695}
@@ -46227,6 +47046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorPot (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46486,6 +47309,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46766,7 +47593,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1545247801
 Transform:
@@ -46922,7 +47749,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 137e312205969344cae34dd96232bfb2, type: 2}
+  - {fileID: 2100000, guid: 26f1b36be16f30d409f9ab1a7d20a8a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47238,6 +48065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47352,6 +48183,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47602,6 +48437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lantern (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47704,6 +48543,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 658cf1594c3505f4eaa47c1a6708d4f6, type: 3}
       propertyPath: m_Name
       value: GraveYardGateMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 658cf1594c3505f4eaa47c1a6708d4f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48007,7 +48850,7 @@ GameObject:
   - component: {fileID: 1597364175}
   - component: {fileID: 1597364176}
   m_Layer: 0
-  m_Name: Occlusion Area_SalaPruebas2 (1)
+  m_Name: Occlusion Area_Ventanal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48022,7 +48865,7 @@ Transform:
   m_GameObject: {fileID: 1597364174}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.11, y: -2.07, z: -84.38}
+  m_LocalPosition: {x: -91.6, y: -2.07, z: -84.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48036,8 +48879,8 @@ OcclusionArea:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597364174}
   serializedVersion: 2
-  m_Size: {x: 16.736416, y: 12.039518, z: 25.387371}
-  m_Center: {x: 6.094085, y: -1.283653, z: -7.1043286}
+  m_Size: {x: 40.087303, y: 12.039518, z: 28.864626}
+  m_Center: {x: -2.7729073, y: -1.283653, z: 10.223905}
   m_IsViewVolume: 1
 --- !u!1001 &1598852193
 PrefabInstance:
@@ -48102,6 +48945,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -48192,6 +49039,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48307,6 +49158,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesCorner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -48502,6 +49357,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48712,6 +49571,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49338,6 +50201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ad52241694525f4ea2ff3f2fec17c23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49589,6 +50456,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50026,6 +50897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50368,6 +51243,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 61d75fce122eb7b4cb0c1b4baad7cd59, type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 61d75fce122eb7b4cb0c1b4baad7cd59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4423045620967985251, guid: 61d75fce122eb7b4cb0c1b4baad7cd59, type: 3}
       propertyPath: m_Layer
@@ -51170,6 +52049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesCorner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -51735,6 +52618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52122,6 +53009,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -52191,6 +53082,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52484,6 +53379,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesCorner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -52883,6 +53782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorPot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52952,14 +53855,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1805822221}
-  - {fileID: 484976695}
   - {fileID: 1541191975}
   - {fileID: 1285336982}
   - {fileID: 1556447001}
   - {fileID: 414968083}
   - {fileID: 328239337}
   - {fileID: 2099096200}
-  - {fileID: 2110209971}
   - {fileID: 2080250828}
   - {fileID: 1343737491}
   - {fileID: 1159243854}
@@ -53316,6 +54217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53576,6 +54481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53826,6 +54735,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54605,6 +55518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54699,6 +55616,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55188,6 +56109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -55506,6 +56431,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -56138,6 +57067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56228,6 +57161,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
       propertyPath: m_Name
       value: Lantern (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a167ea6aeccd89849b932bb51f609413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -56390,6 +57327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorPot (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56504,6 +57445,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesCorner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 637a05904511ad54481d370dfb9c3ea2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -56780,6 +57725,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57186,6 +58135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57463,6 +58416,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5502293734229039019, guid: 496510f0a01244347a4fe80e2323735e, type: 3}
   m_PrefabInstance: {fileID: 1914298976}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1916168676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1916168677}
+  - component: {fileID: 1916168678}
+  m_Layer: 0
+  m_Name: Occlusion Area_Almacen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1916168677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916168676}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -86.2, y: -2.07, z: -21.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 494903976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &1916168678
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916168676}
+  serializedVersion: 2
+  m_Size: {x: 20.803955, y: 12.039518, z: 18.358799}
+  m_Center: {x: -14.331575, y: -1.283653, z: 11.503473}
+  m_IsViewVolume: 1
 --- !u!1 &1916920720
 GameObject:
   m_ObjectHideFlags: 0
@@ -57592,6 +58588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57710,6 +58710,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -57857,7 +58861,6 @@ Transform:
   - {fileID: 2078021328}
   - {fileID: 847683675}
   - {fileID: 1710529563}
-  - {fileID: 1082301542}
   - {fileID: 151520119}
   - {fileID: 567201132}
   - {fileID: 1921710901}
@@ -57938,6 +58941,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -58293,6 +59300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58392,6 +59403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikesWithoutColumns (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6775984500175561995, guid: 94d5b9645cc69f64281e41f3c7ef04a9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -58481,6 +59496,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60059,6 +61078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -60223,6 +61246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60337,6 +61364,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60478,6 +61509,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60685,6 +61720,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -61281,6 +62320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GraveyardFenceWallSpikes (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6745302439343835087, guid: 426ac38a53a018e46b51be014a118c61, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -61808,6 +62851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61988,6 +63035,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62865,6 +63916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -62985,6 +64040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -63100,6 +64159,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -63214,6 +64277,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63527,6 +64594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TombStone002 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -63723,6 +64794,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
       propertyPath: m_Name
       value: TombStone002 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64197,121 +65272,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5502293734229039019, guid: f821e0a3d41c01441b4a4f1918dc7f1e, type: 3}
   m_PrefabInstance: {fileID: 2107088307}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2110209970
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1738073511}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -33.42
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -87
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4683669308469848369, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: -1461304994638716399, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 67c55fdc06fa4ea46bcd32c12ce623b2, type: 2}
-    - target: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      propertyPath: m_Name
-      value: TombStone002 (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2110209973}
-  m_SourcePrefab: {fileID: 100100000, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
---- !u!4 &2110209971 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 2110209970}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2110209972 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a821a2863fe9a6641aa7ade7c58d2c79, type: 3}
-  m_PrefabInstance: {fileID: 2110209970}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2110209973
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110209972}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4554341, y: 2.2762384, z: 0.41786203}
-  m_Center: {x: -0.053450264, y: 1.0879893, z: -0.000000049670536}
 --- !u!4 &2113507573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3668925289994707657, guid: 88a0819a59da0804681860f567cef10f, type: 3}
@@ -65220,6 +66180,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
       propertyPath: m_Name
       value: OutdoorPot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b454469b09ca1d418deff77169b7c41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
