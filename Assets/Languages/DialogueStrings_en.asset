@@ -68,7 +68,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135106
-    m_Localized: "\uFFFD"
+    m_Localized: ...
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135107
@@ -84,7 +84,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135120
-    m_Localized: "Painkillers. I\uFFFDll take them just in case."
+    m_Localized: Painkillers. I'll take them just in case.
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135124
@@ -104,19 +104,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903936
-    m_Localized: "\uFFFD"
+    m_Localized: ...
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903950
-    m_Localized: "He he he\uFFFD Another soul arrives."
+    m_Localized: He he he ... Another soul arrives.
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903951
-    m_Localized: "Where\uFFFD Where am I?"
+    m_Localized: Where... Where am I?
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903952
-    m_Localized: "If I knew that I wouldn\uFFFDt be trapped here."
+    m_Localized: If I knew that I wouldn't be trapped here.
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903953
@@ -128,11 +128,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903955
-    m_Localized: "I don\uFFFDt know, sweetie. Try that red door maybe,"
+    m_Localized: I don't know, sweetie. Try that red door maybe,
     m_Metadata:
       m_Items: []
   - m_Id: 11804110248611843
-    m_Localized: "You\uFFFDll see."
+    m_Localized: You'll see.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12248224654716934
+    m_Localized: . . . Rattrisha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12248224654716936
+    m_Localized: holi
     m_Metadata:
       m_Items: []
   references:

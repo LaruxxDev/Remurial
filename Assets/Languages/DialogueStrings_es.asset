@@ -19,19 +19,19 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 10359278445637632
-    m_Localized: "Este pasillo est\uFFFD muy oscuro. Ah\uFFFD no me meto."
+    m_Localized: "Este pasillo est\xE1 muy oscuro. Ah\uFFFD no me meto."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746497
-    m_Localized: "\uFFFDPartida guardada con \uFFFDxito!"
+    m_Localized: "\xA1Partida guardada con \xE9xito!"
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746499
-    m_Localized: "Est\uFFFD cerrada."
+    m_Localized: "Est\xE1 cerrada."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746500
-    m_Localized: "\uFFFDAbierta!"
+    m_Localized: "\xA1Abierta!"
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746501
@@ -39,38 +39,37 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746503
-    m_Localized: "Esta pared est\uFFFD hecha una pena. Podr\uFFFDa tirarla de un
-      soplo."
+    m_Localized: "Esta pared est\xE1 hecha una pena. Podr\uFFFDa tirarla de un soplo."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746504
-    m_Localized: "\uFFFDSe ha roto!"
+    m_Localized: "\xA1Se ha roto!"
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746506
-    m_Localized: "Ah\uFFFD hay un martillo."
+    m_Localized: "Ah\xED hay un martillo."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746507
-    m_Localized: "Por fin me hago con \uFFFDl."
+    m_Localized: "Por fin me hago con \xE9l."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278512746509
-    m_Localized: "\uFFFDPor qu\uFFFD me has llevado a ese hospital? \uFFFDD\uFFFDnde
+    m_Localized: "\xA1Por qu\xE9 me has llevado a ese hospital? \uFFFDD\uFFFDnde
       estamos realmente?"
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135104
-    m_Localized: "Yo no te he llevado a ning\uFFFDn sitio, bichito."
+    m_Localized: "Yo no te he llevado a ning\xFAn sitio, bichito."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135105
-    m_Localized: "Pero me dijiste que ten\uFFFDa que recuperar una reliquia. \uFFFDQu\uFFFD
+    m_Localized: "Pero me dijiste que ten\xEDa que recuperar una reliquia. \xBFQu\xE9
       tiene que ver con este peluche?"
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135106
-    m_Localized: "\uFFFD"
+    m_Localized: ...
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135107
@@ -82,15 +81,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135111
-    m_Localized: "Una mu\uFFFDeca. Quiz\uFFFD me sirva m\uFFFDs adelante."
+    m_Localized: "Una mu\xF1eca. Quiz\xE1 me sirva m\xE1s adelante."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135120
-    m_Localized: "Analg\uFFFDsicos. Me los llevo por si acaso."
+    m_Localized: "Analg\xE9sicos. Me los llevo por si acaso."
     m_Metadata:
       m_Items: []
   - m_Id: 10359278521135124
-    m_Localized: "Vaya, un drag\uFFFDn. Me transmite una sensaci\uFFFDn c\uFFFDlida,
+    m_Localized: "Vaya, un drag\xF3n. Me transmite una sensaci\uFFFDn c\uFFFDlida,
       como de hogar."
     m_Metadata:
       m_Items: []
@@ -107,36 +106,43 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903936
-    m_Localized: "\uFFFD"
+    m_Localized: ...
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903950
-    m_Localized: "Ji ji ji. . . Y as\uFFFD llega otra alma perdida."
+    m_Localized: "Ji ji ji. . . Y as\xED llega otra alma perdida."
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903951
-    m_Localized: "\uFFFDD\uFFFDnde...estoy?"
+    m_Localized: "\xBFD\xF3nde...estoy?"
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903952
-    m_Localized: "Si lo supiera no estar\uFFFDa atrapada aqu\uFFFD."
+    m_Localized: "Si lo supiera no estar\xEDa atrapada aqu\xED."
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903953
-    m_Localized: "Bueno, \uFFFDy qu\uFFFD hago ahora?"
+    m_Localized: "Bueno, \xBFy qu\xE9 hago ahora?"
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903954
-    m_Localized: "\uFFFDQu\uFFFD me voy a encontrar?"
+    m_Localized: "\xBFQu\xE9 me voy a encontrar?"
     m_Metadata:
       m_Items: []
   - m_Id: 11801796980903955
-    m_Localized: "No lo s\uFFFD. Podr\uFFFDas empezar por esa puerta roja de ah\uFFFD
-      atr\uFFFDs."
+    m_Localized: "No lo s\xE9. Podr\xEDas empezar por esa puerta roja de ah\xED atr\xE1s."
     m_Metadata:
       m_Items: []
   - m_Id: 11804110248611843
-    m_Localized: "Ya ver\uFFFDs\uFFFD"
+    m_Localized: "Ya ver\xE1s..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12248224654716934
+    m_Localized: . . . Rattrisha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12248224654716936
+    m_Localized: "Podr\xEDa salir un rato ahora que es de noche."
     m_Metadata:
       m_Items: []
   references:
