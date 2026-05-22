@@ -3,16 +3,26 @@ using UnityEngine;
 
 public class Cuna : MonoBehaviour, IInteractable
 {
-    public bool isCorrect = false;
-    public float tiempoInterpolacion = 1.0f;
-    [SerializeField] private int IdCuna = 2;
+    [Header("References")]
     [SerializeField] private Transform destino;
     [SerializeField] private PlayerGeneral PLAYER;
 
-
     private GameObject itemEnCuna;
 
+    [Header("Variables")]
+    [SerializeField] private int IdCuna = 2;
+    public bool isEmpty = true;
+    public bool isCorrect = false;
+    public float tiempoInterpolacion = 1.0f;
+
+    // Cambiarlos por textos localizables
+    [SerializeField] private string descriptionEmpty;   // "Usar objeto en la cuna"
+    [SerializeField] private string descriptionFull;    // "Recoger objeto de la cuna"
+
+
     public bool isInspectable => false;
+
+
 
     public void Interact(GameObject interactor)
     {
@@ -24,7 +34,9 @@ public class Cuna : MonoBehaviour, IInteractable
             {
                 pickup.Interact(interactor);
             }
+
             isCorrect = false;
+            isEmpty = true;
             itemEnCuna = null;
             Debug.Log("Cuna viva Item cuna distinto null");
 
@@ -34,20 +46,21 @@ public class Cuna : MonoBehaviour, IInteractable
         // CASO B: La cuna está vacía. Buscamos el objeto que el jugador tiene en la mano real.
         if (PLAYER != null)
         {
-            Debug.Log("aa1");
-
             // Buscamos si hay algo en la mano (heldPosition)
             if (PLAYER.heldPosition != null && PLAYER.heldPosition.childCount > 0)
             {
-                GameObject objetoEnMano = PLAYER.heldPosition.GetChild(0).gameObject;
+                //GameObject objetoEnMano = PLAYER.heldPosition.GetChild(0).gameObject;
+                GameObject objetoEnMano = PLAYER.heldItem;
+
                 Debug.Log($"Detectado objeto en mano: {objetoEnMano.name}");
 
                 if (UseItem(objetoEnMano))
                 {
-                    Debug.Log("bbb1");
                     // Limpiamos la mano del jugador
                     PLAYER.heldItem = null;
-                    //Destroy(objetoEnMano);
+
+                    GameManager.Instancia.TrySolvePuzzle();
+
                     return;
                 }
             }
@@ -55,55 +68,65 @@ public class Cuna : MonoBehaviour, IInteractable
     }
 
 
-
     public bool UseItem(GameObject item)
     {
-        if (isCorrect) return false; // Si ya se ha usado el item correcto, no hacer nada
+        if (!isEmpty)
+            return false; // Si ya se ha usado el item correcto, no hacer nada
+
+
         var pickup = item.GetComponent<PickupInteractable>();
 
         // DEBUG: Vamos a ver qué está pasando exactamente
-        if (pickup == null) {
+        if (pickup == null)
+        {
             pickup = item.GetComponentInChildren<PickupInteractable>();
             Debug.LogError("¡El objeto no tiene PickupInteractable!");
             return false;
         }
-        
-        if (pickup.Definition == null) {
+
+        if (pickup.Definition == null)
+        {
             Debug.LogError($"¡El objeto {item.name} tiene el script pero la Definition es NULL!");
             return false;
         }
 
+
         int itemId = pickup.Definition != null ? pickup.Definition.ID : 0;
         Debug.Log($"Intentando colocar objeto ID: {itemId}. ID de la Cuna requerida: {IdCuna}");
 
-        //int itemId = pickup?.Definition?.ID ?? 0;
-        //Debug.Log($"Intentando colocar el item en la Cuna con ID: {itemId}");
-        if (itemId == IdCuna && !isCorrect)
+        if (isEmpty)
         {
-            Debug.Log("Item correcto usado en la cuna.");
+            if (itemId == IdCuna)
+                isCorrect = true;
+
             // Eliminamos el item del inventario lógico
             if (InventoryManager.Instance != null)
             {
-                InventoryManager.Instance.EliminarItem(itemId); 
+                InventoryManager.Instance.EliminarItem(itemId);
             }
 
             // Desactivamos colisiones para que no choque con el jugador mientras vuela a la cuna
-            if (item.TryGetComponent<Collider>(out var col)) 
+            if (item.TryGetComponent<Collider>(out var col))
             {
-                col.enabled = false; 
+                col.enabled = false;
             }
             interpolarCuna(item);
-            
-            isCorrect = true;
+
+            isEmpty = false;
             itemEnCuna = item;
+
             return true;
         }
+
         return false;
     }
+
+    // Mover objeto a la cuna
     private void interpolarCuna(GameObject item)
     {
         StartCoroutine(ProcesoInterpolacion(item));
     }
+
     private IEnumerator ProcesoInterpolacion(GameObject item)
     {
         float elapsedTime = 0f;
@@ -115,10 +138,12 @@ public class Cuna : MonoBehaviour, IInteractable
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        item.transform.SetParent(this.transform); 
-        AudioManager.instance.Play3D("RecogerItem",destino.position);
+
+        AudioManager.instance.Play3D("RecogerItem", destino.position);
+
+        item.transform.SetParent(this.transform);
         item.transform.position = destino.position; // Asegurar que llegue exactamente al destino al final
     }
 
-    public string GetInteractText() => isCorrect ? "Recoger objeto de la cuna" : "Usar objeto en la cuna";
+    public string GetInteractText() => isEmpty ? descriptionEmpty : descriptionFull;
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,13 +36,30 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayedStart()); // SaveSystem
     }
 
-    #region Puzles
-    public void ResolverPuzle(int idPuzle)
+    #region Puzzles
+    [Header("Cuna")]
+    [SerializeField] private List<Cuna> cunas;
+    [SerializeField] private GameObject key;
+
+    public void TrySolvePuzzle()
     {
-        Debug.Log($"Puzle resuelto: {idPuzle}");
-        // Aquí puedes agregar lógica adicional para manejar el puzle resuelto, como abrir una puerta o activar un evento.
+        bool allCorrect = true;
+
+        foreach (Cuna cuna in cunas)
+            if (!cuna.isCorrect)
+                allCorrect = false;
+
+
+        if (allCorrect)
+            SolvePuzzle();
     }
 
+    public void SolvePuzzle()
+    {
+        Debug.Log("Puzzle resuelto");
+
+        key.SetActive(true);
+    }
     #endregion
 
     #region Funciones de Pausa y Blackout
